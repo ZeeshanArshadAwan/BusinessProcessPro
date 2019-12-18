@@ -1,0 +1,208 @@
+/* .container-fluid {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-image: url('/assets/images/loginbg8.png');
+    background-size: cover;
+}
+.container-fluid-95 {
+    height: 50vh;
+    margin: 0;
+    padding: 0;
+    background-image: url('/assets/images/loginbg8.png');
+    background-size: cover;
+}
+
+.container-fluid .row {
+    padding: 0;
+    margin: 0;
+}
+
+.loginContainer {
+    margin-top: 7%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 7%;
+}
+
+.loginContainer .loginCard {
+    background-image: url('/assets/images/loginbg7.png');
+    background-size: contain;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+.loginContainer .cardTitle {
+    text-align: center;
+}
+
+.loginContainer .cardSubTitle {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 24px;
+
+}
+
+.loginContainer .logo {
+    width: 170px;
+    margin-top: 10px;
+}
+
+.loginContainer form {
+    padding: 60px;
+}
+
+.loginContainer .full-width-field {
+    width: 100%;
+ }
+
+ .loginContainer .rememberMe {
+    float: left;
+ }
+ .loginContainer .signInButton {
+    float: right;
+ } */
+
+
+ .sait-logo {
+    width: 100px;
+    display: block;
+    padding:5px;
+    float: right;
+}
+.inputDiv {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+.id1 {
+    margin-top: 50px;
+}
+.id2 {
+    margin-top: 30px;
+}
+.id3 {
+    margin-top: 10px;
+    
+}
+.user {
+    width: 90%;
+    background-color: #fff;
+    border: 0;
+    padding: 15px 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-image: url('../../assets/loginimages/icon-user.png');
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 15px 15px;
+    box-shadow: 0 8px 17px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19) !important;
+
+}
+.passInput {
+    width: 90%;
+    background-color: #fff;
+    border: 0;
+    padding: 15px 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-image: url('../../assets/loginimages/icon-pass.png');
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 15px 15px;
+    box-shadow: 0 8px 17px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19) !important;
+}
+.login100-form-btn {
+    background-color: #9ab03b;
+    border: 0;
+    padding: 15px 40px;
+    height: 50px;
+    border-radius: 50px;
+    width: 90%;
+    color: #fff;
+    margin-top: 30px;
+    box-shadow: 0 8px 17px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19) !important;
+}
+.checBox {
+    color: #fff;
+    margin-top: 20px;
+    background:none;
+
+}
+
+.mat-checkbox-checked{ background:none;}
+ .mat-raised-button {
+     background-color: #3f51b5 !important;
+    border: 0 ;
+    padding: 0px 15px;
+    height: 50px;
+    border-radius: 50px;
+    width: 90%;
+    color: #fff;
+    margin-top: 20px;
+    box-shadow: 0 8px 17px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19) !important;
+}
+.mat-icon{
+    top:-5px;
+    padding:-10 0;
+
+}
+.image_logo{
+    width: 300px;
+    height: 120px;
+    display: block;
+    margin: auto;
+    margin-top: 5%;
+}
+
+   .mat-form-field {
+    width: 90%;
+    background-color: #fff;
+    border: 0;
+    padding: 0px 25px;
+    height: 50px;
+    margin-top: 15px;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 15px 15px;
+    box-shadow: 0 8px 17px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19) !important;
+    border-bottom:0px;
+
+}
+.cdk-text-field-autofill-monitored:not(:-webkit-autofill){
+
+    -webkit-animation-name: none !important;
+    animation-name: none;
+
+}
+
+.mat-form-field-infix{top:-8px !important;
+}
+.leftColumn {
+    background-image: linear-gradient(to left, #2c465d, #3c4362, #513e60, #653755, #723344) !important;
+        min-height: 100vh;
+        background-size: inherit;
+        background-repeat: no-repeat;
+        padding: 0;
+    }
+
+    .form_login {
+
+        padding: 30px; margin-top: 80px;margin-left:15%; width:70%; margin-right: 0px;background:#ffffff; border-radius: 10px;
+
+
+    }
+
+    .small_heading{
+
+        font-family:'Roboto',arial;  
+        font-size: 18px;
+        font-weight:400; 
+        text-align: center;
+        margin-bottom: 15px;
+        margin-top: 10px;
+
+    }

@@ -1,0 +1,52 @@
+.RadDock_Material2 {
+  font-family: "Roboto", "Noto", sans-serif;
+  background-color: #ffffff;
+  color: #455A64;
+  border-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.2); }
+  .RadDock_Material2.rdDragHelper {
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.2), 0 15px 12px rgba(0, 0, 0, 0.2); }
+  .RadDock_Material2 .rdTitleWrapper {
+    background-color: #8BC34A;
+    color: #ffffff;
+    border-bottom-color: #8BC34A; }
+  .RadDock_Material2 .rdTitleWrapper .rdTitle {
+    color: #ffffff; }
+  .RadDock_Material2 .rdCommandButton {
+    color: #ffffff; }
+  .RadDock_Material2 .rdListItem:hover {
+    background-color: rgba(255, 255, 255, 0.12); }
+  .RadDock_Material2 .rdContentWrapper {
+    color: #455A64; }
+  .RadDock_Material2.RadDock_Collapsed .rdTitleWrapper {
+    border-bottom-color: #8BC34A; }
+  .RadDock_Material2.rdRoundedCorner {
+    border-radius: 0.14286em; }
+  .RadDock_Material2.rdRoundedCorner .rdTitleWrapper, .RadDock_Material2.rdCollapsed.rdRoundedCorner,
+  .RadDock_Material2.rdCollapsed.rdRoundedCorner .rdTitleWrapper {
+    border-radius: 0.14286em 0.14286em 0em 0em; }
+  .RadDock_Material2.rdRoundedCorner .rdContentWrapper {
+    border-radius: 0em 0em 0.14286em 0.14286em; }
+  .RadDock_Material2.rdNone .rdContentWrapper {
+    border-radius: 0.14286em; }
+  .RadDock_Material2 .rdTitleWrapper {
+    margin: -1px;
+    padding: 14px 14px 13px; }
+  .RadDock_Material2 .rdTitleWrapper .rdTitle {
+    padding: 5px 0;
+    margin: -7px 0 -3px;
+    font-size: 1.42857em;
+    line-height: 1em; }
+  .RadDock_Material2 .rdCommands {
+    margin: -1.28571em 0em 0em;
+    right: 1.14286em; }
+  .RadDock_Material2 .rdListItem {
+    margin: 0em 0em 0em 0.42857em;
+    line-height: 1.42857em;
+    padding: 7px;
+    border-radius: 45px; }
+  .RadDock_Material2 .rdContent {
+    margin: 0.92857em 1.14286em; }
+  .RadDock_Material2 .t-ripple-container {
+    margin-top: -0.07143em;
+    margin-left: -0.07143em; }

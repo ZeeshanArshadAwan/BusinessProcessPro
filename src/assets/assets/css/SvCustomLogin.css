@@ -1,0 +1,340 @@
+@import url('fonts/source_sans/stylesheet.css');
+@import url('open-sans.css');
+@import url('fonts/Jfflat/Jfflat.css');
+
+body{
+    color:#fff;
+}
+.bgfix{
+    position:fixed;
+    width:100%;
+    height:100%;
+
+}
+
+.container{
+    padding-top:50px;
+}
+
+.iconPane {
+    display: block;
+    font-size: 20px;
+    font-family: 'Open sans', "JF Flat Regular", Tahoma  !important ;
+    font-weight: 300;
+       padding: 160px 0px 0px 0px;
+       text-align:center;
+}
+
+b{
+font-weight:600;
+}
+.iconPane ul{
+
+    list-style:none;
+    padding:0px;
+    margin:0px;
+}
+.iconPane ul li{
+
+    margin:20px 0px;
+}
+
+.Lbutton {
+    width: 100%;
+    margin: 10px 0px;
+    padding: 12px 0px;
+    background: #29435c;
+    border: 0px none;
+    /* border-radius: 5px; */
+    font-size: 18px;
+}
+
+.form-control_login {
+     background: white;
+  padding-left: 0px !important;
+  height: 50px !important;
+  font-size: 15px;
+  border-left: 0px;
+    border: 0px none;
+  color: #666 !important;
+   transition:.05s linear;
+    -webkit-transition:.05s linear;
+    -moz-transition:.05s linear;
+}
+
+.form-control_login:focus {
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border-right:7px solid #ff7800;
+    border: 0px none;
+  /*transform: scale(1.1);*/
+}
+
+.sv-user{
+
+}
+.sv-user img, .passwordIcon img {
+    vertical-align:middle !important;
+   
+}
+
+.loginPane .input-group-addon {
+    height:50px;
+         line-height:inherit !important;
+      border:0px none !important;
+
+}
+.loginPane  .input-group-addon:first-child{
+
+      background: #fff !important;
+        color: #666 !important;
+}
+.loginPane .form-control {
+    opacity: 1;
+    top: 0px;
+    left: 0px;
+}
+
+
+
+.loginPane{
+   background: url(../img/transbg.png) fixed;
+      padding: 40px 40px 40px 40px;
+  /*border-radius: 100%;*/
+  /*width: 570px;*/
+  /*height: 400px;*/
+  float:right;
+    margin-top: 110px;
+    width:100%;
+       
+      
+
+}
+
+
+.logoLogin{
+display: block;
+    text-align: center;
+    opacity: 1;
+    background: #fff;
+    margin: -45px -40px 0px -40px;
+    padding: 0px 0px;
+    height: 105px;
+    overflow: hidden;
+}
+
+.logoLogin img{
+       
+    max-height: 75px;
+    margin-top: 16px;
+    }
+
+.loginHeadTxt {
+  display: block;
+  text-align: center;
+  margin: 15px 0px 15px 0px;
+  font-size: 17px;
+  font-weight: 300;
+}
+
+.loginHeadTxtIcn {
+      padding-left: 10px;
+
+}
+
+.login-error{
+
+  color: white !important;
+  font-size: 14px;
+}
+
+.form-group{
+
+       transition:.3s linear;
+    -webkit-transition:.3s linear;
+    -moz-transition:.3s linear;
+}
+
+
+/*.loginSecBg {
+    background:url(../images/loginbg.jpg) fixed;
+      -webkit-filter: blur(8px);
+      
+      background-size:cover;
+}*/
+
+/*=========Responsive==========*/
+
+@media (min-width:992px) {
+    
+}
+
+
+@media (min-width:992px) and  (max-width:1170px){
+    .loginPane {
+         /*width: 500px;*/
+         /*height: 500px;*/
+    }
+
+    .logoLogin img{
+          width: 130px;
+    }
+    .form-control_login, .loginPane .input-group-addon{
+        height: 43px !important;
+    }
+    .Lbutton{
+          padding: 10px 0px;
+    }
+
+    .iconPane{
+        font-size: 17px;
+    }
+}
+
+
+
+  
+
+
+@media (min-width:768px) and  (max-width:991px){
+
+
+    .loginPane {
+         /*width: 360px;*/
+          height: 400px;
+
+         
+    }
+
+    .logoLogin img{
+          width: 130px;
+    }
+    .form-control_login, .loginPane .input-group-addon{
+           height: 45px !important;
+    }
+    .Lbutton{
+          padding: 9px 0px;
+    }
+
+    .iconPane{
+        font-size: 17px;
+    }
+    .iconPane li i img{
+          width: 50px;
+    }
+
+
+   
+}
+
+
+ .iconPane-smallDev{
+         display:none;
+    }
+
+@media (max-width:767px) {
+
+    .loginPane{
+          margin-top: 17px;
+    }
+
+    .iconPane{
+          font-size: 13px;
+         display:none;
+          /*padding-top:0px;*/
+            
+    }
+    .iconPane-smallDev{
+         display:block !important;
+    }
+
+    .iconPane-smallDev img{
+        width:100%;
+    }
+    .loginPane {
+        background: none;
+        padding: 30px;
+        border-radius:0;
+        width:inherit !important;
+        height: inherit !important;
+        float: none;
+    }
+    .container{
+       
+
+    }
+   .loginPane {
+    margin: 4px -5px;
+}
+
+
+.iconPane ul li {
+  margin: 10px 12px;
+  display: inline-block;
+}
+     .iconPane li i img{
+            width: 36px;
+    }
+
+    .container {
+        padding-top: 10px;
+    }
+    .Lbutton {
+  margin: 0px 0px;
+
+}
+}
+
+
+@media (max-device-width:480px) and (orientation:landscape) {
+    .jk {
+        max-height: 200px;
+    }
+}
+
+
+@media (min-width: 1200px){
+.container {
+        width: 95%;
+}
+}
+
+.iconPane img {
+    width:100%;
+    max-width:627px;
+}
+
+.ui-checkbox {
+    position: relative;
+    margin: 10px 0px 5px 22px;
+}
+.ui-checkbox input[type="checkbox"] + span:before, .ui-checkbox input[type="checkbox"] + label:before {
+
+    margin-top: 0px;
+}
+
+.ui-checkbox input[type="checkbox"]:checked + span:after, .ui-checkbox input[type="checkbox"]:checked + label:after{
+        /*top: 1px;*/
+}
+.ui-checkbox input[type="checkbox"]:checked + span:before, .ui-checkbox input[type="checkbox"]:checked + label:before{
+        border: 1px solid #fff;
+        background-color: transparent;
+}
+
+
+
+.right-header{
+    position: fixed;
+    top: 20px;
+    right: 40px;
+    z-index:9999999;
+}
+
+.right-header ul {
+
+    list-style:none;
+}
+
+

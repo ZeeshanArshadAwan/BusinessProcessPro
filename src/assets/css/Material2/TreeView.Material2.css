@@ -1,0 +1,105 @@
+.RadTreeView_Material2 {
+  color: #455A64;
+  font-family: "Roboto", "Noto", sans-serif; }
+  .RadTreeView_Material2 .rtUL {
+    padding: 3px; }
+  .RadTreeView_Material2 .rtLI {
+    padding: 1px 0 1px 30px; }
+  .RadTreeView_Material2 .rtOut {
+    position: relative; }
+  .RadTreeView_Material2 .rtIn {
+    border: 0;
+    border-radius: 2px;
+    padding: 6px; }
+  .RadTreeView_Material2 .rtChk {
+    margin: 0 2px 0 6px; }
+  .RadTreeView_Material2 .rtChkTristate {
+    font-size: 18px;
+    font-family: "Material Icons";
+    margin-right: 0; }
+    .RadTreeView_Material2 .rtChkTristate:before {
+      margin-left: -3px; }
+  .RadTreeView_Material2 .rtLoadingIcon {
+    background-image: url('<%=WebResource("Telerik.Web.UI.Skins.Material2.Common.loading_small.gif")%>'); }
+  .RadTreeView_Material2 .rtPlus,
+  .RadTreeView_Material2 .rtMinus {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    left: -28px;
+    top: 0.7142857142em;
+    margin-top: -10px;
+    color: #607D8B;
+    border-radius: 18px; }
+    .RadTreeView_Material2 .rtPlus:before, .RadTreeView_Material2 .rtPlus:before,
+    .RadTreeView_Material2 .rtMinus:before,
+    .RadTreeView_Material2 .rtMinus:before {
+      font-size: 18px;
+      font-family: "Material Icons"; }
+  .RadTreeView_Material2 .rtPlus:before {
+    content: "\e315"; }
+  .RadTreeView_Material2 .rtMinus {
+    color: #263238; }
+    .RadTreeView_Material2 .rtMinus:before {
+      content: "\e313"; }
+  .RadTreeView_Material2 .rtLines .rtLI:before {
+    left: 19px; }
+  .RadTreeView_Material2 .rtLines .rtFirst:before {
+    margin-top: 7px; }
+  .RadTreeView_Material2 .rtLines .rtLast:before {
+    padding-top: 7px; }
+  .RadTreeView_Material2 .rtLines .rtOut:before {
+    top: 7px;
+    left: -10px; }
+  .RadTreeView_Material2 .rtHover .rtIn {
+    border-color: #ECEFF1;
+    color: #455A64;
+    background-color: #ECEFF1; }
+  .RadTreeView_Material2 .rtPlusHover,
+  .RadTreeView_Material2 .rtMinusHover {
+    color: #263238; }
+  .RadTreeView_Material2 .rtChkTristate:hover {
+    color: #263238; }
+  .RadTreeView_Material2 .rtSelected .rtIn {
+    border-color: transparent;
+    color: #03A9F4;
+    background-color: transparent; }
+  .RadTreeView_Material2 .p-i-checkbox-checked {
+    color: #03A9F4; }
+    .RadTreeView_Material2 .p-i-checkbox-checked:before {
+      content: "\e834"; }
+  .RadTreeView_Material2 .p-i-checkbox:before {
+    content: "\e835"; }
+  .RadTreeView_Material2 .p-i-tri-state-indeterminate {
+    color: #03A9F4; }
+    .RadTreeView_Material2 .p-i-tri-state-indeterminate:before {
+      content: "\e909"; }
+
+.RadTreeView_Material2_rtl .rtLI {
+  padding-right: 30px;
+  padding-left: 1px; }
+
+.RadTreeView_Material2_rtl .rtChk {
+  margin: 0 6px 0 3px; }
+
+.RadTreeView_Material2_rtl .rtChecked:before,
+.RadTreeView_Material2_rtl .rtUnchecked:before,
+.RadTreeView_Material2_rtl .rtIndeterminate:before {
+  margin-right: -3px;
+  margin-left: 0; }
+
+.RadTreeView_Material2_rtl .rtPlus,
+.RadTreeView_Material2_rtl .rtMinus {
+  left: auto;
+  right: -28px; }
+
+.RadTreeView_Material2_rtl .rtPlus:before {
+  content: "\e314"; }
+
+.RadTreeView_Material2_rtl .rtLines .rtLI:before {
+  left: auto;
+  right: 19px; }
+
+.RadTreeView_Material2_rtl .rtLines .rtOut:before {
+  left: auto;
+  right: -10px; }

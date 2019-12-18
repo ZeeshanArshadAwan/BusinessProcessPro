@@ -1,0 +1,59 @@
+.RadImageGallery_Material2 {
+  color: #455A64;
+  font-family: "Roboto", "Noto", sans-serif; }
+  .RadImageGallery_Material2 .rigDescriptionBox {
+    background-color: rgba(69, 90, 100, 0.7);
+    color: #f8fafb; }
+  .RadImageGallery_Material2 .rigToolbar,
+  .RadImageGallery_Material2 .rigCloseButton,
+  .RadImageGallery_Material2 .rigDrawerButton {
+    background-color: rgba(244, 247, 248, 0.9);
+    color: #455A64; }
+  .RadImageGallery_Material2 .rigProgressBar div {
+    background-color: #03A9F4; }
+  .RadImageGallery_Material2 .rigPager {
+    background-color: #f4f7f8;
+    color: #455A64;
+    height: auto;
+    padding: 5px; }
+    .RadImageGallery_Material2 .rigPager a {
+      color: #455A64;
+      text-align: center;
+      border-width: 0;
+      padding: 8px;
+      min-width: 1.42857em; }
+      .RadImageGallery_Material2 .rigPager a:hover {
+        border-color: #ECEFF1;
+        color: #455A64;
+        background-color: #ECEFF1;
+        border-radius: 90px; }
+      .RadImageGallery_Material2 .rigPager a.rigCurrentPage {
+        border-bottom: 2px solid #8BC34A;
+        color: #8BC34A;
+        background: none;
+        border-radius: 0;
+        margin-bottom: -5px;
+        padding-bottom: 11px; }
+  .RadImageGallery_Material2 .rigInfoPart {
+    font-size: .857em;
+    color: #607D8B;
+    font-weight: 500;
+    line-height: 1.66667;
+    padding-top: 8px;
+    padding-bottom: 8px; }
+  .RadImageGallery_Material2 .rigDotList > a {
+    border-color: #8BC34A; }
+  .RadImageGallery_Material2 .rigDotList a span {
+    background-color: white; }
+  .RadImageGallery_Material2 .rigDotList a.rigCurrentItem span {
+    background-color: #8BC34A;
+    border-color: white; }
+  .RadImageGallery_Material2 .rigTooltip {
+    background-color: #455A64;
+    border-color: #455A64; }
+    .RadImageGallery_Material2 .rigTooltip:after {
+      border-top-color: #455A64; }
+  .RadImageGallery_Material2 .rigToolbar .rigActionButton {
+    color: #455A64; }
+    .RadImageGallery_Material2 .rigToolbar .rigActionButton:hover {
+      color: #03A9F4; }

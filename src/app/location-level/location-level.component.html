@@ -1,0 +1,125 @@
+<div class="background-img">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <h4 class="card-title"><img src="./assets/images/adminsitration.png" class="titleImageClass">
+          <label class="headertext">{{FormName}}</label>
+        </h4>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+        <mat-card-content>
+          <form class="example-form">
+            <div class="container-fluid">
+              <div class="row mt-3">
+                <div class="col-md-6 p-0">
+                  <mat-form-field  class="d-block w-95">
+                    <mat-label>Company</mat-label>
+                    <select matNativeControl name="CompanyId" [(ngModel)]="ObjLocationLevel.FK_CompanyId"
+                      (change)="GetLocationAgainstCompany(ObjLocationLevel.FK_CompanyId)" required>
+                      <option value="">--Select Group--</option><br>
+                      <option *ngFor="let p of lstCompanies" [value]="p.CompanyId">{{p.CompanyName}}</option>
+                    </select>
+                  </mat-form-field>
+                  <mat-form-field  class="d-block w-95">
+                    <mat-label>Level Name</mat-label>
+                    <input matInput placeholder="Enter Level Name" name="LevelNameEnglish"
+                      [(ngModel)]="ObjLocationLevel.LevelName">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6 p-0">
+                  <mat-form-field  class="d-block w-95">
+                    <mat-label>Level Name Arabic</mat-label>
+                    <input matInput placeholder="Enter Level Arabic Name" name="LevelArabicName"
+                      [(ngModel)]="ObjLocationLevel.LevelArabicName">
+                  </mat-form-field>
+                  <!-- <mat-form-field  class="d-block w-95">
+                          <mat-label>Customer Arabic Short Name</mat-label>
+                          <input matInput placeholder="Customer Arabic Short Name" name="CustomerArabicShortName"
+                            [(ngModel)]="objappSetting.CompanyArabicName2">
+                        </mat-form-field> -->
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="row">
+            <!-- <mat-dialog-actions> -->
+            <div class=col-md-6>
+              <button color="primary" class="ctgrySaveButton pull-right" (click)="saveLocationLevel()" mat-raised-button
+                name='Save'>
+                Save</button>
+              <span class="divider"> </span>
+              <button color="primary" class="ctgrySaveButton pull-right" (click)="ShowConfirmDialog()" mat-raised-button
+                name='Delete'>
+                Delete</button>
+              <span class="divider"> </span>
+              <button color="primary" class="ctgrySaveButton pull-right" (click)="Cancel()" mat-raised-button
+                name='Cancel'>
+                Clear</button>
+            </div>
+            <div class=col-md-6></div>
+            <!-- <div class = col-md-4></div> -->
+            <!-- </mat-dialog-actions> -->
+          </div>
+
+          <div class="col-md-12  mt-3 ">
+            <div class="row">
+              <div class="col-sm">
+                <mat-form-field>
+                  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                </mat-form-field>
+              </div>
+              <div class="col-sm">
+              </div>
+              <!-- <div class="col-sm">
+                            <button color="primary" class="ctgrySaveButton pull-right" mat-raised-button name='SaveDefineGroup'
+                                (click)="NewEdit('New')"> Define New Group</button>
+                           <button color="primary" class="ctgrySaveButton pull-right" mat-raised-button
+                                name='DeleteDefineGroup' (click)="Delete()">Delete Group </button>
+                        </div> -->
+            </div>
+
+            <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 w-100">
+
+              <ng-container matColumnDef="selected">
+                <th mat-header-cell *matHeaderCellDef> Select
+                </th>
+                <td mat-cell *matCellDef="let row ; let i = index;">
+                  <mat-checkbox (click)="$event.stopPropagation()"
+                    (change)="onSelect(row.LocationLevelId , row.FK_CompanyId)">
+                  </mat-checkbox>
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="LevelName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Level Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.LevelName}} </td>
+              </ng-container>
+              <ng-container matColumnDef="LevelArabicName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Level Arabic Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.LevelArabicName}} </td>
+              </ng-container>
+              <ng-container matColumnDef="CompanyName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Company Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.CompanyName}} </td>
+              </ng-container>
+              <ng-container matColumnDef="Edit">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Edit </th>
+                <td mat-cell *matCellDef="let element ; let i = index">
+                  <img class="tableAction" (click)="NewEdit('Edit',element.LocationLevelId ,element.FK_CompanyId)"
+                    src="./assets/images/edit.png" />
+                </td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[25,50,100,200]" showFirstLastButtons></mat-paginator>
+          </div>
+        </mat-card-content>
+      </div>
+    </div>
+  </div>
+</div>

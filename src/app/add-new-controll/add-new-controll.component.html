@@ -1,0 +1,157 @@
+<mat-card-content>
+    <form class="example-form">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6"></div>
+                <div class="col-md-6">
+                    <button class="pull-right" style="float: right; background-color:white ; max-width: 36px ">
+
+                        <img class="tableAction" (click)='close()' src="./assets/Content/images/close_blue.png" />
+                    </button>
+                </div>
+
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-6 p-0">
+                    <mat-form-field  class="d-block w-95">
+                        <mat-label>Caption</mat-label>
+                        <input matInput name="AddNewControllCaption" placeholder="Caption"
+                            [(ngModel)]="ApplicationTypeFields.FieldCaption" name="Caption">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6 p-0">
+                    <mat-form-field  class="d-block w-95">
+                        <mat-label>Arabic Caption</mat-label>
+                        <input matInput name="AddNewControllARCaption" placeholder="Arabic Caption"
+                            [(ngModel)]="ApplicationTypeFields.FieldCaptionAr" name="Arabic Caption">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row mt-3" *ngIf="showHeaderdetail == 'Header'">
+                <div class="col-md-6 p-0">
+                    <mat-form-field  class="d-block w-95">
+                        <mat-label>Header text</mat-label>
+                        <input matInput name="HeaderText" placeholder="Caption"
+                            [(ngModel)]="ApplicationTypeFields.HeaderText" name="Caption">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6 p-0">
+                    <mat-form-field>
+                        <mat-label>selected</mat-label>
+                        <mat-select matNativeControl name="AddNewControllTypeID"
+                            [(ngModel)]="ApplicationTypeFields.HeaderTag" required>
+                            <mat-option selected="selected" value="h2">h2</mat-option>
+                            <mat-option selected="selected" value="h3">h3</mat-option>
+                            <mat-option selected="selected" value="h4">h4</mat-option>
+                            <mat-option selected="selected" value="h5">h5</mat-option>
+                            <mat-option selected="selected" value="h6">h6</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row mt-3" *ngIf="showHeaderdetail == 'Paragraph'">
+                <mat-form-field class="w-95">
+                    <textarea matInput name="ParagraphText" placeholder=""
+                        [(ngModel)]="ApplicationTypeFields.ParagraphText"></textarea>
+                </mat-form-field>
+            </div>
+            <div class="row mt-3" *ngIf="showHeaderdetail == 'number'">
+                <div class="col-md-6 p-0">
+                    <mat-form-field  class="example-full-width w-95">
+                        <mat-label>Maximum number</mat-label>
+                        <input matInput type="number" [(ngModel)]="ApplicationTypeFields.Max" name="Maximum number">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6 p-0">
+                    <mat-form-field  class="example-full-width w-95">
+                        <mat-label>Minimum number</mat-label>
+                        <input matInput type="number" [(ngModel)]="ApplicationTypeFields.Min" name="Minimum number">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6 p-0">
+                    <mat-form-field  class="example-full-width w-95">
+                        <mat-label>Step</mat-label>
+                        <input matInput [(ngModel)]="ApplicationTypeFields.Step" type="number" name="Step">
+                    </mat-form-field>
+                </div>
+            </div>
+          
+
+
+
+            <div class="row mt-3">
+                <div class="col-md-6 p-0">
+                    <!-- <h4>Type</h4> -->
+                    <mat-form-field class="w-95">
+                        <mat-label>Field Type</mat-label>
+                        <mat-select (selectionChange)="ShowHiderPanel($event)" matNativeControl 
+                            name="AddNewControllTypeID" [(ngModel)]="FK_FieldType"  required>
+                            <mat-option  [value]="-1">--Please Select--</mat-option>
+                            <mat-option [value]="p.FieldTypeId"  *ngFor="let p of FieldTypeList" >{{p.FieldTypeName}}</mat-option>
+                            <!-- [value]="p.ApplicationTypeId" *ngFor="let p of lstApplicationType" -->
+                            <!-- <mat-option value="1">Text</mat-option>
+                            <mat-option value="2">Number</mat-option>
+                            <mat-option value="3">Long Integer</mat-option>
+                            <mat-option value="4">Date</mat-option>
+                            <mat-option value="5">Date/Time</mat-option>
+                            <mat-option value="6">List</mat-option>
+                            <mat-option value="7">Long Text</mat-option>
+                            <mat-option value="8">Single Choice</mat-option>
+                            <mat-option value="9">Multiple Choice</mat-option>
+                            <mat-option value="10">Email</mat-option>
+                            <mat-option value="11">Phone</mat-option>
+                            <mat-option value="12">Time</mat-option>
+                            <mat-option value="13">Divider</mat-option>
+                            <mat-option value="14">Image</mat-option>
+                            <mat-option value="15">Header</mat-option>
+                            <mat-option value="16">Paragraph</mat-option>
+                            <mat-option value="17">Label</mat-option>
+                            <mat-option value="18">Custom HTML</mat-option> -->
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <div>
+                        <mat-checkbox name="AddNewControllIsMandatory" color="primary"
+                            [(ngModel)]="ApplicationTypeFields.IsMandatory">
+                            IsMandatory
+
+                        </mat-checkbox>
+                    </div>
+                    <!-- <div class="col-md-3">
+                        <mat-checkbox name="AddNewControllIsUnique" color="primary"
+                            [(ngModel)]="ApplicationTypeFields.IsUnique">
+                            IsUnique
+
+                        </mat-checkbox>
+                    </div>
+                    <div class="col-md-3">
+                        <mat-checkbox name="AddNewControllisIndexed" color="primary"
+                            [(ngModel)]="ApplicationTypeFields.IsIndexed">
+                            IsIndexed
+
+                        </mat-checkbox>
+                    </div>
+                    <div class="col-md-3">
+                        <mat-checkbox name="AddNewControllisIsHidden" color="primary"
+                            [(ngModel)]="ApplicationTypeFields.IsHidden">IsHidden
+                        </mat-checkbox>
+                    </div> -->
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <button mat-raised-button class="mat-Primary mlr-15 mt-3" color="primary"
+                        [mat-dialog-close]="AddNewControll" (click)="SaveControlls()">Save</button>
+                    <span class="Divider"></span>
+                    <button mat-raised-button class="mat-Primary mlr-15 mt-3" color="primary"
+                        (click)="Cancel()">Cancel</button>
+
+
+                </div>
+            </div>
+        </div>
+    </form>
+</mat-card-content>

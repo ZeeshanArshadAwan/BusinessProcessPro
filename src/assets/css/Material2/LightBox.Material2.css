@@ -1,0 +1,68 @@
+.RadLightBox_Material2 {
+  color: #455A64;
+  font: "Roboto", "Noto", sans-serif;
+  background-color: transparent;
+  padding: 0; }
+  .RadLightBox_Material2 .rltbIcon:before,
+  .RadLightBox_Material2 .rltbButtonWrapper:before {
+    font: 18px/1 'Material Icons';
+    vertical-align: top; }
+  .RadLightBox_Material2 .rltbMaximizeIcon:before {
+    content: "\e5d0"; }
+  .RadLightBox_Material2 .rltbRestoreIcon:before {
+    content: "\e5d1"; }
+  .RadLightBox_Material2 .rltbPrevButtonWrapper:before {
+    content: "\e314"; }
+  .RadLightBox_Material2 .rltbButtonWrapper:before {
+    font-size: 64px; }
+  .RadLightBox_Material2 .rltbNextButtonWrapper:before {
+    content: "\e315"; }
+  .RadLightBox_Material2 .rltbCloseIcon:before {
+    content: "\e5cd"; }
+  .RadLightBox_Material2 .rltbItemBox {
+    padding: 0; }
+  .RadLightBox_Material2 .rltbDescriptionBox {
+    left: 24px;
+    right: 24px; }
+  .RadLightBox_Material2 .rltbWrapper {
+    background-color: #f8fafb;
+    border-radius: 2px;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.2), 0 15px 12px rgba(0, 0, 0, 0.2); }
+  .RadLightBox_Material2 .rltbDescOverlayTop,
+  .RadLightBox_Material2 .rltbDescOverlayBottom {
+    background-color: rgba(245, 245, 245, 0.7); }
+    .RadLightBox_Material2 .rltbDescOverlayTop,
+    .RadLightBox_Material2 .rltbDescOverlayTop .rltbActionButton,
+    .RadLightBox_Material2 .rltbDescOverlayBottom,
+    .RadLightBox_Material2 .rltbDescOverlayBottom .rltbActionButton {
+      color: #455A64; }
+  .RadLightBox_Material2 .rltbActionButton {
+    color: #455A64;
+    font: inherit;
+    height: auto;
+    width: auto;
+    padding: 8px; }
+    .RadLightBox_Material2 .rltbActionButton:hover {
+      color: #03A9F4; }
+    .RadLightBox_Material2 .rltbActionButton::-moz-focus-inner {
+      padding: 0;
+      border: 0; }
+  .RadLightBox_Material2 .rltbToolbar .rltbActionButton {
+    padding: 8px;
+    font: inherit; }
+  .RadLightBox_Material2 .rltbButtonWrapper {
+    height: auto;
+    width: auto;
+    font: inherit; }
+  .RadLightBox_Material2 .rltbIcon,
+  .RadLightBox_Material2 .rltbToolbar .rltbIcon {
+    width: 1.42857em;
+    font: inherit; }
+  .RadLightBox_Material2 .rltbCloseButton {
+    border-color: #CFD8DC;
+    color: #455A64;
+    background-color: #f4f7f8; }
+    .RadLightBox_Material2 .rltbCloseButton:hover {
+      border-color: #ECEFF1;
+      color: #455A64;
+      background-color: #ECEFF1; }

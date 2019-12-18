@@ -1,0 +1,451 @@
+<!-- Display Dynamic controlls -->
+<div>
+    <button mat-button hidden class="pull-right" id='loadPanel'>loadControll</button>
+    <mat-accordion multi="true" class="w-100">
+        <div class="row  px-md-5 mt-3" *ngFor="let k of GlobalVariableService.glbApplciationTypePanels">
+            <mat-expansion-panel class="w-95" [disabled]="true" [expanded]="true">
+                <mat-expansion-panel-header class="panel-header" (mouseenter)="mouseEnter(k.PanelId) "
+                    (mouseleave)="mouseLeave(k.PanelId)">
+                    <div class='col-md-12 w-95'>
+                        <div class="row">
+                            <div class='col-md-5'>
+                                <mat-panel-title >
+                                    <strong>
+                                            <h2 class="h2text">{{k.Text}}</h2>
+                                        
+                                    </strong>
+                                </mat-panel-title>
+                            </div>
+                            <div class='col-md-6' color="primary">
+                                <div class="row">
+                                    <div class="col-md-9">
+
+
+
+
+
+
+
+
+                                        
+                                        <div class="">
+                                            <button mat-raised-button color="primary" class="pull-right"
+                                                (click)="addControll(k.PanelId)"
+                                                *ngIf="GlobalVariableService.bDisplayControls  && ( MouseHoverPanelid == k.PanelId)">
+                                                Add Control
+                                            </button>
+                                        </div>
+                                        <div class="">
+                                            <button mat-raised-button color="primary" class="pull-right"
+                                                (click)="deleteControll(k.PanelId)"
+                                                *ngIf="GlobalVariableService.bDisplayControls && ( MouseHoverPanelid == k.PanelId)">Delete</button>
+                                        </div>
+                                        <div class="">
+                                            <button mat-raised-button color="primary"
+                                                *ngIf="GlobalVariableService.bDisplayControls && ( MouseHoverPanelid == k.PanelId)"
+                                                class="pull-right" (click)="editControll(k.PanelId)">Edit</button>
+                                        </div>
+                                    </div>
+                                  
+                                    <div class="col-md-1 mt-2"
+                                        *ngIf="GlobalVariableService.bDisplayControls && ( MouseHoverPanelid == k.PanelId)">
+
+
+
+                                        <div (color)="primary" class="pull-right">
+                                            <div>
+                                                <a id="upKey"  (click)="UpdatePanelOrderUp(k.PanelId)">
+                                                    <!-- <img src="./assets/images/up-arrow.png"  alt="Alternate Text"> -->
+                                                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                                        y="0px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
+                                                        <style type="text/css">
+                                                            .st1 {
+                                                                fill: #FFFFFF;
+                                                            }
+                                                        </style>
+                                                        <circle id="XMLID_118_" class="st10" cx="8" cy="8" r="8" />
+                                                        <path id="XMLID_120_" class="st1"
+                                                            d="M4.9,10.3h0.6c0.2,0,0.3-0.1,0.4-0.2l2-2.6c0.1-0.1,0.2-0.1,0.3,0l2,2.6
+                                                    	c0.1,0.1,0.3,0.2,0.4,0.2h0.6c0.2,0,0.3-0.2,0.2-0.3L8.2,5.8c-0.1-0.1-0.3-0.1-0.4,0L4.7,10C4.6,10.1,4.7,10.3,4.9,10.3z" />
+                                                    </svg>
+
+
+
+
+
+                                                </a>
+                                            </div>
+                                            <div class='mt-0'>
+                                                <a id="downKey" (click)="UpdatePanelOrderDown(k.PanelId )">
+                                                    <!-- <img src="./assets/images/down-arrow.png" alt="Alternate Text"> -->
+
+
+                                                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                                        y="0px" viewBox="-297 389 16 16" style="enable-background:new -297 389 16 16;" xml:space="preserve">
+                                                        <style type="text/css">
+                                                            .st1 {
+                                                                fill: #FFFFFF;
+                                                            }
+                                                        </style>
+                                                        <circle id="XMLID_118_" class="st10" cx="-289" cy="397" r="8" />
+                                                        <path id="XMLID_120_" class="st1" d="M-285.9,394.7h-0.6c-0.2,0-0.3,0.1-0.4,0.2l-2,2.6c-0.1,0.1-0.2,0.1-0.3,0l-2-2.6
+                                                    	c-0.1-0.1-0.3-0.2-0.4-0.2h-0.6c-0.2,0-0.3,0.2-0.2,0.3l3.2,4.2c0.1,0.1,0.3,0.1,0.4,0l3.1-4.2
+                                                    	C-285.5,394.9-285.6,394.7-285.9,394.7z" />
+                                                    </svg>
+
+
+
+
+
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-expansion-panel-header>
+
+
+
+
+
+
+                <fieldset [disabled]="!GlobalVariableService.editProspectMode">
+                    <div class="col-md-12 mt-3" (mouseenter)="SetColor(p.FieldId)" (mouseleave)="resetColor(p.FieldId)"
+                        id=a{{p.FieldId}} *ngFor="let p of GlobalVariableService.controllsApplicationTypeFields">
+                        <div class="col-md-1 mt-4" (mouseenter)="mouseEnter(p.FieldId) "
+                            (mouseleave)="mouseLeave(p.FieldId)" *ngIf="p.FK_PanelId == k.PanelId">
+                            <strong>{{p.FieldCaption}}<span *ngIf="p.IsMandatory">*</span></strong>
+                        </div>
+                        <div class="col-md-5" (mouseenter)="mouseEnter(p.FieldId) "
+                            (mouseleave)="mouseLeave(p.FieldId)">
+                            <!-- <mat-form-field   class="example-full-width w-95 nobg"
+                                *ngIf="(p.FK_FieldType == '1' || p.FK_FieldType == '7') && p.FK_PanelId == k.PanelId">
+                                <textarea class="textboxclass" matInput placeholder={{p.FieldCaption}} id={{p.FieldId}} let i=p.FiledId
+                                    required="p.IsMandatory"></textarea>
+
+                            </mat-form-field> -->
+                            <mat-form-field
+                                *ngIf="(p.FK_FieldType == '1' || p.FK_FieldType == '7') && p.FK_PanelId == k.PanelId"
+                                class="example-full-width">
+                                <input matInput placeholder={{p.FieldCaption}} id={{p.FieldId}} let i=p.FiledId>
+                            </mat-form-field>
+
+
+                            <mat-form-field  class="example-full-width w-95"
+                                *ngIf="(p.FK_FieldType == '2' || p.FK_FieldType == '3') && p.FK_PanelId == k.PanelId">
+                                <!-- <mat-label>{{p.FieldCaption}}</mat-label> -->
+                                <input matInput type="number" id={{p.FieldId}} name={{p.FieldCaption}}>
+                            </mat-form-field>
+
+                            <mat-form-field 
+                                *ngIf="(p.FK_FieldType == '4' || p.FK_FieldType == '5') && p.FK_PanelId == k.PanelId">
+                                <input matInput [matDatepicker]="picker" placeholder="Choose a date" id={{p.FieldId}}>
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+
+
+                            <div class="mt-3" *ngIf="(p.FK_FieldType == '6') && p.FK_PanelId == k.PanelId">
+                                <div *ngFor="let list of  GlobalVariableService.listSelectData">
+                                    <mat-form-field  *ngIf="list.id == p.FieldId" class="d-block w-95">
+                                        <select matNativeControl name="ApproveStatus" required id={{p.FieldId}}>
+                                            <option [value]="-1" >--- Please select ---</option>
+                                            <option name='ItemId' *ngFor="let l of list.FieldListItems"
+                                                [value]="l.ItemId">
+                                                {{l.FieldText}}</option>
+                                        </select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <div class="row mt-3 p-3" *ngIf="(p.FK_FieldType == '8') && p.FK_PanelId == k.PanelId">
+                                <div *ngFor="let list of  GlobalVariableService.listSelectData">
+                                    <div class="" *ngIf="list.id == p.FieldId">
+                                        <span class="" *ngFor="let l of list.FieldListItems">
+                                                <!-- <input id={{l.ItemId}} [value]="l.ItemId" type="radio" class="form-check-input"
+                                                    name={{p.FieldId}}> {{l.FieldText}} -->
+                                                    <!-- <label for={{l.FieldText}}>  -->
+                                                            <label class="radio-inline">
+                                                                    <input id={{l.ItemId}} [value]="l.ItemId" type="radio"
+                                                    name={{p.FieldId}}>&nbsp;&nbsp;&nbsp;  {{l.FieldText}}
+                                                                  </label>
+                                            <!-- </label> -->
+                                      
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="mt-3" *ngIf="(p.FK_FieldType == '9') && p.FK_PanelId == k.PanelId">
+                                <div *ngFor="let list of  GlobalVariableService.listSelectData">
+                                    <div *ngIf="list.id == p.FieldId">
+                                        
+                                        <!-- <mat-checkbox [checked]="list.selected"   name={{l.ItemId}}  id={{l.ItemId}} class="example-margin ml-3"
+                                            (change)="onChange(l.ItemId,p.FieldId)" color="primary" 
+                                            *ngFor="let l of list.FieldListItems"
+                                            [value]="l.ItemId" >
+                                            {{l.FieldText}}
+                                        </mat-checkbox> -->
+                                        <div class = "row">
+                                        <span  *ngFor="let l of list.FieldListItems">
+                                            
+                                        <input type="checkbox" name={{l.ItemId}} id={{l.ItemId}}  
+                                        value="l.ItemId"> {{l.FieldText}}</span>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <mat-form-field  class="example-full-width"
+                                *ngIf="(p.FK_FieldType == '10') && p.FK_PanelId == k.PanelId ">
+                                <input matInput placeholder={{p.FieldCaption}} id={{p.FieldId}}
+                                    [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+                                <mat-hint>Errors appear instantly!</mat-hint>
+                                <mat-error
+                                    *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                                    Please enter a valid email address
+                                </mat-error>
+                                <mat-error *ngIf="emailFormControl.hasError('required')">
+                                    Email is <strong>required</strong>
+                                </mat-error>
+                            </mat-form-field>
+
+
+                            <mat-form-field  class="example-full-width w-95"
+                                *ngIf="(p.FK_FieldType == '11') && p.FK_PanelId == k.PanelId ">
+                                <!-- <mat-label>{{p.FieldCaption}}</mat-label> -->
+                                <input matInput type="number" id={{p.FieldId}} name={{p.FieldCaption}}>
+                                <mat-icon matSuffix>phone</mat-icon>
+                            </mat-form-field>
+
+
+                            <div *ngIf="(p.FK_FieldType == '15') && p.FK_PanelId == k.PanelId ">
+                                <H1 *ngIf="p.HeaderTag == 'h1'">{{p.HeaderText}}</H1>
+                                <H2 *ngIf="p.HeaderTag == 'h2'">{{p.HeaderText}}</H2>
+                                <H3 *ngIf="p.HeaderTag == 'h3'">{{p.HeaderText}}</H3>
+                                <H4 *ngIf="p.HeaderTag == 'h4'">{{p.HeaderText}}</H4>
+                                <H5 *ngIf="p.HeaderTag == 'h5'">{{p.HeaderText}}</H5>
+                                <H6 *ngIf="p.HeaderTag == 'h6'">{{p.HeaderText}}</H6>
+                            </div>
+
+                            <div  *ngIf="(p.FK_FieldType == '16') && p.FK_PanelId == k.PanelId ">
+                                <p id={{p.FieldId}}>{{p.ParagraphText}}</p>
+                            </div>
+
+                            <div  *ngIf="(p.FK_FieldType == '17') && p.FK_PanelId == k.PanelId ">
+                                <p id={{p.FieldId}}> {{p.ParagraphText}}</p>
+                            </div>
+                            <div *ngIf="(p.FK_FieldType == '18') && p.FK_PanelId == k.PanelId ">
+                                <ckeditor [(ngModel)]="downLoadEnglishTemplate" [config]="config" debounce="500"
+                                    id={{p.FieldId}}>
+                                </ckeditor>
+                            </div>
+                            <!-- <div class="col-md-6">
+                                <jqxDataTable [theme]="'material'"
+                                [width]="getWidth()" [source]="dataAdapter" [columns]="columns"
+                                [pageable]="true" [columnsResize]="true" [pagerButtonsCount]="10">
+                            </jqxDataTable>
+                            </div> -->
+                            <!-- <div *ngIf="(p.FK_FieldType == '19') && p.FK_PanelId == k.PanelId ">
+                            
+                                <div *ngFor="let list of  GlobalVariableService.DynamicDataTable">
+                                    <div *ngIf="list.id == p.FieldId">
+                                        <div class="row margin_tp">
+                                            <div class="col-md-6 mt-4">
+                                                    <jqxDataTable [theme]="'material'"
+                                                    [width]="getWidth()" [source]="dataAdapter" [columns]="list.ColumnName"
+                                                    [pageable]="true" [columnsResize]="true" [pagerButtonsCount]="10">
+                                                </jqxDataTable>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                            
+                            
+                            
+                            
+                            
+                            </div> -->
+
+                            <div *ngIf="((p.FK_FieldType == '19') && p.FK_PanelId == k.PanelId)">
+                                <div *ngFor="let list of  GlobalVariableService.DynamicDataTable">
+                                    <div *ngIf="list.id == p.FieldId">
+                                        <div class="row">
+                                            <div class="mt-4 table-responsive">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th *ngFor="let group of list.ColumnName">
+                                                                {{group.text}}
+                                                            </th>
+                                                            <th>
+                                                                Select
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngFor="let row of list.Datatable;let i = index">
+                                                            <td *ngFor="let col of list.ColumnName">
+                                                                {{ list.Datatable[i][col.text]}}
+                                                            </td>
+                                                            <td>
+                                                                <input id="chk{{i}}" type="checkbox">
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="((p.FK_FieldType == '20') && p.FK_PanelId == k.PanelId) || k.SaveMultipleFields">
+                                <div class="">
+                                    <span class="">
+                                        <div class=""><input type="button" value="Add" (click)="AddFieldValuesInTable()" class="btn"></div>
+                                        <div class="row">
+                                            <div class="mt-4 table-responsive">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th *ngFor="let a of GlobalVariableService.controllsApplicationTypeFields">
+                                                                <span *ngIf="a.FK_PanelId == k.PanelId">{{a.FieldCaption}}</span>
+                                                            </th>
+                                                            <th>
+                                                                Select
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngFor="let r of TableArray">
+                                                            <td>
+                                                                {{r.Caption}}<br>
+                                                            </td>
+                                                            <td>
+                                                                <input id="" type="checkbox">
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+
+
+
+      
+                           
+
+
+
+
+                        </div>
+
+
+                        <div class="col-md-5" style="cursor: pointer">
+                            <div class="row" (mouseenter)="SetColor(p.FieldId)" (mouseleave)="resetColor(p.FieldId)"  >
+                                <div class="col-md-7 mt-3"  *ngIf=" MouseHoverPanelid == p.FieldId ">
+                                    <button mat-raised-button class="pull-right"
+                                        (click)="AddFields(p.FieldId ,p.FK_PanelId )"
+                                        *ngIf="(p.FK_PanelId == k.PanelId) && GlobalVariableService.bDisplayControls"
+                                        color="primary"> Edit</button>
+                                    <button mat-raised-button class="pull-right" (click)="DeleteFields(p.FieldId)"
+                                        *ngIf="(p.FK_PanelId == k.PanelId) && GlobalVariableService.bDisplayControls"
+                                        color="primary"> Delete</button>
+                                    <button mat-raised-button class="pull-right"
+                                        (click)="AddItems(p.FieldId ,p.FK_PanelId )"
+                                        *ngIf="( p.FK_FieldType == '6'   || p.FK_FieldType == '8' || p.FK_FieldType == '9' || p.FK_FieldType == '19') && (p.FK_PanelId == k.PanelId) && GlobalVariableService.bDisplayControls"
+                                        color="primary"> Add Items
+                                    </button>
+                                </div>
+                                <div class="col-md-1 mt-2"
+                                    *ngIf="(p.FK_PanelId == k.PanelId) && GlobalVariableService.bDisplayControls && MouseHoverPanelid == p.FieldId ">
+                                    <div>
+                                        <a id="upKey" (click)="UpdateFieldOrderUp(p.FieldId)">
+                                            <!-- <img src="./assets/images/up-arrow.png" alt="Alternate Text"> -->
+                                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                            viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
+                                       <style type="text/css">
+                                           
+                                           .st1{fill:#FFFFFF;}
+                                       </style>
+                                       <circle id="XMLID_118_" class="st10" cx="8" cy="8" r="8"/>
+                                       <path id="XMLID_120_" class="st1" d="M4.9,10.3h0.6c0.2,0,0.3-0.1,0.4-0.2l2-2.6c0.1-0.1,0.2-0.1,0.3,0l2,2.6
+                                           c0.1,0.1,0.3,0.2,0.4,0.2h0.6c0.2,0,0.3-0.2,0.2-0.3L8.2,5.8c-0.1-0.1-0.3-0.1-0.4,0L4.7,10C4.6,10.1,4.7,10.3,4.9,10.3z"/>
+                                       </svg>
+                                       
+
+                                        </a>
+                                    </div>
+                                    <div class="mt-0">
+                                        <a id="downKey" (click)="UpdateFieldOrderDown(p.FieldId )">
+                                            <!-- <img src="./assets/images/down-arrow.png" alt="Alternate Text"> -->
+                                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                                y="0px" viewBox="-297 389 16 16" style="enable-background:new -297 389 16 16;" xml:space="preserve">
+                                                <style type="text/css">
+                                                    .st1 {
+                                                        fill: #FFFFFF;
+                                                    }
+                                                </style>
+                                                <circle id="XMLID_118_" class="st10" cx="-289" cy="397" r="8" />
+                                                <path id="XMLID_120_" class="st1" d="M-285.9,394.7h-0.6c-0.2,0-0.3,0.1-0.4,0.2l-2,2.6c-0.1,0.1-0.2,0.1-0.3,0l-2-2.6
+                                            	c-0.1-0.1-0.3-0.2-0.4-0.2h-0.6c-0.2,0-0.3,0.2-0.2,0.3l3.2,4.2c0.1,0.1,0.3,0.1,0.4,0l3.1-4.2
+                                            	C-285.5,394.9-285.6,394.7-285.9,394.7z" />
+                                            </svg>
+
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+<!-- Datatable and Button Div -->
+
+
+                    </div>
+                </fieldset>
+                <!-- <div class="" *ngIf="(k.SaveMultipleFields)">
+                    <span class=""> 
+                    <div class=""><input type="button" value="Add" (click)="AddFieldValuesInTable()" class="btn"></div>
+                    <div class="row">
+                        <div class="mt-4 table-responsive">
+                            <table class="table" >
+                                <thead>
+                                    <tr>
+                                        <th  *ngFor="let p of GlobalVariableService.controllsApplicationTypeFields">
+                                         <span *ngIf="p.FK_PanelId == k.PanelId">{{p.FieldCaption}}</span>
+                                        </th>
+                                        <th>
+                                            Select
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let r of TableArray">
+                                        <td>
+                                          {{r.Caption}}<br>
+                                        </td>
+                                        <td>
+                                            <input id="" type="checkbox">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </span>
+                </div> -->
+            </mat-expansion-panel>
+        </div>
+    </mat-accordion>
+</div>

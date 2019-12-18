@@ -1,0 +1,20 @@
+.RadRating_Material2 {
+  font-family: "Roboto", "Noto", sans-serif; }
+  .RadRating_Material2 a:before,
+  .RadRating_Material2 a:hover:before {
+    color: #455A64; }
+  .RadRating_Material2 .rrtOver span:before,
+  .RadRating_Material2 a:hover .rrtPartComplement:before,
+  .RadRating_Material2 .rrtVertical .rrtSelected.rrtOver a:before,
+  .RadRating_Material2 .rrtSelected a .rrtPartSelected:before,
+  .RadRating_Material2 .rrtSelected.rrtOver a:before {
+    color: #455A64; }
+  .RadRating_Material2 .rrtSelected span:before {
+    color: #7CB342; }
+  .RadRating_Material2 .rrtSelected .rrtPart:before,
+  .RadRating_Material2 .rrtSelected.rrtOver span:before {
+    color: #689F38; }
+  .RadRating_Material2 .rrtReversed .rrtPart:before {
+    color: #455A64; }
+  .RadRating_Material2 .rrtReversed .rrtSelected .rrtPartComplement:before {
+    color: #689F38; }

@@ -1,0 +1,95 @@
+﻿.swal2-popup {
+    width: 40em !important;
+    padding: 2em !important;
+    border-radius: 4px !important;
+}
+
+.swal2-header .swal2-image {
+    margin: 1em auto;
+}
+
+/* INFO */
+.infoDialog {
+    border: 6px solid #fff !important;
+}
+
+.infoDialog .swal2-actions button {
+    background-color: #2196f3 !important;
+    color: #fff;
+    padding: 10px 30px;
+    border: 1px solid #2196f3;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+    .infoDialog .swal2-actions button:hover {
+        background-color: #2196f3 !important;
+        border: 1px solid #2196f3;
+    }
+
+/* ERROR */
+.errorDialog {
+    border: 6px solid #fff !important;
+}
+
+.errorDialog .swal2-actions button {
+    background-color: #ea9912 !important;
+    color: #fff;
+    padding: 10px 30px;
+    border: 1px solid #ea9912;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+    .errorDialog .swal2-actions button:hover {
+        background-color: #ea9912 !important;
+        border: 1px solid #ea9912;
+    }
+
+
+
+/* DANGER */
+.dangerDialog {
+    border: 6px outset #fff !important;
+}
+
+.dangerDialog .swal2-actions button {
+    background-color: #da4453 !important;
+    color: #fff;
+    padding: 10px 30px;
+    border: 1px solid #da4453;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+    .dangerDialog .swal2-actions button:hover {
+        background-color: #da4453 !important;
+        border: 1px solid #da4453;
+    }
+
+
+
+
+/* SUCCESS */
+
+.successDialog {
+    border: 6px solid #fff !important;
+}
+
+.successDialog .swal2-actions button {
+    background-color: #37BC9B !important;
+    color: #fff;
+    padding: 10px 30px;
+    border: 1px solid #37BC9B;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+    .successDialog .swal2-actions button:hover {
+        background-color: #37BC9B !important;
+        border: 1px solid #37BC9B;
+    }

@@ -1,0 +1,72 @@
+<mat-dialog-content class="mat-typography" style="overflow: unset">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <h4 class="card-title"><img src="./assets/images/adminsitration.png" class="titleImageClass">
+          <label class="headertext">{{FormName}}</label>
+          <!-- <label class="headertext">{{langObject.DefineNewGroup}}</label> -->
+        </h4>
+      </div>
+    </div>
+  </div>
+
+<hr>
+  <div class="row mt-3 mb-3">
+    <div class="col-md-6">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Group Name English" value="Name English" [(ngModel)]="objSys_Groups.Desc_En"
+          required>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Group Name Arabic" value="Name Arabic" [(ngModel)]="objSys_Groups.Desc_Ar"
+          required>
+      </mat-form-field>
+
+    </div>
+  </div>
+
+  <hr class="mt-2 mb-2">
+  <mat-grid-list cols="1">
+    <mat-tab-group (selectedTabChange)="selectionChange($event)" style="overflow: unset">
+      <mat-tab *ngFor="let tab of  DefineGroup.ModuleList; let index = index" >
+          <ng-template mat-tab-label>
+              <span class="sg-mat-txt" matTooltip="{{tab.Desc_En}}" aria-label="">{{tab.Desc_En}}</span>
+            </ng-template>
+
+        <div *ngFor="let p of DefineGroup.FormList ;let i = index" class="mt-3" style="margin:0px;">
+          <div class= "col-md-4" *ngIf="DefineGroup.FormList[i].ModuleID == ModuleID" >
+              <mat-checkbox (change)="valueChange(i)" color="primary"
+              style="padding:10px 20px;" [checked]="DefineGroup.FormList[i].seleted"> {{ p.FormName }}
+            </mat-checkbox>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-grid-list> 
+
+  <div class ="row">
+  <div class="col-md-3">
+  <mat-dialog-actions>
+    <button color="primary" class="ctgrySaveButton pull-right" (click)="saveGroup()" mat-raised-button
+      name='DefineGroupSavePop'
+      matTooltip="Save"
+      >
+      Save</button>
+    <button color="primary" class="ctgrySaveButton pull-right" (click)="Cancel()" mat-raised-button
+      name='DefineGroupcanclePop'
+      matTooltip="Clear"
+      >
+      Clear</button>
+  </mat-dialog-actions>
+</div>
+<div class="col-md-9"></div>
+</div>
+</mat-dialog-content>
+
+
+
+<!-- Copyright 2019 Google Inc. All Rights Reserved.
+      Use of this source code is governed by an MIT-style license that
+      can be found in the LICENSE file at http://angular.io/license -->

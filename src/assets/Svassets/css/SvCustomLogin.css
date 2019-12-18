@@ -1,0 +1,477 @@
+@import url('fonts/source_sans/stylesheet.css');
+@import url('open-sans.css');
+@import url('fonts/jfflat/jfflat.css');
+
+body {
+    margin: 0;
+}
+
+.bgfix {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    padding-top: 50px;
+}
+
+.iconPane {
+    display: block;
+    font-size: 20px;
+    font-family: 'Open sans', "JF Flat Regular", Tahoma !important;
+    font-weight: 300;
+    padding: 160px 0px 0px 0px;
+    text-align: center;
+}
+
+b {
+    font-weight: 600;
+}
+
+.iconPane ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+    .iconPane ul li {
+        margin: 20px 0px;
+    }
+
+.Lbutton {
+    width: 100%;
+    margin: 10px 0px;
+    padding: 12px 0px;
+    background: #1D2B36;
+    border: 0px none;
+    color: #fff;
+    /* border-radius: 5px; */
+    font-size: 18px;
+}
+
+.form-control_login {
+    background: white;
+    padding-left: 0px !important;
+    height: 50px !important;
+    font-size: 15px;
+    border-left: 0px;
+    border: 0px none;
+    color: #666 !important;
+    transition: .05s linear;
+    -webkit-transition: .05s linear;
+    -moz-transition: .05s linear;
+}
+
+    .form-control_login:focus {
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        border-right: 7px solid #ff7800;
+        border: 0px none;
+        /*transform: scale(1.1);*/
+    }
+
+.sv-user {
+}
+
+    .sv-user img, .passwordIcon img {
+        vertical-align: middle !important;
+    }
+
+.loginPane .input-group-addon {
+    height: 50px;
+    line-height: inherit !important;
+    border: 0px none !important;
+}
+
+    .loginPane .input-group-addon:first-child {
+        background: #fff !important;
+        color: #666 !important;
+    }
+
+.loginPane .form-control {
+    opacity: 1;
+    margin: 0px;
+}
+
+
+
+.loginPane {
+    background: rgba(255,255,255,1);
+    padding: 40px 40px 40px 40px;
+    /*border-radius: 100%;*/
+    /*width: 570px;*/
+    /*height: 400px;*/
+    border-radius:12px;
+    width: 100%;
+    height: 100%;
+}
+
+
+.logoLogin {
+    display: block;
+    text-align: center;
+    opacity: 1;
+    background: #fff;
+    margin: -40px -40px 0px -40px;
+    padding: 0px 0px;
+      border-top-left-radius:12px;
+      border-top-right-radius:12px;
+    height: 105px;
+    overflow: hidden;
+}
+
+    .logoLogin img {
+        max-height: 75px;
+        margin-top: 16px;
+    }
+
+.loginHeadTxt {
+    display: block;
+    text-align: center;
+    margin: 15px 0px 15px 0px;
+    font-size: 17px;
+    font-weight: 300;
+}
+
+.loginHeadTxtIcn {
+    padding-left: 10px;
+}
+
+.fgUser, .fgPswd {
+    margin: 12px 0;
+    border: 1px solid #ccc;
+}
+
+.login-error {
+    color: white !important;
+    font-size: 14px;
+}
+
+.form-group {
+    transition: .3s linear;
+    -webkit-transition: .3s linear;
+    -moz-transition: .3s linear;
+}
+
+
+/*.loginSecBg {
+    background:url(../images/loginbg.jpg) fixed;
+      -webkit-filter: blur(8px);
+      
+      background-size:cover;
+}*/
+
+/*=========Responsive==========*/
+
+@media (min-width:992px) {
+}
+
+
+@media (min-width:992px) and (max-width:1170px) {
+    .loginPane {
+        /*width: 500px;*/
+        /*height: 500px;*/
+    }
+
+    .logoLogin img {
+        width: 130px;
+    }
+
+    .form-control_login, .loginPane .input-group-addon {
+        height: 43px !important;
+    }
+
+    .Lbutton {
+        padding: 10px 0px;
+    }
+
+    .iconPane {
+        font-size: 17px;
+    }
+}
+
+
+
+
+
+
+@media (min-width:768px) and (max-width:991px) {
+
+
+    .loginPane {
+        /*width: 360px;*/
+        
+    }
+
+    .logoLogin img {
+        width: 130px;
+    }
+
+    .form-control_login, .loginPane .input-group-addon {
+        height: 45px !important;
+    }
+
+    .Lbutton {
+        padding: 9px 0px;
+    }
+
+    .iconPane {
+        font-size: 17px;
+    }
+
+        .iconPane li i img {
+            width: 50px;
+        }
+}
+
+
+.iconPane-smallDev {
+    display: none;
+}
+
+@media (max-width:767px) {
+
+    .loginPane {
+        margin-top: 17px;
+    }
+
+    .iconPane {
+        font-size: 13px;
+        display: none;
+        /*padding-top:0px;*/
+    }
+
+    .iconPane-smallDev {
+        display: block !important;
+    }
+
+        .iconPane-smallDev img {
+            width: 100%;
+        }
+
+     
+
+    .container {
+    }
+
+    .loginPane {
+        margin: 4px -5px;
+    }
+
+
+    .iconPane ul li {
+        margin: 10px 12px;
+        display: inline-block;
+    }
+
+    .iconPane li i img {
+        width: 36px;
+    }
+
+    .container {
+        padding-top: 10px;
+    }
+
+    .Lbutton {
+        margin: 0px 0px;
+    }
+}
+
+
+@media (max-device-width:480px) and (orientation:landscape) {
+    .jk {
+        max-height: 200px;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    .container {
+        width: 95%;
+    }
+}
+
+.iconPane img {
+    width: 100%;
+    max-width: 627px;
+}
+
+.ui-checkbox {
+    position: relative;
+    margin: 10px 0px 5px 22px;
+}
+
+    .ui-checkbox input[type="checkbox"] + span:before, .ui-checkbox input[type="checkbox"] + label:before {
+        margin-top: 0px;
+    }
+
+    .ui-checkbox input[type="checkbox"]:checked + span:after, .ui-checkbox input[type="checkbox"]:checked + label:after {
+        /*top: 1px;*/
+    }
+
+    .ui-checkbox input[type="checkbox"]:checked + span:before, .ui-checkbox input[type="checkbox"]:checked + label:before {
+        border: 1px solid #ccc;
+        background-color: transparent;
+    }
+
+    .ui-checkbox input[type="checkbox"]:checked + span:after, .ui-checkbox input[type="checkbox"]:checked + label:after {
+        background: url("../img/checkmark1.png") no-repeat center center !important;
+    }
+
+
+.right-header {
+    position: fixed;
+    top: 20px;
+    right: 40px;
+    z-index: 9999999;
+}
+
+    .right-header ul {
+        list-style: none;
+    }
+
+/*20-12-18*/
+.fixedcenter {
+    width: 30%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border:1px solid rgba(0,0,0,0.1);
+    border-radius:15px;
+    border-radius:12px;
+    right: 50%;
+    transform: translate(-50%,-50%);
+}
+
+    .fixedcenter:after {
+        content: '';
+        background: url('../img/banner-shadow.png');
+        height: 15px;
+        width: 100%;
+        position: absolute;
+        background-size: 100% 100%;
+    }
+
+.line-on-side {
+    border-bottom: 1px solid #DADADA;
+    line-height: .1em;
+    margin: 20px 0 20px;
+}
+
+    .line-on-side span {
+        background: #FFF;
+        padding: 0 10px;
+        font-size: 15px;
+        color: #555;
+    }
+
+.logoLogin1 {
+    display: block;
+    text-align: center;
+    opacity: 1;
+    background: #fff;
+    margin: 0px -40px 0px -40px;
+    padding: 0px 0px;
+  
+    overflow: hidden;
+}
+
+    .logoLogin1 img {
+        max-height: 75px;
+        margin-top: 5px;
+    }
+
+@media (min-width: 992px) {
+    .logoLogin1 img {
+        width: 150px;
+        height: auto;
+    }
+}
+
+.line-on-side1 {
+    border-bottom: 1px solid #DADADA;
+    margin: 20px 0 20px ;
+    line-height:.1em;
+}
+
+    .line-on-side1 span {
+        background: #FFF;
+        padding: 0 10px;
+        font-size: 15px;
+        color: #1d2b36;
+        font-weight: 600;
+    }
+
+
+    
+    @media (max-width: 1200px) {
+    .fixedcenter {
+       width: 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%,-50%);
+    }
+}
+
+
+
+@media (max-width: 992px) {
+    .fixedcenter {
+       width: 55%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%,-50%);
+    }
+}
+
+
+@media (max-width:767px) {
+     .fixedcenter {
+       width: 65%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%,-50%);
+    }
+}
+@media (max-width:600px) {
+     .fixedcenter {
+       width: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%,-50%);
+    }
+     .logoLogin1 img {
+    max-height: 45px;
+    margin-top: 0px;
+}
+}
+@media (max-width:480px) {
+     .fixedcenter {
+       width: 85%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%,-50%);
+    }
+}
+@media (max-width:480px) {
+     .fixedcenter {
+       width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%,-50%);
+    }
+}

@@ -1,0 +1,83 @@
+.RadDataPager_Material2 {
+  color: #455A64;
+  padding: 5px;
+  border: 1px solid #CFD8DC;
+  font-family: "Roboto", "Noto", sans-serif; }
+  .RadDataPager_Material2 .rdpIcon:before {
+    font-family: "WebComponentsIcons"; }
+  .RadDataPager_Material2 .rdpAdvPart {
+    line-height: inherit; }
+  .RadDataPager_Material2 .rdpNumPart a {
+    color: #ffffff; }
+    .RadDataPager_Material2 .rdpNumPart a .t-ripple {
+      border-radius: 90px; }
+  .RadDataPager_Material2 .rdpPagerButton {
+    border: 0 none;
+    background-color: #f4f7f8;
+    color: #455A64;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.2); }
+  .RadDataPager_Material2 .rdpActionButton {
+    border-radius: 90px; }
+    .RadDataPager_Material2 .rdpActionButton:hover {
+      border-color: #ECEFF1;
+      color: #455A64;
+      background-color: #ECEFF1; }
+  .RadDataPager_Material2 .rdpNumPart a {
+    color: #455A64;
+    text-align: center;
+    border-width: 0;
+    padding: 8px;
+    min-width: 1.42857em; }
+    .RadDataPager_Material2 .rdpNumPart a:hover {
+      border-color: #ECEFF1;
+      color: #455A64;
+      background-color: #ECEFF1;
+      border-radius: 90px; }
+    .RadDataPager_Material2 .rdpNumPart a.rdpCurrentPage {
+      border-bottom: 2px solid #8BC34A;
+      color: #8BC34A;
+      background: none;
+      border-radius: 0;
+      margin-bottom: -5px;
+      padding-bottom: 11px; }
+  .RadDataPager_Material2 .RadInput,
+  .RadDataPager_Material2 .RadComboBox,
+  .RadDataPager_Material2 .RadDropDownList {
+    min-width: 90px; }
+  .RadDataPager_Material2 .rdpActionButton {
+    box-sizing: content-box; }
+  .RadDataPager_Material2 .rdpPagerButton {
+    border-color: #CFD8DC;
+    color: #455A64;
+    background-color: #f4f7f8;
+    padding: 8px 13px;
+    border-radius: 0; }
+    .RadDataPager_Material2 .rdpPagerButton:hover {
+      border-color: #ECEFF1;
+      color: #455A64;
+      background-color: #ECEFF1; }
+  .RadDataPager_Material2 .rdpInfoPart,
+  .RadDataPager_Material2 .rdpSliderLabel,
+  .RadDataPager_Material2 .rdpPagerLabel {
+    font-size: .857em;
+    color: #607D8B;
+    font-weight: 500;
+    line-height: 1.66667;
+    padding-top: 8px;
+    padding-bottom: 8px; }
+    .RadDataPager_Material2 .rdpInfoPart strong,
+    .RadDataPager_Material2 .rdpSliderLabel strong,
+    .RadDataPager_Material2 .rdpPagerLabel strong {
+      font-weight: 500;
+      font-size: 1.167em;
+      line-height: 1.42857;
+      color: #455A64; }
+  .RadDataPager_Material2 .RadSlider {
+    margin: 7px 0; }
+
+.RadDataPager_Material2 .rdpActionButton {
+  box-sizing: content-box;
+  border: 0 none;
+  background: none;
+  padding: 8px;
+  color: #607D8B; }

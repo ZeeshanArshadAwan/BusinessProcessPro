@@ -1,0 +1,207 @@
+﻿<%--
+Default skin template. The following skins are provided as examples only.
+
+1. Named control skin. The SkinId should be uniquely defined because
+   duplicate SkinId's per control type are not allowed in the same theme.
+
+<asp:GridView runat="server" SkinId="gridviewSkin" BackColor="White" >
+   <AlternatingRowStyle BackColor="Blue" />
+</asp:GridView> 
+
+2. Default skin. The SkinId is not defined. Only one default 
+   control skin per control type is allowed in the same theme.
+
+<asp:Image runat="server" ImageUrl="~/images/image1.jpg" />
+--%>
+
+ <telerik:radgrid runat="server" EnableEmbeddedSkins="false" Skin="Material2" ClientSettings-EnableRowHoverStyle="true" RenderMode="Lightweight" AutoGenerateColumns="false">
+</telerik:radgrid>
+
+<%--
+<asp:Label runat="server" SkinID="Arabic" CssClass="SVlabel arabic-txt"></asp:Label>
+<asp:Label runat="server" SkinID="help" CssClass="help"></asp:Label>
+<asp:Label runat="server" SkinID="success" CssClass="sucess-lbl"></asp:Label>
+<asp:Label runat="server" SkinID="UserName" CssClass="UserName"></asp:Label>
+<asp:Label runat="server" SkinID="LoginTime" CssClass="LoginTime"></asp:Label>--%>
+
+<asp:Label runat="server" SkinID="successNew" CssClass="success-lblNew"></asp:Label>
+<asp:Label runat="server"  SkinID="SVlabel_inline" CssClass="SVlabel SVlabel_inline"></asp:Label>
+<asp:Label runat="server" SkinID="SVlabelNew" CssClass="SVlabelNew"></asp:Label>
+<asp:Label runat="server" SkinID="SVlabelNewH1" CssClass="SVlabelNewH1"></asp:Label>
+
+<asp:Label runat="server" SkinID="NoData" CssClass="err-lbl"></asp:Label>
+<asp:Label runat="server" SkinID="NoDataSub" CssClass="err-lblsub"></asp:Label>
+<asp:Label runat="server" SkinID="error" CssClass="errol-lbl"></asp:Label>
+<asp:Label runat="server" SkinID="Header" CssClass="info-Header"></asp:Label>
+<asp:Label runat="server" CssClass="SVlabel"></asp:Label>
+<asp:Label runat="server" SkinID="err-message" CssClass="err-message"></asp:Label>
+
+<asp:Label  runat="server"  SkinID="empty_label" cssclass="empty_label"></asp:Label>  
+<asp:Label  SkinID="reqField1"  cssclass="reqField1" runat="server"></asp:Label>
+<asp:Label SkinID="lblReq" runat="server" Text="*" CssClass="reqField"></asp:Label> 
+<asp:Label SkinID="lblReqMulti" runat="server" Text="*" CssClass="reqFieldMutiTxt"></asp:Label> 
+<asp:Label SkinID="lblReqDrop" runat="server" Text="*" CssClass="reqFieldDrop"></asp:Label>  
+<asp:Label SkinID="lblReqCalender" runat="server" Text="*" CssClass="reqFieldCalender"></asp:Label>    
+<asp:Label SkinID="lblReqTimeCalender" runat="server" Text="*" CssClass="reqFieldTimeCalender"></asp:Label> 
+
+
+<asp:TextBox runat="server" CssClass="form-control"></asp:TextBox>
+<asp:Button  runat="server" CssClass="btn btn-sml" />
+<asp:DropDownList runat="server"  CssClass="ui-select ui-select-asp">
+  
+</asp:DropDownList>
+
+<asp:TextBox runat="server" SkinID="gvTbox" CssClass="gvTbox"></asp:TextBox>
+<asp:TextBox runat="server" SkinID="Arabic" CssClass="form-control arabic-txt"></asp:TextBox>
+
+
+
+<asp:Button  runat="server" SkinID="btn-md"  CssClass="btn btn-default btn-sml" />
+<asp:Button  runat="server" SkinID="horz-btn"  CssClass="btn btn-default horz-btn" />
+
+
+<asp:Button  runat="server"  SkinID="Print" CssClass="btn btn-sml   ButtonPrint" />
+<asp:Button  runat="server"  SkinID="Add" CssClass="btn btn-sml btn-block ButtonAdd" />
+<asp:Button  runat="server" SkinID="Delete" CssClass="btn btn-default btn-sml Bt-Delete" />
+<asp:Button  runat="server" SkinID="Clear" CssClass="btn btn-default btn-sml Bt-Clear" />
+<asp:Button  runat="server" SkinID="Usermanual" CssClass="btn btn-default btn-sml Bt-usermanual" />
+
+<asp:Button  runat="server"  SkinID="Arrow" CssClass="btn btn-sml btn-block ButtonArrow" />
+<asp:Button  runat="server"  SkinID="ArrowGreen" CssClass="btn btn-sml btn-block ButtonArrowGreen" />
+<asp:Button  runat="server"  SkinID="Retrive" CssClass="btn btn-sml ButtonRetieve" />
+<asp:Button SkinID="Search" CssClass="btn btn-sml ButtonSearch" runat="server" ></asp:Button>
+
+
+
+
+
+
+
+ <asp:FileUpload   runat="server" />
+
+
+
+
+
+<asp:RequiredFieldValidator CssClass="RequiredFieldValidator" runat="server"></asp:RequiredFieldValidator>
+
+
+<asp:RequiredFieldValidator CssClass="RequiredFieldValidator1" skinid="RequiredFieldValidator1" runat="server"></asp:RequiredFieldValidator>
+
+
+
+
+<asp:GridView  runat="server" CssClass="gridview table table-striped table-bordered">
+   
+ 
+
+<AlternatingRowStyle CssClass="AltRowStyle"></AlternatingRowStyle>
+             
+<HeaderStyle CssClass="HeaderStyle"></HeaderStyle>
+ 
+
+<PagerStyle CssClass="PagerStyle"></PagerStyle>
+
+<RowStyle CssClass="RowStyle"></RowStyle>
+</asp:GridView>
+
+ 
+
+
+   <asp:Calendar runat="server"  CssClass="myCalendar">
+            <OtherMonthDayStyle ForeColor="#b0b0b0" />
+            <DayStyle CssClass="myCalendarDay" ForeColor="#2d3338" />
+            <DayHeaderStyle CssClass="myCalendarDayHeader" ForeColor="#2d3338" />
+            <SelectedDayStyle Font-Bold="True" Font-Size="12px" CssClass="myCalendarSelector" />
+            <TodayDayStyle CssClass="myCalendarToday" />
+            <SelectorStyle CssClass="myCalendarSelector" />
+            <NextPrevStyle CssClass="myCalendarNextPrev" />
+            <TitleStyle CssClass="myCalendarTitle" />
+        </asp:Calendar>
+
+<%--Apply later--%>
+
+    <asp:CheckBox CssClass="ui-checkbox" runat="server" />
+    <asp:CheckBox SkinID="none" runat="server" />
+    <asp:CheckBoxList CssClass="ui-checkbox" runat="server" />
+
+
+
+    <asp:RadioButton runat="server" CssClass="ui-radio" />
+    <asp:RadioButton runat="server" SkinID="none" />
+    <asp:RadioButtonList runat="server" RepeatDirection="Horizontal" CssClass="ui-radio">
+    </asp:RadioButtonList>
+
+    <ajaxToolkit:ValidatorCalloutExtender CssClass="SVvalidator" runat="server"
+        WarningIconImageUrl="img/warning.png"
+        CloseImageUrl="img/close-red.png">
+    </ajaxToolkit:ValidatorCalloutExtender>
+
+
+ <asp:Panel SkinID="upg" runat="server" CssClass="upg">
+                      
+ </asp:Panel>
+
+
+
+
+
+
+
+<asp:Wizard runat="server" CssClass="SvWizard">
+
+</asp:Wizard>
+
+
+
+<telerik:RadAsyncUpload CssClass="SvUpload" runat="server" />
+
+<telerik:RadMenu SkinID="homeButton"  CssClass="home_bt_rad homeButton" runat="server">
+</telerik:RadMenu>
+
+<telerik:RadDatePicker CssClass="SvCalendar" runat="server" >
+</telerik:RadDatePicker>
+
+<telerik:RadTabStrip CssClass="SvTelTab" runat="server">
+               
+</telerik:RadTabStrip>
+
+
+     
+  <telerik:RadNumericTextBox  CssClass="RadNumericTextBox" runat="server" > 
+       <NumberFormat  /> 
+  </telerik:RadNumericTextBox>
+
+<telerik:RadEditor  CssClass="ui-TelericRadEditor" runat="server">
+
+</telerik:RadEditor>
+
+
+<telerik:RadComboBox runat="server" CssClass="dipblockNew RadComboBox table" SkinID="DropDwnNew" Filter="Contains"></telerik:RadComboBox>
+<telerik:RadComboBox runat="server" CssClass="dipblock "  Filter="Contains" ></telerik:RadComboBox>
+
+<%--<telerik:RadComboBox runat="server" CssClass="RadComboBox_Default" ></telerik:RadComboBox>--%>
+
+
+
+
+    
+<ajaxToolkit:tabcontainer CssClass="SvAjaxTabStyle" runat="server" >
+    </ajaxToolkit:tabcontainer>
+
+
+
+
+    <ajaxToolkit:CalendarExtender runat="server"  Enabled="True"  CssClass="AjaxCalendar"/>
+<%--
+<ajaxToolkit:ValidatorCalloutExtender runat="server"   PopupPosition="BottomLeft" CssClass="SVvalidator"
+ CloseImageUrl="img/close-red.png" WarningIconImageUrl="~/images/warning1.png" >
+</ajaxToolkit:ValidatorCalloutExtender>  
+ --%>
+   
+
+<asp:LinkButton runat="server" CssClass="lnkUser" SkinID="lnkUser"></asp:LinkButton> 
+<asp:LinkButton runat="server" CssClass="lnkNextPrevious" SkinID="lnkNextPrevious"></asp:LinkButton> 
+
+
+

@@ -1,0 +1,144 @@
+﻿
+.divShiftRow
+{
+    margin-top: 10px;
+}
+
+.col
+{
+    display: inline-block;
+    width: 15px;
+    height: 10px;
+    margin-left: 2px;
+}
+.Legend
+{
+    width:250px;
+   
+    }
+
+#tblSchedule
+{
+    background: #eee;
+    border: 1px solid #C0C0C0;
+    width: 100%;
+    border-collapse:collapse;
+    height:100%;
+}
+
+.tblSchedule_td
+{
+    padding: 3px;
+    background: #93B4CE;
+    width: 19px;
+    height: 17px;
+    color: white;
+    text-align: center;
+    font-size: 11px;
+}
+
+.tblTotal_td
+{
+    padding: 1px;
+    background: #ccc;
+    width: 19px;
+    height: 17px;
+    color: white;
+    text-align: center;
+    font-size: 10px;
+}
+.imgDelete
+{
+    width: 17px;
+    height: 17px;
+}
+
+.td_h_no
+{
+    font-family: Arial;
+    padding-right: 4px;
+    text-align: center;
+    font-size: 14px;
+    color: #22316C;
+    border: solid 1px #C0C0C0;
+    font-weight: bold;
+    height:17px;
+    min-height: 17px;
+}
+
+.td_h_name
+{
+    font-family: Arial;
+    padding-right: 4px;
+    text-align: center;
+    font-size: 14px;
+    color: #22316C;
+    font-weight: bold;
+    border-color:#C0C0C0;
+}
+
+.td_h_name1
+{
+    font-family: Arial;
+    padding-right: 4px;
+    text-align: center;
+    font-size: 14px;
+    color: #22316C;
+    font-weight: bold;
+    border-color:#C0C0C0;
+    width:200px;
+    min-width:200px;
+}
+
+.divSelect
+{
+    border: solid 1px #ccc;
+ padding: 6px 10px;
+    width: 100%;
+    border-radius: 5px;
+    border-color: #ccc;
+}
+
+#arrow_down
+{
+    float: right;
+    padding: 4px;
+}
+
+.divColor
+{   
+    
+    position:absolute;
+    background-color: #fff !important;
+    display: none;
+    border: solid 1px #ccc; 
+    width: 90%;
+    border-radius: 5px;
+    margin-bottom:5px;
+    margin-right:15px;
+}
+.divShiftClass {
+     padding: 6px 10px;
+}
+.tblSchedule_tdText
+{
+    font-family: Arial;
+    text-align: left;
+    font-size: 12px;
+    font-weight: bold;
+    border-color:#C0C0C0;
+    height:17px;
+    padding:0 2px 0 2px;
+}
+
+.tblSchedule_tdText1
+{
+    font-family: Arial;
+    text-align: left;
+    font-size: 12px;
+    font-weight: bold;
+    border-color:#C0C0C0;
+    height:17px;
+    padding:0 2px 0 2px;
+    width:260px;
+}

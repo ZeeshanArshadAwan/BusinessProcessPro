@@ -1,0 +1,116 @@
+<!-- <div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="loginContainer">
+                <mat-card class="mat-elevation-z24 loginCard">
+                    <mat-card-title class="cardTitle">
+                        <img class="logo" src="./assets/images/login-logo.png" />
+                    </mat-card-title>
+                    <mat-card-subtitle class="cardSubTitle">Please Sign In to continue</mat-card-subtitle>
+                    <mat-card-content>
+                        <form>
+                            <mat-form-field class="full-width-field" appearance="outline">
+                                <mat-label>Username</mat-label>
+                                <input matInput placeholder="Please enter your username" [(ngModel)]="objlogin.UserName" name ="UserName" >
+                                <mat-icon matSuffix>person_outline</mat-icon>
+                            </mat-form-field>
+                            <mat-form-field class="full-width-field" appearance="outline">
+                                <mat-label>Password</mat-label>
+                                <input matInput placeholder="Please enter your password" type="password" [(ngModel)]="objlogin.Password" name = "Password" >
+                                <mat-icon matSuffix>verified_user</mat-icon>
+                            </mat-form-field>
+                            <button color="primary" class="signInButton" mat-raised-button (click)="getLogin()" >Submit</button>
+                        </form>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- <div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="loginContainer">
+                <mat-card class="mat-elevation-z24 loginCard">
+                    <mat-card-title class="cardTitle">
+                        <img class="logo" src="./assets/images/login-logo.png" />
+                    </mat-card-title>
+                    <mat-card-subtitle class="cardSubTitle">Please Sign In to continue</mat-card-subtitle>
+                    <mat-card-content>
+                        <form>
+                            <mat-form-field class="full-width-field" appearance="outline">
+                                <mat-label>Username</mat-label>
+                                <input matInput placeholder="Please enter your username" [(ngModel)]="objlogin.UserName" name ="UserName" >
+                                <mat-icon matSuffix>person_outline</mat-icon>
+                            </mat-form-field>
+                            <mat-form-field class="full-width-field" appearance="outline">
+                                <mat-label>Password</mat-label>
+                                <input matInput placeholder="Please enter your password" type="password" [(ngModel)]="objlogin.Password" name = "Password" >
+                                <mat-icon matSuffix>verified_user</mat-icon>
+                            </mat-form-field>
+                            <button color="primary" class="signInButton" mat-raised-button (click)="getLogin()" >Submit</button>
+                        </form>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- style="background-image: url('../../assets/loginimages/loginbg2.png')" -->
+<div >
+    <div class=" animation-fadeInQuickInv"></div>
+    <div class="container-fluid" style="padding: 0;">
+        <div class="row" style="margin: 0;">
+            <!-- <div class="col-md-6"
+                style="background-image: url('../../assets/loginimages/login-info2.png');background-size: contain;background-repeat: no-repeat;background-position:center; text-align: center; min-height:100vh">
+                <img class="sait-logo" src="../../assets/loginimages/SAIT-Logo-2-19.png">
+            </div>     background-image: url('../../assets/loginimages/login-right1.jpg'); -->
+            <div class="col-md-6 leftColumn" style="min-height:100vh;background-size: cover;background-position: bottom;">
+
+                <!-- <img src="../../assets/loginimages/VMS_logo.png" style="display: block;margin: auto;margin-top: 5%;width:400px" /> -->
+
+                <form runat="server" class="form_login">
+                        <!-- <img src="../../assets/loginimages/VMS_logo.png"  /> -->
+                        <img src="assets/loginimages/VMS_logo.png" style="width: 60%; margin-left:20%;" />
+
+                    <h4
+                        class="small_heading">
+                        Please login here</h4>
+                    <div class="inputDiv id1">
+                        <mat-form-field appearance="none">
+                            <input matInput placeholder="User ID" name ="UserName"  [(ngModel)]="objlogin.UserName" >
+                            <mat-icon matPrefix>star</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    <div class="inputDiv id3">
+
+
+
+                        <mat-form-field appearance="none">
+                            <!-- <mat-label>Password</mat-label> -->
+                            <input type="password" name = "Password" [(ngModel)]="objlogin.Password" matInput placeholder="Password">
+                            <mat-icon matPrefix>lock</mat-icon>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="inputDiv id3">
+                        <span class="checBox">
+                            <mat-checkbox  color="primary" style="color:#9a9a9a">Use PC Credential</mat-checkbox>
+                        </span>
+                    </div>
+                    <div class="inputDiv id4">
+                        <button mat-raised-button color="primary"  (click)="getLogin()" >Sign in</button>
+                    </div>
+                </form>
+            </div>
+            <!-- <div class="col-md-6"
+                style="background-image: url('../../assets/loginimages/Das-Revised-Infograph.png');background-size: contain;background-repeat: no-repeat;background-position:center; text-align: center; min-height:100vh">
+                <img class="sait-logo" src="../../assets/loginimages/SAIT-Logo-2-19.png">
+            </div> -->
+            <div class="col-md-6"
+                style="background-image: url('assets/loginimages/Das-Revised-Infograph.png');background-size: contain;background-repeat: no-repeat;background-position:center; text-align: center; min-height:100vh">
+                <img class="sait-logo" src="assets/loginimages/SAIT-Logo-2-19.png">
+            </div>
+        </div>
+    </div>
+</div>

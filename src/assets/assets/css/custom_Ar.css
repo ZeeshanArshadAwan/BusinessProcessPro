@@ -1,0 +1,241 @@
+﻿@import url('fonts/source_sans/stylesheet.css');
+@import url('open-sans.css');
+@import url('fonts/Jfflat/Jfflat.css');
+
+
+body
+{
+    direction:rtl;
+    font-family:"JF Flat Regular", 'Open sans',  Tahoma ;
+}
+.SVlabel
+{
+       font-family: "JF Flat Regular", 'Open sans', Tahoma ;
+}
+
+.LoginTime
+{
+        font-family: 'Open sans', "JF Flat Regular", Tahoma !important;
+}
+
+@media (min-width: 480px)
+{
+    #menu-toggle
+    {
+
+        float: right !important;
+    }
+}
+.navbar-brand
+{
+    float:right !important;
+}
+.navbar-toggle
+{
+        float: left !important;
+}
+#menu-toggle
+{
+    float: right !important;
+}
+
+
+#wrapper {
+    padding-left: inherit !important;
+    padding-right:0px;
+   
+}
+
+
+
+#wrapper.toggled {
+   padding-left:inherit !important;
+    padding-right:300px;
+}
+
+#sidebar-wrapper {
+
+    left:inherit !important;
+    right:300px;
+    margin-left:inherit !important;
+     margin-right:-300px;
+
+}
+
+
+
+
+
+#wrapper.toggled #page-content-wrapper {
+    margin-right:inherit !important;
+     margin-left:-300px;
+}
+
+
+
+
+
+@media (min-width:768px) {
+    #wrapper {
+        padding-left:inherit !important;
+         padding-right:300px;
+    }
+
+    #wrapper.toggled {
+        padding-left: inherit !important;
+        padding-right:0px;
+    }
+
+   
+
+  
+
+   
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: inherit !important;
+        margin-left:0px;
+    }
+}
+
+.sidebar-nav li a
+{
+    text-align:right !important;
+}
+
+
+
+    .sidebar-nav li a:hover:before, .sidebar-nav li a:active:before, .sidebar-nav li a.active:before
+    {
+            left: inherit !important;
+    right: 0px;
+    }
+
+
+.menu-icon
+{
+    float:left !important;
+}
+
+.menu-icon .fa-angle-right:before {
+    content: "\f104" !important;
+}
+
+
+h3 {
+    background: url(../../assets/img/headingArrow_right.png) right 0px center no-repeat;
+}
+h3 .HeaderText{
+   text-align:right !important;
+   padding-right:10px;
+}
+
+header .right-header
+{
+    float:left !important;
+}
+header .right-header ul li:last-child img
+{
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.Client-logo {
+    float: left !important;
+    margin-left:10px !important;
+     margin-right:inherit !important;
+}
+
+.RadComboBox .rcbArrowCell a {
+    left: 10px !important;
+    right: inherit !important;
+}
+
+
+h3 .HeaderText
+{
+    font-weight:600 !important;
+
+}
+
+.horizondalMenu ul li a .SVlabel
+{
+    font-weight:normal !important;
+
+}
+
+
+span.menu-icon
+{
+    left:20px !important;
+
+    right:inherit !important;
+}
+
+.Svpanel h3 {
+    padding: 6px 12px 6px 22px !important;
+
+    background: url(../img/headingArrow_right.png) right 0px center no-repeat;
+}
+
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md-8-5, .col-md-3-5
+{
+    float:right !important;
+}
+
+.Announcements h5 img {
+    padding-right: inherit !important;
+     padding-left: 10px;
+}
+
+.Announcements .description a:after
+{
+    right:inherit !important;
+    left:0px;
+}
+
+.Announcements .description {
+    padding-left: inherit !important;
+    padding-right: 11px;
+}
+.HomeMenu ul li a .SVlabel
+{
+        font-weight: normal !important;
+}
+
+
+.carousel-control
+{
+        -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.horizondalMenu ul li a .SVlabel {
+        font-size: 13px !important;
+}
+
+.RadGrid_Hay .rgHeader a, .RadGrid_Hay th.rgResizeCol a {
+    font-weight: normal !important;
+}
+.HeaderText {
+    font-weight: normal !important;
+}
+
+.Buttonsignin 
+{
+   
+   
+    background-position: center right 8px;
+    padding-right: 38px !important;
+}
+
+.Buttonsignout
+    {
+        
+    
+    background-position: center right 8px;
+    padding-right: 38px !important;
+    }

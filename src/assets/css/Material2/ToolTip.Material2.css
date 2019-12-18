@@ -1,0 +1,60 @@
+.RadToolTip_Material2 {
+  background-color: #455A64;
+  color: #f8fafb;
+  border-color: #455A64;
+  font-family: "Roboto", "Noto", sans-serif;
+  font-size: 0.92857em;
+  opacity: 0.9; }
+  .RadToolTip_Material2 .rtClose {
+    color: #f8fafb; }
+  .RadToolTip_Material2 .rtCalloutTopRight,
+  .RadToolTip_Material2 .rtCalloutTopCenter,
+  .RadToolTip_Material2 .rtCalloutTopLeft {
+    border-bottom-color: #455A64; }
+  .RadToolTip_Material2 .rtCalloutTopRight:before,
+  .RadToolTip_Material2 .rtCalloutTopCenter:before,
+  .RadToolTip_Material2 .rtCalloutTopLeft:before {
+    border-bottom-color: #455A64; }
+  .RadToolTip_Material2 .rtCalloutMiddleRight {
+    border-left-color: #455A64; }
+  .RadToolTip_Material2 .rtCalloutMiddleRight:before {
+    border-left-color: #455A64; }
+  .RadToolTip_Material2 .rtCalloutMiddleLeft {
+    border-right-color: #455A64; }
+  .RadToolTip_Material2 .rtCalloutMiddleLeft:before {
+    border-right-color: #455A64; }
+  .RadToolTip_Material2 .rtCalloutBottomRight,
+  .RadToolTip_Material2 .rtCalloutBottomCenter,
+  .RadToolTip_Material2 .rtCalloutBottomLeft {
+    border-top-color: #455A64; }
+  .RadToolTip_Material2 .rtCalloutBottomRight:before,
+  .RadToolTip_Material2 .rtCalloutBottomCenter:before,
+  .RadToolTip_Material2 .rtCalloutBottomLeft:before {
+    border-top-color: #455A64; }
+  .RadToolTip_Material2.rtLoading {
+    background-image: url('<%=WebResource("Telerik.Web.UI.Skins.Material2.Common.loading.gif")%>'); }
+  .RadToolTip_Material2 .rtTitleWrapper .rtTitle {
+    font-size: 1.23571em; }
+  .RadToolTip_Material2 .rtClose {
+    z-index: 1;
+    width: auto;
+    height: auto;
+    top: 0.71429em;
+    right: 0.71429em; }
+  .RadToolTip_Material2 _:-ms-fullscreen, .RadToolTip_Material2 .rtClose {
+    right: 0.64286em; }
+  .RadToolTip_Material2 .rtCloseIcon:before {
+    font-size: 24px; }
+  .RadToolTip_Material2 .rtRelativeWrapper {
+    padding: 0.57143em 1.14286em; }
+  .RadToolTip_Material2.rtRtl .rtClose {
+    left: 0.57143em;
+    left: 0.71429em \9; }
+  .RadToolTip_Material2 _:-ms-fullscreen, .RadToolTip_Material2.rtRtl .rtClose {
+    left: 0.71429em; }
+  .RadToolTip_Material2 .t-ripple-container {
+    top: -1px;
+    left: -2px; }
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .RadToolTip_Material2 .t-ripple-container {
+      top: -2px; } }

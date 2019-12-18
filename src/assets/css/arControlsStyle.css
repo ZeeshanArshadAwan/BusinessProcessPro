@@ -1,0 +1,292 @@
+﻿
+
+.Shownormaltxt
+{
+    FONT-SIZE:10pt;
+    COLOR: #000000; /*#024181;*/
+    FONT-FAMILY: tahoma;
+  
+    TEXT-DECORATION: none
+}
+
+
+.normaltxt
+{
+    FONT-SIZE:8pt;
+    COLOR: #000000; /*#024181;*/
+    FONT-FAMILY: tahoma;
+  
+    TEXT-DECORATION: none
+}
+
+body {
+	text-align:center;
+	}
+input[type='text']
+{
+	background-image:url(Images/form_bg.jpg);
+	background-repeat:repeat-x;
+	border:1px solid #BBBBBB;
+	
+	color:#333333;
+	padding:3px;
+	margin-right:4px;
+	margin-bottom:8px;
+	font-family:tahoma, arial, sans-serif;
+}
+.tableAlign
+{
+	text-align:right; 
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+input[type='password']
+{
+	background-image:url(Images/form_bg.jpg);
+	background-repeat:repeat-x;
+	border:1px solid #BBBBBB;
+	width: 230px;
+	color:#333333;
+	padding:3px;
+	margin-right:4px;
+	margin-bottom:8px;
+	font-family:tahoma, arial, sans-serif;
+
+}
+
+.dropDownList
+{
+	border:1px solid #BBBBBB;
+	color:#333333;
+	padding-left:3px;
+	margin-right:5px;
+	font-family:tahoma, arial, sans-serif;
+}
+
+.button
+{
+   border: 1px solid #BBBBBB;
+	font-size:11px;
+   	font-family:Tahoma;
+   	font-weight:bold;
+   	color:#333333;
+   	width:100px;
+   	background-color:#EEEEEE;
+   	/*background-color:#CDCDBA;*/
+	height: 25px;
+}
+
+.labelControlsStyle
+{
+	text-align:right;
+	font-size: 12px;
+	font-family:Arial;
+	direction:rtl;
+}
+.labelDescriptionStyle
+{
+	text-align:left;
+	font-size: 11px;
+	font-family:Arial;
+	direction: rtl;
+	
+}
+.labelTitle
+{
+	text-align:right;
+	font-size: 13px;
+	font-family:Tahoma;
+	font-weight:bold;
+	direction: rtl;
+}
+
+.Checkbox
+{
+		
+}
+
+input[type='checkbox']
+{
+	
+   
+	
+}
+
+
+.hyperLink
+{
+	color:Black;
+	cursor:auto;
+	font-size: 9pt; 
+	font-family:Arial; 
+	text-decoration:underline;
+ }
+.tableAlign
+{
+	text-align:right;
+	direction:rtl;
+	
+	
+}
+
+.search
+/* Image in Text Box */
+{
+	background:#edf6ff url(../Images/Theme1/search.png) no-repeat 4px 4px;
+	padding:4px 4px 4px 22px;
+	border-top-width: 0px;
+	border-left: 0px;
+   	border-right: 0px; 
+   	border-bottom: 1px solid #888888;
+   	
+}
+.textArea{
+	
+	
+	
+}
+
+.headertd
+{
+	border-top:single 3px blue; 
+	background-color: #e9e9e9; 
+	border-style: solid none none none; 
+	border-color: #038db2; 
+	border-width: 3px;
+}
+
+/* start grid view css style */
+
+
+.mGrid { 
+    width: 100%; 
+    background-color: #fff; 
+    margin: 5px 0 10px 0; 
+    border: solid 1px #525252; 
+    border-collapse:collapse; 
+    direction: rtl;
+    text-align:right;
+}
+/*.mGrid td { 
+    padding: 2px; 
+    border: solid 1px #c1c1c1; 
+    color: #000;
+    font-size:12px; 
+    font-family:Tahoma;  
+}*/
+.mGrid th { background-color:#A2C2CD; font-family:Tahoma; text-align:right;
+                        Font-Size:9pt;
+}
+/*.mGrid th a {
+  text-decoration:none;
+  color: #000;
+  font-family:Tahoma;          
+  }*/
+.mGrid .raw {  font-family:Tahoma ;Font-Size:9pt;text-align:right;}   
+.mGrid .pgr { border-color:Silver; border-style:Solid; border-bottom-width:1px; 
+                background-color:#A2C2CD;color:#330099;
+                text-align:center }
+/*.mGrid .pgr table { margin: 5px 0; }
+.mGrid .pgr td { 
+    border-width: 0; 
+    padding: 0 6px; 
+    border-left: solid 1px #666; 
+    font-weight: bold; 
+    color: #000; 
+    line-height: 12px; 
+ }   
+.mGrid .pgr a { color: #666; text-decoration: none; }
+.mGrid .pgr a:hover { color: #000; text-decoration: none; }
+*/
+/* end grid view css style */
+.multiLine
+{
+	color:#333333;
+	padding:3px;
+	margin-left:0px;
+	margin-bottom:8px;
+	font-family:tahoma, arial, sans-serif;
+	text-align:right;
+}
+.multiLine2
+{
+	color:#333333;
+	padding:3px;
+	margin-left:0px;
+	margin-bottom:8px;
+	font-family:tahoma, arial, sans-serif;
+	width: 100%;
+	text-align:right;
+}
+.labelDescriptionStyle
+{
+	text-align:left;
+	font-size: 11px;
+	font-family:Arial;
+	direction: rtl;
+	
+}
+
+
+
+.RadTabTableAlign
+{
+	text-align:right;
+	direction: rtl;
+	width: 100%;
+}
+.titletxt
+{
+
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR: #024168;
+    FONT-FAMILY: tahoma;
+    TEXT-DECORATION: none;
+}
+.ActionBtn
+{
+	FONT-WEIGHT: bold;
+    FONT-SIZE: 8pt;
+    COLOR:White;
+    FONT-FAMILY: tahoma;
+    TEXT-DECORATION: none;
+	width:100px;
+	background-color:#024279;
+	}
+	.ErrMessage
+{
+FONT-WEIGHT: bold;
+FONT-SIZE: 8pt;
+COLOR: red;
+FONT-FAMILY: tahoma;
+TEXT-DECORATION: none;
+
+}
+.Notetxt
+{
+FONT-WEIGHT: bold;
+font-style:italic;
+FONT-SIZE: 7pt;
+COLOR: #024168;
+FONT-FAMILY: tahoma;
+TEXT-DECORATION: none;
+	}

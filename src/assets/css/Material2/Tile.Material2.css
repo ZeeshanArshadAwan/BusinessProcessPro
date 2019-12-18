@@ -1,0 +1,37 @@
+.RadTile_Material2 {
+  color: #ffffff;
+  background-color: #8BC34A;
+  font-family: "Roboto", "Noto", sans-serif; }
+  .RadTile_Material2 .rtilePeekContent {
+    background-color: #8BC34A; }
+  .RadTile_Material2 .rtileBadgeIcon {
+    color: #ffffff; }
+  .RadTile_Material2.rtileSelected .rtileSelectedIcon {
+    background-color: #f8fafb;
+    color: #03A9F4; }
+  .RadTile_Material2.rtileHovered {
+    border-color: #689F38; }
+  .RadTile_Material2.rtileSelected {
+    border-color: #f8fafb; }
+  .RadTile_Material2.rtileSelected.rtileHovered {
+    border-color: rgba(104, 159, 56, 0.7); }
+  .RadTile_Material2.rtileLoading,
+  .RadTile_Material2 .rtileLoading {
+    background-image: url('<%=WebResource("Telerik.Web.UI.Skins.Material2.Common.loading_small.gif")%>'); }
+  .RadTile_Material2 .rtileBadgeIcon:before {
+    font-family: 'Material Icons';
+    font-size: 24px; }
+  .RadTile_Material2 .rtileAlertBadge:before {
+    content: "\E7F5"; }
+  .RadTile_Material2 .rtileAttentionBadge:before {
+    content: "\E001"; }
+  .RadTile_Material2 .rtileErrorBadge:before {
+    content: "\E888"; }
+  .RadTile_Material2 .rtilePausedBadge::before {
+    content: "\E036"; }
+  .RadTile_Material2 .rtileActivityBadge:before {
+    content: "\E5D5"; }
+  .RadTile_Material2 .rtileNewMessageBadge:before {
+    content: "\E0E1"; }
+  .RadTile_Material2 .rtilePlayingBadge:before {
+    content: "\E039"; }

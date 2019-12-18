@@ -1,0 +1,93 @@
+.RadImageEditor_Material2 {
+  border-color: #CFD8DC;
+  color: #455A64;
+  background-color: #f4f7f8;
+  padding: 0;
+  font-family: "Roboto", "Noto", sans-serif; }
+
+.RadImageEditor_Material2.rieDialogs .riePrintContent,
+.RadImageEditor_Material2 .rieHighlightVertical,
+.RadImageEditor_Material2 .rieHighlightHorizontal,
+.RadDock_Material2.rieDialogs .rieActiveThumbsLink,
+.RadDock_Material2.rieDialogs .rieThumbsLink:hover,
+.RadDock_Material2.rieDialogs .riePrintContent,
+.RadDock_Material2.rieDialogs .riePrintContent img {
+  border-color: #CFD8DC;
+  color: #455A64;
+  background-color: #f4f7f8; }
+
+.RadImageEditor_Material2 .rieContentArea,
+.RadDock_Material2.rieDialogs .rieThumbsBottomRow td,
+.RadDock_Material2.rieDialogs .rieDialogsThumbsLeft,
+.RadDock_Material2.rieDialogs .rieThumbsLink {
+  border-color: #CFD8DC; }
+
+.rieRotateTable .rbIcon:before,
+.rieResizeButtons .rbIcon:before {
+  color: #607D8B; }
+
+.rieRotateTable .rbHovered .rbIcon:before,
+.rieResizeButtons .rbHovered .rbIcon:before {
+  color: #03A9F4; }
+
+.rieBottomCell {
+  border-color: #CFD8DC; }
+
+.RadImageEditor_Material2 .RadToolBar_Material2 {
+  border-color: #CFD8DC;
+  color: #455A64;
+  background-color: #f4f7f8;
+  border-width: 0;
+  overflow: visible;
+  font: inherit; }
+  .RadImageEditor_Material2 .RadToolBar_Material2::before {
+    padding: 8px 0; }
+  .RadImageEditor_Material2 .RadToolBar_Material2_Vertical::before {
+    padding: 0 8px; }
+  .RadImageEditor_Material2 .RadToolBar_Material2 .rtbButton:not(.rtbSplitButton),
+  .RadImageEditor_Material2 .RadToolBar_Material2 .rtbSplitButton .rtbSplBtnActivator {
+    padding: 8px 10px; }
+  .RadImageEditor_Material2 .RadToolBar_Material2 .rtbButton.rtbIconOnly:not(.rtbSplitButton),
+  .RadImageEditor_Material2 .RadToolBar_Material2 .rtbSplitButton.rtbIconOnly .rtbSplBtnActivator {
+    padding: 8px; }
+  .RadImageEditor_Material2 .RadToolBar_Material2 .rtbArrow {
+    padding: 8px; }
+  .RadImageEditor_Material2 .RadToolBar_Material2 .rtbMenuButton .rtbArrow {
+    margin: -8px -10px -10px 0; }
+  .RadImageEditor_Material2 .RadToolBar_Material2 .rtbMenuButton.rtbIcon .rtbArrow {
+    margin: -8px -8px -8px 8px; }
+  .RadImageEditor_Material2 .RadToolBar_Material2 .rtbMore {
+    padding: 8px; }
+
+.RadImageEditor_Material2 .rieContentArea {
+  border-width: 1px 0; }
+
+.RadImageEditor_Material2 .rieStatusBar {
+  margin: 0;
+  padding: 13px; }
+
+.RadImageEditor_Material2 .rieStatusBarInfo .rieLabel {
+  color: #607D8B;
+  font-size: .85em;
+  font-weight: 500; }
+
+.rieDialogs .rieComboCombo {
+  width: 5.71429em;
+  margin: 4px; }
+
+.rieInputDimension {
+  width: 7.14286em; }
+
+.riePxLabel {
+  line-height: 2.85714em; }
+
+.rieResizeButtons {
+  width: 7.14286em; }
+
+.rieRotateButtons {
+  padding: 0.71429em 0em 0em; }
+
+.riePositionLabel {
+  display: inline-block;
+  margin: 0.21429em 0em 0em;
+  padding: 0em 0.35714em; }

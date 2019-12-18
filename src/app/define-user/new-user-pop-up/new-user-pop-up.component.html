@@ -1,0 +1,122 @@
+<!-- <h2 mat-dialog-title>{{header}}</h2> -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h4 class="card-title"><img src="./assets/images/adminsitration.png" class="titleImageClass">
+                <label class="headertext">
+                    {{header}}</label>
+            </h4>
+        </div>
+    </div>
+
+
+
+    <hr>
+    <mat-dialog-content class="mat-typography" style="overflow: unset">
+        <div class="row mt-3 mb-3">
+            <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="User ID" value="" [(ngModel)]="Sys_Users.UserID" required>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Email" [formControl]="emailFormControl"
+                        [(ngModel)]="Sys_Users.UserEmail" [errorStateMatcher]="matcher" required>
+                    <mat-hint>Errors appear instantly!</mat-hint>
+                    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                        Please enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                        Email is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Full Name" [(ngModel)]="Sys_Users.User_FullName" value="" required>
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-6 mt-3">
+                <mat-radio-group [(ngModel)]="Sys_Users.UserType" aria-label="Select an option">
+                    <mat-radio-button color="primary" (click)="selectUser(1)" value="1">System User</mat-radio-button>
+                    <mat-radio-button color="primary" (click)="selectUser(2)" value="2">Active Directory User
+                    </mat-radio-button>
+                    <mat-radio-button color="primary" (click)="selectUser(3)" value="3">Both System and AD
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+
+            <div class="col-md-6">
+                <mat-form-field  class="d-block w-95">
+                    <mat-label>Group</mat-label>
+                    <select matNativeControl name="Group" [(ngModel)]="Sys_Users.GroupID" required>
+                        <option value="">--Select Group--</option><br>
+                        <option *ngFor="let p of sysGroup" [value]="p.GroupID ">{{p.Desc_En}}</option>
+                    </select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                    <input matInput type="password" placeholder="password" value="" [(ngModel)]="Sys_Users.UserPwd"
+                        required>
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Company</mat-label>
+                    <!-- [(ngModel)]="" -->
+                    <select matNativeControl name="Company" required [(ngModel)]="Sys_Users.FK_CompanyId"
+                        (ngModelChange)="CompanyChanged(Sys_Users.FK_CompanyId)">
+                        <option value="">--Select Company--</option><br>
+                        <option *ngFor="let p of OrgCompany" [value]="p.CompanyId ">{{p.CompanyName}}</option>
+                    </select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                    <input matInput type="password" placeholder="Confirm Password" [(ngModel)]="confirmPWD"
+                        (blur)="MatchPassword()" value="" required>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Phone No." value="" [(ngModel)]="Sys_Users.PhoneNo" required>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Entites</mat-label>
+                    <select matNativeControl [(ngModel)]="Sys_Users.FK_EntityId" name="entites">
+                        <!-- [(ngModel)]="" -->
+                        <option value="">--Select Entity--</option><br>
+                        <option *ngFor="let p of OrgEntity" [value]="p.EntityId ">{{p.EntityName}}</option>
+                    </select>
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Job Description" [(ngModel)]="Sys_Users.JobDesc" value="" required>
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-6">
+                <mat-checkbox color="primary" [(ngModel)]="Sys_Users.Active">Active</mat-checkbox>
+            </div>
+        </div>
+        <div class="row mt-3 mb-3 px-md-5">
+            <div class="col-md-12 p-0 centerText">
+                <button mat-raised-button color="primary" class="ctgrySaveButton " (click)="AddUser()"
+                    name='DefineGroupSavePop' matTooltip="Save" >
+                    Save</button>
+                <span class="divider"></span>
+                <button color="primary" class="ctgrySaveButton" mat-raised-button name='DefineGroupcanclePop'
+                    (click)="cancel()"  matTooltip="Cancel" >
+                    Cancel</button>
+            </div>
+        </div>
+
+    </mat-dialog-content>

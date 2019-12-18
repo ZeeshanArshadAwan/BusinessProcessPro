@@ -1,0 +1,246 @@
+<header>
+  <div id="HeaderLeft" class = "right-header">
+    <ul>
+      <li>
+        <a id="menu-toggle" (click)="MenuToggle()">
+          <img src="assets/Svassets/img/togglemenu.png" alt="" />
+        </a>
+      </li> 
+      <li>
+        <a id="ctl00_lnkHome" >
+          <img alt="" class ="logHeight" src="assets/images/Business-Process--Pro-Logo.png" />
+        </a>
+
+      </li>
+    </ul>
+
+
+
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#RightHeader"
+      aria-expanded="false" aria-controls="RightHeader">
+      <i class="fa fa-ellipsis-v"></i>
+    </button>
+  </div>
+
+  <div id="RightHeader" class="right-header collapse">
+    <ul>
+
+      <li class="dropdown user">
+        <a href="#" class="dropdown-toggle">
+          <span class="avatar">
+            <!-- <img alt="" src="../../../assets/Svassets/img/user.png" /> -->
+            <img alt="" src="assets/Svassets/img/user.png" />
+          </span>
+          <div class="UserText">
+            <span id="ctl00_lblLoginUser">admin</span>
+            <div class="clear"></div>
+            <span id="ctl00_lblLoginDate">03/10/2019 09:47:59 ุต</span>
+            <div class="clear"></div>
+          </div>
+        </a>
+      </li>
+
+      <li>
+        <div class="btn-group icn_notification">
+          <!-- <img id="ctl00_Image1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+            src="../../../assets/images/notification.png" style="border-width:0px;" /> -->
+          <img id="ctl00_Image1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+            src="assets/images/notification.png" style="border-width:0px;" />
+        </div>
+      </li>
+      <li>
+        <a *ngIf="cssClass == 'assets/assets/img/ArBt.png'" id="ctl00_lnkbtnLanguage" class="icn_notification"
+          (click)="onEnLanguageSelection('ar')"><img src="{{cssClass}}" id="ctl00_ImgLanguage" /></a>
+        <a class="icn_notification" *ngIf="cssClass == 'assets/assets/img/EnBt.png'" id="ctl00_lnkbtnLanguage"
+          (click)="onArLanguageSelection('en')">
+          <img src="{{cssClass}}" id="ctl00_ImgLanguage" /></a>
+      </li>
+      <li>
+        <!-- <a (click)="logout()" id="ctl00_lnkbtnLogOut" class="icn_notification"><img
+            src="../../../assets/Svassets/img/icn_logout.png" id="ctl00_ImgLogOut" /></a> -->
+        <a (click)="logout()" id="ctl00_lnkbtnLogOut" class="icn_notification"><img
+            src="assets/Svassets/img/icn_logout.png" id="ctl00_ImgLogOut" /></a>
+      </li>
+      <li>
+        <img [src]="transform()" id="Client-logo" class="Client-logo" style="height: 40px " />
+      </li>
+    </ul>
+  </div>
+
+</header>
+<div class="clear"></div>
+
+<section class="section" id="wrapper">
+  <!-- Sidebar -->
+  <aside class="side-left Horizontal" id="stickscroll" style="display: none;">
+
+    <ul *ngIf="isEn" class="sidebar">
+
+      <li  *ngFor="let p of lstformtoDisplay.FnlModFormList ; let FnlModFormList = index; " style="text-align: center;">
+        <a href="javascript:void(0);" data-pjax=".content-body">
+
+          <i class="iconImg" style="display: block;">
+            <!-- <img src="../../../assets/assets/img/menuIcon/{{p.Seq}}.png" id="ctl00_Left2_Repeater2_ctl00_img" /> -->
+            <img src="assets/assets/img/menuIcon/{{p.Seq}}.png" id="ctl00_Left2_Repeater2_ctl00_img" />
+          </i>
+          <span class="sidebar-text" style="text-align: center;">{{p.ModuleName}} </span>
+        </a>
+        <ul class="sidebar-child animated">
+
+          <li
+            *ngFor="let k of lstformtoDisplay.FnlModFormList[FnlModFormList].formnamelist ; let formnamelist = index; ">
+            <a (click)="getRouting(FnlModFormList,formnamelist)" data-pjax=".content-body">
+              <span class="sidebar-text">{{k.FormName}}</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <ul *ngIf="!isEn" class="sidebar">
+
+        <li  *ngFor="let p of lstformtoDisplay.FnlModFormList ; let FnlModFormList = index; " style="text-align: center;">
+          <a href="javascript:void(0);" data-pjax=".content-body">
+  
+            <i class="iconImg" style="display: block;">
+              <!-- <img src="../../../assets/assets/img/menuIcon/{{p.Seq}}.png" id="ctl00_Left2_Repeater2_ctl00_img" /> -->
+              <img src="assets/assets/img/menuIcon/{{p.Seq}}.png" id="ctl00_Left2_Repeater2_ctl00_img" />
+            </i>
+            <span class="sidebar-text" style="text-align: center;">{{p.ModuleNameArabic}} </span>
+          </a>
+          <ul class="sidebar-child animated">
+  
+            <li
+              *ngFor="let k of lstformtoDisplay.FnlModFormList[FnlModFormList].formnamelist ; let formnamelist = index; ">
+              <a (click)="getRouting(FnlModFormList,formnamelist)" data-pjax=".content-body">
+                <span class="sidebar-text">{{k.Desc_Ar}}</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+  </aside>
+
+  <!-- Page content -->
+  <div id="divContent" class="content Horizontal_content">
+    <div class="animated fadeInUp">
+      <div class="Svpanel">
+        <router-outlet></router-outlet>
+        <script src="assets/js/jquery-ui-1.12.1.min.js"></script>
+        <script src="assets/js/Chart.bundle.js"></script>
+        <script src="assets/js/utils.js"></script>
+        <script type="text/javascript" src="assets/js/SearchRecord.js"></script>
+
+        <script>
+          $(document).ready(function () {
+            LoadCharts();
+          })
+
+
+
+          function LoadCharts() {
+            $(".rpLink, .rpExpandable, .rpExpanded").attr("style", "background-color: #2779A7 !important")
+
+            var colors = ["E21E25", "262626"
+              , "FCA311", "070707", "869CB3", "837B72", "3B3833", "546A76", "B4CEB3", "B4ADA5", "A2708A", "824670", "160035", "270260", "A2D5F8", "5C9CE0", "2E290E", "585A2D", "DBD7E1", "2A6881", "5CC3B6", "E4572E", "194573", "136F63", "D56062", "067BC2", "FFE737", "DB9D47", "363537", "E4572E", "B1AE91", "99D17B", "A14DA0", "FCD3A5", "F4F7A0", "83B81A", "26A146", "912018", "EB8C23", "EDAF19", "949FA3", "1C2541", "B8801B", "1C0E1A", "B3A2DF", "E8B1E3", "406471", "7A3B69", "406471", "EDF7D2", "18BE18", "FFF800", "1010BB", "4A0D67", "FF206E", "FF84E8", "4A0D67", "07A0C3", "FFF1D0", "D56062", "A14DA0", "870381", "4B78C4", "A2EA9D"]
+
+
+            var horizontalBarLabels = [];
+            var horizontalBarData = [];
+            var DoughnutLabels = [];
+            var DoughnutData = [];
+            var DoughnutColors = [];
+            var recordid = 1;
+            var ispersonaldrive = false;
+
+            $.ajax({
+              type: 'POST',
+              url: 'Inner.aspx/GetDocumentInWeekDays',
+              //data: '{RecordId: "' + $('#hfRecordId').val() + '", IsPersonalDrive: "' + $('#hfIsPersonalDrive').val() + '"}',
+              data: '{RecordId: "' + recordid + '", IsPersonalDrive: "' + ispersonaldrive + '"}',
+              contentType: 'application/json; charset= utf-8',
+              dataType: 'json',
+              success: function (r) {
+                var json = JSON.parse(r.d)
+
+
+                for (var i = 0; i < json.length; i++) {
+                  horizontalBarLabels.push(json[i].Day)
+                  horizontalBarData.push(json[i].NumberOfDocuments)
+                }
+
+
+
+
+              },
+              error: function (e) {
+              }
+            })
+          }
+
+        </script>
+
+      </div>
+    </div>
+  </div>
+</section>
+<div class="iconsettings">
+  <div class='sidesettingsdiv'>
+    <h4 class="text-uppercase mb-0">Theme Customizer</h4>
+    <p>Customize &amp; Preview in Real Time</p>
+    <hr />
+    <h5 class="menu-Options">
+      <span id="ctl00_Label6" class="SVlabel">Template menu Options</span>
+    </h5>
+    <div class="clear"></div>
+    <!-- Outline Button group -->
+    <div class="form-group">
+      <div class="tab_position_Horizontal">
+        <a (click)="HorizontalClick()">
+          <span id="ctl00_Label1" class="SVlabel">Horizontal</span>
+        </a>
+      </div>
+      <div class="tab_position_Vertical">
+        <a (click)="VerticalClick()">
+          <span id="ctl00_Label2" class="SVlabel">Vertical</span>
+        </a>
+      </div>
+    </div>
+    <!-- theme group -->
+    <div class="sidetheme">
+      <h4>Choose your Theme</h4>
+      <ul class="nav nav-tabs">
+        <li class="active" id="lidark"><a data-toggle="tab" (click)="functoggleMenu('dark')">Dark</a></li>
+        <li id="lilight"><a data-toggle="tab" (click)="functoggleMenu('light')">Light</a></li>
+      </ul>
+      <div class="tab-content">
+        <div *ngIf="toggleDark" id="dark" class="tab-pane fade in active">
+          <div class="colours" id="Colour-wrapper">
+            <a (click)="swithcColor('styles2')" class="Green styleswitch" rel="styles2">Default</a>
+            <a (click)="swithcColor('styles1')" class="Dof styleswitch" rel="styles1">Primary</a>
+            <a (click)="swithcColor('styles3')" class="Red styleswitch" rel="styles3">Danger</a>
+            <a (click)="swithcColor('styles6')" class="Gold styleswitch" rel="styles6">Success</a>
+            <a (click)="swithcColor('styles4')" class="Blue styleswitch" rel="styles4">Blue</a>
+            <a (click)="swithcColor('styles5')" rel="styles5">Pink</a>
+          </div>
+        </div>
+        <div id="light" *ngIf="togglelight" class="tab-pane fade in active">
+          <div class="colours" id="Colour-wrapper-light">
+            <a (click)="swithcColor('styles7')" class="white styleswitch" rel="styles7">Default light</a>
+            <a (click)="swithcColor('styles8')" class="Dof styleswitch" rel="styles8">Primary</a>
+            <a (click)="swithcColor('styles9')" class="Red styleswitch" rel="styles9">Danger</a>
+            <a (click)="swithcColor('styles10')" class="Gold styleswitch" rel="styles10">Success</a>
+            <a (click)="swithcColor('styles11')" class="Blue styleswitch" rel="styles11">Blue</a>
+            <a (click)="swithcColor('styles12')" class="Violet styleswitch" rel="styles12">Pink</a>
+          </div>
+        </div>
+
+        <div class="clear"></div>
+
+      </div>
+      <a id='clickme' (click)="ThemeClick()">
+        <i class="fa fa-cog spinner white"></i>
+      </a>
+
+    </div>
+  </div>

@@ -1,0 +1,100 @@
+﻿
+@font-face {
+    font-family: 'icomoon1';
+    src: url('icomoon.woff') format('woff'), url('icomoon.ttf') format('truetype'), url('icomoon.svg') format('svg'), url('icomoon.eot') format('embedded-opentype');
+}
+
+[class^="icon1-"], [class*=" icon1-"] {
+    
+    font-family: 'icomoon1' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/*.icon1-administrator:before {
+    content: "\e900";
+}
+
+.icon1-dashboard:before {
+    content: "\e901";
+}
+
+.icon1-definitions:before {
+    content: "\e902";
+}
+
+.icon1-reports:before {
+    content: "\e903";
+}
+
+.icon1-security:before {
+    content: "\e904";
+}
+
+.icon1-visitors:before {
+    content: "\e905";
+}*/
+.icon1-visitors:before {
+    content: "\e900";
+}
+
+.icon1-administrator:before {
+    content: "\e901";
+}
+
+.icon1-dashboard:before {
+    content: "\e902";
+}
+
+.icon1-definitions:before {
+    content: "\e903";
+}
+
+.icon1-reports:before {
+    content: "\e904";
+}
+
+.icon1-review:before {
+    content: "\e905";
+}
+
+.icon1-security:before {
+    content: "\e906";
+}
+
+
+
+
+
+
+@font-face {
+    font-family: 'icomoon3';
+    src: url('fonts1/icomoon.eot?yoiwxr');
+    src: url('fonts1/icomoon.eot?yoiwxr#iefix') format('embedded-opentype'), url('fonts1/icomoon.ttf?yoiwxr') format('truetype'), url('fonts1/icomoon.woff?yoiwxr') format('woff'), url('fonts1/icomoon.svg?yoiwxr#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon2-"], [class*=" icon2-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon3' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon2-edit3:before {
+    content: "\e900";
+}

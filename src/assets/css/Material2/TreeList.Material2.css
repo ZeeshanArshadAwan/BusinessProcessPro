@@ -1,0 +1,278 @@
+.TreeListToolTip_Material2 {
+  font-family: "Roboto", "Noto", sans-serif; }
+
+.RadTreeList_Material2 {
+  border-color: #CFD8DC;
+  background: #ffffff;
+  color: #455A64;
+  font-family: "Roboto", "Noto", sans-serif; }
+  .RadTreeList_Material2 .t-button {
+    padding: 7px;
+    border-radius: 90px;
+    color: #455A64; }
+    .RadTreeList_Material2 .t-button:hover {
+      border-color: #ECEFF1;
+      color: #455A64;
+      background-color: #ECEFF1; }
+    .RadTreeList_Material2 .t-button:active {
+      border-color: #CFD8DC;
+      color: #455A64;
+      background-color: #CFD8DC; }
+  .RadTreeList_Material2 .rtlTable a {
+    color: #8BC34A; }
+  .RadTreeList_Material2 .rtlTable td {
+    vertical-align: middle; }
+  .RadTreeList_Material2 tr.rtlHeader {
+    background-color: #ffffff;
+    height: 47px;
+    height: calc(1.42857em + 27px); }
+    .RadTreeList_Material2 tr.rtlHeader th {
+      padding: 5px 15px;
+      font-size: .857em;
+      font-weight: 500;
+      line-height: 1.66667; }
+    .RadTreeList_Material2 tr.rtlHeader .t-button {
+      font-size: 1.167em;
+      line-height: 1.42857; }
+  .RadTreeList_Material2 .rtlHeader a {
+    color: #455A64; }
+  .RadTreeList_Material2 .rtlScroller {
+    border-color: #CFD8DC; }
+  .RadTreeList_Material2 div.rtlHeader,
+  .RadTreeList_Material2 .rtlHeader th {
+    border-color: #CFD8DC #ffffff; }
+  .RadTreeList_Material2 .rtlREdit,
+  .RadTreeList_Material2 .rtlR,
+  .RadTreeList_Material2 .rtlA {
+    height: 47px;
+    height: calc(1.53846em + 27px);
+    font-size: 0.929em;
+    line-height: 1.53846; }
+    .RadTreeList_Material2 .rtlREdit td,
+    .RadTreeList_Material2 .rtlR td,
+    .RadTreeList_Material2 .rtlA td {
+      padding: 5px 15px; }
+    .RadTreeList_Material2 .rtlREdit .t-button,
+    .RadTreeList_Material2 .rtlR .t-button,
+    .RadTreeList_Material2 .rtlA .t-button {
+      font-size: 1.077em;
+      line-height: 1.42857; }
+  .RadTreeList_Material2 .rtlHBorders .rtlR td,
+  .RadTreeList_Material2 .rtlHBorders .rtlA td,
+  .RadTreeList_Material2 .rtlHBorders .rtlREdit td,
+  .RadTreeList_Material2 .rtlHBorders .rtlRFooter td {
+    padding-bottom: 5px; }
+  .RadTreeList_Material2 .rtlA {
+    background-color: #ffffff; }
+  .RadTreeList_Material2 .rtlRFooter {
+    background-color: #ffffff; }
+  .RadTreeList_Material2 .rtlRFooter td {
+    border-color: #ffffff; }
+  .RadTreeList_Material2 .rtlREdit {
+    background-color: #edf6e3; }
+  .RadTreeList_Material2 .rtlR td,
+  .RadTreeList_Material2 .rtlA td,
+  .RadTreeList_Material2 .rtlREdit td,
+  .RadTreeList_Material2 .rtlEditForm {
+    border-color: #CFD8DC #ffffff; }
+  .RadTreeList_Material2 .rtlRSel {
+    background: #E1F5FE;
+    color: #455A64; }
+  .RadTreeList_Material2 .rtlRSel a {
+    color: #455A64; }
+  .RadTreeList_Material2 .rtlRSel {
+    background-color: #E1F5FE; }
+  .RadTreeList_Material2 .rtlRActive .rtlCF {
+    box-shadow: inset 0px 5px 5px -5px transparent, inset 0px -5px 5px -5px transparent, inset 5px 0px 5px -5px transparent; }
+  .RadTreeList_Material2 .rtlRActive .rtlCF ~ td {
+    box-shadow: inset 0px 5px 5px -5px transparent, inset 0px -5px 5px -5px transparent; }
+  .RadTreeList_Material2 .rtlRActive .rtlCF ~ td:last-child {
+    box-shadow: inset 0px 5px 5px -5px transparent, inset 0px -5px 5px -5px transparent, inset -5px 0px 5px -5px transparent; }
+  .RadTreeList_Material2 .rtlRActive td {
+    border-color: #E1F5FE; }
+  .RadTreeList_Material2 .rtlVBorders td.rtlL,
+  .RadTreeList_Material2 .rtlLines td.rtlL {
+    background-color: #ffffff; }
+  .RadTreeList_Material2 .rtlExpand,
+  .RadTreeList_Material2 .rtlCollapse {
+    border: 0 none; }
+    .RadTreeList_Material2 .rtlExpand:hover,
+    .RadTreeList_Material2 .rtlCollapse:hover {
+      background: none; }
+  .RadTreeList_Material2 .rtlExpandIcon:before,
+  .RadTreeList_Material2 .rtlCollapseIcon:before,
+  .RadTreeList_Material2 .t-i-arrow-down:before {
+    font-family: "Material Icons";
+    font-size: 18px; }
+  .RadTreeList_Material2 .rtlCollapseIcon:before {
+    content: '\e5cf'; }
+  .RadTreeList_Material2 .rtlExpandIcon:before {
+    content: '\e5cc';
+    color: #263238; }
+  .RadTreeList_Material2 .rtlSortAscIcon,
+  .RadTreeList_Material2 .rtlSortDescIcon {
+    color: #263238; }
+    .RadTreeList_Material2 .rtlSortAscIcon:before,
+    .RadTreeList_Material2 .rtlSortDescIcon:before {
+      font-family: "Material Icons";
+      font-size: 18px; }
+  .RadTreeList_Material2 .rtlSortDescIcon:before {
+    content: "\e5db"; }
+  .RadTreeList_Material2 .rtlSortAscIcon:before {
+    content: "\e5d8"; }
+  .RadTreeList_Material2 .rtlPagerCell {
+    color: #455A64;
+    padding: 5px;
+    border-color: #CFD8DC; }
+    .RadTreeList_Material2 .rtlPagerCell .rtlIcon:before {
+      font-family: "WebComponentsIcons"; }
+    .RadTreeList_Material2 .rtlPagerCell .rtlAdvPart {
+      line-height: inherit; }
+    .RadTreeList_Material2 .rtlPagerCell .rtlNumPart a {
+      color: #ffffff; }
+      .RadTreeList_Material2 .rtlPagerCell .rtlNumPart a .t-ripple {
+        border-radius: 90px; }
+    .RadTreeList_Material2 .rtlPagerCell .rtlPagerButton {
+      border: 0 none;
+      background-color: #f4f7f8;
+      color: #455A64;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.2); }
+    .RadTreeList_Material2 .rtlPagerCell .rtlActionButton {
+      border-radius: 90px; }
+      .RadTreeList_Material2 .rtlPagerCell .rtlActionButton:hover {
+        border-color: #ECEFF1;
+        color: #455A64;
+        background-color: #ECEFF1; }
+    .RadTreeList_Material2 .rtlPagerCell .rtlNumPart a {
+      color: #455A64;
+      text-align: center;
+      border-width: 0;
+      padding: 8px;
+      min-width: 1.42857em; }
+      .RadTreeList_Material2 .rtlPagerCell .rtlNumPart a:hover {
+        border-color: #ECEFF1;
+        color: #455A64;
+        background-color: #ECEFF1;
+        border-radius: 90px; }
+      .RadTreeList_Material2 .rtlPagerCell .rtlNumPart a.rtlCurrentPage {
+        border-bottom: 2px solid #8BC34A;
+        color: #8BC34A;
+        background: none;
+        border-radius: 0;
+        margin-bottom: -5px;
+        padding-bottom: 11px; }
+    .RadTreeList_Material2 .rtlPagerCell .RadInput,
+    .RadTreeList_Material2 .rtlPagerCell .RadComboBox,
+    .RadTreeList_Material2 .rtlPagerCell .RadDropDownList {
+      min-width: 90px; }
+    .RadTreeList_Material2 .rtlPagerCell .rtlActionButton {
+      box-sizing: content-box; }
+    .RadTreeList_Material2 .rtlPagerCell .rtlPagerButton {
+      border-color: #CFD8DC;
+      color: #455A64;
+      background-color: #f4f7f8;
+      padding: 8px 13px;
+      border-radius: 0; }
+      .RadTreeList_Material2 .rtlPagerCell .rtlPagerButton:hover {
+        border-color: #ECEFF1;
+        color: #455A64;
+        background-color: #ECEFF1; }
+    .RadTreeList_Material2 .rtlPagerCell .rtlInfoPart,
+    .RadTreeList_Material2 .rtlPagerCell .rtlSliderLabel,
+    .RadTreeList_Material2 .rtlPagerCell .rtlPagerLabel {
+      font-size: .857em;
+      color: #607D8B;
+      font-weight: 500;
+      line-height: 1.66667;
+      padding-top: 8px;
+      padding-bottom: 8px; }
+      .RadTreeList_Material2 .rtlPagerCell .rtlInfoPart strong,
+      .RadTreeList_Material2 .rtlPagerCell .rtlSliderLabel strong,
+      .RadTreeList_Material2 .rtlPagerCell .rtlPagerLabel strong {
+        font-weight: 500;
+        font-size: 1.167em;
+        line-height: 1.42857;
+        color: #455A64; }
+    .RadTreeList_Material2 .rtlPagerCell .RadSlider {
+      margin: 7px 0; }
+  .RadTreeList_Material2 .rtlCommandCell {
+    padding: 0;
+    border-color: #CFD8DC;
+    color: #455A64;
+    background-color: #f4f7f8; }
+    .RadTreeList_Material2 .rtlCommandCell .t-button {
+      padding: 13px 15px;
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      border: 0 none; }
+  .RadTreeList_Material2 .rtlFooter .rtlCommandCell,
+  .RadTreeList_Material2 tfoot .rtlCommandCell {
+    color: #455A64;
+    background-color: #f4f7f8;
+    background-image: linear-gradient(); }
+  .RadTreeList_Material2 .rtlREdit [type="text"],
+  .RadTreeList_Material2 .rtlEditForm td > [type="text"] {
+    border-color: #CFD8DC;
+    color: #455A64;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 0 0 1px;
+    padding: 8px 0 7px;
+    outline: none;
+    font: inherit;
+    font-size: 1.077em;
+    margin-left: 13px; }
+    .RadTreeList_Material2 .rtlREdit [type="text"]:hover,
+    .RadTreeList_Material2 .rtlEditForm td > [type="text"]:hover {
+      border-color: #90A4AE;
+      color: #455A64;
+      background-color: transparent; }
+    .RadTreeList_Material2 .rtlREdit [type="text"]:active, .RadTreeList_Material2 .rtlREdit [type="text"]:focus,
+    .RadTreeList_Material2 .rtlEditForm td > [type="text"]:active,
+    .RadTreeList_Material2 .rtlEditForm td > [type="text"]:focus {
+      border-color: #8BC34A;
+      color: #455A64;
+      background-color: transparent;
+      box-shadow: 0 -1px 0 #8BC34A inset; }
+    .t-ie .RadTreeList_Material2 .rtlREdit [type="text"], .t-ie
+    .RadTreeList_Material2 .rtlEditForm td > [type="text"] {
+      height: 36px;
+      height: calc(1.42857em + 16px); }
+  .RadTreeList_Material2 .rtlEditForm {
+    border: 1px solid #CFD8DC; }
+    .RadTreeList_Material2 .rtlEditForm td > [type="text"] {
+      margin-left: 13px; }
+    .RadTreeList_Material2 .rtlEditForm td > label {
+      font-size: .923em;
+      color: #607D8B;
+      font-weight: 500;
+      line-height: 1.66667;
+      padding-top: 8px;
+      padding-bottom: 8px; }
+    .RadTreeList_Material2 .rtlEditForm table {
+      margin: .5em; }
+    .RadTreeList_Material2 .rtlEditForm .rtlHeader {
+      padding: 0;
+      height: auto !important;
+      background-color: #8BC34A;
+      color: #ffffff; }
+      .RadTreeList_Material2 .rtlEditForm .rtlHeader > div:first-child {
+        padding: 5px 10px; }
+  .RadTreeList_Material2.RadTreeListRTL .rtlExpandIcon:before {
+    content: '\E003'; }
+
+.TreeListReorderTop_Material2,
+.TreeListReorderBottom_Material2 {
+  font-size: 2.2em;
+  color: #000;
+  text-shadow: 0 0 1px #fff;
+  text-indent: 2px; }
+
+.RadTreeList_Material2 .rtlDragHandle {
+  background-image: url('<%=WebResource("Telerik.Web.UI.Skins.Material2.Grid.rgDrag.gif")%>'); }
+
+.TreeListToolTip_Material2 {
+  border-color: #828282;
+  background: #ffffff;
+  color: #455A64; }

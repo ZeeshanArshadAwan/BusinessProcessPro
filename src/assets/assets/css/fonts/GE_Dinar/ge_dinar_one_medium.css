@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'GEDinarOneMedium';
+    src: url('ge_dinar_one_medium.eot');
+    src: url('ge_dinar_one_medium.eot') format('embedded-opentype'),
+         url('ge_dinar_one_medium.woff2') format('woff2'),
+         url('ge_dinar_one_medium.woff') format('woff'),
+         url('ge_dinar_one_medium.ttf') format('truetype'),
+         url('ge_dinar_one_medium.svg#GEDinarOneMedium') format('svg');
+}

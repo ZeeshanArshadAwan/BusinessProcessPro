@@ -1,0 +1,21 @@
+.RadSocialShare_Material2 {
+  border-color: #CFD8DC;
+  color: #455A64;
+  background-color: #f4f7f8;
+  padding: 0;
+  font-family: "Roboto", "Noto", sans-serif;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.2); }
+  .RadSocialShare_Material2 .sshLinkItem {
+    color: #607D8B; }
+  .RadSocialShare_Material2 .sshLinkItem:hover {
+    color: #263238; }
+  .RadSocialShare_Material2,
+  .RadSocialShare_Material2 .sshListItem {
+    border-radius: 2px; }
+  .RadSocialShare_Material2 .sshListItem {
+    overflow: hidden;
+    height: 3.28571em;
+    line-height: 3em;
+    padding: 0 16px;
+    vertical-align: top;
+    text-transform: uppercase; }

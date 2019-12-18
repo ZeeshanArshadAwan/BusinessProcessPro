@@ -1,0 +1,50 @@
+.RadNotification_Material2 {
+  font-family: "Roboto", "Noto", sans-serif;
+  background-color: #ffffff;
+  color: #455A64;
+  border-color: #ffffff;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.2), 0 15px 12px rgba(0, 0, 0, 0.2); }
+  .RadNotification_Material2.rnShadows {
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.2), 0 15px 12px rgba(0, 0, 0, 0.2); }
+  .RadNotification_Material2 .rnTitleBar {
+    border-color: #8BC34A;
+    color: #ffffff;
+    background-color: #8BC34A;
+    background-image: linear-gradient(); }
+  .RadNotification_Material2 {
+    overflow: visible; }
+  .RadNotification_Material2.rnRoundedCorners {
+    border-radius: 0.14286em; }
+  .RadNotification_Material2.rnRoundedCorners .rnTitleBar {
+    border-radius: 0.14286em 0.14286em 0em 0em; }
+  .RadNotification_Material2 .rnTitleBar {
+    margin: -1px;
+    padding: 14px 14px 13px; }
+    .RadNotification_Material2 .rnTitleBar .rnTitleBarTitle {
+      padding: 5px 0;
+      margin: -7px 0 -3px;
+      vertical-align: middle;
+      font-size: 1.42857em; }
+    .RadNotification_Material2 .rnTitleBar .rnIcon {
+      min-width: 24px;
+      min-height: 24px;
+      margin: -0.07143em 0.42857em 0em 0em; }
+    .RadNotification_Material2 .rnTitleBar .rnIcon:before {
+      vertical-align: middle;
+      font-size: 24px; }
+    .RadNotification_Material2 .rnTitleBar .rnCommands {
+      right: 1.14286em;
+      margin: -1.28571em 0em 0em; }
+      .RadNotification_Material2 .rnTitleBar .rnCommands li {
+        margin: 0em 0em 0em 0.42857em;
+        line-height: 1.42857em;
+        padding: 4px 7px;
+        border-radius: 45px; }
+      .RadNotification_Material2 .rnTitleBar .rnCommands li:hover {
+        background-color: rgba(255, 255, 255, 0.12); }
+      .RadNotification_Material2 .rnTitleBar .rnCommands a:before {
+        margin: 0.35714em 0em 0em; }
+  .RadNotification_Material2.rnRtl .rnTitleBar {
+    padding: 0.28571em 1.5em 0.28571em 1.14286em; }
+    .RadNotification_Material2.rnRtl .rnTitleBar .rnCommands {
+      left: 1.14286em; }

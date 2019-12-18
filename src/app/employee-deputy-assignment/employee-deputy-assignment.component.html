@@ -1,0 +1,237 @@
+<div class="background-img body">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h4 class="card-title"><img src="./assets/images/adminsitrationDefinition.png" class="titleImageClass">
+                <label class="headertext">Employee Deputy Assignment</label>
+            </h4>
+        </div>
+    </div>
+
+    <mat-card class="mat-elevation-z3 mlr-15 mt-3 ">
+        <mat-card-content>
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <div class="row mt-3 px-md-5">
+                            <mat-radio-group aria-label="WorkFlow Access">
+                                <mat-radio-button class="mlr-15" color="primary" value="1" [checked]="bUserGroup"
+                                    (change)="handleChange($event, 1)"> {{langObject.UserGroup}}
+                                </mat-radio-button>
+                                <mat-radio-button class="mlr-15" color="primary" value="2"
+                                    (change)="handleChange($event, 2)">
+                                    {{langObject.OrganizationUnit}}
+                                </mat-radio-button>
+                                <mat-radio-button class="mlr-15" color="primary" value="3"
+                                    (change)="handleChange($event,3)">
+                                    {{langObject.SpecificUser}}
+                                </mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 " *ngIf="bUserGroup">
+                                <div class="col-md-6 w-95">
+                                    <mat-form-field  class="d-block w-95">
+                                        <mat-label> User Group </mat-label>
+                                        <!-- [(ngModel)]="UserId" -->
+                                        <select matNativeControl name="UserGroup" required [(ngModel)]="UserId">
+                                            <option value="">--Select Group--</option><br>
+                                            <option *ngFor="let p of vStatus_SysGroup" [value]="p.GroupID">{{p.Desc_En}}
+                                            </option>
+                                        </select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6 w-95">
+                                    <mat-form-field  class="d-block w-95">
+                                        <mat-label> Employee </mat-label>
+                                        <select matNativeControl name="ApproveStatus" required>
+                                            <option value="">--Select Group--</option>
+                                        </select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="col-md-12 px-md-5" *ngIf="bOrganizationUnit">
+                                <div class="col-md-6 w-95">
+                                    <mat-form-field  class="d-block w-95">
+                                        <mat-label> Companies </mat-label>
+
+                                        <select matNativeControl name="Company" required
+                                            (change)="GetEntitybyCompnayId(entityID)" [(ngModel)]="entityID">
+                                            <option value="CompanyId" class="" selected="selected">---Please
+                                                Select---</option>
+                                            <option *ngFor="let p of lstOrgCompany" [value]="p.CompanyId">
+                                                {{p.CompanyName}}
+                                            </option>
+                                        </select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6 w-95">
+                                    <mat-form-field  class="d-block w-95">
+                                        <mat-label> Entity </mat-label>
+                                        <select matNativeControl name="Entity" (change)="GetEntitybyCompnayId(entityID)"
+                                            [(ngModel)]="entityID" required>
+                                            <option value="">--Select Group--</option><br>
+                                            <option *ngFor="let p of lstOrgEntity" [value]="p.EntityId">
+                                                {{p.EntityName}}
+                                        </select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6 w-95">
+                                    <mat-form-field  class="d-block w-95">
+                                        <mat-label> Employee </mat-label>
+                                        <select matNativeControl name="Employee" required>
+                                            <option value="">--Select Group--</option><br>
+                                            <!-- <option *ngFor="let p of lstOrgCompany" [value]="p.CompanyId">{{p.CompanyName}}
+                                                                        </option> -->
+                                        </select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="col-md-12" *ngIf="bSpecificUser">
+                                <div class="interest-list list-height remove-list-height">
+                                    <mat-label> Select Specific User </mat-label>
+                                    <mat-select name='EmployeeIds'  class="d-block w-95 bg-color "
+                                        multiple>
+                                        <option value="" class="" selected="selected">---Please Select---
+                                        </option>
+                                        <mat-option *ngFor="let p of objGetAllUsers.UsersList" [value]="p.ID">
+                                            {{p.User_FullName}}</mat-option>
+                                    </mat-select>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3 px-md-5">
+                            <label class="headertext">User Information</label>
+                        </div>
+                        <hr>
+                        <div class="row mt-3 px-md-5">
+                            <div class="col-md-6 w-95">
+                                <mat-form-field  class="d-block w-95">
+                                    <mat-label>User Id</mat-label>
+                                    <input matInput placeholder="User Id" [(ngModel)]="userName" name="UserId" required>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6 w-95">
+                                <div class="col-md-12 p-0 centerText">
+                                    <button color="primary" class="ctgrySaveButton mlr-15 mt-3 mb-3" mat-raised-button
+                                        (click)="Retrive()" matTooltip="Retrive">Retrive</button>
+                                </div>
+                            </div>
+                            <!-- [(ngModel)]="objApplicationType.ApplicationTypeAr" -->
+
+                        </div>
+                        <div class="row mt-3 px-md-5">
+                            <div class="col-md-6 w-95">
+                                <mat-form-field  class="d-block w-95">
+                                    <mat-label>User Name</mat-label>
+                                    <input matInput readonly placeholder="User Name" name="User Name"
+                                        [(ngModel)]="objEmployeeDeputyAssignment.DeputyName" required>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row mt-3 px-md-5">
+                            <div  class="col-md-6 d-block w-95">
+                                <div class="col-md-2">
+                                    <span>
+                                        <h4>
+                                            Start Date
+                                        </h4>
+                                    </span>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field>
+                                        <!-- [(ngModel)]="objAllAplication.FromDate" -->
+                                        <input matInput [matDatepicker]="pickerFromdate"
+                                            [(ngModel)]="objEmployeeDeputyAssignment.StartDate"
+                                            placeholder="Choose a date">
+                                        <mat-datepicker-toggle name="FromDate" matSuffix [for]="pickerFromdate">
+                                        </mat-datepicker-toggle>
+                                        <mat-datepicker #pickerFromdate></mat-datepicker>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div  class="col-md-6 d-block w-95">
+                                <div class="col-md-2">
+                                    <span>
+                                        <h4>
+                                            End Date
+                                        </h4>
+                                    </span>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field>
+                                        <!-- [(ngModel)]="objAllAplication.FromDate" -->
+                                        <input matInput [matDatepicker]="pickerFromdateEnd"
+                                            [(ngModel)]="objEmployeeDeputyAssignment.EndDate"
+                                            placeholder="Choose a date">
+                                        <mat-datepicker-toggle name="FromDate" matSuffix [for]="pickerFromdateEnd">
+                                        </mat-datepicker-toggle>
+                                        <mat-datepicker #pickerFromdateEnd></mat-datepicker>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row  mt-3 px-md-5">
+
+                            <div class="col-md-12 p-0 centerText">
+                                <button color="primary" class="ctgrySaveButton mlr-15 mt-3 mb-3" mat-raised-button
+                                    (click)="SaveDuptyinfo()" matTooltip="Save">Save</button>
+                                <span class="divider"></span>
+                                <button color="primary" class="ctgrySaveButton mlr-15 mt-3 mb-3" mat-raised-button
+                                    (click)="ConfirmDelete()" matTooltip="Delete">Delete</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 w-100">
+                                    <ng-container matColumnDef="select">
+                                        <th mat-header-cell *matHeaderCellDef> Select
+                                        </th>
+                                        <td mat-cell *matCellDef="let row ; let i = index;">
+                                            <mat-checkbox color="primary" (click)="$event.stopPropagation()"
+                                                (change)="onSelect(row.EmployeeDeputyAssignmentId);"
+                                                [checked]="selection.isSelected(row)">
+                                            </mat-checkbox>
+                                        </td>
+                                    </ng-container>
+
+                                    <ng-container matColumnDef="DeputyName">
+                                        <th mat-header-cell *matHeaderCellDef mat-sort-header title="Deputy Name">
+                                            Deputy Name</th>
+                                        <td mat-cell *matCellDef="let element"> {{element.DeputyName}} </td>
+                                    </ng-container>
+
+                                    <ng-container matColumnDef="EmployeeName">
+                                        <th mat-header-cell *matHeaderCellDef mat-sort-header title="Employee Name">
+                                            Employee Name </th>
+                                        <td mat-cell *matCellDef="let element"> {{element.EmployeeName}} </td>
+                                    </ng-container>
+
+                                    <ng-container matColumnDef="StartDate">
+                                        <th mat-header-cell *matHeaderCellDef mat-sort-header title="StartDate">
+                                            Start Date </th>
+                                        <td mat-cell *matCellDef="let element"> {{element.StartDate}} </td>
+                                    </ng-container>
+
+                                    <ng-container matColumnDef="EndDate">
+                                        <th mat-header-cell *matHeaderCellDef mat-sort-header title="End Date">
+                                            End Date </th>
+                                        <td mat-cell *matCellDef="let element"> {{element.EndDate}} </td>
+                                    </ng-container>
+
+                                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                                </table>
+                                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

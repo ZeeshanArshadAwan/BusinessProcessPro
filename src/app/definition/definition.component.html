@@ -1,0 +1,91 @@
+<div class="background-img">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <h4 class="card-title"><img src="./assets/images/adminsitration.png" class="titleImageClass"><label
+            class="headertext">{{objSys_Forms.FormName}}</label>
+        </h4>
+      </div>
+    </div>
+  </div>
+ 
+  <hr>
+ 
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-sm">
+            <mat-form-field>
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+          </div>
+          <div class="col-sm">
+
+          </div>
+          <div class="col-sm">
+            <button color="primary" class="ctgrySaveButton pull-right" mat-raised-button name='SaveCatagory'
+              (click)="new()">Add New</button>
+            <span class="divider"></span>
+            <button color="primary" class="ctgrySaveButton pull-right" mat-raised-button name='Delete'
+              (click)="ShowConfirmDialog()">Delete</button>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="CatagoryTable col-md-12">
+
+            <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 w-100">
+              <ng-container matColumnDef="select">
+                <th mat-header-cell *matHeaderCellDef> Select
+                </th>
+                <td mat-cell *matCellDef="let row ; let i = index;">
+                  <mat-checkbox color="primary" (click)="$event.stopPropagation()"
+                    (change)="onSelect(row.LookUpTableValueId);" [checked]="selection.isSelected(row)">
+                  </mat-checkbox>
+                </td>
+              </ng-container>
+              <!-- <ng-container matColumnDef="position">
+              <th mat-header-cell *matHeaderCellDef > No. </th>
+              <td mat-cell *matCellDef="let element  ; let i = index; "> {{i+1}} </td>
+            </ng-container> -->
+
+              <ng-container matColumnDef="LookUpTableValueCode">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Code </th>
+                <td mat-cell *matCellDef="let element"> {{element.LookUpTableValueCode}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="LookUpTableValueEn">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Name English </th>
+                <td mat-cell *matCellDef="let element"> {{element.LookUpTableValueEn}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="LookUpTableValueAr">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Name Arabic </th>
+                <td mat-cell *matCellDef="let element"> {{element.LookUpTableValueAr}} </td>
+              </ng-container>
+
+              <!-- <ng-container matColumnDef="Remarks">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Remarks </th>
+              <td mat-cell *matCellDef="let element"> {{element.Remarks}} </td>
+            </ng-container> -->
+
+              <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef> Action </th>
+                <td mat-cell *matCellDef="let element ; let i = index">
+                  <img class="tableAction" (click)='selectData(i)' src="./assets/images/edit.png" />
+                </td>
+              </ng-container>
+
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            </table>
+            <mat-paginator [pageSizeOptions]="[25,50,100,200]" showFirstLastButtons></mat-paginator>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

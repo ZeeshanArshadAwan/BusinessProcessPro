@@ -1,0 +1,120 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.mlr-15 {
+    margin: 0px 10px;
+}
+
+.tableAction {
+    width: 30px;
+    cursor: pointer;
+}
+.w-95 {
+    width: 95%;
+}
+.w-100 {
+    width: 100%;
+}
+.list-height {
+    border:0.5px solid gray;
+    margin-left: 30px;
+    width: 450px;
+    height: 250px; 
+    overflow: auto;
+    padding: 15px;
+}
+.titleImageClass {
+    width: 60px;
+    margin-right: 10px;
+}
+.card-body {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -moz-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.5rem;
+}
+.ml-15{
+    margin-left: 30px;
+}
+.w-150{
+    width: 150px;
+}
+.mat-Primary {
+    background-color: #3F51B5;
+    color: #FFFFFF;
+}
+.blue{
+    color:blue;
+}
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
+.mat-raised-button:not([class*=mat-elevation-z]){
+    margin-right:5px;
+   }
+
+   .centerText{
+    text-align: center;
+   }
+
+   /* .background-imgmain{
+    background-image: url('./assets/images/background-awf.jpg');
+  } */
+  .mat-tab-body-content{
+    overflow: inherit !important;
+      }
+  .panel-header {
+    display: flex;
+    background-color: #F5F5F5;
+  }
+  .panel-header:hover{
+    background: #F5F5F5 !important;
+    }
+  .background-img{
+        background-image: url('assets/images/whitebg_new.jpg');
+        background-repeat: repeat;
+       
+    }
+    .mat-row:hover {
+        background: #F5F5F5 !important;
+    }
+
+    .mat-table {margin-top:10px;}
+
+    hr {
+       
+        border-top: none !important;
+    }
+    .mat-radio-container  {margin-left:5px;}
+
+    .textboxclass {
+        border-radius: 4px 4px 0 0 !important;
+        padding: .75em .75em 0 .75em !important;
+        border-bottom: 1px solid #d6d6d6 !important;
+        background: #fff !important;
+        max-height: 50px !important;
+        padding:20px;
+    }
+
+
+    .nobg{
+        background: none !important;
+    }
+    /* 
+    .mat-form-field-appearance-legacy .mat-form-field-infix {
+background: rgba(0,0,0,.04);
+padding: .75em .75em 0 .75em !important;
+
+    } */
+
+    /* .mat-form-field-wrapper {padding: .75em .75em 0 .75em !important; background: rgba(0,0,0,.04); margin-top:1rem;} */

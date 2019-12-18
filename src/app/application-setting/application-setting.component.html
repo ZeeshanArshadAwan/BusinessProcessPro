@@ -1,0 +1,70 @@
+<div class="background-img">
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h4 class="card-title"><img src="./assets/images/adminsitrationDefinition.png" class="titleImageClass">
+                <label class="headertext"><b>{{FormName}}</b></label>
+            </h4>
+        </div>
+    </div>
+  </div>
+
+  <mat-card class="mat-elevation-z3 mlr-15 mt-3">
+    <mat-card-content>
+      <mat-tab-group>
+        <mat-tab label={{langObject.ApplicationSetting[1]}}>
+          <mat-card-content>
+            <form class="example-form">
+              <div class="container-fluid">
+                <div class="row mt-3">
+                  <div class="col-md-6">
+                    <mat-form-field  class="d-block">
+                      <mat-label>{{langObject.ApplicationSetting[2]}}</mat-label>
+                      <input matInput placeholder={{langObject.ApplicationSetting[2]}} [(ngModel)]="objappSetting.CompanyName1"
+                        name="CustomerEnglishName" required>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-6">
+                    <mat-form-field  class="d-block">
+                      <mat-label>{{langObject.ApplicationSetting[3]}}</mat-label>
+                      <input matInput placeholder={{langObject.ApplicationSetting[3]}} [(ngModel)]="objappSetting.CompanyName2"
+                        name="CustomerEnglishShortName" required>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-md-6">
+                    <mat-form-field  class="d-block">
+                      <mat-label>{{langObject.ApplicationSetting[4]}}</mat-label>
+                      <input matInput placeholder={{langObject.ApplicationSetting[4]}} name="CustomerArabicName"
+                        [(ngModel)]="objappSetting.companyArabicName1" required>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-6">
+                    <mat-form-field  class="d-block">
+                      <mat-label>{{langObject.ApplicationSetting[5]}}</mat-label>
+                      <input matInput placeholder={{langObject.ApplicationSetting[5]}} name="CustomerArabicShortName"
+                        [(ngModel)]="objappSetting.CompanyArabicName2" required>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+            <div class="image-upload">
+              <img [src]="transform()" height="60" />
+              <input class="background" name="imageUrl" type="file" accept="image/*"
+                (change)="handleInputChange($event)" />
+            </div>
+
+            <div class="CatagoryContainer col-md-12">
+              <button color="primary" mat-raised-button name='UpdateAppsetting'
+                (click)="UpdateApp_Settings()" matTooltip="{{langObject.BUTTONS[0]}}" >{{langObject.BUTTONS[0]}}</button>
+            </div>
+          </mat-card-content>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+
+  </mat-card>
+</div>

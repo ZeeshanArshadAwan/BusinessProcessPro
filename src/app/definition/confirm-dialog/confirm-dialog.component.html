@@ -1,0 +1,61 @@
+<form class="example-form">
+  <div class="container-fluid">
+    <div class="row mt-3 mb-3">
+      <div class="col-md-12">
+        <h4 class="card-title"><img src="./assets/images/adminsitration.png" class="titleImageClass"><label
+            class="headertext">{{title}}</label>
+        </h4>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+
+        <mat-form-field  class="d-block">
+          <mat-label>{{title}} Code</mat-label>
+          <input matInput placeholder="Code" [(ngModel)]="objCatagoryClass.LookUpTableValueCode"
+            name="LookUpTableValueCode" required>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field  class="d-block">
+          <mat-label>Name English</mat-label>
+          <input matInput placeholder="Name English " [(ngModel)]="objCatagoryClass.LookUpTableValueEn"
+            name="LookUpTableValueEn" required>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field  class="d-block">
+          <mat-label>Name Arabic</mat-label>
+          <input matInput placeholder="Name Arabic" [(ngModel)]="objCatagoryClass.LookUpTableValueAr"
+            name="LookUpTableValueAr" required>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field  class="d-block">
+          <mat-label>Remarks</mat-label>
+          <input matInput placeholder="Remarks" [(ngModel)]="objCatagoryClass.Remarks" name="Remarks">
+        </mat-form-field>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+      <div mat-dialog-actions>
+        <button mat-raised-button color="primary" (click)="onConfirm()">Save</button>
+        <button mat-raised-button color="primary" (click)="onDismiss()">Cancel</button>
+      </div>
+    </div>
+    <div class="col-md-10">
+
+    </div>
+  </div>
+</form>

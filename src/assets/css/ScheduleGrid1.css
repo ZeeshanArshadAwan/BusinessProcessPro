@@ -1,0 +1,89 @@
+﻿
+.divShiftRow
+{
+    margin-top: 10px;
+}
+
+.col
+{
+    display: inline-block;
+    width: 15px;
+    height: 10px;
+    margin-left: 2px;
+}
+
+#tblSchedule
+{
+    background: #eee;
+    border: 1px solid #666;
+}
+
+.tblSchedule_td
+{
+    padding: 3px;
+    background: #93B4CE;
+    width: 19px;
+    height: 17px;
+    color: white;
+    text-align: center;
+    font-size: 11px;
+}
+
+.imgDelete
+{
+    width: 17px;
+    height: 17px;
+}
+
+.td_h_no
+{
+    font-family: Arial;
+    padding-right: 4px;
+    text-align: center;
+    font-size: 14px;
+    color: #22316C;
+    border: solid 1px #C0C0C0;
+}
+
+.td_h_name
+{
+    font-family: Arial;
+    padding-right: 4px;
+    text-align: center;
+    font-size: 14px;
+    color: #22316C;
+    font-weight: bold;
+}
+
+.divSelect
+{
+    border: solid 1px black;
+    width: 150px;
+    margin-left: 134px;
+    height: 18px;
+}
+
+#arrow_down
+{
+    float: right;
+    padding: 4px;
+}
+
+.divColor
+{
+    width: 150px;
+    margin-left: 134px;
+    position: absolute;
+    background-color: White;
+    display: none;
+    border: solid 1px black;
+    min-height: 15px;
+}
+
+.tblSchedule_tdText
+{
+    font-family: Arial;
+    text-align: center;
+    font-size: 14px;
+     font-weight: bold;
+}

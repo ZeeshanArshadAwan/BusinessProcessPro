@@ -1,0 +1,186 @@
+.RadTabStrip_Material2 {
+  color: #455A64;
+  font-family: "Roboto", "Noto", sans-serif;
+  text-transform: uppercase; }
+  .RadTabStrip_Material2 .rtsLink {
+    overflow: hidden; }
+  .RadTabStrip_Material2 .rtsLevel1 {
+    border-color: #8BC34A;
+    color: #ffffff;
+    background-color: #8BC34A;
+    border-width: 0;
+    overflow: hidden; }
+    .RadTabStrip_Material2 .rtsLevel1 .rtsUL {
+      margin-bottom: 0; }
+    .RadTabStrip_Material2 .rtsLevel1 .rtsLink {
+      border-color: #8BC34A;
+      color: #ffffff;
+      background-color: #8BC34A;
+      padding: 14px 13px;
+      border-width: 0;
+      transition: all .2s ease-in-out; }
+    .RadTabStrip_Material2 .rtsLevel1 .rtsTxt {
+      opacity: 0.8; }
+  .RadTabStrip_Material2 .rtsLevel1 ~ .rtsLevel {
+    border-color: #CFD8DC;
+    color: #455A64;
+    background-color: #ffffff;
+    border-width: 0; }
+    .RadTabStrip_Material2 .rtsLevel1 ~ .rtsLevel .rtsLink {
+      padding: 14px 13px;
+      transition: all .2s ease-in-out; }
+  .RadTabStrip_Material2 .rtsGhostTab {
+    border-color: #8BC34A;
+    color: #ffffff;
+    background-color: #8BC34A;
+    border-width: 0;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.14), 0 3px 6px rgba(0, 0, 0, 0.2); }
+  .RadTabStrip_Material2 .rtsPrevArrow,
+  .RadTabStrip_Material2 .rtsNextArrow {
+    border-color: #8BC34A;
+    color: #ffffff;
+    background-color: #8BC34A;
+    width: 48px;
+    padding: 12px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.2); }
+    .RadTabStrip_Material2 .rtsPrevArrow:before,
+    .RadTabStrip_Material2 .rtsNextArrow:before {
+      margin: 0;
+      font: 24px/1 "Material Icons"; }
+  .RadTabStrip_Material2 .rtsHovered .rtsLink {
+    color: #ffffff;
+    background-color: #7CB342; }
+    .RadTabStrip_Material2 .rtsHovered .rtsLink .rtsTxt {
+      opacity: 1; }
+  .RadTabStrip_Material2 .rtsHovered.rtsPrevArrow,
+  .RadTabStrip_Material2 .rtsHovered.rtsNextArrow {
+    background: #7CB342; }
+  .RadTabStrip_Material2 .rtsSelected .rtsLink {
+    color: #ffffff;
+    background-color: #8BC34A; }
+    .RadTabStrip_Material2 .rtsSelected .rtsLink:before {
+      content: "";
+      position: absolute; }
+    .RadTabStrip_Material2 .rtsSelected .rtsLink .rtsTxt {
+      opacity: 1; }
+  .RadTabStrip_Material2 .rtsFocused {
+    z-index: 1;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.14), 0 3px 6px rgba(0, 0, 0, 0.2); }
+  .RadTabStrip_Material2 .rtsFocused .rtsLink .rtsTxt {
+    opacity: 1; }
+
+.RadTabStrip_Material2.rtsHorizontal .rtsSelected .rtsLink:before {
+  left: 0;
+  right: 0;
+  border-bottom: 3px solid #ffffff; }
+
+.RadTabStrip_Material2.rtsHorizontal .rtsPrevArrow:before {
+  content: "\e314"; }
+
+.RadTabStrip_Material2.rtsHorizontal .rtsNextArrow:before {
+  content: "\e315"; }
+
+.RadTabStrip_Material2.rtsHorizontal .rtsButtonsMiddle {
+  padding-left: 48px;
+  padding-right: 48px; }
+
+.RadTabStrip_Material2.rtsHorizontal .rtsButtonsStart {
+  padding-left: 96px; }
+  .RadTabStrip_Material2.rtsHorizontal .rtsButtonsStart .rtsPrevArrow {
+    box-shadow: none; }
+  .RadTabStrip_Material2.rtsHorizontal .rtsButtonsStart .rtsNextArrow {
+    left: 48px; }
+
+.RadTabStrip_Material2.rtsHorizontal .rtsButtonsEnd {
+  padding-right: 96px; }
+  .RadTabStrip_Material2.rtsHorizontal .rtsButtonsEnd .rtsPrevArrow {
+    right: 48px; }
+  .RadTabStrip_Material2.rtsHorizontal .rtsButtonsEnd .rtsNextArrow {
+    z-index: 1;
+    box-shadow: none; }
+
+.RadTabStrip_Material2.rtsHorizontal.RadTabStrip_rtl .rtsPrevArrow {
+  left: 48px; }
+  .RadTabStrip_Material2.rtsHorizontal.RadTabStrip_rtl .rtsPrevArrow:before {
+    content: "\e315"; }
+
+.RadTabStrip_Material2.rtsHorizontal.RadTabStrip_rtl .rtsButtonsEnd .rtsPrevArrow {
+  right: 0; }
+
+.RadTabStrip_Material2.rtsHorizontal.RadTabStrip_rtl .rtsNextArrow {
+  left: 0; }
+  .RadTabStrip_Material2.rtsHorizontal.RadTabStrip_rtl .rtsNextArrow:before {
+    content: "\e314"; }
+
+.RadTabStrip_Material2.rtsHorizontal.RadTabStrip_rtl .rtsButtonsEnd .rtsNextArrow {
+  right: 48px; }
+
+.RadTabStrip_Material2.rtsHorizontal.RadTabStrip_rtl .rtsButtonsStart .rtsPrevArrow {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.2); }
+
+.RadTabStrip_Material2.rtsHorizontal.RadTabStrip_rtl .rtsButtonsStart .rtsNextArrow {
+  z-index: 1;
+  box-shadow: none; }
+
+.RadTabStrip_Material2.rtsHorizontal.RadTabStrip_rtl .rtsButtonsEnd .rtsPrevArrow {
+  box-shadow: none; }
+
+.RadTabStrip_Material2.rtsHorizontal.RadTabStrip_rtl .rtsButtonsEnd .rtsNextArrow {
+  z-index: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.2); }
+
+.RadTabStrip_Material2.rtsTop {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); }
+  .RadTabStrip_Material2.rtsTop .rtsSelected .rtsLink:before {
+    bottom: 0; }
+
+.RadTabStrip_Material2.rtsBottom {
+  box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2); }
+  .RadTabStrip_Material2.rtsBottom .rtsSelected .rtsLink:before {
+    top: 0; }
+
+.RadTabStrip_Material2.rtsVertical .rtsSelected .rtsLink:before {
+  top: 0;
+  bottom: 0;
+  border-right: 3px solid #ffffff; }
+
+.RadTabStrip_Material2.rtsVertical .rtsPrevArrow,
+.RadTabStrip_Material2.rtsVertical .rtsNextArrow {
+  width: 100%;
+  height: 48px; }
+
+.RadTabStrip_Material2.rtsVertical .rtsNextArrow:before {
+  content: "\e313"; }
+
+.RadTabStrip_Material2.rtsVertical .rtsPrevArrow:before {
+  content: "\e316"; }
+
+.RadTabStrip_Material2.rtsVertical .rtsButtonsMiddle {
+  padding-top: 48px;
+  padding-bottom: 48px; }
+
+.RadTabStrip_Material2.rtsVertical .rtsButtonsStart {
+  padding-top: 96px; }
+  .RadTabStrip_Material2.rtsVertical .rtsButtonsStart .rtsPrevArrow {
+    box-shadow: none; }
+  .RadTabStrip_Material2.rtsVertical .rtsButtonsStart .rtsNextArrow {
+    top: 48px; }
+
+.RadTabStrip_Material2.rtsVertical .rtsButtonsEnd {
+  padding-bottom: 96px; }
+  .RadTabStrip_Material2.rtsVertical .rtsButtonsEnd .rtsPrevArrow {
+    bottom: 48px; }
+  .RadTabStrip_Material2.rtsVertical .rtsButtonsEnd .rtsNextArrow {
+    box-shadow: none;
+    z-index: 1; }
+
+.RadTabStrip_Material2.rtsLeft {
+  box-shadow: 1px 0 2px rgba(0, 0, 0, 0.2); }
+  .RadTabStrip_Material2.rtsLeft .rtsSelected .rtsLink:before {
+    right: 0; }
+
+.RadTabStrip_Material2.rtsRight {
+  box-shadow: -1px 0 2px rgba(0, 0, 0, 0.2); }
+  .RadTabStrip_Material2.rtsRight .rtsSelected .rtsLink:before {
+    left: 0; }

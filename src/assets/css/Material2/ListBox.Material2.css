@@ -1,0 +1,100 @@
+.RadListBox_Material2 {
+  color: #455A64;
+  font-family: "Roboto", "Noto", sans-serif; }
+  .RadListBox_Material2 .rlbButton {
+    border-color: #CFD8DC;
+    color: #455A64;
+    background-color: #f4f7f8;
+    padding: 8px;
+    border: 0;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.2); }
+  .RadListBox_Material2 .rlbButtonIcon {
+    font-size: 18px;
+    font-family: "Material Icons"; }
+  .RadListBox_Material2 .rlbIconMoveUp:before {
+    content: "\e5c7"; }
+  .RadListBox_Material2 .rlbIconMoveDown:before {
+    content: "\e5c5"; }
+  .RadListBox_Material2 .rlbIconTransferLeft:before {
+    content: "\e045"; }
+  .RadListBox_Material2 .rlbIconTransferRight:before {
+    content: "\e044"; }
+  .RadListBox_Material2 .rlbIconTransferUp:before {
+    content: "\e045";
+    transform: rotate(90deg); }
+  .RadListBox_Material2 .rlbIconTransferDown:before {
+    content: "\e044";
+    transform: rotate(90deg); }
+  .RadListBox_Material2 .rlbIconTransferAllLeft:before {
+    content: "\e020"; }
+  .RadListBox_Material2 .rlbIconTransferAllRight:before {
+    content: "\e01f"; }
+  .RadListBox_Material2 .rlbIconTransferAllUp:before {
+    content: "\e020";
+    transform: rotate(90deg); }
+  .RadListBox_Material2 .rlbIconTransferAllDown:before {
+    content: "\e01f";
+    transform: rotate(90deg); }
+  .RadListBox_Material2 .rlbIconDelete:before {
+    content: "\e5cd"; }
+  .RadListBox_Material2 .rlbButtonAreaTop {
+    margin-bottom: 8px; }
+  .RadListBox_Material2 .rlbButtonAreaBottom {
+    margin-top: 8px; }
+  .RadListBox_Material2 .rlbGroup,
+  .RadListBox_Material2 .rlbTemplateContent {
+    border-color: #CFD8DC;
+    color: #455A64;
+    background-color: #ffffff; }
+  .RadListBox_Material2 .rlbHeader,
+  .RadListBox_Material2 .rlbFooter {
+    padding: 6px 13px; }
+  .RadListBox_Material2 .rlbCheckAllItems {
+    padding: 6px 13px; }
+  .RadListBox_Material2 .rlbItem {
+    padding: 6px 13px; }
+  .RadListBox_Material2 .rlbButton:focus {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.14), 0 3px 6px rgba(0, 0, 0, 0.2); }
+  .RadListBox_Material2 .rlbHovered.rlbItem, .RadListBox_Material2 .rlbHighlight {
+    color: #455A64;
+    background-color: #ECEFF1; }
+  .RadListBox_Material2 .rlbHovered.rlbButton {
+    border-color: #ECEFF1;
+    color: #455A64;
+    background-color: #ECEFF1; }
+  .RadListBox_Material2 .rlbActive.rlbButton {
+    border-color: #CFD8DC;
+    color: #455A64;
+    background-color: #CFD8DC;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.14), 0 3px 6px rgba(0, 0, 0, 0.2); }
+  .RadListBox_Material2 .rlbSelected.rlbItem {
+    color: #03A9F4;
+    background-color: transparent; }
+  .RadListBox_Material2 .rlbDropClue {
+    font-size: 18px;
+    font-family: "Material Icons"; }
+    .RadListBox_Material2 .rlbDropClue:before {
+      content: "\e5c8"; }
+  .RadListBox_Material2 .rlbDropClueAbove {
+    border-top-color: #CFD8DC; }
+  .RadListBox_Material2 .rlbDropClueBelow {
+    border-bottom-color: #CFD8DC; }
+  .RadListBox_Material2.rlbDragClue {
+    background: #ffffff;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.2), 0 15px 12px rgba(0, 0, 0, 0.2); }
+    .RadListBox_Material2.rlbDragClue .rlbItem {
+      border-color: transparent;
+      color: inherit;
+      background: none; }
+
+.RadListBox_Material2.RadListBoxButtonAreaTop.rlbFixedHeight {
+  padding: 32px 0 1.42857em; }
+  .RadListBox_Material2.RadListBoxButtonAreaTop.rlbFixedHeight .rlbButtonAreaTop {
+    margin-top: -32px; }
+
+.RadListBox_Material2.RadListBoxButtonAreaBottom.rlbFixedHeight {
+  padding: 32px 0 1.42857em; }
+  .RadListBox_Material2.RadListBoxButtonAreaBottom.rlbFixedHeight .rlbGroup,
+  .RadListBox_Material2.RadListBoxButtonAreaBottom.rlbFixedHeight .rlbTemplate {
+    margin-top: -32px; }

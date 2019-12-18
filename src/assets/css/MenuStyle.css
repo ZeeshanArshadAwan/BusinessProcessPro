@@ -1,0 +1,319 @@
+﻿.example-panel
+{
+	width: 750px;
+	height: 303px;
+	margin-left: 60px;
+	background: transparent url('Images/exampleBg.png') no-repeat 0 0;	
+	position:relative;
+	z-index:2000;
+}
+
+.user-details
+{
+	position:absolute;
+	right: 10px;
+	top: 10px;
+	color: #fff;
+	font-size: 18px;
+}
+.user-details span
+{
+	color:#70ced5;
+}
+
+.user-details div
+{
+	font-size:10px;
+	text-align:right;
+}
+
+.telerik-logo
+{
+	font: 10px 'Segoe UI', Arial;
+	color:Black;
+	display:block;
+}
+
+.item-title
+{
+	font: 18px/18px 'Segoe UI', Arial;
+	color: #fff;
+}
+
+.TemplateMenu
+{
+	position:absolute;
+	top:106px;
+}
+.TemplateMenu a
+{
+	text-decoration:none;
+}
+
+div.TemplateMenu .rmRootGroup .rmItem .rmGroup
+{
+	padding-bottom: 0;
+}
+
+div.TemplateMenu .rmGroup
+{
+	border: none;
+}
+
+div.TemplateMenu .rmGroup li.aspnet-ajax
+{
+	background: transparent url('Images/product_03.png') no-repeat 0 0;
+	width: 199px;
+	height:56px;
+}
+
+div.TemplateMenu li.aspnet-ajax div.rmText
+{
+	padding: 18px 0 0 52px;
+}
+
+div.TemplateMenu .rmGroup li.winforms
+{
+	background: transparent url('Images/product_05.png') no-repeat 0 0;
+	width: 199px;
+	height:56px;
+}
+
+div.TemplateMenu li.winforms div.rmText
+{
+	padding: 15px 0 0 52px;
+}
+
+div.TemplateMenu .rmGroup li.wpf
+{
+	background: transparent url('Images/product_06.png') no-repeat 0 0;
+	width: 199px;
+	height:56px;
+}
+
+div.TemplateMenu li.wpf div.rmText
+{
+	padding: 12px 0 0 52px;
+}
+
+div.TemplateMenu .rmGroup li.silverlight
+{
+	background: transparent url('Images/product_07.png') no-repeat 0 0;
+	width: 199px;
+	height:56px;
+}
+
+div.TemplateMenu li.silverlight div.rmText
+{
+	padding: 10px 0 0 52px;
+}
+
+div.TemplateMenu .rmGroup li.reporting
+{
+	background: transparent url('Images/product_08.png') no-repeat 0 0;
+	width: 199px;
+	height:56px;
+}
+div.TemplateMenu li.reporting div.rmText
+{
+	padding: 7px 0 0 52px;
+}
+div.TemplateMenu .rmGroup li.orm
+{
+	background: transparent url('Images/product_09.png') no-repeat 0 0;
+	width: 199px;
+	height:56px;
+}
+div.TemplateMenu li.orm div.rmText
+{
+	padding: 7px 0 0 52px;
+}
+div.TemplateMenu .rmGroup li.sitefinity
+{
+	background: transparent url('Images/product_10.png') no-repeat 0 0;
+	width: 199px;
+	height:56px;
+}
+div.TemplateMenu li.sitefinity div.rmText
+{
+	padding: 7px 0 0 52px;
+
+}
+
+div.TemplateMenu .rmGroup .support-firstColumn
+{
+	width:202px !important;
+	height: 48px;
+	float:left !important;
+	clear:left !important;
+}
+
+div.TemplateMenu .rmGroup .support-firstColumn a,
+div.TemplateMenu .rmGroup .support-secondColumn a
+{
+	font: 15px 'Segoe UI', Arial;
+	color: #fff;
+}
+
+div.TemplateMenu .support-firstColumn .rmText,
+div.TemplateMenu .support-secondColumn .rmText
+{
+	padding: 20px 0 0 60px
+}
+
+div.TemplateMenu .rmGroup .support-secondColumn
+{
+	width:201px !important;
+	height: 48px;
+	float:left !important;
+	clear:none !important;
+}
+
+div.TemplateMenu .rmGroup li.demos
+{
+	background: transparent url('Images/support_01.png') no-repeat 0 0;
+}
+
+div.TemplateMenu .rmGroup li.trainer
+{
+	background: transparent url('Images/support_02.png') no-repeat 0 0;
+}
+
+div.TemplateMenu .rmGroup li.samples
+{
+	background: transparent url('Images/support_03.png') no-repeat 0 0;
+}
+div.TemplateMenu .rmGroup li.documentation
+{
+	background: transparent url('Images/support_04.png') no-repeat 0 0;
+}
+div.TemplateMenu .rmGroup li.video
+{
+	background: transparent url('Images/support_05.png') no-repeat 0 0;
+}
+div.TemplateMenu li.video .rmText,
+div.TemplateMenu li.kb .rmText
+{
+	padding: 13px 0 0 60px
+}
+div.TemplateMenu .rmGroup li.kb
+{
+	background: transparent url('Images/support_06.png') no-repeat 0 0;
+}
+
+div.TemplateMenu .rmGroup li.webinars
+{
+	background: transparent url('Images/support_07.png') no-repeat 0 0;
+}
+
+div.TemplateMenu li.webinars .rmText,
+div.TemplateMenu li.code .rmText
+{
+	padding: 8px 0 0 60px
+}
+div.TemplateMenu .rmGroup li.code
+{
+	background: transparent url('Images/support_08.png') no-repeat 0 0;
+}
+
+div.TemplateMenu .rmGroup .community-firstColumn
+{
+	width:248px !important;
+	height: 61px;
+	float:left !important;
+	clear:left !important;
+}
+div.TemplateMenu .rmGroup .community-secondColumn
+{
+	width:247px !important;
+	height: 61px;
+	float:left !important;
+	clear:none !important;
+}
+
+div.TemplateMenu .rmGroup .community-firstColumn a,
+div.TemplateMenu .rmGroup .community-secondColumn a
+{
+	font: 12px/12px 'Segoe UI', Arial;
+	color: #fff;
+	display:inline-block;
+}
+
+div.TemplateMenu .rmGroup li.style
+{
+	background: transparent url('Images/community_01.png') no-repeat 0 0;
+}
+div.TemplateMenu .rmGroup li.falafel
+{
+	background: transparent url('Images/community_02.png') no-repeat 0 0;
+}
+
+div.TemplateMenu .rmGroup li.case
+{
+	background: transparent url('Images/community_03.png') no-repeat 0 0;
+}
+div.TemplateMenu .rmGroup li.dilemma
+{
+	background: transparent url('Images/community_04.png') no-repeat 0 0;
+}
+
+div.TemplateMenu .rmGroup li.style .rmText,
+div.TemplateMenu .rmGroup li.falafel .rmText
+{
+	padding:21px 0 0 66px;
+}
+
+div.TemplateMenu .rmGroup li.case .rmText,
+div.TemplateMenu .rmGroup li.dilemma .rmText
+{
+	padding:12px 0 0 66px;
+}
+
+div.TemplateMenu .rmGroup li.login
+{
+	background: transparent url('Images/loginBg.png') no-repeat 0 0;
+	width: 199px;
+	height: 121px;
+
+}
+
+div.TemplateMenu .rmGroup li.login .rmText
+{
+	padding: 0 7px;
+}
+
+div.TemplateMenu .rmGroup li.login a
+{
+	font: 10px 'Segoe UI', Arial;
+	color: #fff;
+	text-decoration:underline;
+}
+
+div.TemplateMenu .rmGroup li.login input
+{
+	width: 170px;
+}
+
+div.TemplateMenu .rmGroup li.login label
+{
+	color:#fff;
+}
+
+div.TemplateMenu li.login a.login-button
+{
+	display:inline-block;
+	background: transparent url('Images/login.png') no-repeat 0 0;
+	width: 47px;
+	height: 20px;
+	margin-left: 6px;
+	text-align:center;
+	color: #000;
+	text-decoration:none;
+	vertical-align:middle;
+	padding-top: 3px;
+}
+
+* html div.TemplateMenu li.login a.login-button
+{
+	margin-left: 2px;
+}

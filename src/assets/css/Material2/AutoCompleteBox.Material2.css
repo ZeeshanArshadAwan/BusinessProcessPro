@@ -1,0 +1,124 @@
+.RadAutoCompleteBox_Material2 {
+  color: #455A64;
+  font-family: "Roboto", "Noto", sans-serif; }
+  .RadAutoCompleteBox_Material2 .racTokenList {
+    padding: 3px;
+    border-width: 0;
+    border-radius: 2px;
+    transition: all .2s ease-in-out; }
+    .RadAutoCompleteBox_Material2 .racTokenList:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 8px;
+      right: 8px;
+      border-bottom: 1px solid #CFD8DC; }
+  .RadAutoCompleteBox_Material2 .racToken {
+    padding: 4px 30px 4px 12px;
+    border-width: 0;
+    border-radius: 1em;
+    color: #455A64;
+    background: #ECEFF1;
+    margin-right: 8px;
+    transition: color 0.2s ease-in-out, background 0.2s ease-in-out; }
+    .RadAutoCompleteBox_Material2 .racToken:before {
+      content: "";
+      display: inline-block;
+      height: 1.42857em;
+      vertical-align: top; }
+    .RadAutoCompleteBox_Material2 .racToken + .racToken {
+      margin-left: 0; }
+  .RadAutoCompleteBox_Material2 .racRemoveTokenLink {
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    right: 8px;
+    margin-top: -8px;
+    border-radius: 1em;
+    color: #ECEFF1;
+    background: #607D8B;
+    transition: color 0.2s ease-in-out, background 0.2s ease-in-out; }
+    .RadAutoCompleteBox_Material2 .racRemoveTokenLink .p-icon {
+      font-family: "Material Icons";
+      line-height: inherit;
+      vertical-align: top; }
+      .RadAutoCompleteBox_Material2 .racRemoveTokenLink .p-icon:before {
+        content: "\e14c";
+        line-height: 16px; }
+  .RadAutoCompleteBox_Material2 .racTextToken {
+    padding: 3px 2px;
+    margin-left: 5px; }
+    .RadAutoCompleteBox_Material2 .racTextToken + .racTextToken {
+      margin-left: 0; }
+  .RadAutoCompleteBox_Material2 .racHovered.racTokenList,
+  .RadAutoCompleteBox_Material2 .racFocused.racTokenList {
+    border-color: #CFD8DC;
+    color: #455A64;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.2); }
+    .RadAutoCompleteBox_Material2 .racHovered.racTokenList:before,
+    .RadAutoCompleteBox_Material2 .racFocused.racTokenList:before {
+      display: none; }
+  .RadAutoCompleteBox_Material2 .racFocused.racToken {
+    color: #ffffff;
+    background: #607D8B; }
+    .RadAutoCompleteBox_Material2 .racFocused.racToken .racRemoveTokenLink {
+      color: #607D8B;
+      background: #ffffff; }
+  .RadAutoCompleteBox_Material2 .racToken.racHovered {
+    color: #ffffff;
+    background: #607D8B; }
+    .RadAutoCompleteBox_Material2 .racToken.racHovered .racRemoveTokenLink {
+      color: #607D8B;
+      background: #ffffff; }
+      .RadAutoCompleteBox_Material2 .racToken.racHovered .racRemoveTokenLink.racHovered, .RadAutoCompleteBox_Material2 .racToken.racHovered .racRemoveTokenLink:hover {
+        color: #263238; }
+  .RadAutoCompleteBox_Material2 .racToken.racSelected {
+    color: #ffffff;
+    background: #607D8B; }
+    .RadAutoCompleteBox_Material2 .racToken.racSelected .racRemoveTokenLink {
+      color: #607D8B;
+      background: #ffffff; }
+  .RadAutoCompleteBox_Material2 .racDisabled.racTokenList {
+    color: #728f9d;
+    background: transparent;
+    box-shadow: none; }
+    .RadAutoCompleteBox_Material2 .racDisabled.racTokenList:before {
+      display: block;
+      border-color: #ECEFF1; }
+  .RadAutoCompleteBox_Material2 .racDisabled .racToken {
+    color: #455A64;
+    background: #CFD8DC; }
+  .RadAutoCompleteBox_Material2 .racInput {
+    padding: 3px; }
+  .RadAutoCompleteBox_Material2 .racToken + .racInput {
+    margin-left: -8px; }
+  .RadAutoCompleteBox_Material2 .racEmptyMessage {
+    font-style: normal; }
+  .RadAutoCompleteBox_Material2 .p-i-loading {
+    background-image: url('<%=WebResource("Telerik.Web.UI.Skins.Material2.Common.loading_small.gif")%>'); }
+  .RadAutoCompleteBox_Material2 .racLabel {
+    font-weight: 500;
+    font-size: 0.857em;
+    color: #607D8B; }
+
+.RadAutoCompleteBoxPopup_Material2 {
+  border-color: #CFD8DC;
+  color: #455A64;
+  background-color: #ffffff;
+  font-family: "Roboto", "Noto", sans-serif;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.2); }
+  .RadAutoCompleteBoxPopup_Material2 .racList {
+    padding: 8px 0; }
+  .RadAutoCompleteBoxPopup_Material2 .racItem {
+    padding: 6px 13px; }
+  .RadAutoCompleteBoxPopup_Material2 .racItemHovered {
+    color: #455A64;
+    background-color: #ECEFF1; }
+  .RadAutoCompleteBoxPopup_Material2 .racFocused {
+    box-shadow: inset 0 0 5px transparent; }
+  .RadAutoCompleteBoxPopup_Material2 .racItemSelected {
+    color: #03A9F4;
+    background-color: transparent; }

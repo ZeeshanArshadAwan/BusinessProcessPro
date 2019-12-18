@@ -1,0 +1,10 @@
+.RadTagCloud_Material2 {
+  border-color: #CFD8DC;
+  color: #455A64;
+  background-color: #f4f7f8; }
+  .RadTagCloud_Material2 .rtcTagItem a {
+    color: #455A64; }
+  .RadTagCloud_Material2 .rtcTagItem a:hover {
+    color: #03A9F4; }
+  .RadTagCloud_Material2.rtcLoading {
+    background-image: url('<%=WebResource("Telerik.Web.UI.Skins.Material2.Common.loading_small.gif")%>'); }

@@ -1,0 +1,377 @@
+<div class="background-img">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="card-title"><img src="./assets/images/ApplyApplications.png" class="titleImageClass">
+                    <label class="headertext"><b>{{FormName}}</b></label>
+                </h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="container panel pt-14" *ngIf="GlobalVariableService.applicationdetaildiv">
+        <div class="col-md-12 mb-2 ">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-4">
+                    <strong class="fontsize">Application No:</strong>
+                </div>
+                <div class="col-md-8">
+                    <span class="fontsize">
+                        {{GlobalVariableService.objApplicationInfo.ApplicationNo}}
+                    </span>
+                </div>
+                </div>
+                </div>
+               
+                <div class="col-md-6">
+             <div class="row">
+                 <div class="col-md-4">
+                    <span>
+                        <strong class="fontsize">Application
+                            Date:</strong>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                        <span class="fontsize">
+                            {{GlobalVariableService.objApplicationInfo.ApplicationDate|date :  "dd/MM/yyyy"}}
+                        </span>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- <strong>Service Type :</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {{GlobalVariableService.objApplicationInfo.ApplicationTypeEn}} -->
+
+                <div class="row">
+                    <div class="col-md-4">
+                    <strong class="fontsize">Service Type :</strong>
+                </div>
+                <div class="col-md-8">
+                    <span class="fontsize">
+                        {{GlobalVariableService.objApplicationInfo.ApplicationTypeEn}}
+                    </span>
+                </div>
+                </div>
+                </div>
+               
+                <div class="col-md-6 fontsize">
+                <div class="row">
+                    <div class="col-md-4">
+                    <span>
+                        <strong class="fontsize">Application
+                            Status:</strong>
+                       
+                    </span>
+                </div>
+                <div class="col-md-8">
+                
+                    <span class="">
+                        {{GlobalVariableService.objApplicationInfo.StatusNameEn}}
+                    </span>
+                </div>
+                </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                <div class="row">
+                 <div class="col-md-4">
+                    <!-- <strong>Emirates Id :</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{GlobalVariableService.objApplicationInfo.Applicant_Id}} -->
+                    <strong class="fontsize">Emirates Id: </strong>
+                </div>
+                <div class="col-md-8">
+                    <span class="fontsize">
+                        {{GlobalVariableService.objApplicationInfo.Applicant_Id}}
+                    </span>
+                </div>
+                </div>
+            </div>
+              
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-4">
+                    <span>
+                        <strong class="fontsize">Applicant
+                            Name:</strong>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <span class="fontsize">
+                        {{GlobalVariableService.objApplicationInfo.CREATED_BY}}
+                    </span>
+                </div>
+                </div>
+                </div>
+                <!-- <div class="col-md-4">
+                                 <strong>Application Status:</strong>&nbsp;&nbsp;&nbsp;&nbsp;Status 1
+                              </div> -->
+            </div>
+        </div>
+    </div>
+    <mat-card class="mat-elevation-z3 mlr-15 mt-3 ">
+        <mat-card-content>
+
+            <hr>
+            <!-- <mat-tab-group animationDuration="1ms" [(selectedIndex)]="selectedIndex"> -->
+            <mat-tab-group animationDuration="5ms">
+                <mat-tab >
+                    <ng-template mat-tab-label >
+                        <span (click) = "start()" class="sg-mat-txt" matTooltip="App Request" aria-label="">App Request</span>
+                    </ng-template>
+                    <mat-card-content>
+                        <form class="example-form">
+                            <app-load-dynamic-controll #LoadDynamicControll>
+                            </app-load-dynamic-controll>
+                        </form>
+                    </mat-card-content>
+                </mat-tab>
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <span (click)="saveData()" class="sg-mat-txt" matTooltip="App Files" aria-label="">
+                            Application Files</span>
+                    </ng-template>
+                    <div class="container-fluid margintop" *ngIf="GlobalVariableService.IsDocumentUpload">
+                        <div class="row margintop">
+                            <div class="col-md-offset-4 width ">
+                                <mat-form-field  class="d-block w-100">
+                                    <mat-label>Document Type</mat-label>
+                                    <mat-select placeholder="" matNativeControl [(ngModel)]="DoctypeId" required>
+                                        <!-- <mat-option selected="selected" value="-1">--Please Select--</mat-option> -->
+                                        <mat-option *ngFor="let p of ApplicationtypeDocuments"
+                                            [value]="p.DocumentTypeId">
+                                            {{p.DocumentNameEN}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="image-upload col-md-offset-4">
+                                <input class="background" name="imageUrl" type="file"
+                                    (change)="handleInputChange($event)" />
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="ctgrySaveButton mat-Primary pull-right mlr-15 mt-3" name="AddFile"
+                                (click)="adddocumentinlist()" mat-raised-button color="primary">Add File</button>
+                        </div>
+
+                        <!-- <div class="row margintop">
+                               
+                                <div class="col-md-10 ">
+                                    <div layout-margin layout-padding>
+                                        <input class="ng-hide" id="input-file-id" multiple type="file" />
+                                    <label for="input-file-id" class="md-button md-raised md-primary">Choose Files</label>
+                                       
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+    
+                                </div>
+                            </div> -->
+                        <!-- <div class="row">
+                                <div class="col-md-12 ml-15">
+                                    <button class="ctgrySaveButton mat-Primary  pull-right ml-15 mt-3 mr"
+                                        name="DownloadEnglishTemplate" mat-raised-button color="primary">
+                                      dfsdsf
+                                    </button>
+                                </div>
+                            </div> -->
+                        <!-- <div class="row">
+                                <div class="col-md-12 ml-15">
+                                    <ckeditor [(ngModel)]="downLoadEnglishTemplate" [config]="config" debounce="500">
+    
+                                    </ckeditor>
+                                </div>
+                            </div> -->
+
+                        <!-- <div class="row">
+                                <div class="col-md-10 mt-3">
+                                    <mat-form-field class="ml-15">
+                                        <mat-label>
+                                           bsdbf
+                                        </mat-label>
+                                        <mat-select>
+                                            <mat-option [value]=""> ---Select--- </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <span class="divider"></span>
+                                    <button class="ctgrySaveButton mat-Primary mlr-15 mt-3" name="AddVisit"
+                                        mat-raised-button color="primary">Update</button>
+    
+                                </div>
+                                 <div class="col-md-2">
+                                    <button class="ctgrySaveButton mat-Primary pull-right mlr-15 mt-3" name="AddVisit"
+                                        mat-raised-button color="primary">Add Arabic</button>
+                                </div>
+                            </div> -->
+
+                        <!-- <div class="row">
+                                <div class="col-md-12 ml-15 mt-3">
+                                    <ckeditor [(ngModel)]="downLoadArabicTemplate" [config]="config" debounce="500">
+                                    </ckeditor>
+                                </div>
+                            </div> -->
+                    </div>
+                    <div class="row margintop">
+                        <div class="col-md-12">
+
+                            <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 w-100">
+                                <!-- <ng-container matColumnDef="select">
+                                    <th mat-header-cell *matHeaderCellDef title="Select"> Select
+                                    </th>
+                                    <td mat-cell *matCellDef="let row ; let i = index;">
+                                        <mat-checkbox color="primary" (click)="$event.stopPropagation()"
+                                                    (change)="onSelect(row.LookUpTableValueId);"
+                                                    [checked]="selection.isSelected(row)">
+                                                </mat-checkbox>
+                                    </td>
+                                </ng-container> -->
+
+                                <ng-container matColumnDef="FileName">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header title="File Name">
+                                        File Name </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.FileName}} </td>
+                                </ng-container>
+                                <ng-container matColumnDef="Document Type Name">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header title="Document Type Name">
+                                        Document Type Name</th>
+                                    <td mat-cell *matCellDef="let element">
+                                        {{element.DocumentTypeName}}
+                                    </td>
+                                </ng-container>
+                                <ng-container matColumnDef="Document Extension">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header title="Document Extension">
+                                        Document Type Extension</th>
+                                    <td mat-cell *matCellDef="let element">
+                                        {{element.DocumentExtension}}
+                                    </td>
+                                </ng-container>
+
+
+                                <ng-container matColumnDef="action">
+                                    <th mat-header-cell *matHeaderCellDef title=" Action"> Action </th>
+                                    <td mat-cell *matCellDef="let element ; let i = index">
+                                        <!-- <img class="tableAction" (click)='selectData(element.ApplicationFileId)'
+                                            src="./assets/images/edit.png" /> -->
+                                            <a href="" (click) ="DownloadDocumet(element.ApplicationFileId)">Download Here</a>
+                                    </td>
+                                </ng-container>
+
+
+                                <tr mat-header-row *matHeaderRowDef="displayedColumnss"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumnss;"></tr>
+
+                            </table>
+                            <mat-paginator [pageSizeOptions]="[25,50,100,200]" showFirstLastButtons></mat-paginator>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab *ngIf="GlobalVariableService.applicationdetaildiv">
+                    <!-- <mat-tab *ngIf="visitStatus"> -->
+                    <ng-template mat-tab-label>
+                        <span class="sg-mat-txt" matTooltip="App History" aria-label="">Application History</span>
+                    </ng-template>
+                    <div class="container-fluid">
+                        <div class="row margintop">
+                            <div class="col-md-12">
+
+                                <table mat-table [dataSource]="AuditHistoryLst" matSort class="mat-elevation-z8 w-100">
+                                    <ng-container matColumnDef="User_FullName">
+                                        <th mat-header-cell *matHeaderCellDef mat-sort-header title="Decision Maker">
+                                            Decision Maker </th>
+                                        <td mat-cell *matCellDef="let element">
+                                            {{element.User_FullName}}
+                                        </td>
+                                    </ng-container>
+                                    <ng-container matColumnDef="AuditDateTime">
+                                        <th mat-header-cell *matHeaderCellDef mat-sort-header title="Date Time">
+                                            Date Time</th>
+                                        <td mat-cell *matCellDef="let element">
+                                            {{element.AuditDateTime|date :  "dd/MM/yyyy"}}
+                                        </td>
+                                    </ng-container>
+                                    <ng-container matColumnDef="StatusNameEn">
+                                        <th mat-header-cell *matHeaderCellDef mat-sort-header title="Current Status">
+                                            Current Status</th>
+                                        <td mat-cell *matCellDef="let element">
+                                            {{element.StatusNameEn}}
+                                        </td>
+                                    </ng-container>
+                                    <ng-container matColumnDef="action">
+                                        <th mat-header-cell *matHeaderCellDef title=" Action"> Action </th>
+                                        <td mat-cell *matCellDef="let element ; let i = index">
+                                            <img class="tableAction" (click)='selectApp(i)'
+                                                src="./assets/images/edit.png" />
+                                        </td>
+                                    </ng-container>
+                                    <tr mat-header-row *matHeaderRowDef="AuditHistoryColumns"></tr>
+                                    <tr mat-row *matRowDef="let row; columns: AuditHistoryColumns;"></tr>
+
+                                </table>
+                                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </mat-tab>
+
+
+
+            </mat-tab-group>
+        </mat-card-content>
+
+    </mat-card>
+
+</div>
+
+<mat-card class="mat-elevation-z3 mlr-15 mt-3">
+    <mat-card-content>
+        <div class="container">
+<div class="row mt-3">
+        <div class=""   *ngIf="GlobalVariableService.AssignedApplication && !GlobalVariableService.isAllapplication">
+        <mat-radio-group [(ngModel)]="selection"  *ngFor="let p of statusforradiobotton">
+            <mat-radio-button value={{p.StatusId}} (change)="onItemChange(p.StatusId,p.lblStatusEn)" >
+                {{p.lblStatusEn}} </mat-radio-button>
+        </mat-radio-group>
+    </div>
+</div>
+        <div class="row mt-5 mlr-15">
+            <div class="col-md-1">
+                    {{Remarksforaaprovalorrejection}}
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class='w-95' >
+                    <textarea matInput placeholder="Remarks" [(ngModel)]="Remarks"></textarea>
+                </mat-form-field>
+
+            </div>
+            <div class="col-md-4" *ngIf="GlobalVariableService.IsTemplateDownLoad">
+                <button color="primary" class="downloadtemplate" mat-raised-button name='asdasdad'
+                    (click)="DownloadTempalte()">Download Form</button>
+            </div>
+        </div>
+       
+        <div class="row margintop">
+            <div class="col-md-12">
+                <button color="primary" class="ctgrySaveButton" mat-raised-button name='Submit'
+                    (click)="CreateApplication()" matTooltip="Submit"> Submit
+                </button>
+                <span class="divider"></span>
+            </div>
+
+        </div>
+        <mat-checkbox name="Print Report" color="primary" *ngIf="GlobalVariableService.bDisplayControls">
+            Print report
+
+        </mat-checkbox>
+
+    </div>
+    </mat-card-content>
+</mat-card>

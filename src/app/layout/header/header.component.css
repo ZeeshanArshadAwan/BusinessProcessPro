@@ -1,0 +1,69 @@
+.topNav {
+    background-color: #fff;
+    padding-top:5px;
+    padding-bottom: 5px;
+}
+
+.topNav .container {
+    margin: 0;
+    width: 100%;
+}
+
+/* .topNav .leftCol {
+    
+} */
+
+.topNav .rightCol {
+    text-align: right;
+}
+
+.topNav .logo {
+    width: 160px;
+    padding-top: 7px;
+}
+
+.topNav .saitlogo {
+    width: 120px;
+    float: right;
+    margin-top: 10px;
+}
+
+.topNav .userInfo {
+    float: right;
+    margin-right: 15px;
+}
+
+.topNav .userInfo img {
+    width: 60px;
+}
+
+.topNav .userInfo p {
+    float: right;
+    text-align: left;
+    padding-left: 15px;
+    padding-top: 10px;
+}
+
+.topNav .icon {
+    cursor: pointer
+}
+
+.topNav .iconDiv {
+    float: right;
+}
+
+.topNav .iconsBundle {
+    float: right;
+    margin-top: 15px;
+}
+
+.topNav .saitLogoLink {
+    float: right;
+}
+
+.topNav .langIcon,
+.topNav .notifiIcon,
+.topNav .powerIcon {
+    margin-right: 15px;
+    float: right;
+}

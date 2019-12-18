@@ -1,0 +1,2113 @@
+﻿html {
+   -ms-overflow-style: scrollbar;
+   -ms-overflow-x:hidden;
+}
+
+body {
+}
+
+
+input {
+    outline:none !important;
+}
+
+.SVlabel {
+display: block;
+    margin-bottom: 3px;
+    margin-top: 10px;
+    font-family: 'Open sans', "JF Flat Regular", Tahoma ;
+    font-weight: 600;
+}
+h3 .SVlabel {
+margin-bottom: 0px;
+margin-top: 0px;
+font-weight:normal;
+font-size:18px !important;
+
+}
+
+.dipblock {
+    display:block !important;
+    width:100% !important;
+}
+
+
+.form-control {
+    width:100% !important;
+}
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    color: #fff;
+    background-color: #3a5080;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: left;
+    vertical-align: middle;
+    cursor: pointer;
+  
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 7px 12px;
+    font-size: 18px;
+    line-height: 1.42857;
+    border-radius: 2px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-top: 10px;
+    margin-right: 5px;
+
+    transition: all 0.17s ease-in-out;
+    -moz-transition: all 0.17s ease-in-out;
+    -webkit-transition: all 0.17s ease-in-out;
+    -o-transition: all 0.17s ease-in-out;
+    min-width: 100px;
+    border-left: 8px Solid #233e78;
+    border-radius: 4px;
+        background-repeat: no-repeat !important;
+ 
+
+}
+
+
+
+
+button:hover, html input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover {
+    /*background-color: #04365b;*/
+    opacity:.9;
+
+    color:#fff;
+
+}
+
+
+
+.ButtonArrow {
+
+    background-image: url(img/bt_icon_arrow-r.png);
+    background-position:center right 8px;
+    padding-right: 30px !important;
+        background-size: 11px;
+}
+
+.ButtonArrowGreen{
+    background-image: url(img/bt_icon_arrow-r.png);
+    background-position: center right 8px;
+    padding-right: 30px !important;
+    background-size: 11px;
+    background-color: #0ac261 !important;
+    border-left: 8px Solid #00a349 !important;
+}
+
+.ButtonAdd {
+
+background-image: url(img/bt_icon_plus.png);
+    background-position: center left 8px;
+    padding-left: 38px !important;
+}
+
+
+.Buttonsignin 
+{
+    background-color:Green !important;
+    background-image: url(img/bt_icon_signin.png) !important;
+    background-position: center left 8px;
+    padding-left: 38px !important;
+}
+
+.Buttonsignout
+    {
+         background-color:red !important;
+    background-image: url(img/bt_icon_signout.png) !important;
+    background-position: center left 8px;
+    padding-left: 38px !important;
+    }
+    
+    
+    
+.ButtonRetieve {
+
+    background-image: url(img/IconRetrive.png);
+    background-position:center left 8px;
+    padding-left: 35px !important;
+}
+.ButtonSearch {
+
+    background-image: url(img/bt_icon_search.png);
+    background-position:center left 8px;
+    padding-left: 35px !important;
+    background-color:#6a7c96 !important;
+    border-left-color: #486082 !important;
+}
+
+
+
+.Bt-Delete {
+    background-color: #383838 !important;
+}
+.Bt-Clear {
+    background-color: #999 !important;
+}
+
+
+
+
+.RequiredFieldValidator {
+    position: absolute;
+margin-top: -24px;
+right: 51px;
+color: lightcoral;
+}
+
+/*
+.file-input-wrapper {
+overflow: hidden;
+position: relative;
+cursor: pointer;
+z-index: 1;
+}
+
+
+input[type="file"] {
+    position: absolute;
+top: 0;
+left: 0;
+cursor: pointer;
+opacity: 0;
+filter: alpha(opacity=0);
+z-index: 99;
+outline: 0;
+display: block;
+}
+
+.Svupload-wrap {
+    display:block;
+}
+
+.RadUpload {
+    
+}
+
+.RadUpload .ruInputs li {
+padding: 5px 0px !important;
+}
+
+.RadUpload .ruBrowse {
+background: #04365b !important;
+height: inherit !important;
+margin: 0px;
+padding: 7px 16px !important;
+line-height: 23px;
+width: inherit !important;
+display: inline-block;
+outline:none !important;
+background:#333 !important;
+}
+.RadUpload .ruFileWrap {
+
+height: initial !important;
+}
+.RadUpload .ruFakeInput {
+    display:none;
+}
+
+.ruRemove {
+margin: 0px 15px !important;
+padding: 0px 10px 0px 15px !important;
+background-image: url(img/close-round.png) !important;
+color: #ff4c57 !important;
+background-color:transparent !important;
+background-position: 0px 0px !important;
+border:none 0px !important;
+width: inherit !important;
+height: inherit !important;
+font-size: 14px !important;
+margin-top: 1px !important;
+}
+.RadUpload .ruRemove:hover {
+   border:none 0px !important;
+}
+
+input:hover {
+    outline:none !important;
+}
+
+.ruFileWrap ruStyled {
+}
+
+
+.RadUpload .ruButton {
+
+}
+
+
+    .RadUpload .ruStyled .ruFileInput {
+            height:20px !important;
+    }
+
+.RadUpload .ruUploadSuccess, .RadUpload .ruUploadFailure, .RadUpload .ruUploadCancelled {
+    padding-left:20px !important;
+    background-position: 0px 5px!important;
+    
+}
+.RadUpload .ruUploadSuccess {
+
+background-image: url(img/success.png) !important;
+}
+
+.RadUpload .ruUploadFailure {
+
+background-image: url(img/failure.png) !important;
+}
+
+.RadUpload .ruUploadCancelled {
+
+background-image: url(img/Cancel.png) !important;
+}
+
+*/
+
+
+.RadUpload .ruButton
+{
+font-size: inherit !important;
+    margin: 5px 0px 0px 0px;
+    padding: 0px;
+    text-align: center !important;
+    min-width: 65px;
+}
+
+.gridview {
+      /*margin-top:15px;*/
+      width:100% !important;
+}
+.gridview th {
+font-weight: 600;
+}
+.gridview th a{
+       
+}
+.gridview th a:hover{
+        
+}
+.gridview td  {
+        
+       
+        position:relative;
+}
+.gridview tr.even td {
+        
+       
+}
+.gridview td a{
+       
+        font: bold small "arial";
+        padding: 2px;
+        text-decoration: none;
+}
+.gridview td a:hover {
+        color: #04365b;
+        font-weight: bold;
+        text-decoration:underline;     
+}
+
+.gridview input[type="text"] {
+        padding: 7px 9px !important;
+border-radius: 0px;
+height: initial;
+background: #fefefe;
+border-color: #ccc;
+
+    }
+
+.gridview .SvCalendar {
+    width:130px !important;
+}
+
+
+
+
+.gridview .RowStyle{
+   
+
+}
+.gridview .AltRowStyle {
+    border-bottom: 1px solid #ccc;
+    background:#f9f9f9;
+}
+
+
+
+.gridview .mandatory {
+    position: absolute;
+    right: 0px;
+    margin-top: -28px;
+    color: #999;
+    font-size: 12px;
+}
+
+
+
+.RadComboBox_Default .rcbFocused .rcbInputCellLeft
+{
+   
+}
+.RadComboBox table td.rcbInputCell
+{
+     background: transparent !important;
+    
+}
+
+.RadComboBox_Default .rcbInputCell, .RadComboBox_Default .rcbArrowCell
+{
+     background:#fff !important;
+
+}
+
+div.RadComboBoxDropDown_Hay .rcbHovered
+{
+    background:#eee !important;
+
+    border: 1px solid #666 !important;
+    color: #333 !important;
+}
+
+.rcbReadOnly
+{
+    background:#fff;
+}
+
+.RadComboBox .rcbArrowCell a {
+background: url(../../assets/img/radcomboarrow.png) no-repeat;
+width: 20px;
+height: 9px !important;
+
+}
+
+
+.RadComboBox_Hay .rcbInputCellLeft, .RadComboBox_Hay .rcbInputCellRight, .RadComboBox_Hay .rcbArrowCellLeft, .RadComboBox_Hay .rcbArrowCellRight
+{
+    background:transparent !important;
+}
+
+.RadComboBox input[type="checkbox"]  {
+    display:block !important;
+}
+
+.gridview .RadComboBox select {
+margin-bottom: inherit !important;
+height: 35px !important;
+padding: 6px 15px 6px 10px !important;
+border-radius: 0px !important;
+border-color: #ccc;
+margin-top: 0px;
+}
+
+.RadComboBox select [disabled], .RadComboBox select:disabled {
+  cursor: not-allowed;
+  background-color: #eeeeee !important;
+  opacity: 1;
+}
+  
+
+
+.gridview .SVlabel {
+    margin-top:0px;
+    margin-bottom: 0px;
+    font-size:14px;
+      
+}
+.PagerStyle span{
+text-align: center;
+width: 20px;
+height: 20px;
+display: inline-block;
+border-radius: 100%;
+background-color: #04365b;
+color: #fff;
+margin: 0px 5px 0px 0px;
+padding: 0px;
+font-weight:300 !important;
+}
+.PagerStyle a:hover, .PagerStyle span:hover {
+    
+    text-decoration:none !important;
+    font-weight:300 !important;
+}
+.PagerStyle a {
+text-align: center;
+width: 20px;
+height: 20px;
+display: inline-block;
+border-radius: 100%;
+/* background-color: #666; */
+color: #888;
+margin: 0px 5px 0px 0px;
+padding: 0px;
+font-weight: 300 !important;
+text-decoration: none !important;
+border: 1px solid #ddd;
+}
+
+
+.RadDock {
+    outline:none !important;
+}
+.RadDock .rdTable {
+   
+}
+.RadDockZone {
+
+padding:0px !important;
+}
+.RadDockZone, .RadDockZone * {
+box-sizing:inherit !important; 
+-moz-box-sizing: inherit !important;
+}
+
+.RadDock_Default .rdTop .rdLeft, .RadDock_Default .rdTop .rdRight, .RadDock_Default .rdTop .rdCenter, .RadDock_Default .rdBottom .rdLeft, .RadDock_Default .rdBottom .rdRight, .RadDock_Default .rdBottom .rdCenter {
+    background-image:none !important;
+}
+.rdTop {
+    background-color:#04365b;
+}
+.rdTitleBar {
+    background-color:#04365b;
+}
+.rdTitleBar em {
+    color:#fff !important;
+}
+.RadDock .rdTop td.rdRoundedCorner.rdLeft, .rdRight {
+display: inherit !important;
+}
+.RadDockZone_Default {
+border-color: #eee !important;
+}
+.RadDock_Default .rdTitleBar em {
+display: inline-block !important;
+padding: 0px 13px !important;
+}
+
+
+
+.rdClose {
+     background-image:url(../img/rdClose.png) !important;
+     background-repeat:no-repeat !important;
+      background-position:0px 3px !important;
+
+}
+.rdCollapse {
+    background-image:url(../img/rdcollapse.png) !important;
+     background-repeat:no-repeat !important;
+      background-position:0px 6px !important;
+}
+.rdExpand {
+    background-image:url(../img/rdExpand.png) !important;
+     background-repeat:no-repeat !important;
+      background-position:0px 6px !important;
+}
+
+
+
+/*.RadDock .rdContent {
+ font-family:'Open Sans' !important; 
+ font-size:14px !important;
+ font-weight:normal !important;
+
+}*/
+
+
+
+.rdContent .table-striped > tbody > tr:nth-child(odd) > td, .rdContent .table-striped > tbody > tr:nth-child(odd) > th {
+background-color: #fff;
+}
+
+
+.homeButton   {
+       
+    }
+
+.homeButton a.rmLink, .homeButton .rmHorizontal {
+     background-color: transparent !important;
+     color: #333 !important;
+}
+
+.errol-lbl {
+    display: block;
+   background-color: lavenderblush !important;
+    color: #f71d50;
+    border:1px solid #f71d50;
+    padding: 8px 10px;
+    margin: 10px 0px;
+}
+.success-lbl {
+display: block;
+background-color: lightgreen;
+color: #0b8a4a;
+border: 1px solid #0b8a4a;
+padding: 8px 10px;
+margin: 10px 0px;
+}
+
+.info-lbl {
+   display: block;
+background-color: lemonchiffon;
+color: darkgoldenrod;
+border: 1px solid darkgoldenrod;
+padding: 8px 10px;
+margin: 10px 0px;
+}
+
+
+
+
+
+
+
+/*============Telerik Tab===========*/
+.SvTelTab {
+    margin: 10px 0px !important;
+}
+
+.SvTelTab .rtsLevel .rtsLink, .SvTelTab .rtsLevel .rtsOut, .SvTelTab .rtsLevel .rtsLink, .SvTelTab .rtsLevel .rtsOut, .RadTabStripToSvTelTab .rtsLevel, .SvTelTab .rtsLevel {
+    background-image:none !important;
+    background-position: 0px !important;
+    background-color:#333;
+    color:#fff;
+}
+.SvTelTab .rtsLI .rtsSelected {
+background-color:#04365b !important;
+}
+
+
+.SvTelTab .rtsSelected .rtsOut {
+background-color:#04365b !important;
+}
+
+
+.SvTelTab .rtsUL, .SvTelTab .rtsUL {
+border-radius: 6px 8px 0px 0px;
+ border-left: 1px solid #eee;
+}
+
+     .SvTelTab .rtsLI {
+       border: 1px solid #eee;
+    border-left: 0px;
+
+    }
+
+    .SvTelTab .rtsLevel .rtsLink {
+background: #fff;
+font-size: 13px;
+}
+    .SvTelTab .rtsLevel .rtsOut {
+        background:#fff;
+        color:#444;
+    }
+    .SvTelTab .rtsLI .rtsSelected .rtsTxt {
+        color:#fff !important;
+    }
+
+@media (max-width: 768px) {
+    .SvTelTab .rtsLI {
+        width: 50%;
+    }
+    .SvTelTab .rtsUL, .SvTelTab .rtsUL {
+border-radius:0px 0px;
+}
+
+}
+
+@media (max-width: 480px) {
+    .SvTelTab .rtsLI {
+        width: 100%;
+
+    }
+    .SvCalendar {
+        position:relative;
+    }
+  .RadCalendarFastNavPopup {
+        left:30px !important;
+    }
+
+ 
+}
+
+
+
+
+
+
+/*============black Telerik Tab===========*/
+.Svpanel .SvTelTab  {
+margin:0px 0px !important;
+}
+
+.Svpanel .SvTelTab .rtsLI .rtsSelected {
+background-color:#383838 !important;
+}
+
+
+.Svpanel .SvTelTab .rtsSelected .rtsOut {
+background-color:#383838 !important;
+}
+
+/*============grey inner Telerik Tab===========*/
+
+
+.Svpanel .Svpanel .SvTelTab .rtsLI .rtsSelected {
+background-color:#999 !important;
+}
+
+
+.Svpanel .Svpanel .SvTelTab .rtsSelected .rtsOut {
+background-color:#999 !important;
+}
+
+
+ /*.SvTelTab .rtsLink, .SvTelTab .rtsLI .rtsDisabled:hover {
+        background-color:darkslategrey !important;
+    }
+
+        .SvTelTab .rtsLink:hover {
+            background-color:darkslategrey !important;
+        }
+
+    .SvTelTab .rtsSelected, .SvTelTab .rtsSelected:hover {
+        background-color:darkslategrey !important;
+    }*/
+
+
+/*.SvCalendar a.rcCalPopup {
+     
+    background: lightseagreen;
+    background-image:none !important;
+display: block;
+padding: 6px;
+margin-left: -4px;
+
+}
+
+.SvCalendar a.rcCalPopup:hover, .SvCalendar a.rcCalPopup:focus, .SvCalendar a.rcCalPopup:active {
+
+    background: lightseagreen;
+    background-image:none !important;
+display: block;
+padding: 6px;
+margin-left: -4px;
+
+}*/
+
+
+.upg {
+    position: absolute;
+right: 0px;
+top: 30%;
+width: 100%;
+height: 100%;
+text-align: center;
+background: url(../../assets/img/transs-bg-white.png);
+z-index:888;
+display:block;
+}
+.upg img {
+
+}
+.CaptchaDiv .upg {
+    position: static;
+
+}
+
+#header, #foooter {
+    z-index:99999;
+}
+
+
+.horz-btn {
+    margin-top: 33px !important;
+}
+@media (max-width: 960px) {
+.horz-btn {
+        margin-top:10px !important;
+    }
+}
+
+
+
+
+.ui-TelericRadEditor {
+    width:100% !important;
+    border:1px solid #eee !important;
+}
+
+.ui-TelericRadEditor .Default.reToolbar .reGrip, .ui-TelericRadEditor  .Default .reToolbar li {
+    background-image:none !important;
+    color:#666;
+}
+.ui-TelericRadEditor .reToolCell {
+    
+}
+
+.ui-TelericRadEditor .reContentCell{
+    background:#fff;
+    border-color:#ccc !important;
+}
+
+.ui-TelericRadEditor .reToolbar {
+   background: lightgrey;
+border: 1px solid #eee;
+border-radius: 0px 6px 0px 0px;
+}
+
+.ui-TelericRadEditor .reModule {
+    height:inherit !important;
+    border-color:#eee !important;
+}
+
+.SVNumericUpDownExtender div {
+    padding-right: 0px !important;
+    font-size:inherit !important;
+}
+.SVNumericUpDownExtender div table td {
+    width:100%;
+
+}
+
+.SVNumericUpDownExtender div table tr td input[type="button"] {
+padding: 0px;
+font-size: 16px !important;
+margin: 0px;
+border: none 0px !important;
+height: 16px !important;
+border-radius: 3px;
+margin-left: 5px;
+color: #999;
+background: #fff;
+min-width: 24px !important;
+margin-top: -4px;
+}
+
+.riSingle {
+    width:100% !important;
+}
+.RadNumericTextBox {
+    display: block;
+width: 100% !important;
+height: 34px !important;
+padding: 6px 12px !important;
+font-size: 14px !important;
+line-height: 1.42857 !important;
+color: #767676 !important;
+background-color: white;
+background-image: none;
+border: 1px solid #aaa !important;
+border-radius: 5px !important;
+-webkit-border-radius: 5px !important;
+-moz-border-radius: 5px !important;
+outline: none !important;
+-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+
+
+
+
+.modalBackground
+    {
+       background-image: url(/html5/app_themes/default/img/popupbg.png);
+
+             background-size: cover;
+
+                animation-name: fadeIn;
+    -webkit-animation-name: fadeIn;
+    animation-duration: .2s;
+    -webkit-animation-duration: .2s;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+    /*visibility: visible!important;*/
+    opacity:.9;
+
+
+            
+    }
+
+.modalPopup input[type="button"], .modalPopup input[type="reset"], .modalPopup input[type="submit"] {
+    font-size: 13px;
+padding: 3px 10px;
+min-width: inherit;
+font-weight:normal;
+}
+       .modalPopup {
+/*background-color: #FFFFFF;*/
+width: 100%;
+border-radius: 0px;
+padding: 0;
+position:fixed !important;
+left:50%;
+margin-left:-175px;
+top:100%;
+
+                animation-name: fadeIn;
+    -webkit-animation-name: fadeIn;
+    animation-duration: .2s;
+    -webkit-animation-duration: .2s;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-timing-function: ease-in-out;
+    visibility: visible!important;
+
+
+}
+
+@media (max-width: 768px) {
+    .modalPopup {
+        width: 480px;
+         margin-top: 25px;
+    }
+}
+@media (max-width: 480px) {
+    .modalPopup {
+        width: 300px;
+    }
+}
+
+
+
+        .modalPopup .header
+        {background-color: #3bb66b;
+    height: 38px;
+    color: White;
+    line-height: 36px;
+    text-align: center;
+    font-weight: normal;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-top: 0px none;
+    padding: 0px 10px;
+    font-size: 18px;
+        }
+.modalPopup .body {
+min-height: 50px;
+line-height: 30px;
+text-align: left;
+font-weight: normal;
+padding: 8px 20px;
+}
+
+        .modalPopup .footer {
+        padding: 6px !important;
+        border-bottom: 0px none;
+        text-align:right;
+        padding-bottom: 15px !important;
+        }
+        .modalPopup .yes, .modalPopup .no
+        {
+            height: 23px;
+            color: White;
+            line-height: 23px;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .modalPopup .yes
+        {
+            background-color: #04365b;
+            border: 1px solid #eee;
+        }
+        .modalPopup .no
+        {
+            background-color: #9F9F9F;
+            border: 1px solid #5C5C5C;
+        }
+
+.modalPopup .header .close {
+    position: absolute;
+top: 5px;
+right: 7px;
+color: #fff;
+font-weight: 300;
+font-size: 18px;
+opacity:.8;
+}
+.modalPopup .header .close:hover {
+opacity:1;
+}
+
+
+.modalPopup .header .SVlabel {
+margin: 0px;
+padding: 0px;
+display: inherit !important;
+font-weight: normal;
+}
+
+.modalPopup .body .SVlabel {
+    font-weight:normal;
+}
+.modalPopup .SVlabel {
+    font-weight: normal;
+}
+.modalPopup td {
+    font-weight: normal;
+    padding:5px !important;
+}
+.modalPopup th {
+   
+    padding:5px !important;
+}
+
+
+.RadcomboChkbox input[type="text"]
+{
+    padding: 7px 9px !important;
+     border:1px solid #ccc;
+}
+
+
+
+
+
+.SvAjaxTabStyle .ajax__tab_header
+        {
+             font-family: 'Open sans', "JF Flat Regular", Tahoma  !important ;
+            font-size: 14px;
+            font-weight:bold;
+            display: block;
+            border-bottom: 1px solid #ccc;
+
+        }
+        .SvAjaxTabStyle .ajax__tab_header .ajax__tab_outer
+        {
+            padding-left: 10px;
+margin-right: 3px;
+border: solid 1px #ccc;
+border-bottom: 0px;
+ border-radius: 5px 5px 0px 0px;
+ cursor:pointer;
+        }
+        .SvAjaxTabStyle .ajax__tab_header .ajax__tab_inner
+        {
+            border-color: #666;
+            color: #666;
+            padding: 3px 10px 2px 0px;
+        }
+        .SvAjaxTabStyle .ajax__tab_hover .ajax__tab_outer
+        {
+            background-color:#1dc499;
+        }
+        .SvAjaxTabStyle .ajax__tab_hover .ajax__tab_inner
+        {
+            color: #fff;
+        }
+        .SvAjaxTabStyle .ajax__tab_active .ajax__tab_outer
+        {
+            border-bottom-color: #ffffff;
+              background-color: #1dc499;
+              border-radius: 5px 5px 0px 0px;
+
+        }
+        .SvAjaxTabStyle .ajax__tab_active .ajax__tab_inner
+        {
+            color: #000;
+            border-color: #333;
+        }
+        .SvAjaxTabStyle .ajax__tab_body
+        {
+          
+            line-height:22px;
+            font-family: 'Open sans', "JF Flat Regular", Tahoma  !important ;
+            background-color: #fff;
+            border-top-width: 0;
+            border: solid 1px #ccc;
+            border-top-color: #ffffff;
+        }
+        .SvAjaxTabStyle .ajax__tab_body p
+        {
+          
+            line-height: 22px;
+            font-size: 13px;
+    
+        }
+        .SvAjaxTabStyle .ajax__tab_tab {
+           outline:none !important;
+           font-weight: normal;
+           padding: 5px 0px 0px 0px;
+        }
+
+
+        .ajax__tab_active .ajax__tab_tab  {
+            color:#fff;
+            
+        }
+
+        .SvAjaxTabStyle .ajax__tab_hover .ajax__tab_outer .ajax__tab_tab 
+        {
+           
+             color:#fff;
+        }
+
+
+        .SvAjaxTabStyle .ajax__tab_panel {
+            padding:20px;
+        }
+
+
+
+
+.ui-select-asp
+{
+padding: 6px 10px;
+width: 100%;
+border-radius: 5px;
+border-color: #ccc;
+}
+
+
+
+.SVRadGrid_Default {
+    border: 1px solid #eee;
+padding: 15px;
+
+}
+.SVRadGrid_Default .form-control {
+width:200px !important;
+display:inline;
+}
+.SVRadGrid_Default .btn {
+  margin-top: 0px;
+background: #333 url(../../assets/img/funnel.png) no-repeat center center !important;
+min-width: 39px !important;
+
+}
+
+.SVRadGrid_Default .rgRow td {
+    padding: 9px !important;
+/* background: #eee; */
+cursor: pointer;
+color: crimson;
+background: #fff;
+
+}
+.SVRadGrid_Default .rgAltRow td {
+    padding: 9px !important;
+/* background: #eee; */
+cursor: pointer;
+color: #333;
+background: #fff;
+
+}
+
+
+
+
+
+
+
+.SvCalendar {
+    width: 100% !Important;
+    display: block !important;
+}
+
+    .SvCalendar .riSingle .riTextBox[type="text"] {
+        display: block;
+        width: 100%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857;
+        color: #767676;
+        background-color: white;
+        background-image: none;
+        border: 1px solid #aaa;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        outline: none !important;
+        -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+        transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    }
+
+
+.SvCalendar .rcCalPopup, .SvCalendar .rcTimePopup {
+    background: url(../../SvAssets/images/calendar.png) center center no-repeat !important;
+    padding: 5px;
+    margin-left: 2px;
+    opacity: .8;
+    width: 38px;
+    height: 38px;
+        text-indent: -99999px;
+    /* float: left; */
+    display: inline-block;
+}
+
+.RadCalendarPopup {
+        background: #fff;
+    padding: 10px;
+    border: 2px dashed #eee;
+
+     animation-name: fadeInQuick;
+    -webkit-animation-name: fadeInQuick;
+    animation-duration: .5s;
+    -webkit-animation-duration: .5s;
+    animation-timing-function: ease-out;
+    -webkit-animation-timing-function: ease-out;
+    visibility: visible!important;
+}
+.RadCalendarPopup table {
+     width:100%;
+}
+
+.RadCalendarFastNavPopup{
+
+            background: #fff;
+    padding: 20px;
+    border: 1px solid #ccc !important;
+    width: 300px;
+}
+
+.RadCalendarPopup th, .RadCalendarPopup td{
+    padding:5px 5px;
+    text-align:center;
+
+}
+.rcTitlebar td{
+        border: 0px none !important;
+
+}
+
+.RadCalendarPopup td{
+        border: 1px solid #eee;
+}
+.rcTitlebar{
+        background: #1abc9c;
+            color: #fff;
+}
+
+.rcMainTable a:hover{
+
+     color: #1abc9c;
+     text-decoration:none;
+}
+
+.rcFastPrev{
+        color: #1abc9c;
+    text-align: center;
+}
+
+.rcFastPrev:after{
+          color: #fff;
+         display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f100";
+        font-size: 25px;
+    
+}
+.rcOtherMonth a{
+    color:#888;
+}
+
+.rcPrev{
+        color: #1abc9c;
+    text-align: center;
+    
+}
+
+
+.rcPrev:after{
+         color: #fff;
+         display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f104";
+        font-size: 25px;
+    
+}
+.rcNext {
+        color: #1abc9c;
+    text-align: center;
+}
+.rcNext:after{
+     color: #fff;
+         display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f105";
+        font-size: 25px;
+}
+
+.rcFastNext{
+        color: #1abc9c;
+    text-align: center;
+    
+}
+
+.rcFastNext:after{
+          color: #fff;
+         display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f101";
+        font-size: 25px;
+    
+}
+
+.rcFastNext:hover, .rcNext:hover, .rcPrev:hover, .rcFastPrev:hover, .rcFastNext:focus, .rcNext:focus, .rcPrev:focus, .rcFastPrev:focus{
+    color: #1abc9c;
+    text-decoration:none;
+}
+
+#rcMView_PrevY a {
+              color: #fff;
+        
+}
+#rcMView_PrevY a:after{
+              color:#1abc9c;
+         display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f100";
+        font-size: 25px;
+}
+
+#rcMView_NextY a {
+              color: #fff;
+        
+}
+#rcMView_NextY a:after{
+              color:#1abc9c;
+         display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f101";
+        font-size: 25px;
+}
+
+
+ /*.RadCalendarFastNavPopup{
+
+
+ }*/
+
+ .RadCalendarMonthView td {
+    border: 1px solid;
+    border-color: #e6f5fc;
+ padding: 10px;
+    text-align: center;
+        width: 65px;
+ }
+
+
+.rcShadTR{
+
+    height:inherit !important;
+}
+
+
+
+
+
+.myCalendar td {
+    border: 1px solid;
+    border-color: #e6f5fc;
+    
+}
+
+ .myCalendar {  
+    background-color: #fff;  
+    /*width: 156px;  
+    border:10px solid #4CCAEF !important;*/
+    border-top:0px !important;}  
+    .myCalendar a {  
+    text-decoration: none;  }  
+.myCalendar .myCalendarTitle {  
+    font-weight: bold;  
+    height:40px;line-height:40px;
+    background-color:#4CCAEF;
+    color:#ffffff;
+}  
+.myCalendar th.myCalendarDayHeader  
+{
+    height: 38px;
+font-weight: 600;
+text-align: center;
+border: 1px solid #eee;
+    /*border-bottom: outset 2px #e6f5fc; 
+    border-right: outset 2px #e6f5fc;*/ 
+}
+.myCalendar td.myCalendarDay {  
+    
+    
+}  
+  .myCalendar td.myCalendarDay:nth-child(7) a{color:#c52e2e !important;}
+.myCalendar .myCalendarNextPrev {  
+    text-align: center;  
+}
+
+
+
+.myCalendar .myCalendarNextPrev a  {font-size:1px;}
+.myCalendar .myCalendarNextPrev:nth-child(1) a{color:#4CCAEF!important;background:url("../../assets/img/prevMonth.png") no-repeat center center;}
+.myCalendar .myCalendarNextPrev:nth-child(1) a:hover,.myCalendar .myCalendarNextPrev:nth-child(3) a:hover{background-color:transparent;}
+.myCalendar .myCalendarNextPrev:nth-child(3) a{color:#4CCAEF!important;background:url("../../assets/img/nextMonth.png") no-repeat center center;}
+.myCalendar td.myCalendarSelector a {  
+    background-color: #25bae5;  
+}  
+
+.myCalendar .myCalendarDayHeader a,
+.myCalendar .myCalendarDay a,   
+.myCalendar .myCalendarSelector a,  
+.myCalendar .myCalendarNextPrev a {  
+    display: block;  
+    line-height: 20px;  
+    padding:15px;
+}  
+.myCalendar .myCalendarToday{  background-color: #4CCAEF; -webkit-box-shadow: 0 0 7px 3px #e5e5e5;
+box-shadow: 0 0 7px 3px #e5e5e5; color:#fff;}
+.myCalendar .myCalendarToday a{color:#fff !important;}
+.myCalendar .myCalendarDay a:hover,   
+.myCalendar .myCalendarSelector a:hover {  
+    background-color: #25bae5;  
+    color:#fff !important;
+}
+
+
+
+
+.SvWizard {
+    width:100%;
+    margin-top: 0px;
+
+    /*border:1px solid #eee;*/
+}
+
+
+
+#wizHeader li .prevStep {
+    background-color: #fff;
+}
+
+    #wizHeader li .prevStep:after {
+        border-left-color: #fff !important;
+    }
+
+#wizHeader li .currentStep {
+    background-color: #04365b;
+    color:#fff;
+}
+
+    #wizHeader li .currentStep:after {
+        border-left-color: #04365b !important;
+    }
+
+#wizHeader li .nextStep {
+    background-color: #fff;
+}
+
+    #wizHeader li .nextStep:after {
+        border-left-color: #fff !important;
+    }
+
+#wizHeader {
+list-style: none;
+overflow: hidden;
+font: 18px Helvetica, Arial, Sans-Serif;
+margin: 0px;
+padding: 0px;
+margin-top: 0px;
+}
+
+    #wizHeader li {
+        float: left;
+    }
+
+        #wizHeader li a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 0 10px 55px;
+            background: brown; /* fallback color */
+            background: hsla(34,85%,35%,1);
+            position: relative;
+            display: block;
+            float: left;
+            font-size: 13px;
+        }
+
+            #wizHeader li a:after {
+                content: " ";
+                display: block;
+                width: 0;
+                height: 0;
+                border-top: 50px solid transparent; /* Go big on the size, and let overflow hide */
+                border-bottom: 50px solid transparent;
+                border-left: 30px solid hsla(34,85%,35%,1);
+                position: absolute;
+                top: 50%;
+                margin-top: -50px;
+                left: 100%;
+                z-index: 2;
+            }
+
+            #wizHeader li a:before {
+                content: " ";
+                display: block;
+                width: 0;
+                height: 0;
+                border-top: 50px solid transparent;
+                border-bottom: 50px solid transparent;
+                border-left: 30px solid white;
+                position: absolute;
+                top: 50%;
+                margin-top: -50px;
+                margin-left: 1px;
+                left: 100%;
+                z-index: 1;
+            }
+
+        #wizHeader li:first-child a {
+            padding-left: 10px;
+        }
+
+        #wizHeader li:last-child {
+            padding-right: 50px;
+        }
+
+        /*#wizHeader li a:hover {
+            background: #fff;
+        }
+
+            #wizHeader li a:hover:after {
+                border-left-color: #fff !important;
+            }*/
+
+@media (min-width: 992px) {
+    /*.container-fluid {
+        padding-left: 20px;
+        padding-right: 20px;
+
+    }*/
+
+    .RadMenu ul.rmRootGroup {
+margin-left: -20px !important;
+margin-right: -20px !important;
+border: none !important;
+}
+}
+
+@media (max-width: 992px) {
+
+#wizHeader li .nextStep {
+border: 1px solid #eee;
+}
+
+
+    .RadMenu ul.rmRootGroup {
+margin-left: -20px !important;
+margin-right: -20px !important;
+border: none !important;
+}
+
+    #wizHeader {
+width: 340px;
+margin: 20px auto !important;
+}
+
+        #wizHeader li a:after {
+            display: none;
+        }
+
+        #wizHeader li a:before {
+            display: none;
+        }
+
+        #wizHeader li a {
+            padding: 3px 10px;
+        }
+
+        #wizHeader li {
+            overflow: hidden;
+        }
+
+    .wdivtextHide {
+        display: none;
+    }
+
+    #wizHeader li a {
+        /*padding-left: 10px; */
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        font-size: 13px;
+        text-align: center;
+        padding-top: 12px;
+        margin: 0px 4px;
+    }
+}
+
+
+@media (max-width: 380px) {
+
+    #wizHeader {
+      width:inherit !important;
+        float: left;
+    }
+
+    #wizHeader li:last-child {
+padding-right: 0px !important;
+}
+       
+}
+
+
+.SvWizard .content {
+     padding:15px 10px;
+   
+}
+
+
+
+/*=====ajax__calendar Styles Start=====*/
+
+.AjaxCalendar .ajax__calendar_body{
+        min-height: 185px;
+}
+
+
+.AjaxCalendar .ajax__calendar_header {
+    height: 26px;
+    width: 100%;
+    background: #50c688;
+    padding: 0px;
+    line-height: 25px;
+    color: #fff;
+}
+
+.AjaxCalendar .ajax__calendar_prev {
+
+background-image:none !important;
+}
+
+
+.AjaxCalendar .ajax__calendar_prev:after {
+         color: #fff;
+         display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f104";
+        font-size: 25px;
+}
+
+.AjaxCalendar .ajax__calendar_next{
+
+    background-image:none !important;
+}
+
+.AjaxCalendar .ajax__calendar_next:after{
+     color: #fff;
+         display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\f105";
+        font-size: 25px;
+}
+
+
+
+.AjaxCalendar {
+    width:300px;
+   
+    display:block;
+}
+
+.AjaxCalendar .ajax__calendar_container {
+    border:1px solid #ccc;
+    background-color: #fff;
+    color: #177bbb;
+    overflow:hidden;
+    width:100%;
+    display:block;
+        padding: 0px;
+}
+
+.AjaxCalendar .ajax__calendar_footer {
+    height: 25px;
+    background: #f2f2f2;
+    color: #333;
+}
+.AjaxCalendar .ajax__calendar_other .ajax__calendar_day,
+.AjaxCalendar .ajax__calendar_other .ajax__calendar_year {
+        color: #999;
+    background: #f2f2f2;
+    border-radius: 100%;
+    height: 20px;
+    width: 20px;
+}
+.AjaxCalendar .ajax__calendar_hover .ajax__calendar_day,
+.AjaxCalendar .ajax__calendar_hover .ajax__calendar_month,
+.AjaxCalendar .ajax__calendar_hover .ajax__calendar_year {
+    color: black;
+}
+.AjaxCalendar .ajax__calendar_active .ajax__calendar_day,
+.AjaxCalendar .ajax__calendar_active .ajax__calendar_month,
+.AjaxCalendar .ajax__calendar_active .ajax__calendar_year {
+    color: black;
+    font-weight:bold;
+
+}
+.AjaxCalendar .ajax__calendar_dayname, .AjaxCalendar .ajax__calendar_day {
+height: inherit;
+    width: inherit;
+    text-align: center;
+    border-radius: 100%;
+    background: #fff;
+    border: 1px solid #eee;
+    width: 22px;
+    height: 22px;
+    margin: 2px 7px;
+    color:#333;
+}
+
+.AjaxCalendar .ajax__calendar_months{
+   
+         
+}
+
+.AjaxCalendar .ajax__calendar_months td {
+
+    border: 1px solid #eee;
+}
+
+
+.AjaxCalendar .ajax__calendar_month{
+    width: inherit !important; 
+}
+
+.AjaxCalendar .ajax__calendar_year {
+   
+     width: inherit !important; 
+     background: #fff !important;
+     color:#333;
+}
+
+
+.AjaxCalendar .ajax__calendar_dayname{
+ 
+border: none;
+    /* background: #50c688; */
+    color: darkcyan;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Open sans', "JF Flat Regular", Tahoma  !important ;
+}
+
+.AjaxCalendar .ajax__calendar_container TABLE {
+    width:100%;
+}
+.AjaxCalendar .ajax__calendar_container TD {
+    font-size:13px;
+}
+
+
+.AjaxCalendar .ajax__calendar_body {
+    width: 100%;
+    
+}
+
+.AjaxCalendar .ajax__calendar_days, .AjaxCalendar .ajax__calendar_months, .AjaxCalendar .ajax__calendar_years {
+width: 100%;
+    background: #fff;
+}
+
+.relative {
+    position:relative;
+
+}
+.AjaxCalendarImg{
+    position:absolute;
+    right: 5px;
+top: 4px;
+    }
+
+.UserText .UserName {
+        font-weight: 600;
+    color: #777;
+}
+
+
+
+/*=====ajax__calendar Styles End=====*/
+
+
+
+.LoginTime{
+    font-size:11px;
+}
+
+
+
+
+.UserText .UserName {
+    font-weight: 600;
+    color: #777;
+}
+
+a, img {
+    outline:none !important;
+}
+
+
+.Client-logo{
+        height: 59px;
+        float:right;
+         margin-top: 5px;
+         margin-right:10px;
+         width:115px;
+}
+header .right-header ul {
+
+    margin-top: 5px;
+}
+
+.navbar-brand img {
+            width: 150px;
+    }
+
+@media (max-width: 480px) {
+
+    .Client-logo{
+        height: 50px !important;
+            margin-top: 9px;
+    }
+    .navbar-brand img {
+   
+    width:120px !important;
+        margin-top: 7px;
+    }
+
+
+
+}
+
+
+
+/*@media (max-width: 400px) {
+
+.Announcements .description{
+    width: 72%;
+}
+
+}*/
+
+.ui-checkbox td {
+    display: table-cell;
+    width: 25%;
+}
+
+.rgCommandRow
+{
+     background: #eee !important;
+}
+
+.RadToolBar .rtbText
+{
+        color: #333 !important;
+}
+
+.RadGrid_Hay .rgHeader, .RadGrid_Hay th.rgResizeCol {
+    border: 1px solid;
+    border-color: #7ed131 #72c530 #27710a #358709;
+    border-top: 0;
+    padding-top: 4px;
+    background: #fff !important;
+    color: #333 !important;
+}
+
+    .RadGrid_Hay .rgHeader, .RadGrid_Hay .rgHeader a
+    {
+        color: #333 !important;
+        font-weight: 600;
+    }
+
+.RadGrid_Hay .rgHeader, .RadGrid_Hay th.rgResizeCol
+{
+        border: 0px solid !important;
+        border-bottom:5px solid #eee !important;
+}
+
+.RadToolBar_Hay .rtbMiddle
+{
+    background:transparent !important;
+    border:0px !important;
+}
+
+.RadToolBar_Hay .rtbOuter
+{
+    border:0px !important;
+}
+.RadToolBar .rtbDropDownExpanded .rtbWrap,
+.RadToolBar .rtbSplBtnExpanded .rtbWrap,
+.RadToolBar .rtbSplBtnFocused .rtbWrap,
+.RadToolBar .rtbChecked .rtbWrap,
+.RadToolBar .rtbItemClicked .rtbWrap,
+.RadToolBar .rtbItemFocused .rtbWrap,
+.RadToolBar .rtbItemHovered .rtbWrap
+{
+	background:transparent !important;
+}
+
+.RadToolBar .rtbDropDownExpanded .rtbOut,
+.RadToolBar .rtbSplBtnExpanded .rtbOut,
+.RadToolBar .rtbSplBtnFocused .rtbOut,
+.RadToolBar .rtbItemFocused .rtbOut,
+.RadToolBar .rtbItemClicked .rtbOut,
+.RadToolBar .rtbChecked .rtbOut,
+.RadToolBar .rtbItemHovered .rtbOut
+{
+	background:transparent !important;
+}
+
+
+.RadToolBar .rtbDropDownExpanded .rtbMid,
+.RadToolBar .rtbSplBtnExpanded .rtbMid,
+.RadToolBar .rtbSplBtnFocused .rtbMid,
+.RadToolBar .rtbItemFocused .rtbMid,
+.RadToolBar .rtbItemClicked .rtbMid,
+.RadToolBar .rtbChecked .rtbMid,
+.RadToolBar .rtbItemHovered .rtbMid
+{
+	background:transparent !important;
+}
+
+.rtbItemHovered .rtbIn
+{
+	background:transparent !important;
+}
+.rtbItemHovered .rtbIn .rtbText
+{color:#fff !important;
+}
+
+
+.RadGrid_Hay .rgAltRow
+{
+    background:#eee !important;
+}
+.rfLeft, .rfOper, .rfMid, .rfTools, .rfRight
+{
+    background:#eee !important;
+}
+
+.RadGrid_Hay .rgSelectedRow
+{
+    background:#eee !important;
+}
+*+html .RadGrid_Hay .rgSelectedRow .rgSorted{background-color:#333 !important;}
+* html .RadGrid_Hay .rgSelectedRow .rgSorted{background-color:#333 !important;}
+
+.RadGrid_Hay .rgActiveRow,
+.RadGrid_Hay .rgHoveredRow
+{
+    background:#eee !important;
+}
+.RadGrid_Hay .rgRow td {
+    border-color: #fff #fff #fff #ccc !important;
+}
+.RadGrid_Hay .rgFooterDiv, .RadGrid_Hay .rgFooter
+{
+    background:#eee !important
+}
+    .RadGrid_Hay .rgRow td, .RadGrid_Hay .rgAltRow td, .RadGrid_Hay .rgEditRow td, .RadGrid_Hay .rgFooter td
+    {
+        border-color:#fff !important;
+    }
+
+
+h3 {
+    padding: 6px 12px 6px 22px !important;
+    padding-top: 0px;
+    display: -webkit-box;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px !important;
+    font-size: 23px;
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    border: none;
+    font-weight: 600;
+    background: url(../../assets/img/headingArrow.png) 0px center no-repeat;
+    border-bottom: 1px solid #eee;
+}
+
+
+.RadToolBar_Hay .rtbWrap, .RadToolBar_Hay .rtbTemplate, .RadGrid_Hay, .RadGrid_Hay .rgMasterTable, .RadGrid_Hay .rgDetailTable, .RadGrid_Hay .rgGroupPanel table, .RadGrid_Hay .rgCommandRow table, .RadGrid_Hay .rgEditForm table, .RadGrid_Hay .rgPager table, .GridToolTip_Hay
+{
+     font: 12px/16px  'Open sans', "JF Flat Regular", Arial, Tahoma !important ;
+}
+
+.RadGrid_Hay .rgPager .rgPagerButton
+{
+    background:#fff !important;
+    border:1px solid #ccc !important;
+}
+    .RadGrid_Hay .rgNumPart a:hover, .RadGrid_Hay .rgNumPart a:hover span, .RadGrid_Hay .rgNumPart a.rgCurrentPage, .RadGrid_Hay .rgNumPart a.rgCurrentPage span
+    {
+        background:#fff !important;
+    }
+    .RadGrid_Hay .rgPager
+    {
+        background:#eee !important;
+    }
+
+.RadGrid .rgPager .RadInput input {
+     border: 0px none !important; 
+    padding: 0px !important;
+
+
+}
+
+.RadGrid_Hay .rgHeader, .RadGrid_Hay th.rgResizeCol
+{
+    background:white !important;
+    border-bottom:2px solid #ccc !important;
+
+}
+
+.RadGrid_Hay .rgHeader a, .RadGrid_Hay th.rgResizeCol a
+{
+ font-weight: 600 !important;
+    font-size: 13px;
+    padding: 3px 0px;
+    display: block;
+    color: #000 !important;
+
+}
+
+
+
+
+
+
+.HomeMenu ul li a i
+{
+        border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+}
+
+.HomeMenu ul li a:hover i:after, .HomeMenu ul li a:hover i:focus, .HomeMenu ul li a:active i:after, .HomeMenu ul li a.active i:after
+{
+            border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+}
+
+.horizondalMenu ul li a i
+{
+            border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+}
+
+.horizondalMenu ul li a:hover i:after, .horizondalMenu ul li a:hover i:focus, .horizondalMenu ul li a:active i:after, .horizondalMenu ul li a.active i:after{
+
+
+                border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+
+}
+
+header .right-header ul li
+{
+    display: -moz-box !important;
+}
+
+.RadCalendarPopup table {
+    width: 200px !important;
+}
+
+
+.notification  {
+      position: absolute;   
+    top: -8px !important;
+    right:35px;
+    background-color: #FF503F;
+    border-style: none;
+    text-align: center;
+    font-size: 13px;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 4px;
+    color: whitesmoke;
+    z-index: 9;
+}
+    .notification .SVlabel {
+    margin-bottom:0px;
+    margin-top:0px;
+    }
+
+@media (max-width: 1310px) and (min-width:1255px) {
+    .notification {
+         right:54px;
+    }
+}  
+@media (max-width: 1254px) and (min-width:1226px) {
+    .notification {
+         right:27px;
+    }
+}  
+@media (max-width: 1156px) and (min-width:1025px) {
+    .notification {
+         right:7px;
+    }
+}  
+@media (max-width: 1024px) {
+    .notification {
+         right:3px;
+    }
+}  
+
+@media (max-width: 992px) {
+    .notification {
+         right:26px;
+    }
+} 
+ @media (max-width: 768px) {
+
+    .notification {
+         right:22px;
+    }
+}  
+@media (max-width: 414px) {
+
+    .notification {
+         right:12px;
+    }
+}     

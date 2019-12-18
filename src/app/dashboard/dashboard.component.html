@@ -1,0 +1,508 @@
+<!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+          <i>
+          </i>   <span style="font-size: 30px;font-weight: 600; vertical-align: middle">Dashboard</span> 
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="form-group" >
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 centerText">
+                <div id="container3 ">
+                        <div style="width:50%;">
+                                <canvas id="myChart" width="200" height="250" #mychart></canvas>
+                            </div>
+                    </div>
+            
+        </div>
+        <div class="col-md-4 ar-manageticket" style="font-size: 15px">
+                <div class="card2">
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="media-body">
+                                    <h3 class="success">
+                                        <span id="ctl00_ContentPlaceHolder1_lblPendingTicketsVal" class="SVlabel"></span>
+                                    </h3>
+                                    <span>
+                                        <span id="ctl00_ContentPlaceHolder1_lblPendingTickets" class="SVlabel">No. Of Users</span></span>
+                                </div>
+                                <div class="media-right media-middle">
+                                    <i class="fa fa-user-plus success font-large-2 float-right"></i>
+                                </div>
+                            </div>
+                            <div class="progress mt-1 mb-0" style="height: 7px;">
+                                <div id="ctl00_ContentPlaceHolder1_dvPendingTickets" class="progress-bar bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card2">
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="media-body">
+                                    <h3 class="deep-orange">
+                                        <span id="ctl00_ContentPlaceHolder1_lblServedTicketsVal" class="SVlabel"></span></h3>
+                                    <span>
+                                        <span id="ctl00_ContentPlaceHolder1_lblServedTickets" class="SVlabel">No. Of User Groups</span>
+                                    </span>
+                                </div>
+                                <div class="media-right media-middle">
+                                    <i class="fa fa-users deep-orange font-large-2 float-right"></i>
+                                </div>
+                            </div>
+                            <div class="progress mt-1 mb-0" style="height: 7px;">
+                                <div id="ctl00_ContentPlaceHolder1_dvServedTickets" class="progress-bar bg-deep-orange" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card2">
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="media-body">
+                                    <h3 class="info">
+                                        <span id="ctl00_ContentPlaceHolder1_lblTotalTicketsVal" class="SVlabel"></span></h3>
+                                    <span>
+                                        <span id="ctl00_ContentPlaceHolder1_lblTotalTickets" class="SVlabel">Total Components</span>
+                                    </span>
+                                </div>
+                                <div class="media-right media-middle">
+                                    <i class="fa fa-file-text-o info font-large-2 float-right"></i>
+                                </div>
+                            </div>
+                            <div class="progress mt-1 mb-0" style="height: 7px;">
+                                <div id="ctl00_ContentPlaceHolder1_dvTotalTickets" class="progress-bar bg-info" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card2">
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <div class="info-box">
+                                        <div class="info-box-icon bg-aqua">
+                                            <i class="fa fa-calendar-o calender-cu"></i>
+                                        </div>
+                                        <div class="total-counters">
+                                            <span id="ctl00_ContentPlaceHolder1_lblTotalCounters" class="SVlabel">Total Application :</span>
+                                            <div class="media">
+                                                <div class="media-body">
+                                                    <h3 class="info">
+                                                        <span id="ctl00_ContentPlaceHolder1_lblTotalCountersVal" class="SVlabel">&nbsp;</span></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="info-box">
+                                        <div class="info-box-icon bg-green">
+                                            <i class="fa fa-calendar-check-o "></i>
+                                        </div>
+                                        <div class="total-counters">
+                                            <span id="ctl00_ContentPlaceHolder1_lblActiveCounters" class="SVlabel">Active Application :</span>
+                                            <div class="media">
+                                                <div class="media-body">
+                                                    <h3 class="success">
+                                                        <span id="ctl00_ContentPlaceHolder1_lblActiveCountersVal" class="SVlabel">&nbsp;</span>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="row">
+            <div class="form-group" >
+    
+            </div>
+        </div>
+    <div class="row" style="font-size: 15px"  >
+            <div  class="col-md-4">
+                <div  class="card">
+                        <div class="indexRow">
+                                <div class="profile-card-with-cover" style="height: 100%">
+                                    
+                                    <div class="card-content">
+                                        <div class="card-body" style="padding: 0;">
+                                           
+                                            <div class="card-img-top img-fluid bg-cover dashboardInfoBox" style="height: 70px !important;">
+                                                <div class="card-profile-image" style="top: 30px;">
+                                                    <img src="/assets/images/user_placeholder.png" class="rounded-circle img-border box-shadow-1" alt="Card image" style="width: 100px;">
+                                                </div>
+                                            </div>
+                                            
+                                           
+                                            <div class="profile-card-with-cover-content">
+                                                <div class="card-body text-center" style="padding-top: 10px; padding-bottom: 0px;">
+                                                    <h4 class="card-title" style="margin-bottom: .3rem; margin-top: 5rem; ">Admin</h4>
+                                                    <ul class="list-inline list-inline-pipe">
+                                                        <li>admin</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="userInfoBox">
+                                                    <div class="UIB">
+                                                        <i class="fa fa-user-circle-o"></i> Admin
+                                                    </div>
+                                                    <div class="UIB">
+                                                        <i class="fa fa-envelope"></i> admin@gmail.com
+                                                    </div>
+                                                    <div class="UIB" style="margin-bottom:0">
+                                                        <i class="fa fa-user-plus"></i> Admin
+                                                    </div>
+                                                </div>
+                                            </div>
+                
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+            </div>
+            <div class="col-md-4 ">
+                <div  class="card" >
+                        <div class="card" style="height: 100%">
+                                <div class="card-header">
+                                    <h4 class="card-title">Announcements</h4>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <ul class="announcementUL">
+                                            <li class="announcementLI">
+                                                Our service too allows for Visitor Registrations to be made both Online and On-site. Accompanying such is that of Smart Card Enabled Entries.
+                                                Our service too allows for Visitor Registrations to be made both Online and On-site. Accompanying such is that of Smart Card Enabled Entries
+                                            </li>
+            
+                                        </ul>
+                                        <div class="announcementControls">
+                                            <i class="fa fa-angle-left"></i>
+                                            <i class="fa fa-angle-right"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+            </div>
+            <div class="col-md-4 ">
+                    <div  class="card" >
+                            <div>
+                                    <div class="card-header">
+                                        <h4 class="card-title">Quick Links</h4>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div >
+                                                        <ul class="quickLinksUL">
+                                                            <li class="quickLinksLI"><a href="#">App_Settings</a></li>
+                                                            <li class="quickLinksLI"><a href="#"> Notification Type</a></li>
+                                                            <li class="quickLinksLI"><a href="#">Define Users</a></li>
+                                                            <li class="quickLinksLI"><a href="#"> Define Groups</a></li>
+                                                            <li class="quickLinksLI"><a href="#">Change Password</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div>
+                                                        <ul class="quickLinksUL">
+                                                            <li class="quickLinksLI"><a href="#">Define Application Groups</a></li>
+                                                            <li class="quickLinksLI"><a href="#">Define Application</a></li>
+                                                            <li class="quickLinksLI"><a href="#"> Dynamic Reports</a></li>
+                                                            <li class="quickLinksLI"><a href="#">Create Dynamic Reports</a></li>
+                                                            
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+    </div>
+</div> -->
+
+<div class="container-fluid mt-5">
+<div class="content-wrapper">
+        <div class="content-body">
+            <div class="row row-eq-height">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="box box1">
+                                <div class="details">
+                                    <h3>1213</h3>
+                                    <h4>Checked Out</h4>
+                                </div>
+                                <div id="spark1"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="box box2">
+                                <div class="details">
+                                    <h3>422</h3>
+                                    <h4>Checked In</h4>
+                                </div>
+                                <div id="spark2"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="box box3">
+                                <div class="details">
+                                    <h3>311</h3>
+                                    <h4>Expected</h4>
+                                </div>
+                                <div id="spark3"></div>
+                            </div>
+                        </div>
+                        <!-- <div class="col-md-3">
+                            <div class="box box4">
+                                <div class="details">
+                                    <h3>22</h3>
+                                    <h4>Under Approval</h4>
+                                </div>
+                                <div id="spark4"></div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row row-eq-height" style="margin-top: 10px;">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Application Status Count</h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-body">
+                                <div id="barchart"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card" style="height: 94%;">
+                        <div class="card-header">
+                            <h4 class="card-title">Today's Transactions</h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-body" style="padding: 0;">
+                                <div id="radialBarBottom"> </div>
+                                <div class="graphInfo">
+                                    <div class="row">
+                                        <div class="col-md-8 col-6" style="text-align: left;">
+                                            <div style="padding: 15px 0px;">
+                                                <div class="graphInfoHeading">
+                                                    <div style="display: inline-block;background-color: #00597b;border-radius: 50%;width: 10px;height: 10px;margin-right: 5px;"></div>
+                                                    <span>Check In</span>
+                                                </div>
+                                                <div class="graphInfoHeading">
+                                                    <div style="display: inline-block;background-color: #b8dfac;border-radius: 50%;width: 10px;height: 10px;margin-right: 5px;"></div>
+                                                    <span>Check Out</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-6" style="text-align: right;">
+                                            <div >
+                                                <div class="graphInfoNum" style="margin-top: 15px;"><b>457</b></div>
+                                                <div class="graphInfoNum"><b>457</b></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card" style="height: 94%;">
+                        <div class="card-header">
+                            <h4 class="card-title">Application Statistics</h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-body" style="padding: 0;">
+                                <div id="donut"> </div>
+                                <div class="graphInfo1" style="margin-top: 30px;margin-bottom: 15px;">
+                                    <div class="row" style="margin: 0;">
+                                        <div class="col-md-8 col-6">
+                                            <div class="graphInfoHeading">
+                                                <div style="display: inline-block;background-color: #37bc9b;border-radius: 50%;width: 10px;height: 10px;margin-right: 5px;"></div>
+                                                <span>Approve</span>
+                                            </div>
+                                            <div class="graphInfoHeading">
+                                                <div style="display: inline-block;background-color: #2196f3;border-radius: 50%;width: 10px;height: 10px;margin-right: 5px;"></div>
+                                                <span>Pending</span>
+                                            </div>
+                                            <div class="graphInfoHeading">
+                                                <div style="display: inline-block;background-color: #00597b;border-radius: 50%;width: 10px;height: 10px;margin-right: 5px;"></div>
+                                                <span>Reject</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-6 text-right">
+                                            <div class="graphInfoNum" ><b>457</b></div>
+                                            <div class="graphInfoNum" ><b>457</b></div>
+                                            <div class="graphInfoNum" ><b>457</b></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+    
+            <!-- <div class="row row-eq-height">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Visitors Analytics</h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-body">
+                                <div id="line-adwords"> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Visitor's Nationality</h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-body" style="background-color:#222222;">
+                                <div id="mapChartdiv" style="width: 100%; height: 400px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+    
+            <div class="clearfix"></div>
+            <div class="row row-eq-height" style="margin-top: 90px">
+                <div class="col-md-4 indexRow">
+                    <div class="card profile-card-with-cover" style="height: 100%">
+                        <div class="card-content">
+                            <div class="card-body" style="padding: 0;">
+                                <div class="card-img-top img-fluid bg-cover dashboardInfoBox" style="height: 70px !important;"></div>
+                                <div class="card-profile-image" style="top: 30px;">
+                                    <img src="../../assets/images/avatar-s-1.png" class="rounded-circle img-border box-shadow-1" alt="Card image" style="width: 100px;">
+                                </div>
+                                <div class="profile-card-with-cover-content">
+                                    <div class="card-body text-center" style="padding-top: 10px; padding-bottom: 0px;">
+                                        <h4 class="card-title" style="margin-bottom: .3rem;">Admin</h4>
+                                        <ul class="list-inline list-inline-pipe">
+                                            <li>admin</li>
+                                        </ul>
+                                    </div>
+                                    <div class="userInfoBox">
+                                        <div class="UIB">
+                                            <i class="fa fa-user-circle-o"></i> Admin
+                                        </div>
+                                        <div class="UIB">
+                                            <i class="fa fa-envelope"></i> admin@gmail.com
+                                        </div>
+                                        <div class="UIB" style="margin-bottom:0">
+                                            <i class="fa fa-user-plus"></i> Admin
+                                        </div>
+                                    </div>
+                                </div>
+    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 indexRow">
+                    <div class="card" style="height: 100%">
+                        <div class="card-header">
+                            <h4 class="card-title">Announcements</h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-body">
+                                <ul class="announcementUL">
+                                    <li class="announcementLI">
+                                        Our service too allows for Visitor Registrations to be made both Online and On-site. Accompanying such is that of Smart Card Enabled Entries.
+                                        Our service too allows for Visitor Registrations to be made both Online and On-site. Accompanying such is that of Smart Card Enabled Entries
+                                    </li>
+    
+                                </ul>
+                                <div class="announcementControls">
+                                    <i class="fa fa-angle-left"></i>
+                                    <i class="fa fa-angle-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-4 indexRow">
+                    <div class="card" style="height: 100%">
+                        <div class="card-header">
+                            <h4 class="card-title">Quick Links</h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div>
+                                            <ul class="quickLinksUL">
+                                                <li class="quickLinksLI"><a href="~/Company/ApplicationWorkFlow">Application Type</a></li>
+                                                <li class="quickLinksLI"><a href="~/Company/Index"> Organization Structure</a></li>
+                                                <li class="quickLinksLI"><a href="~/Visitor/VisitorInformation">Visitor Information</a></li>
+                                                <li class="quickLinksLI"><a href="~/Visitor/AllVisitors"> Search Visit Details</a></li>
+                                                <li class="quickLinksLI"><a href="~/Visitor/ContactCompany">Contact Company</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div >
+                                            <ul class="quickLinksUL">
+                                                <li class="quickLinksLI"><a href="~/Visitor/CheckOutVisits">Check Out</a></li>
+                                                <li class="quickLinksLI"><a href="~/Visitor/CheckIn">Check In</a></li>
+                                                <li class="quickLinksLI"><a href="~/Visitor/VisitorDetailReport"> Visitor Details Report</a></li>
+                                                <li class="quickLinksLI"><a href="~/Visitor/VisitorPerType"> Application Type - Dashboard</a></li>
+                                                <li class="quickLinksLI"><a href="~/Visitor/VisitorDetailReport"> Visit Details Report</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+    
+    
+        </div>
+    </div>
+</div>

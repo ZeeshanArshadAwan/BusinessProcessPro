@@ -1,0 +1,129 @@
+<div class="background-img body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="card-title"><img src="./assets/images/Reports.png" class="titleImageClass">
+                    <label class="headertext"><b>{{FormName}}</b></label>
+                </h4>
+            </div>
+        </div>
+    </div>
+
+
+    <mat-card class="mat-elevation-z3 mlr-15 mt-3 ">
+        <mat-card-content>
+
+            <div class="container-fluid" *ngIf="!showDetail">
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <div class="row form-group">
+                            <!-- <h3>
+                                <span class="SVlabel">{{GlobalVariableService.ApplicationTools.Applabel}}</span>
+                            </h3> -->
+                        </div>
+                        
+                        <div class="row form-group">
+                            <!-- <div class="col-md-2">
+                                <span>
+                                    <h4>
+                                        Application Type
+                                    </h4>
+                                </span>
+                            </div> -->
+                            <div class="col-md-6">
+                                <mat-form-field class="w-95">
+                                    <mat-label> Application Type</mat-label>
+                                    <mat-select  placeholder="" matNativeControl [(ngModel)]="objApplicationDetailReport.ApplicationTypeId" [formControl]="ApplicationType" name="ApplicationType1" 
+                                    (ngModelChange)="OnchangeApptype(objApplicationDetailReport.ApplicationTypeId)">
+                                      <mat-option >Please Select</mat-option>
+                                      <mat-option [value]="p.ApplicationTypeId" *ngFor="let p of lstApplicationType" >{{p.ApplicationTypeEn}}</mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                            </div>
+                            <!-- <div class="col-md-2">
+                                <span>
+                                    <h4>
+                                        Applicantion Status
+                                    </h4>
+                                </span>
+                            </div> -->
+                            <div class="col-md-6">
+                                <mat-form-field class="w-95">
+                                    <mat-label> Applicantion Status</mat-label>
+                                    <mat-select placeholder="" matNativeControl [(ngModel)]="objApplicationDetailReport.StatusId" [formControl]="Applicant"  name="Applicant1"  >
+                                      <mat-option >Please Select</mat-option>
+                                     <mat-option [value]="p.ApplicationStatusId" *ngFor="let p of lstApplicationStatus" >{{p.StatusDisplayNameEn}}</mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                            </div>
+                            
+                        </div>
+                        <div class="row form-group" style="display: none">
+                            <div class="col-md-2">
+                                <span>
+                                    <h4>
+                                        From Date
+                                    </h4>
+                                </span>
+                            </div>
+                            <div class="col-md-4">
+                                <mat-form-field>
+                                    <input matInput [matDatepicker]="pickerFromdate" [(ngModel)]="objApplicationDetailReport.FromDate" placeholder="Choose a date">
+                                    <mat-datepicker-toggle name="FromDate" matSuffix [for]="pickerFromdate">
+                                    </mat-datepicker-toggle>
+                                    <mat-datepicker #pickerFromdate></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+    
+    
+                            <div class="col-md-2">
+                                <span>
+                                    <h4>
+                                        To Date
+                                    </h4>
+                                </span>
+                            </div>
+                            <div class="col-md-4">
+                                <mat-form-field>
+                                    <input matInput [matDatepicker]="pickerTodate" [(ngModel)]="objApplicationDetailReport.ToDate" placeholder="Choose a date">
+                                    <mat-datepicker-toggle name="ToDate" matSuffix [for]="pickerTodate">
+                                    </mat-datepicker-toggle>
+                                    <mat-datepicker #pickerTodate></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row form-group" >
+                            <!-- <div class="col-md-2"></div> -->
+                            <div class="col-md-6">
+                                <mat-radio-group layout="row" 
+                                aria-labelledby="example-radio-group-label"
+                                class="example-radio-group w-95"
+                                [(ngModel)]="objApplicationDetailReport.Format"
+                                [formControl]="Format" name="Format1" >
+                                <mat-radio-button class="example-radio-button" *ngFor="let rep of report" [value]="rep">
+                                  {{rep}}
+                                </mat-radio-button>
+                              </mat-radio-group>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                                <div class="col-md-4"> </div>
+                            <div class="col-md-4">
+                                <button color="primary" class="ctgrySaveButton " matTooltip="View report" mat-raised-button
+                                    name='View' (click)="GetReport()"> View
+                                </button>
+                                <span class="divider"></span>
+                                <button color="primary" class="ctgrySaveButton " matTooltip="Clear" mat-raised-button
+                                    name='Clear'>
+                                    Clear
+                                </button>
+                                
+                            </div>
+                            <div class="col-md-4"> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

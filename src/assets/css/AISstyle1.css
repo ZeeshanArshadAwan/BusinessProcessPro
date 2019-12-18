@@ -1,0 +1,104 @@
+﻿ 
+
+
+.AISTextBoxCss 
+{
+
+	 
+	}
+
+/*.button:hover
+{
+	 
+   border: 1px solid #024168;
+	font-size:11px;
+   	font-family:Tahoma;
+   	font-weight:bold;
+   	color:#024168;
+   	width:100px;
+   	background-color:#EEEEEE;
+	height: 25px;
+}*/
+	
+	/**AJAX ToolKit 3.5 TabContainer Style**/
+	 /*Header*/
+.Tab .ajax__tab_header
+{
+    color: #4682b4;
+    font-family: 'Open sans', "JF Flat Regular", Tahoma  !important ;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #ffffff;
+    margin-left: 25px;
+    cursor:pointer;
+}
+/*Body*/
+.Tab .ajax__tab_body
+{
+    border:2px solid #b4cbdf;
+    padding-top:0px;
+}
+/*Tab Active*/
+.Tab .ajax__tab_active .ajax__tab_tab
+{
+    color: #ffffff;
+    background:url("../images/TabContainer/tab_active.gif") repeat-x;
+    height:20px;
+}
+.Tab .ajax__tab_active .ajax__tab_inner
+{
+    color: #ffffff;
+    background:url("../images/TabContainer/tab_left_active.gif") no-repeat left;
+    padding-left:10px;
+}
+.Tab .ajax__tab_active .ajax__tab_outer
+{
+    color: #ffffff;
+    background:url("../images/TabContainer/tab_right_active.gif") no-repeat right;
+    padding-right:6px;
+}
+/*Tab Hover*/
+.Tab .ajax__tab_hover .ajax__tab_tab
+{
+    color: #000000;
+    background:url("../images/TabContainer/tab_hover.gif") repeat-x;
+    height:20px;
+}
+.Tab .ajax__tab_hover .ajax__tab_inner
+{
+    color: #000000;
+    background:url("../images/TabContainer/tab_left_hover.gif") no-repeat left;
+    padding-left:10px;
+}
+.Tab .ajax__tab_hover .ajax__tab_outer
+{
+    color: #000000;
+    background:url("../images/TabContainer/tab_right_hover.gif") no-repeat right;
+    padding-right:6px;
+}
+/*Tab Inactive*/
+.Tab .ajax__tab_tab
+{
+    color: #666666;
+    background:url("../images/TabContainer/tab_Inactive.gif") repeat-x;
+    height:20px;
+}
+.Tab .ajax__tab_inner
+{
+    color: #666666;
+    background:url("../images/TabContainer/tab_left_inactive.gif") no-repeat left;
+    padding-left:10px;
+}
+.Tab .ajax__tab_outer
+{
+    color: #666666;
+    background:url("../images/TabContainer/tab_right_inactive.gif") no-repeat right;
+    padding-right:6px;
+    margin-right: 2px;
+}
+	/**** End of Tab container style****/
+	/***************************/
+	
+
+ 
+ 

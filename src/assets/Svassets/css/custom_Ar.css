@@ -1,0 +1,499 @@
+﻿@import url('fonts/source_sans/stylesheet.css');
+@import url('open-sans.css');
+@import url('fonts/Jfflat/Jfflat.css');
+
+
+body
+{
+    direction:rtl;
+    font-family:"JF Flat Regular", 'Open sans',  Tahoma ;
+}
+.SVlabel
+{
+       font-family: "JF Flat Regular", 'Open sans', Tahoma ;
+}
+
+.LoginTime
+{
+        font-family: 'Open sans', "JF Flat Regular", Tahoma !important;
+}
+
+@media (min-width: 480px)
+{
+    #menu-toggle
+    {
+
+        float: right !important;
+    }
+}
+.navbar-brand
+{
+    float:right !important;
+}
+.navbar-toggle
+{
+        float: left !important;
+}
+#menu-toggle
+{
+    float: right !important;
+}
+
+
+#wrapper {
+    padding-left: inherit !important;
+    padding-right:0px;
+   
+}
+
+
+
+#wrapper.toggled {
+   padding-left:inherit !important;
+    padding-right:300px;
+}
+
+#sidebar-wrapper {
+
+    left:inherit !important;
+    right:300px;
+    margin-left:inherit !important;
+     margin-right:-300px;
+
+}
+
+
+
+
+
+#wrapper.toggled #page-content-wrapper {
+    margin-right:inherit !important;
+     margin-left:-300px;
+}
+
+
+
+
+
+@media (min-width:768px) {
+    #wrapper {
+        padding-left:inherit !important;
+         padding-right:300px;
+    }
+
+    #wrapper.toggled {
+        padding-left: inherit !important;
+        padding-right:0px;
+    }
+
+   
+
+  
+
+   
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: inherit !important;
+        margin-left:0px;
+    }
+}
+
+.sidebar-nav li a
+{
+    text-align:right !important;
+}
+
+
+
+    .sidebar-nav li a:hover:before, .sidebar-nav li a:active:before, .sidebar-nav li a.active:before
+    {
+            left: inherit !important;
+    right: 0px;
+    }
+
+
+.menu-icon
+{
+    float:left !important;
+}
+
+.menu-icon .fa-angle-right:before {
+    content: "\f104" !important;
+}
+
+
+h3 {
+    background: url(../../assets/img/headingArrow_right.png) right 0px center no-repeat;
+}
+h3 .HeaderText{
+   text-align:right !important;
+   padding-right:10px;
+}
+
+header .right-header
+{
+    float:left !important;
+}
+header .right-header ul li:last-child img
+{
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.Client-logo {
+    float: left !important;
+    margin-left:10px !important;
+     margin-right:inherit !important;
+}
+
+.RadComboBox .rcbArrowCell a {
+    left: 10px !important;
+    right: inherit !important;
+}
+
+
+h3 .HeaderText
+{
+    font-weight:600 !important;
+
+}
+
+.horizondalMenu ul li a .SVlabel
+{
+    font-weight:normal !important;
+
+}
+
+
+span.menu-icon
+{
+    left:20px !important;
+
+    right:inherit !important;
+}
+
+.Svpanel h3 {
+    padding: 6px 18px 6px 22px !important;
+
+    background: url(../img/headingArrow_right.png) right 0px center no-repeat;
+}
+
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md-8-5, .col-md-3-5
+{
+    float:right !important;
+}
+
+.Announcements h5 img {
+    padding-right: inherit !important;
+     padding-left: 10px;
+}
+
+.Announcements .description a:after
+{
+    right:inherit !important;
+    left:0px;
+}
+
+.Announcements .description {
+    padding-left: inherit !important;
+    padding-right: 11px;
+}
+.HomeMenu ul li a .SVlabel
+{
+        font-weight: normal !important;
+}
+
+
+.carousel-control
+{
+        -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.horizondalMenu ul li a .SVlabel {
+        font-size: 13px !important;
+}
+
+.RadGrid_Hay .rgHeader a, .RadGrid_Hay th.rgResizeCol a {
+    font-weight: normal !important;
+}
+.HeaderText {
+    font-weight: normal !important;
+}
+.ui-radio input[type="radio"] + span:before, .ui-radio input[type="radio"] + label:before {
+        margin-left: 10px;
+    margin-right: -20px;
+}
+.ui-radio input[type="radio"]:checked + span:after, .ui-radio input[type="radio"]:checked + label:after {
+    right:-15px;
+    left:inherit !important;
+}
+.ui-checkbox input[type="checkbox"] + span:before, .ui-checkbox input[type="checkbox"] + label:before {
+        margin-left: 10px;
+    margin-right: -20px
+}
+.ui-checkbox input[type="checkbox"]:checked + span:after, .ui-checkbox input[type="checkbox"]:checked + label:after {
+        right:-15px;
+    left:inherit !important;
+}
+.ui-checkbox input[type="checkbox"] + span, .ui-checkbox input[type="checkbox"] + label {
+    margin-left:30px;
+}
+.RequiredFieldValidator {
+        margin-top: -39px;
+    left: 18px;
+}
+.RadGrid .rgInfoPart {
+    float: left !important;
+}
+.RadGridRTL .rgInfoPart {
+    float: left !important;
+}
+
+ .rgArrPart1 input[type="submit"]:first-child:first-child {
+    background-image:url(../../App_Themes/SvTheme/img/b2.png) !important ;
+   
+}
+
+ .rgArrPart1 input[type="submit"]:nth-child(2) {
+    background-image:url(../../App_Themes/SvTheme/img/b1.png ) !important ;
+    
+}
+   
+   .rgArrPart2 input[type="submit"]:first-child:first-child {
+    background-image:url( ../../App_Themes/SvTheme/img/a1.png) !important  ;
+   
+}
+
+   .rgArrPart2 input[type="submit"]:nth-child(2) {
+    background-image:url(../../App_Themes/SvTheme/img/a2.png) !important ;
+     
+}
+.ui-radio td {
+    float:right !important;
+    
+    margin-right:20px !important;
+    margin-left:34px !important;
+}
+.ui-radio {
+    position: relative;
+    margin: 8px 0 0px 20px !important;
+}
+.ui-checkbox {
+    margin: 0px 0 10px 22px !important;
+}
+    .ui-checkbox input[type="checkbox"] + span, .ui-checkbox input[type="checkbox"] + label {
+    margin-right:20px !important;
+    }
+.divColor {
+margin-right:0px !important;
+}
+
+.SvWizard .row
+{
+  margin-right:5px !important;
+}
+
+.highchartsalignment {
+    direction: initial;
+}
+.dirctionlr
+{
+    direction:rtl;
+}
+
+
+
+/*new added css for arabic ny manaf 9-8-18*/
+
+header {
+float: right;
+ 
+} 
+.side-left { 
+
+    left:initial !important;  
+    margin-right:initial !important;  
+    right: 92px !important; 
+    margin-right: -92px !important;
+    
+}
+
+ 
+
+        .sidebar > li.active:after, .sidebar > li.active:before {
+            left: -1px !important;
+            right:initial !important;
+            
+        }
+
+      
+        .sidebar > li:first-child.active:after {
+            border-left-color: #fff;
+             border-right-color: transparent !important; 
+        }
+
+        .sidebar > li.active:before {
+             border-right-color: transparent !important; 
+            border-left-color: #E0E4E8;
+          
+        }
+
+        
+
+    .sidebar > li > a > .badge, .sidebar > li > a > .label {
+       left:inherit !important; 
+        right: 60%;
+       
+    }
+
+.sidebar-child, .sidebar-child-inline {
+   
+    right: 100%;    
+    border-right: 0;
+
+    left:inherit !important; 
+    border-left:inherit !important; 
+}
+
+ 
+
+.sidebar-child li {
+   
+    text-align: right !important;
+}
+
+   
+
+.sidebar-child-inline li {
+   
+    margin-right: inherit !important;
+      margin-left: -3px;
+    
+}
+
+     
+    .sidebar-child-inline li:first-child {
+        margin-left: inherit !important;;
+         margin-right: -2px;
+    }
+
+    .sidebar-child-inline li:last-child {
+        margin-left: 0;
+        margin-right:inherit !important;
+    }
+ 
+
+.side-right {
+   
+    left: -300px;
+    right:inherit !important;
+   
+    -webkit-transition: left .3s ease !important;
+    -ms-transition: left .3s ease !important;
+    transition: left .3s ease !important;
+}
+
+    .side-right.toggle {
+        left: 0;
+        right:inherit !important;
+    }
+
+ 
+
+.content {
+     
+    margin-left: inherit !important;
+    margin-right: 92px;
+   
+}
+
+ 
+.avatar { 
+    margin-right: inherit !important;
+     margin-left: 8px;
+}
+ 
+   
+
+/*sidebar animations*/
+.translate-left {
+   margin-right:inherit !important;
+    margin-left: 300px;
+}
+ 
+/*end*/ 
+
+
+
+/*toggle menu style*/
+#wrapper {
+    padding-right: 0;
+    padding-left:inherit !important;
+   
+}
+
+    #wrapper.toggled .side-left{
+       margin-left:inherit !important;
+        margin-right: -92px;      
+    }
+
+ 
+
+    #wrapper.toggled .content {
+        margin-right: 0px;
+        margin-left:inherit !important;
+    }
+
+
+@media (max-width: 480px) {
+   
+ 
+    .content {
+        margin-right: 0;
+        margin-left:inherit !important;
+    }
+    .side-left {
+        margin-left:inherit !important;
+        margin-right: -92px;
+    }
+    #wrapper.toggled .side-left {
+      margin-left:inherit !important;
+        margin-right: 0px;
+    }
+        #wrapper.toggled .side-left .sidebar {
+           padding-left:inherit !important;
+            padding-right: 0;
+            
+        }
+    #wrapper.toggled .content {
+        margin-right: 92px;
+        margin-left:inherit !important;
+    }
+}
+
+
+/*8-4-18*/
+
+#menu-toggle {
+ 
+float:right !important;
+padding-left:0px;
+padding-right:inherit !important
+}
+
+ 
+
+@media (min-width:480px) {
+
+    #menu-toggle {
+    
+    float: right !important;
+}
+}
+.pad {
+    padding:0 5px;
+}

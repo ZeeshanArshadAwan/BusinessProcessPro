@@ -1,0 +1,188 @@
+﻿<%--
+Default skin template. The following skins are provided as examples only.
+
+1. Named control skin. The SkinId should be uniquely defined because
+   duplicate SkinId's per control type are not allowed in the same theme.
+
+<asp:GridView runat="server" SkinId="gridviewSkin" BackColor="White" >
+   <AlternatingRowStyle BackColor="Blue" />
+</asp:GridView>
+
+2. Default skin. The SkinId is not defined. Only one default 
+   control skin per control type is allowed in the same theme.
+
+<asp:Image runat="server" ImageUrl="~/images/image1.jpg" />
+--%>
+
+
+<asp:Label runat="server" CssClass="SVlabel"></asp:Label>
+<asp:Label runat="server" SkinID="Arabic" CssClass="SVlabel arabic-txt"></asp:Label>
+<asp:Label runat="server" SkinID="help" CssClass="help"></asp:Label>
+<asp:Label runat="server" SkinID="error" CssClass="errol-lbl"></asp:Label>
+<asp:Label runat="server" SkinID="success" CssClass="sucess-lbl"></asp:Label>
+<asp:Label runat="server" SkinID="info" CssClass="info-lbl"></asp:Label>
+<asp:Label runat="server" SkinID="UserName" CssClass="UserName"></asp:Label>
+<asp:Label runat="server" SkinID="LoginTime" CssClass="LoginTime"></asp:Label>
+
+
+
+<%--<asp:TextBox runat="server" CssClass="form-control"></asp:TextBox>
+<asp:Button  runat="server" CssClass="btn btn-sml" />
+<asp:DropDownList runat="server"  CssClass="ui-select ui-select-asp">
+  
+</asp:DropDownList>
+
+--%>
+<asp:TextBox runat="server" SkinID="gvTbox" CssClass="gvTbox"></asp:TextBox>
+<asp:TextBox runat="server" SkinID="Arabic" CssClass="form-control arabic-txt"></asp:TextBox>
+
+
+
+<asp:Button  runat="server" SkinID="btn-md"  CssClass="btn btn-default btn-sml" />
+<asp:Button  runat="server" SkinID="horz-btn"  CssClass="btn btn-default horz-btn" />
+
+
+
+<asp:Button  runat="server"  SkinID="Add" CssClass="btn btn-sml btn-block ButtonAdd" />
+<asp:Button  runat="server" SkinID="Delete" CssClass="btn btn-default btn-sml Bt-Delete" />
+<asp:Button  runat="server" SkinID="Clear" CssClass="btn btn-default btn-sml Bt-Clear" />
+
+<asp:Button  runat="server"  SkinID="Arrow" CssClass="btn btn-sml btn-block ButtonArrow" />
+<asp:Button  runat="server"  SkinID="ArrowGreen" CssClass="btn btn-sml btn-block ButtonArrowGreen" />
+<asp:Button  runat="server"  SkinID="Retrive" CssClass="btn btn-sml ButtonRetieve" />
+<asp:Button SkinID="Search" CssClass="btn btn-sml ButtonSearch" runat="server" ></asp:Button>
+
+<asp:Button  runat="server"  SkinID="signin" CssClass="btn btn-sml  Buttonsignin" />
+<asp:Button  runat="server"  SkinID="signout" CssClass="btn btn-sml   Buttonsignout" />
+
+
+
+
+
+
+ <asp:FileUpload   runat="server" />
+
+
+
+
+
+<asp:RequiredFieldValidator CssClass="RequiredFieldValidator" runat="server"></asp:RequiredFieldValidator>
+
+
+
+
+
+
+<asp:GridView  runat="server" CssClass="gridview table table-striped table-bordered">
+   
+ 
+
+<AlternatingRowStyle CssClass="AltRowStyle"></AlternatingRowStyle>
+             
+<HeaderStyle CssClass="HeaderStyle"></HeaderStyle>
+
+<PagerStyle CssClass="PagerStyle"></PagerStyle>
+
+<RowStyle CssClass="RowStyle"></RowStyle>
+</asp:GridView>
+
+ 
+
+
+   <asp:Calendar runat="server"  CssClass="myCalendar">
+            <OtherMonthDayStyle ForeColor="#b0b0b0" />
+            <DayStyle CssClass="myCalendarDay" ForeColor="#2d3338" />
+            <DayHeaderStyle CssClass="myCalendarDayHeader" ForeColor="#2d3338" />
+            <SelectedDayStyle Font-Bold="True" Font-Size="12px" CssClass="myCalendarSelector" />
+            <TodayDayStyle CssClass="myCalendarToday" />
+            <SelectorStyle CssClass="myCalendarSelector" />
+            <NextPrevStyle CssClass="myCalendarNextPrev" />
+            <TitleStyle CssClass="myCalendarTitle" />
+        </asp:Calendar>
+
+<%--Apply later--%>
+
+<%--<asp:CheckBox CssClass="ui-checkbox" runat="server" />
+    <asp:CheckBoxList CssClass="ui-checkbox" runat="server" />
+
+
+    <asp:RadioButton runat="server" CssClass="ui-radio" />
+    <asp:RadioButtonList runat="server" RepeatDirection="Horizontal" CssClass="ui-radio">
+    </asp:RadioButtonList>
+
+
+    <ajaxToolkit:ValidatorCalloutExtender CssClass="SVvalidator" runat="server"
+        TargetControlID="RequiredFieldValidator5" WarningIconImageUrl="img/warning.png"
+        CloseImageUrl="img/close-red.png">
+    </ajaxToolkit:ValidatorCalloutExtender>
+
+--%>
+
+ <asp:Panel SkinID="upg" runat="server" CssClass="upg">
+                      
+ </asp:Panel>
+
+
+
+
+
+
+
+<asp:Wizard runat="server" CssClass="SvWizard">
+
+</asp:Wizard>
+
+
+<%--
+<telerik:RadAsyncUpload CssClass="SvUpload" runat="server" />
+
+<telerik:RadMenu SkinID="homeButton"  CssClass="home_bt_rad homeButton" runat="server">
+</telerik:RadMenu>
+
+<telerik:RadDatePicker CssClass="SvCalendar" runat="server" >
+</telerik:RadDatePicker>
+
+<telerik:RadTabStrip CssClass="SvTelTab" runat="server">
+               
+</telerik:RadTabStrip>
+
+
+ <telerik:radgrid runat="server"  EnableEmbeddedSkins="false" CssClass="SVRadGrid_Default">
+    </telerik:radgrid>
+
+  <telerik:RadNumericTextBox  CssClass="RadNumericTextBox" runat="server" > 
+       <NumberFormat  /> 
+  </telerik:RadNumericTextBox>
+
+<telerik:RadEditor  CssClass="ui-TelericRadEditor" runat="server">
+
+
+<telerik:RadComboBox runat="server"   CssClass="ui-select dipblock" RenderMode="Native"></telerik:RadComboBox>
+
+<telerik:RadComboBox runat="server" SkinID="RadcomboChkbox" CssClass="RadcomboChkbox"></telerik:RadComboBox>
+
+</telerik:RadEditor>
+
+--%>
+
+
+
+    
+<ajaxToolkit:tabcontainer CssClass="SvAjaxTabStyle" runat="server" >
+    </ajaxToolkit:tabcontainer>
+
+
+
+
+    <ajaxToolkit:CalendarExtender runat="server"  Enabled="True"  CssClass="AjaxCalendar"/>
+
+
+                   
+
+   
+   
+
+
+
+
+

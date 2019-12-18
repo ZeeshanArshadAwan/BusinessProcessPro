@@ -1,0 +1,55 @@
+.RadRotator_Material2 {
+  font-family: "Roboto", "Noto", sans-serif;
+  /* When LoadOnDemand */ }
+  .RadRotator_Material2 .rrClipRegion {
+    border-color: #CFD8DC;
+    color: #455A64;
+    background-color: #ffffff; }
+  .RadRotator_Material2 a.rrButton,
+  .RadRotator_Material2 a.rrButton.rrButtonDisabled,
+  .RadRotator_Material2 a.rrButton.rrButtonDisabled:hover,
+  .RadRotator_Material2 a.rrButton.rrButtonDisabled:active,
+  .RadRotator_Material2 a.rrButton.rrButtonDisabled:focus {
+    padding: 8px;
+    border-color: #CFD8DC;
+    color: #455A64;
+    background-color: #f4f7f8;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.2); }
+  .RadRotator_Material2 a.rrButton:hover {
+    border-color: #ECEFF1;
+    color: #455A64;
+    background-color: #ECEFF1;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.16), 0 6px 6px rgba(0, 0, 0, 0.2); }
+  .RadRotator_Material2 a.rrButton:focus {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.16), 0 6px 6px rgba(0, 0, 0, 0.2); }
+  .RadRotator_Material2 a.rrButton:active {
+    border-color: #CFD8DC;
+    color: #455A64;
+    background-color: #CFD8DC;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.16), 0 6px 6px rgba(0, 0, 0, 0.2); }
+  .RadRotator_Material2 .rrLoadingSign {
+    background-image: url('<%=WebResource("Telerik.Web.UI.Skins.Material2.Common.loading_small.gif")%>'); }
+  .RadRotator_Material2 .rrClipRegion {
+    border-radius: 0.14286em;
+    z-index: 2; }
+  .RadRotator_Material2 a.rrButtonUp {
+    top: 0.07143em;
+    border-radius: 0.14286em 0.14286em 0em 0em; }
+  .RadRotator_Material2 a.rrButtonRight {
+    border-radius: 0em 0.14286em 0.14286em 0em; }
+  .RadRotator_Material2 a.rrButtonDown {
+    border-radius: 0em 0em 0.14286em 0.14286em; }
+  .RadRotator_Material2 a.rrButtonLeft {
+    left: 1px;
+    border-radius: 0.14286em 0em 0em 0.14286em; }
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .RadRotator_Material2 a.rrButtonUp {
+      top: 0; }
+    .RadRotator_Material2 a.rrButtonRight {
+      right: 0; }
+    .RadRotator_Material2 a.rrButtonDown {
+      bottom: 0; }
+    .RadRotator_Material2 a.rrButtonLeft {
+      left: 0; } }
+  .RadRotator_Material2 .t-ripple-effect {
+    position: absolute !important; }
