@@ -88,7 +88,7 @@ export class ApplicationWorkFlowComponent extends BaseComponent implements OnIni
 
 
 
-  constructor(public languageTranslateService: LanguageTranslateService, private _svc: SharedServicesService, private GlobalVariableService: GlobalVariableService,
+  constructor(public languageTranslateService: LanguageTranslateService, private _svc: SharedServicesService, public GlobalVariableService: GlobalVariableService,
     public dialog: MatDialog, private cdRef: ChangeDetectorRef) {
     super(languageTranslateService);
     this.lstApplicationType = [];
@@ -114,6 +114,7 @@ export class ApplicationWorkFlowComponent extends BaseComponent implements OnIni
   }
 
   ngOnInit() {
+    this.GlobalVariableService.IsappDetails = false;
     this.FormName = localStorage.getItem("BPPFromNameEn");
     this.getAllVisitTypes();
     this.GetAllGroups();
@@ -236,7 +237,7 @@ export class ApplicationWorkFlowComponent extends BaseComponent implements OnIni
     }
   }
   AddVisitType() {
-
+    
     //objApplicationType]
     if (this.initialValidationVisitType()) {
       this.objApplicationType.SubmissionGroups = "";
@@ -398,22 +399,27 @@ export class ApplicationWorkFlowComponent extends BaseComponent implements OnIni
 
   selectData(index: number, id: number) {
     // this.Clear();
-    debugger;
-    window.scroll(0,0);
+    
+    window.scroll(0, 0);
     this.visitstatusID = id;
     this.objApplicationType = new ApplicationType();
     this.editDetail = new ApplicationType();
     this.editDetail = this.dataSource.data.filter(x => x.ApplicationTypeId == id)[0];
-    if(this.editDetail.HasWorkFlow===true)
-    {
-      this.visitStatuss=true;
+    //this.editDetail.ApplicationTypeCategory="'"+ this.editDetail.ApplicationTypeCategory + "'";
+    if (this.editDetail.HasWorkFlow === true) {
+      this.visitStatuss = true;
     }
-    else{
-      this.visitStatuss=false;
+    else if (this.editDetail.ApplicationTypeCategory === '2') {
+      this.visitStatuss = false;
     }
+    else {
+      this.visitStatuss = false;
+    }
+    
     this.objApplicationType = this.dataSource.data[index];
+    this.objApplicationType.ApplicationTypeCategory = this.objApplicationType.ApplicationTypeCategory.toString();
     this.GlobalVariableService.ApplicationTypeId = this.objApplicationType.ApplicationTypeId;
-  //  this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.objApplicationType.ApplicationTypeId);
+    this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.objApplicationType.ApplicationTypeId, false);
     //this.GlobalVariableService.GetAllFieldsByAppTypeId(this.objApplicationType.ApplicationTypeId);
     this.objapplicationStatus.FK_ApplicationTypeId = this.visitstatusID;
     this.groupsVisitStatus();
@@ -425,7 +431,7 @@ export class ApplicationWorkFlowComponent extends BaseComponent implements OnIni
     this.GetAllCompanies();
     this.GetAllUsers();
     this.ClearApplicationStatus();
-    
+
 
     //For Temporary Display Tools
     // this.LoadDynamicControll.filterdata("API");
@@ -436,6 +442,7 @@ export class ApplicationWorkFlowComponent extends BaseComponent implements OnIni
   GetVisitTypebyId(id: string) {
     this._svc.getGenericParmas(id, "id", 'ApplicationType/GetApplicationTypebyId').subscribe(
       data => {
+
       }, (err) => {
 
       }
@@ -468,8 +475,10 @@ export class ApplicationWorkFlowComponent extends BaseComponent implements OnIni
       this.GlobalVariableService.openDialog("Application Design", this.popUpMsg)
     }
     else {
-
+      var UserId = localStorage.getItem("BPPUserName");
       this.objapplicationStatus.FK_ApplicationTypeId = this.visitstatusID;
+      this.objapplicationStatus.CREATED_BY = UserId;
+      this.objapplicationStatus.LAST_UPDATE_BY = UserId;
       this._svc.UpdateVisitorStatus(this.objapplicationStatus, 'ApplicationType/UpdateApplicationStatus').subscribe(
         data => {
           this.lstapplicationStatus = data;
@@ -496,7 +505,7 @@ export class ApplicationWorkFlowComponent extends BaseComponent implements OnIni
     this.visitStatusDataSource.data[index].selected = !this.visitStatusDataSource.data[index].selected;
   }
   selectVisitStatus(i: number) {
-
+    
     var a = this.visitStatusDataSource.data.filter(x => x.ApplicationStatusId == i);
 
     // this.objapplicationStatus.AllowEdit=a[0].AllowEdit;
@@ -504,6 +513,8 @@ export class ApplicationWorkFlowComponent extends BaseComponent implements OnIni
     // this.objapplicationStatus.AllowUploadDocuments=a[0].AllowUploadDocuments;
     var arr = a[0].WorkFlowGroupId.split(',');
     this.objapplicationStatus = a[0];
+    this.handleChange(event, this.objapplicationStatus.WorkFlowType);
+
     if (this.objapplicationStatus.WorkFlowType == 1) {
       for (var j = 0; j < arr.length; j++) {
         for (var i = 0; i < this.vStatus_SysGroup.length; i++) {
@@ -511,6 +522,13 @@ export class ApplicationWorkFlowComponent extends BaseComponent implements OnIni
             this.vStatus_SysGroup[i].selected = true;
         }
       }
+    }
+    else if (this.objapplicationStatus.WorkFlowType == 2) {
+      this.objapplicationStatus.FK_CompanyId = a[0].FK_CompanyId;
+      this.selectOrgCompany(this.objapplicationStatus.FK_CompanyId);
+    }
+    else if (this.objapplicationStatus.WorkFlowType == 3) {
+
     }
   }
   handleChange(evt, key: number) {
@@ -568,7 +586,12 @@ export class ApplicationWorkFlowComponent extends BaseComponent implements OnIni
     }
 
     this.objapplicationStatus.WorkFlowGroupId = '';
+    
     if (this.objapplicationStatus.WorkFlowType == 1) {
+      this.objapplicationStatus.EmployeeIds = "";
+      this.objapplicationStatus.FK_CompanyId =0;
+      this.objapplicationStatus.FK_EntityId =0;
+
       for (var i = 0; i < this.vStatus_SysGroup.length; i++) {
         if (this.vStatus_SysGroup[i].selected == true) {
           if (this.objapplicationStatus.WorkFlowGroupId == '')
@@ -577,6 +600,20 @@ export class ApplicationWorkFlowComponent extends BaseComponent implements OnIni
             this.objapplicationStatus.WorkFlowGroupId = this.objapplicationStatus.WorkFlowGroupId + "\",\"" + this.vStatus_SysGroup[i].GroupID.toString();
         }
       }
+    }
+    if (this.objapplicationStatus.WorkFlowType == 2) {
+      this.objapplicationStatus.WorkFlowGroupId = "";
+      this.objapplicationStatus.EmployeeIds = "";
+    }
+    if (this.objapplicationStatus.WorkFlowType == 3) {
+      this.objapplicationStatus.WorkFlowGroupId = "";
+      this.objapplicationStatus.FK_CompanyId =0;
+      this.objapplicationStatus.FK_EntityId =0;
+      var data = "";
+      for(var i = 0 ; i< this.objapplicationStatus.EmployeeIds.length ; i++ ){
+        data = data+ ","+this.objapplicationStatus.EmployeeIds[i];
+      }
+      this.objapplicationStatus.EmployeeIds = data;
     }
     this.objapplicationStatus.WorkFlowGroupId = "[\"" + this.objapplicationStatus.WorkFlowGroupId + "\"]"
     if (this.isStringNullOrEmplty(this.objapplicationStatus.StatusNameEn)) {
@@ -641,7 +678,7 @@ export class ApplicationWorkFlowComponent extends BaseComponent implements OnIni
   }
 
   openEscalationModel(ids: string): void {
-    
+
     const id = ids;
     const message = "escalation";
 
@@ -669,7 +706,7 @@ export class ApplicationWorkFlowComponent extends BaseComponent implements OnIni
 
     dialogRef.afterClosed().subscribe(result => {
 
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
       this.AddNewControll = result;
       this.AddNewControll.SaveInPanelName = PanelName;
       this.listAddNewControll.push(this.AddNewControll);
@@ -727,12 +764,12 @@ export class ApplicationWorkFlowComponent extends BaseComponent implements OnIni
     }
 
     if (this.GlobalVariableService.isStringNullOrEmplty(this.GlobalVariableService.objPanelInfo.Text)) {
-      str =str + "Panel Title Arabic"
+      str = str + "Panel Title Arabic"
     }
     return str;
   }
   SavePanel() {
-    debugger;
+
     var str = this.initialValidationPanel();
     if (str == "") {
       if (this.GlobalVariableService.userPrevilieges != undefined) {
@@ -748,14 +785,14 @@ export class ApplicationWorkFlowComponent extends BaseComponent implements OnIni
       this.GlobalVariableService.objPanelInfo.ApplicationTypeId = this.objApplicationType.ApplicationTypeId;
       this._svc.SavePanelsInfo(this.GlobalVariableService.objPanelInfo, 'DynamicForm/SavePanelsInfo').subscribe(
         data => {
-          this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.ApplicationTypeId);
+          this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.ApplicationTypeId, false);
         }, (err) => {
           this.GlobalVariableService.openDialog("Application Design", "Some Error has been occured while Getting All entities.")
         }
       );
     }
     else {
-        this.GlobalVariableService.openDialog("Application Panel", "Please fill the mentioned field : "+  str)
+      this.GlobalVariableService.openDialog("Application Panel", "Please fill the mentioned field : " + str)
     }
 
   }
@@ -767,20 +804,19 @@ export class ApplicationWorkFlowComponent extends BaseComponent implements OnIni
   selecttemplate(type: string) {
   }
   updateEn() {
-    
+
     var a = this.GlobalVariableService.controllsApplicationTypeFields.filter(x => x.FieldId == Number(this.fillEnglishTemp))[0];
-    if(this.downLoadEnglishTemplate.includes("</p>"))
-    {
-      this.downLoadEnglishTemplate=this.downLoadEnglishTemplate.replace("</p>","");
-      var template=this.downLoadEnglishTemplate += ' ' + "{{" + a.FieldCaption + "}}";
-      this.downLoadEnglishTemplate+='</p>';
+    if (this.downLoadEnglishTemplate.includes("</p>")) {
+      this.downLoadEnglishTemplate = this.downLoadEnglishTemplate.replace("</p>", "");
+      var template = this.downLoadEnglishTemplate += ' ' + "{{" + a.FieldCaption + "}}";
+      this.downLoadEnglishTemplate += '</p>';
     }
-    else{
-      var template=this.downLoadEnglishTemplate += ' ' + "{{" + a.FieldCaption + "}}";
-      
+    else {
+      var template = this.downLoadEnglishTemplate += ' ' + "{{" + a.FieldCaption + "}}";
+
 
     }
-  //  var template=this.downLoadEnglishTemplate += ' ' + "{{" + a.FieldCaption + "}}";
+    //  var template=this.downLoadEnglishTemplate += ' ' + "{{" + a.FieldCaption + "}}";
 
     this.downLoadEnglishTemplate = template;
     this.fillArabicTemplate = '';
@@ -788,20 +824,19 @@ export class ApplicationWorkFlowComponent extends BaseComponent implements OnIni
     // this.fillEnglishTemp = '';
   }
   updateAR() {
-    
+
     var a = this.GlobalVariableService.controllsApplicationTypeFields.filter(x => x.FieldId == Number(this.fillArabicTemplate))[0];
-    if(this.downLoadArabicTemplate.includes("</p>"))
-    {
-      this.downLoadArabicTemplate=this.downLoadArabicTemplate.replace("</p>","");
-      var template=this.downLoadArabicTemplate += ' ' + "{{" + a.FieldCaptionAr + "}}";
-      this.downLoadArabicTemplate+='</p>';
+    if (this.downLoadArabicTemplate.includes("</p>")) {
+      this.downLoadArabicTemplate = this.downLoadArabicTemplate.replace("</p>", "");
+      var template = this.downLoadArabicTemplate += ' ' + "{{" + a.FieldCaptionAr + "}}";
+      this.downLoadArabicTemplate += '</p>';
     }
-    else{
-      var template=this.downLoadArabicTemplate += ' ' + "{{" + a.FieldCaptionAr + "}}";
-      
+    else {
+      var template = this.downLoadArabicTemplate += ' ' + "{{" + a.FieldCaptionAr + "}}";
+
 
     }
-  //  var template=this.downLoadEnglishTemplate += ' ' + "{{" + a.FieldCaption + "}}";
+    //  var template=this.downLoadEnglishTemplate += ' ' + "{{" + a.FieldCaption + "}}";
 
     this.downLoadArabicTemplate = template;
     // this.fillArabicTemplate = '';
@@ -818,27 +853,27 @@ export class ApplicationWorkFlowComponent extends BaseComponent implements OnIni
   DownloadEn() {
 
     let doc = new jsPDF('p', 'pt', 'a4', true);
-    var Name=this.objApplicationType.ApplicationNoAbbreviation;
+    var Name = this.objApplicationType.ApplicationNoAbbreviation;
     doc.fromHTML(this.downLoadEnglishTemplate, 15, 15, {
       'width': 500
     }, function (dispose) {
-      doc.save(Name+'English'+'.pdf');
+      doc.save(Name + 'English' + '.pdf');
     });
   }
   DownloadAr() {
 
     let doc = new jsPDF('p', 'pt', 'a4', true);
-    var Name=this.objApplicationType.ApplicationNoAbbreviation;
+    var Name = this.objApplicationType.ApplicationNoAbbreviation;
     doc.fromHTML(this.downLoadArabicTemplate, 15, 15, {
       'width': 500
     }, function (dispose) {
-      doc.save(Name+"Arabic"+'.pdf');
+      doc.save(Name + "Arabic" + '.pdf');
     });
   }
 
   SaveTemplate() {
 
-var a = JSON.parse(localStorage.getItem("BPPobjlogin"));
+    var a = JSON.parse(localStorage.getItem("BPPobjlogin"));
     this.apptypetemplate.ApplicationTypeTemplateId = 0;
     this.apptypetemplate.FK_ApplicationTypeId = this.objApplicationType.ApplicationTypeId;
     this.apptypetemplate.TemplateEn = this.downLoadEnglishTemplate;
@@ -861,8 +896,8 @@ var a = JSON.parse(localStorage.getItem("BPPobjlogin"));
   }
 
 
-  ClearApplicationStatus(){
-    this.lstapplicationStatus=[];
+  ClearApplicationStatus() {
+    this.lstapplicationStatus = [];
     this.objapplicationStatus = new applicationStatus();
   }
 

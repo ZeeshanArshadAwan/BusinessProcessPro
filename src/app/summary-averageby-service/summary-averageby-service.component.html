@@ -1,0 +1,99 @@
+<div class="background-img body">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="card-title"><img src="./assets/images/Review.png" class="titleImageClass">
+                    <label class="headertext"><b>{{FormName}}</b></label>
+                </h4>
+            </div>
+        </div>
+    </div>
+
+
+    <mat-card class="mat-elevation-z3 mlr-15 mt-3 ">
+        <mat-card-content>
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <h3>
+                                <span class="SVlabel"></span>
+                            </h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field class="w-95">
+                                    <mat-label>Service</mat-label>
+                                    <mat-select matNativeControl name="AddNewControllTypeID"
+                                   
+                                        required>
+                                        <mat-option selected="selected" value="Service1">Service1</mat-option>
+                                        <mat-option selected="selected" value="Service2">Service2</mat-option>
+                                        <mat-option selected="selected" value="Service3">Service3</mat-option>
+                                        <mat-option selected="selected" value="Service4">Service4</mat-option>
+                                        <mat-option selected="selected" value="Service5">Service5</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field  class="w-95">
+                                        <mat-label>From Date</mat-label>
+                                    <input matInput [matDatepicker]="pickerFromdate"
+                                   
+                                      placeholder="FromDate">
+                                    <mat-datepicker-toggle name="FromDate" matSuffix [for]="pickerFromdate">
+                                    </mat-datepicker-toggle>
+                                    <mat-datepicker #pickerFromdate></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field class="w-95">
+                                        <mat-label> To Date</mat-label>
+                                    <input matInput [matDatepicker]="pickerTodate"
+                                  
+                                        placeholder="ToDate">
+                                    <mat-datepicker-toggle name="ToDate" matSuffix [for]="pickerTodate">
+                                    </mat-datepicker-toggle>
+                                    <mat-datepicker #pickerTodate></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row form-group" >
+                          
+                            <div class="col-md-6">
+                                <mat-radio-group layout="row"
+                                aria-labelledby="example-radio-group-label"
+                               
+                                class="example-radio-group"
+                                name="Format1" >
+                                <mat-radio-button class="example-radio-button" *ngFor="let rep of report" [value]="rep">
+                                  {{rep}}
+                                </mat-radio-button>
+                              </mat-radio-group>
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-md-6">
+                                <button color="primary" class="ctgrySaveButton " matTooltip="Search" mat-raised-button
+                                    name='SaveEntity' (click)="Search()"> Generate
+                                </button>
+                                <span class="divider"></span>
+                                <button color="primary" class="ctgrySaveButton " matTooltip="Clear" mat-raised-button
+                                    name='DeleteEntity' (click)="Clear()">
+                                  Clear
+                                </button>
+                            </div>
+                            <div class="col-md-6"> </div>
+                        </div>
+                     
+                    </div>
+                </div>
+            </div>
+           
+        </mat-card-content>
+    </mat-card>
+</div>
+

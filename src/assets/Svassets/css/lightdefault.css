@@ -2984,3 +2984,26 @@ footer {
  .side-left {
     background: #fff !important;
 }
+
+.Theam_Color{
+    background: #fff !important;
+}
+tr.mat-header-row {
+    background-color: #fff !important;
+}
+.mat-header-cell {
+    color: #000 !important;
+}
+.mat-sort-header-arrow {
+    color: #000;
+}
+
+.Themefont{
+    color:#1d2b36 !important;
+}
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #000 !important;
+}
+.mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+    background-color: #000 !important;
+}

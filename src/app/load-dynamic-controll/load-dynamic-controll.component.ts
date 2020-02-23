@@ -14,7 +14,9 @@ import { jqxDataTableComponent } from 'jqwidgets-ng/jqxdatatable';
 
 
 import * as $ from 'jquery';
-import { isNullOrUndefined } from 'util';
+import { isNullOrUndefined, debug } from 'util';
+import { tabletype } from '../Classes/ApplicationTypeTemplate';
+import { AddgroupsForDropDownComponent, AddGroupsForDropDownData } from '../add-groups-for-drop-down/add-groups-for-drop-down.component';
 @Component({
   selector: 'app-load-dynamic-controll',
   templateUrl: './load-dynamic-controll.component.html',
@@ -42,9 +44,12 @@ export class LoadDynamicControllComponent implements OnInit, AfterViewInit {
   Coloumns: any;
   dataFields: any;
   columns: any;
+  ItemList: any;
   dataAdapter: any;
-  TableArray=[];
-  DynamicArrayForTable=[];
+  TableArray = [];
+  DynamicArrayForTable = [];
+  Tabletype: tabletype;
+  TableRowsArr: tabletype[];
   constructor(public GlobalVariableService: GlobalVariableService, public dialog: MatDialog,
     private _svc: SharedServicesService) {
 
@@ -53,6 +58,8 @@ export class LoadDynamicControllComponent implements OnInit, AfterViewInit {
     this.objPanelData = new ApplciationTypePanels();
     this.listPanel = [];
     this.dataAdapter = new jqx.dataAdapter(this.source);
+    this.Tabletype = new tabletype();
+    this.TableRowsArr = [];
     // this.lstPanelData = this.GlobalVariableService.glbApplciationTypePanels;
   }
 
@@ -77,7 +84,7 @@ export class LoadDynamicControllComponent implements OnInit, AfterViewInit {
 
   // public displayedColumns = [this.GlobalVariableService.coloumns];
   ngOnInit() {
-    debugger;
+
     // console.log( this.GlobalVariableService.DynamicDataTable);
     // console.log( this.GlobalVariableService.controllsApplicationTypeFields);
     // this.coloumns="Name,";
@@ -99,22 +106,42 @@ export class LoadDynamicControllComponent implements OnInit, AfterViewInit {
       //   }, 4000);
     }
     // console.log("oninit"); 
-  }
-  ngAfterViewInit() {
-    debugger;
-    if (!this.GlobalVariableService.isNumberNullOrEmplty(this.GlobalVariableService.ApplicationTypeId)) {
-      this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.ApplicationTypeId);
-      //this.GlobalVariableService.GetAllFieldsByAppTypeId(this.GlobalVariableService.ApplicationTypeId);
-      this.binddataToFields();
+    if(this.GlobalVariableService.isEn)
+    {
 
     }
+    this.GlobalVariableService.getdata();
   }
+  ngAfterViewInit() {
+   
+        if (!this.GlobalVariableService.isNumberNullOrEmplty(this.GlobalVariableService.ApplicationTypeId)) {
+      this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.ApplicationTypeId,true);
+      //this.GlobalVariableService.GetAllFieldsByAppTypeId(this.GlobalVariableService.ApplicationTypeId);
+      this.binddataToFields();
+    }
+  //   setTimeout(() => {
+  //     alert("test")
+  //    
+  //   for(var i = 0 ; i< this.GlobalVariableService.controllsApplicationTypeFields.length; i++){
+  //     if(this.GlobalVariableService.controllsApplicationTypeFields[i].FK_FieldType == 6){
+  //     var id = this.GlobalVariableService.controllsApplicationTypeFields[i].DefaultValue;
+  //     this.GlobalVariableService.controllsApplicationTypeFields[i].DefaultValue = "";
+  //     setTimeout(() => {
+  //       this.GlobalVariableService.controllsApplicationTypeFields[i].DefaultValue = id;
+  //     }, 1000);
+  //     }
+  //   }
+  // }, 8000);
+  }
+  compareObjects(o1: any, o2: any): boolean {
+    return o1.name === o2.name && o1.id === o2.id;
+  }  
   binddataToFields() {
- 
+   
   }
-   @Input() list: any;
+  @Input() list: any;
   @Input() message: string;
-  @Input() ButtonAndDataTable:boolean;
+  @Input() ButtonAndDataTable: boolean;
 
 
   public mess = 'mess from viewchild';
@@ -139,7 +166,7 @@ export class LoadDynamicControllComponent implements OnInit, AfterViewInit {
     this._svc.getGenericParmas(PanelId, 'PanelId', 'DynamicForm/DeletePanelInfo').subscribe(
       data => {
 
-        this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.ApplicationTypeId)
+        this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.ApplicationTypeId,true)
 
       }, (err) => {
         this.GlobalVariableService.openDialog("Add Controlls ", "Some Error has been occured.")
@@ -185,7 +212,7 @@ export class LoadDynamicControllComponent implements OnInit, AfterViewInit {
       });
 
       dialogRef.afterClosed().subscribe(result => {
-        console.log('The dialog was closed');
+        // console.log('The dialog was closed');
       });
 
     }
@@ -203,7 +230,7 @@ export class LoadDynamicControllComponent implements OnInit, AfterViewInit {
       });
 
       dialogRef.afterClosed().subscribe(result => {
-        console.log('The dialog was closed');
+        // console.log('The dialog was closed');
       });
     }
   }
@@ -219,7 +246,23 @@ export class LoadDynamicControllComponent implements OnInit, AfterViewInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      // console.log('The dialog was closed');
+    });
+  }
+  AddGroups(Filed_Id: number, PanelID: number) {
+   
+    const FiledId = Filed_Id;
+    const PanelId = PanelID;
+    this.GlobalVariableService.FieldID = Filed_Id;
+    const dialogData = new AddGroupsForDropDownData(FiledId, PanelId);
+    const dialogRef = this.dialog.open(AddgroupsForDropDownComponent, {
+      width: '80%',
+      maxHeight: '100%',
+      data: { dialogData }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // console.log('The dialog was closed');
     });
   }
   AddFields(FieldId: number, PanelId: number) {
@@ -231,7 +274,7 @@ export class LoadDynamicControllComponent implements OnInit, AfterViewInit {
     this._svc.getGenericParmas(FieldId, 'FieldId', 'DynamicForm/DeleteFieldInfo').subscribe(
       data => {
 
-        this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.ApplicationTypeId)
+        this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.ApplicationTypeId,true)
       }, (err) => {
         this.GlobalVariableService.openDialog("Add Controlls ", "Some Error has been occured.")
       }
@@ -244,7 +287,7 @@ export class LoadDynamicControllComponent implements OnInit, AfterViewInit {
       this._svc.UpdatePanelOrderDown(a, 'DynamicForm/UpdatePanelOrderDown').subscribe(
         data => {
           this.GlobalVariableService.openDialog('Add Controlls', 'Panel order has been updated');
-          this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.ApplicationTypeId)
+          this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.ApplicationTypeId,true)
 
         }, (err) => {
           this.GlobalVariableService.openDialog("Add Controlls ", "Some Error has been occured.")
@@ -260,7 +303,7 @@ export class LoadDynamicControllComponent implements OnInit, AfterViewInit {
       this._svc.UpdatePanelOrderUp(a, 'DynamicForm/UpdatePanelOrderUp').subscribe(
         data => {
           this.GlobalVariableService.openDialog('Add Controlls', 'Panel order has been updated');
-          this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.ApplicationTypeId)
+          this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.ApplicationTypeId,true)
         }, (err) => {
           this.GlobalVariableService.openDialog("Add Controlls ", "Some Error has been occured.")
         }
@@ -270,12 +313,20 @@ export class LoadDynamicControllComponent implements OnInit, AfterViewInit {
   mouseEnter(panelid: number) {
     this.MouseHoverPanelid = panelid;
   }
-  mouseLeave() {
-  }
+
   SetColor(FieldId: number) {
 
     $("#a" + FieldId).css("background-color", "#f2f5f3");
 
+  }
+  Ondropdownselect(event){
+   
+    let target = event.source.selected._element.nativeElement;
+    let selectedData = {
+      value: event.value,
+      text: target.innerText.trim()
+    };
+    console.log(selectedData);
   }
   onChange(ItemId: any, FieldId: any) {
 
@@ -309,7 +360,7 @@ export class LoadDynamicControllComponent implements OnInit, AfterViewInit {
     this._svc.UpdateFieldOrder(a, 'DynamicForm/UpdateFieldOrderDown').subscribe(
       data => {
         this.GlobalVariableService.openDialog('Add Controlls', 'Panel order has been updated');
-        this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.ApplicationTypeId)
+        this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.ApplicationTypeId,true)
       }, (err) => {
         this.GlobalVariableService.openDialog("Add Controlls ", "Some Error has been occured.")
       });
@@ -320,7 +371,7 @@ export class LoadDynamicControllComponent implements OnInit, AfterViewInit {
     this._svc.UpdateFieldOrder(a, 'DynamicForm/UpdateFieldOrderUp').subscribe(
       data => {
         this.GlobalVariableService.openDialog('Add Controlls', 'Panel order has been updated');
-        this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.ApplicationTypeId)
+        this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.ApplicationTypeId,true)
 
       }, (err) => {
         this.GlobalVariableService.openDialog("Add Controlls ", "Some Error has been occured.")
@@ -367,39 +418,79 @@ export class LoadDynamicControllComponent implements OnInit, AfterViewInit {
     return data;
   }
 
-  AddFieldValuesInTable(){
-    debugger;
-    for (var i = 0; i < this.GlobalVariableService.controllsApplicationTypeFields.length; i++) {
-    var fieldid = this.GlobalVariableService.controllsApplicationTypeFields[i].FieldId.toString();
-    var Caption = $('#' + fieldid).val();
-   // var ApplicationValuesID = $('#'+ fieldid + 'ApplicationValuesID').val();
-    
-    //this.GlobalVariableService.controllsApplicationTypeFields[i].FieldCaption = Caption;
-    var FieldId = this.GlobalVariableService.controllsApplicationTypeFields[i].FieldId;
-    if (!this.GlobalVariableService.isStringNullOrEmplty(Caption) && !this.GlobalVariableService.isNumberNullOrEmplty(FieldId)) {
-      this.TableArray.push({FieldId:FieldId,Caption:Caption});
-    }
-    for(let i=0; i<this.GlobalVariableService.glbApplciationTypePanels.length; i++)
-    {
+  // AddFieldValuesInTable() {
 
-      for(let j=0; j<this.GlobalVariableService.controllsApplicationTypeFields.length; j++)
-      {
-       
+  //   for (var i = 0; i < this.GlobalVariableService.controllsApplicationTypeFields.length; i++) {
+  //     var fieldid = this.GlobalVariableService.controllsApplicationTypeFields[i].FieldId.toString();
+  //     var Caption = $('#' + fieldid).val();
+  //     // var ApplicationValuesID = $('#'+ fieldid + 'ApplicationValuesID').val();
+
+  //     //this.GlobalVariableService.controllsApplicationTypeFields[i].FieldCaption = Caption;
+  //     var FieldId = this.GlobalVariableService.controllsApplicationTypeFields[i].FieldId;
+  //     if (!this.GlobalVariableService.isStringNullOrEmplty(Caption) && !this.GlobalVariableService.isNumberNullOrEmplty(FieldId)) {
+  //       this.TableArray.push({ FieldId: FieldId, Caption: Caption });
+  //     }
+  //     for (let i = 0; i < this.GlobalVariableService.glbApplciationTypePanels.length; i++) {
+
+  //       for (let j = 0; j < this.GlobalVariableService.controllsApplicationTypeFields.length; j++) {
+
+  //       }
+  //     }
+
+
+
+
+  //   }
+  // }
+  AddFieldValuesInTable(id: any) {
+   
+    var JsonFormate = "";
+    var list = this.GlobalVariableService.controllsApplicationTypeFields.filter(x => x.FieldId == id)[0];
+    var FieldInPanels = this.GlobalVariableService.controllsApplicationTypeFields.filter(x => x.FK_PanelId == list.FK_PanelId)
+    var repratersData = this.GlobalVariableService.listRepeaterData.filter(x => x.id = id)[0]
+    for (var p = 0; p < FieldInPanels.length; p++) {
+      for (var columnName = 0; columnName < repratersData.ColumnName.length; columnName++) {
+        if (repratersData.ColumnName[columnName] == FieldInPanels[p].FieldCaption) {
+          var fieldid = this.GlobalVariableService.controllsApplicationTypeFields[p].FieldId.toString();
+          var Caption = $('#' + fieldid).val();
+          if (JsonFormate == "")
+            JsonFormate = '"' + repratersData.ColumnName[columnName] + '"' + ':' + '"' + Caption + '"';
+          else
+            JsonFormate = JsonFormate + "," + '"' + repratersData.ColumnName[columnName] + '"' + ':' + '"' + Caption + '"';
+        }
       }
     }
-
-
-
-
+    var index = -1;
+    for (var r = 0; r < this.GlobalVariableService.listRepeaterData.length; r++) {
+      if (this.GlobalVariableService.listRepeaterData[r].id == id) {
+        index = r;
+      }
+    }
+   
+    var finalData = JSON.stringify(this.GlobalVariableService.listRepeaterData[index].Datatable);
+    if (finalData == "[]") {
+      finalData = JsonFormate;
+    }
+    else {
+      finalData = finalData.substring(2);
+      finalData = finalData.slice(0, -2)
+      finalData = finalData + " },{ " + JsonFormate;
+    }
+    finalData = "[{" + finalData + "}]"
+    finalData = JSON.parse(finalData);
+    this.GlobalVariableService.listRepeaterData[index].Datatable = finalData;
   }
-//   PanelandButtonShow(){
-// if(this.GlobalVariableService.glbApplciationTypePanels.)
+  Showhidepanel(ItemId: any, fieldId: any) {
+   
+    if(this.GlobalVariableService.AssignedApplication == true ||
+      this.GlobalVariableService.isAllapplication == true || this.GlobalVariableService.IsappDetails)
+      {
+      this.GlobalVariableService.Showhidepanel(ItemId, fieldId,false)
+    }
+    else
+    {
+      this.GlobalVariableService.Showhidepanel(ItemId, fieldId,true)
+    }
+  }
 
-//   }
-
-
-
-
-
-}
 }

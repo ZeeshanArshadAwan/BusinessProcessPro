@@ -8,29 +8,23 @@
             </div>
         </div>
     </div>
-
     <mat-card class="mat-elevation-z3 mlr-15 mt-3">
         <mat-card-content>
             <div class="row px-md-5">
                 <div class="col-md-6">
                     <mat-form-field  class="d-block w-95">
-                        <mat-label>Application Type</mat-label>
-                        <mat-select matNativeControl name="AddNewControllTypeID"  [(ngModel)]="apptypedocument.FK_ApplicationTypeId" required>
-                            <mat-option selected="selected" value="-1">--Please Select--</mat-option>
-                            <mat-option *ngFor="let p of applicationtypeList" [value]="p.ApplicationTypeId">
-                                {{p.ApplicationTypeEn}}</mat-option>
-                            <!-- <mat-option value="1">Leave Application</mat-option>
-                            <mat-option value="2">Finance Order</mat-option>
-                            <mat-option value="3">Product Order</mat-option>
-                            <mat-option value="4">Leave Request Demo</mat-option>
-                            <mat-option value="5">Permit Entry</mat-option>
-                            <mat-option value="6">application 1</mat-option> -->
+                        <mat-label>{{langObject.ApplicationType}}</mat-label>
+                        <mat-select matNativeControl name="AddNewControllTypeID" (ngModelChange)="GetAllDocumentTypesByAppTypeId(apptypedocument.FK_ApplicationTypeId)"  [(ngModel)]="apptypedocument.FK_ApplicationTypeId" required>
+                            <mat-option selected="selected" value="-1">{{GlobalVariableService.isEn === true ? 'please select'  : 'يرجى اختيار'}}</mat-option>
+                            <mat-option *ngFor="let p of applicationtypeList"   [value]="p.ApplicationTypeId">
+                                {{GlobalVariableService.isEn === true ? p.ApplicationTypeEn : p.ApplicationTypeAr}}</mat-option>
+                           
                         </mat-select>
                     </mat-form-field>
                 </div>
                 <div class="col-md-6">
                     <mat-form-field  class="d-block w-95">
-                        <mat-label>Document Name </mat-label>
+                        <mat-label>{{langObject.DocumentName}} </mat-label>
                         <input matInput placeholder="Enter English Document Name" name="DocumentEnName" [(ngModel)]="apptypedocument.DocumentNameEN" required>
                     </mat-form-field>
                 </div>
@@ -38,12 +32,12 @@
             <div class="row px-md-5">
                 <div class="col-md-6">
                     <mat-form-field  class="d-block w-95">
-                        <mat-label>Arabic Document Name </mat-label>
+                        <mat-label>{{langObject.ArabicDocumentName}} </mat-label>
                         <input matInput placeholder="Enter Arabic Document Type" name="DocumentArType" [(ngModel)]="apptypedocument.DocumentNameAr" required>
                     </mat-form-field>
                 </div>
                 <div class="col-md-6">
-                    <mat-checkbox class="checkBoxHeight" name="IsDocRequired" color="primary" required>Is Required
+                    <mat-checkbox class="checkBoxHeight"  name="IsDocRequired" color="primary" [(ngModel)]="apptypedocument.IsRequired"  required>{{langObject.IsRequired}}
                     </mat-checkbox>
                 </div>
             </div>
@@ -65,7 +59,7 @@
                 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 w-100">
                     <ng-container matColumnDef="select">
                         <th mat-header-cell *matHeaderCellDef>
-                            Select
+                            {{langObject.DefineApplicationDocumentTable[0]}}
                         </th>
                         <td mat-cell *matCellDef="let row ; let i = index;">
                             <mat-checkbox color="primary" (click)="$event.stopPropagation()"
@@ -75,13 +69,13 @@
                         </td>
                     </ng-container>
                     <ng-container matColumnDef="DocumentNameEN">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Document Name English </th>
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{langObject.DefineApplicationDocumentTable[1]}} </th>
                         <td mat-cell *matCellDef="let element  ; let i = index; ">
                             {{element.DocumentNameEN}} </td>
                     </ng-container>
 
                     <ng-container matColumnDef="DocumentNameAr">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Document Name Arabic
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>  {{langObject.DefineApplicationDocumentTable[2]}}
                         </th>
                         <td mat-cell *matCellDef="let element"> {{element.DocumentNameAr}}</td>
                     </ng-container>
@@ -93,7 +87,7 @@
                     </ng-container> -->
 
                     <ng-container matColumnDef="action">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Edit </th>
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{langObject.DefineApplicationDocumentTable[3]}}</th>
                         <td mat-cell *matCellDef="let element ; let i = index">
                             <!-- <img class="tableAction" (click)='selectData(i, element.ApplicationTypeId)'
                                 src="./assets/images/edit.png" /> -->

@@ -1,0 +1,165 @@
+<div class="background-img body">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="card-title"><img src="./assets/images/Review.png" class="titleImageClass">
+                    <label class="headertext"><b>{{FormName}}</b></label>
+                </h4>
+            </div>
+        </div>
+    </div>
+
+
+    <mat-card class="mat-elevation-z3 mlr-15 mt-3 ">
+        <mat-card-content>
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <h3>
+                                <span class="SVlabel"></span>
+                            </h3>
+                        </div>
+                        <!-- <div class="row">
+                       
+                            <div class="col-md-6">
+                                <mat-form-field class="w-95 ">
+                                    <mat-label>C</mat-label>
+                                    <mat-select placeholder="" matNativeControl
+                                        [(ngModel)]="objAllAplication.ApplicationTypeId" [formControl]="ApplicationType"
+                                        name="ApplicationType1"
+                                        (ngModelChange)="OnchangeApptype(objAllAplication.ApplicationTypeId)">
+                                        <mat-option>{{GlobalVariableService.isEn === true ? 'please select'  : 'يرجى اختيار'}}</mat-option>
+                                        <mat-option [value]="p.ApplicationTypeId" *ngFor="let p of lstApplicationType">
+                                            {{GlobalVariableService.isEn === true ? p.ApplicationTypeEn : p.ApplicationTypeAr}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                         
+                            <div class="col-md-6">
+                            
+                                <mat-form-field class="w-95 ">
+                                    <mat-label>{{langObject.ApplicationStatus}}</mat-label>
+                                    <mat-select placeholder="" matNativeControl
+                                        [(ngModel)]="objAllAplication.ApplicationStatusId"
+                                        [formControl]="ApplicationStatus" name="ApplicationStatus1"
+                                        (change)="OnchangeApptype(objAllAplication.ApplicationTypeId)">
+                                        <mat-option>{{GlobalVariableService.isEn === true ? 'please select'  : 'يرجى اختيار'}}</mat-option>
+                                        <mat-option [value]="p.ApplicationStatusId" *ngFor="let p of lstApplicationStatus">
+                                            {{GlobalVariableService.isEn === true ? p.StatusDisplayNameEn : p.StatusDisplayNameAr}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div> -->
+                        <!-- <div class="row">
+                        
+                            <div class="col-md-6">
+                                <mat-form-field class="w-95 ">
+                                    <mat-label>{{langObject.AssignedGroup}}</mat-label>
+                                    <mat-select placeholder="" matNativeControl [(ngModel)]="objAllAplication.GroupId"
+                                        (change)="OnchangeAssigned(objAllAplication.GroupId)"
+                                        [formControl]="AssignedGroup" name="AssignedGroup1">
+                                        <mat-option>{{GlobalVariableService.isEn === true ? 'please select'  : 'يرجى اختيار'}}</mat-option>
+                                        <mat-option [value]="p.GroupID" *ngFor="let p of lstSys_Groups">
+                                            {{GlobalVariableService.isEn === true ? p.Desc_En : p.Desc_Ar}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        
+                            <div class="col-md-6">
+                             
+                                <mat-form-field class="w-95 ">
+                                    <mat-label> {{langObject.AssignedUser}}</mat-label>
+
+                                    <mat-select placeholder="" matNativeControl [(ngModel)]="objAllAplication.UserId"
+                                        [formControl]="Applicant" name="Applicant1">
+                                        <mat-option>
+                                            {{GlobalVariableService.isEn === true ? 'please select'  : 'يرجى اختيار'}}
+                                        </mat-option>
+                                        <mat-option [value]="p.ID" *ngFor="let p of lstSys_Users">{{p.User_FullName}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div> -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field class="example-full-width w-95 ">
+                                        <mat-label> Customer Name</mat-label>
+                                    <input matInput placeholder="CustomerName"
+                                    [(ngModel)]="ObjSummeryAverageByCustomer.CustomerName"
+                                         value="">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field class="example-full-width w-95 ">
+                                        <mat-label> Customer Arabic Name</mat-label>
+                                    <input matInput placeholder="CustomerAraicName"
+                                    [(ngModel)]="ObjSummeryAverageByCustomer.CustomerArabicName"
+                                       value="">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field  class="w-95">
+                                        <mat-label>From Date</mat-label>
+                                    <input matInput [matDatepicker]="pickerFromdate"
+                                    [(ngModel)]="ObjSummeryAverageByCustomer.FromDate"
+                                      placeholder="FromDate">
+                                    <mat-datepicker-toggle name="FromDate" matSuffix [for]="pickerFromdate">
+                                    </mat-datepicker-toggle>
+                                    <mat-datepicker #pickerFromdate></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field class="w-95">
+                                        <mat-label> To Date</mat-label>
+                                    <input matInput [matDatepicker]="pickerTodate"
+                                    [(ngModel)]="ObjSummeryAverageByCustomer.ToDate"
+                                        placeholder="ToDate">
+                                    <mat-datepicker-toggle name="ToDate" matSuffix [for]="pickerTodate">
+                                    </mat-datepicker-toggle>
+                                    <mat-datepicker #pickerTodate></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row form-group" >
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4">
+                                <mat-radio-group layout="row"
+                                aria-labelledby="example-radio-group-label"
+                                class="example-radio-group"
+                                [(ngModel)]="ObjSummeryAverageByCustomer.Format"
+                                 name="Format1" >
+                                <mat-radio-button class="example-radio-button" *ngFor="let rep of report" [value]="rep">
+                                  {{rep}}
+                                </mat-radio-button>
+                              </mat-radio-group>
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-md-6">
+                                <button color="primary" class="ctgrySaveButton " matTooltip="Search" mat-raised-button
+                                    name='SaveEntity' (click)="GenerateReport()"> Generate
+                                </button>
+                                <span class="divider"></span>
+                                <button color="primary" class="ctgrySaveButton " matTooltip="Clear" mat-raised-button
+                                    name='DeleteEntity' (click)="Clear()">
+                                  Clear
+                                </button>
+                            </div>
+                            <div class="col-md-6"> </div>
+                        </div>
+                     
+                    </div>
+                </div>
+            </div>
+           
+        </mat-card-content>
+    </mat-card>
+</div>

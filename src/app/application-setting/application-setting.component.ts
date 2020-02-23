@@ -28,7 +28,7 @@ export class ApplicationSettingComponent extends BaseComponent implements OnInit
   imageSrc: any;
   workflowapi:WorkFlowApi;
   constructor(private httpclient: HttpClient,public languageTranslateService: LanguageTranslateService ,private _svc: SharedServicesService, private sanitizer: DomSanitizer,
-    private router: Router, public dialog: MatDialog, private GlobalVariableService: GlobalVariableService) {
+    private router: Router, public dialog: MatDialog, public GlobalVariableService: GlobalVariableService) {
       super(languageTranslateService);
     this.objappSetting = new AppSetting();
     this.objappSetReq_params = new appSetReq_params();
@@ -130,7 +130,7 @@ export class ApplicationSettingComponent extends BaseComponent implements OnInit
           this.Redirect('AppSet');
         }, (err) => {
           
-          console.log(err);
+          // console.log(err);
           this.GlobalVariableService.openDialog(this.FormName, "Error occured.");
         });
     }

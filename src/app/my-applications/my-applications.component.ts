@@ -8,13 +8,15 @@ import { Sys_Users } from '../Classes/login';
 import { Validators, FormControl } from '@angular/forms';
 import { ApplicationStatus, AllApplication, ApplicationInfo } from '../Classes/application-review';
 import { Router } from '@angular/router';
+import { LanguageTranslateService } from '../SharedServices/language-translate.service';
+import { BaseComponent } from '../SharedServices/base-component';
 
 @Component({
   selector: 'app-my-applications',
   templateUrl: './my-applications.component.html',
   styleUrls: ['./my-applications.component.css']
 })
-export class MyApplicationsComponent implements OnInit {
+export class MyApplicationsComponent extends BaseComponent implements OnInit {
   FormName: string = '';
   showDetail: boolean = false;
   lstApplicationType : ApplicationType
@@ -23,6 +25,8 @@ export class MyApplicationsComponent implements OnInit {
   lstApplicationStatus:ApplicationStatus[]
   objAllAplication : AllApplication
   lstApplicationInfo : ApplicationInfo []
+  AssignedGroup:number = 0;
+  FK_AssignedUser:number = 0;
   ////////////////////Validation////////////////
   errorMsg: string = '';
   ApplicationType = new FormControl('', [
@@ -35,12 +39,13 @@ export class MyApplicationsComponent implements OnInit {
     Validators.required
   ]);
 
-  AssignedGroup = new FormControl('', [
-    Validators.required
-  ]);
+  // AssignedGroup = new FormControl('', [
+  //   Validators.required
+  // ]);
   datePipe: any;
   
-  constructor(private _svc: SharedServicesService,private GlobalVariableService : GlobalVariableService,private router: Router) {
+  constructor( public languageTranslateService: LanguageTranslateService ,   private _svc: SharedServicesService,public GlobalVariableService : GlobalVariableService,private router: Router) {
+    super(languageTranslateService);
     this.objAllAplication = new AllApplication();
     
    }
@@ -223,7 +228,7 @@ GetApp(index: any = 0) {
          // this.GlobalVariableService.editProspectMode = this.GlobalVariableService.editProspectMode == false?true:false;
           this.GlobalVariableService.ApplicationValues = data;
           this.GlobalVariableService.parameterID = this.GlobalVariableService.objApplicationInfo.ApplicationTypeId.toString();
-          this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.objApplicationInfo.ApplicationTypeId);
+          this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.objApplicationInfo.ApplicationTypeId,false);
           var myurl = `${"ApplicationDetail"}/${''}`;
           const that = this;
           that.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>

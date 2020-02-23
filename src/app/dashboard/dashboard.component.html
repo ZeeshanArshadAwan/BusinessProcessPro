@@ -185,7 +185,7 @@
             <div class="col-md-4 ">
                 <div  class="card" >
                         <div class="card" style="height: 100%">
-                                <div class="card-header">
+                                <div class="card-headers">
                                     <h4 class="card-title">Announcements</h4>
                                 </div>
                                 <div class="card-content">
@@ -209,7 +209,7 @@
             <div class="col-md-4 ">
                     <div  class="card" >
                             <div>
-                                    <div class="card-header">
+                                    <div class="card-headers">
                                         <h4 class="card-title">Quick Links</h4>
                                     </div>
                                     <div class="card-content">
@@ -255,29 +255,29 @@
             <div class="row row-eq-height">
                 <div class="col-md-12">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="box box1">
                                 <div class="details">
-                                    <h3>1213</h3>
-                                    <h4>Checked Out</h4>
+                                    <h3>{{TOTAL_APPLICATIONS}}</h3>
+                                    <h4>{{langObject.Total}}</h4>
                                 </div>
                                 <div id="spark1"></div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="box box2">
                                 <div class="details">
-                                    <h3>422</h3>
-                                    <h4>Checked In</h4>
+                                    <h3>{{TOTAL_APP_PENDING}}</h3>
+                                    <h4>{{langObject.Pending}}</h4>
                                 </div>
                                 <div id="spark2"></div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="box box3">
                                 <div class="details">
-                                    <h3>311</h3>
-                                    <h4>Expected</h4>
+                                    <h3>{{TOTAL_APP_COMPLETED}}</h3>
+                                    <h4>{{langObject.Completed}}</h4>
                                 </div>
                                 <div id="spark3"></div>
                             </div>
@@ -295,11 +295,11 @@
                 </div>
             </div>
     
-            <div class="row row-eq-height" style="margin-top: 10px;">
+            <div class="row row-eq-height" style="margin-top: 20px">
                 <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Application Status Count</h4>
+                    <div class="card" style="height: 100%;">
+                        <div class="card-headers">
+                            <h4 class="card-title">{{langObject.ApplicationStatusCount}}</h4>
                         </div>
                         <div class="card-content">
                             <div class="card-body">
@@ -309,71 +309,72 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="card" style="height: 94%;">
-                        <div class="card-header">
-                            <h4 class="card-title">Today's Transactions</h4>
+                    <div class="card" style="height: 100%;">
+                        <div class="card-headers">
+                            <h4 class="card-title">{{langObject.TodayTransactions}}</h4>
                         </div>
                         <div class="card-content">
                             <div class="card-body" style="padding: 0;">
-                                <div id="radialBarBottom"> </div>
-                                <div class="graphInfo">
-                                    <div class="row">
-                                        <div class="col-md-8 col-6" style="text-align: left;">
+                                <div style="margin-top: 15px;margin-bottom: 15px;">
+                                    <div class="row" style="margin: 0;font-size: 14px;">
+                                        <div class="col-md-8 col-6">
                                             <div style="padding: 15px 0px;">
                                                 <div class="graphInfoHeading">
                                                     <div style="display: inline-block;background-color: #00597b;border-radius: 50%;width: 10px;height: 10px;margin-right: 5px;"></div>
-                                                    <span>Check In</span>
+                                                    <span>{{langObject.Approved}}</span>
                                                 </div>
                                                 <div class="graphInfoHeading">
                                                     <div style="display: inline-block;background-color: #b8dfac;border-radius: 50%;width: 10px;height: 10px;margin-right: 5px;"></div>
-                                                    <span>Check Out</span>
+                                                    <span>{{langObject.Pending}}</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4 col-6" style="text-align: right;">
                                             <div >
-                                                <div class="graphInfoNum" style="margin-top: 15px;"><b>457</b></div>
-                                                <div class="graphInfoNum"><b>457</b></div>
+                                                <div class="graphInfoNum" style="margin-top: 15px;"><b>{{TOTAL_APP_COMPLETED}}</b></div>
+                                                <div class="graphInfoNum"><b>{{TOTAL_APP_PENDING}}</b></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div id="barchart1"></div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="card" style="height: 94%;">
-                        <div class="card-header">
-                            <h4 class="card-title">Application Statistics</h4>
+                    <div class="card" style="height: 100%;">
+                        <div class="card-headers">
+                            <h4 class="card-title">{{langObject.ApplicationStatistics}}</h4>
                         </div>
                         <div class="card-content">
                             <div class="card-body" style="padding: 0;">
-                                <div id="donut"> </div>
                                 <div class="graphInfo1" style="margin-top: 30px;margin-bottom: 15px;">
-                                    <div class="row" style="margin: 0;">
+                                    <div class="row" style="margin: 0;font-size: 14px;">
                                         <div class="col-md-8 col-6">
                                             <div class="graphInfoHeading">
-                                                <div style="display: inline-block;background-color: #37bc9b;border-radius: 50%;width: 10px;height: 10px;margin-right: 5px;"></div>
-                                                <span>Approve</span>
-                                            </div>
-                                            <div class="graphInfoHeading">
-                                                <div style="display: inline-block;background-color: #2196f3;border-radius: 50%;width: 10px;height: 10px;margin-right: 5px;"></div>
-                                                <span>Pending</span>
-                                            </div>
-                                            <div class="graphInfoHeading">
                                                 <div style="display: inline-block;background-color: #00597b;border-radius: 50%;width: 10px;height: 10px;margin-right: 5px;"></div>
-                                                <span>Reject</span>
+                                                <span>{{langObject.Approved}}</span>
+                                            </div>
+                                            <div class="graphInfoHeading">
+                                                <div style="display: inline-block;background-color: #b8dfac;border-radius: 50%;width: 10px;height: 10px;margin-right: 5px;"></div>
+                                                <span>{{langObject.Pending}}</span>
+                                            </div>
+                                            <div class="graphInfoHeading">
+                                                <div style="display: inline-block;background-color: #f7a35c;border-radius: 50%;width: 10px;height: 10px;margin-right: 5px;"></div>
+                                                <span>{{langObject.Rejected}}</span>
                                             </div>
                                         </div>
                                         <div class="col-md-4 col-6 text-right">
-                                            <div class="graphInfoNum" ><b>457</b></div>
-                                            <div class="graphInfoNum" ><b>457</b></div>
-                                            <div class="graphInfoNum" ><b>457</b></div>
+                                            <div class="graphInfoNum" ><b>{{TOTAL_APP_COMPLETED}}</b></div>
+                                            <div class="graphInfoNum" ><b>{{TOTAL_APP_PENDING}}</b></div>
+                                            <div class="graphInfoNum" ><b>{{TOTAL_APP_REJECTED}}</b></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div id="barchart2"></div>
                         </div>
                     </div>
                 </div>
@@ -383,7 +384,7 @@
             <!-- <div class="row row-eq-height">
                 <div class="col-md-6">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-headers">
                             <h4 class="card-title">Visitors Analytics</h4>
                         </div>
                         <div class="card-content">
@@ -395,7 +396,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-headers">
                             <h4 class="card-title">Visitor's Nationality</h4>
                         </div>
                         <div class="card-content">
@@ -408,31 +409,28 @@
             </div> -->
     
             <div class="clearfix"></div>
-            <div class="row row-eq-height" style="margin-top: 90px">
+            <div class="row row-eq-height" style="margin-top: 20px">
                 <div class="col-md-4 indexRow">
                     <div class="card profile-card-with-cover" style="height: 100%">
                         <div class="card-content">
                             <div class="card-body" style="padding: 0;">
                                 <div class="card-img-top img-fluid bg-cover dashboardInfoBox" style="height: 70px !important;"></div>
                                 <div class="card-profile-image" style="top: 30px;">
-                                    <img src="../../assets/images/avatar-s-1.png" class="rounded-circle img-border box-shadow-1" alt="Card image" style="width: 100px;">
+                                    <img src="assets/images/avatar-s-1.png" class="rounded-circle img-border box-shadow-1" alt="Card image" style="width: 100px;">
                                 </div>
                                 <div class="profile-card-with-cover-content">
-                                    <div class="card-body text-center" style="padding-top: 10px; padding-bottom: 0px;">
-                                        <h4 class="card-title" style="margin-bottom: .3rem;">Admin</h4>
-                                        <ul class="list-inline list-inline-pipe">
-                                            <li>admin</li>
-                                        </ul>
+                                    <div class="card-body text-center" style="padding-top: 20px; padding-bottom: 0px;">
+                                        <h4 class="card-title text-uppercase" style="margin-bottom: .3rem;">{{User}}</h4>
                                     </div>
-                                    <div class="userInfoBox">
+                                    <div class="userInfoBox text-uppercase">
                                         <div class="UIB">
-                                            <i class="fa fa-user-circle-o"></i> Admin
+                                            <i class="fa fa-user-circle-o"></i> {{User}}
                                         </div>
                                         <div class="UIB">
                                             <i class="fa fa-envelope"></i> admin@gmail.com
                                         </div>
-                                        <div class="UIB" style="margin-bottom:0">
-                                            <i class="fa fa-user-plus"></i> Admin
+                                        <div class="UIB">
+                                            <i class="fa fa-user-plus"></i> {{User}}
                                         </div>
                                     </div>
                                 </div>
@@ -443,13 +441,13 @@
                 </div>
                 <div class="col-md-4 indexRow">
                     <div class="card" style="height: 100%">
-                        <div class="card-header">
-                            <h4 class="card-title">Announcements</h4>
+                        <div class="card-headers">
+                            <h4 class="card-title">{{langObject.Announcements}}</h4>
                         </div>
                         <div class="card-content">
                             <div class="card-body">
                                 <ul class="announcementUL">
-                                    <li class="announcementLI">
+                                    <li class="announcementLI" style="font-size: 16px;">
                                         Our service too allows for Visitor Registrations to be made both Online and On-site. Accompanying such is that of Smart Card Enabled Entries.
                                         Our service too allows for Visitor Registrations to be made both Online and On-site. Accompanying such is that of Smart Card Enabled Entries
                                     </li>
@@ -466,8 +464,8 @@
     
                 <div class="col-md-4 indexRow">
                     <div class="card" style="height: 100%">
-                        <div class="card-header">
-                            <h4 class="card-title">Quick Links</h4>
+                        <div class="card-headers">
+                            <h4 class="card-title">{{langObject.QuickLinks}}</h4>
                         </div>
                         <div class="card-content">
                             <div class="card-body">

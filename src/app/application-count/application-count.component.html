@@ -2,14 +2,14 @@
     <div class="row">
         <div class="col-md-12">
             <h4 class="card-title"><img src="./assets/images/adminsitrationDefinition.png" class="titleImageClass">
-                <label class="headertext"> Application Count Per Status{{FormName}}</label>
+                <label class="headertext"> {{langObject.ApplicationCountPerStatus}}</label>
             </h4>
         </div>
     </div>
     <mat-card class="mat-elevation-z3 mlr-15 mt-3 ">
         <mat-card-content>
 
-            <div class="container-fluid" *ngIf="!showDetail">
+            <div class="container-fluid">
                 <div class="row justify-content-center">
                     <div class="col-md-12">
                         <div class="row form-group">
@@ -17,19 +17,14 @@
                         </div>
                         
                         <div class="row form-group">
-                            <!-- <div class="col-md-2">
-                                <span>
-                                    <h4>
-                                        Application Type
-                                    </h4>
-                                </span>
-                            </div> -->
                             <div class="col-md-6">
                                 <mat-form-field  class="w-95" >
-                                    <mat-label>Application Type</mat-label>
+                                    <mat-label>{{langObject.ApplicationType}}</mat-label>
                                     <mat-select  placeholder="" matNativeControl [(ngModel)]="objApplicationDetailReport.ApplicationTypeId" [formControl]="ApplicationType" name="ApplicationType1" >
-                                      <mat-option >Please Select</mat-option>
-                                      <mat-option [value]="p.ApplicationTypeId" *ngFor="let p of lstApplicationType" >{{p.ApplicationTypeEn}}</mat-option>
+                                      <mat-option >{{GlobalVariableService.isEn === true ? 'please select'  : 'يرجى اختيار'}}</mat-option>
+                                      <mat-option [value]="p.ApplicationTypeId" *ngFor="let p of lstApplicationType" >
+                                          {{GlobalVariableService.isEn === true ? p.ApplicationTypeEn : p.ApplicationTypeAr}}
+                                        </mat-option>
                                     </mat-select>
                                   </mat-form-field>
                             </div>
@@ -38,13 +33,13 @@
                             <div class="col-md-2">
                                 <span>
                                     <h4>
-                                        From Date
+                                        {{langObject.FromDate}}
                                     </h4>
                                 </span>
                             </div>
                             <div class="col-md-4">
                                 <mat-form-field>
-                                    <input matInput [matDatepicker]="pickerFromdate" [(ngModel)]="objApplicationDetailReport.FromDate" placeholder="Choose a date">
+                                    <input matInput [matDatepicker]="pickerFromdate" [(ngModel)]="objApplicationDetailReport.FromDate" placeholder={{langObject.Chooseadate}}>
                                     <mat-datepicker-toggle name="FromDate" matSuffix [for]="pickerFromdate">
                                     </mat-datepicker-toggle>
                                     <mat-datepicker #pickerFromdate></mat-datepicker>
@@ -55,13 +50,13 @@
                             <div class="col-md-2">
                                 <span>
                                     <h4>
-                                        To Date
+                                        {{langObject.ToDate}}
                                     </h4>
                                 </span>
                             </div>
                             <div class="col-md-4">
                                 <mat-form-field>
-                                    <input matInput [matDatepicker]="pickerTodate" [(ngModel)]="objApplicationDetailReport.ToDate" placeholder="Choose a date">
+                                    <input matInput [matDatepicker]="pickerTodate" [(ngModel)]="objApplicationDetailReport.ToDate" placeholder={{langObject.Chooseadate}}>
                                     <mat-datepicker-toggle name="ToDate" matSuffix [for]="pickerTodate">
                                     </mat-datepicker-toggle>
                                     <mat-datepicker #pickerTodate></mat-datepicker>
@@ -86,18 +81,40 @@
                                 <div class="col-md-4"> </div>
                             <div class="col-md-4">
                                 <button color="primary" class="ctgrySaveButton " matTooltip="View report" mat-raised-button
-                                    name='View' (click)="GetReport()"> View
+                                    name='View' (click)="GetReport()"> {{langObject.View}}
                                 </button>
                                 <span class="divider"></span>
                                 <button color="primary" class="ctgrySaveButton " (click)="Cancel()" matTooltip="Clear" mat-raised-button
                                     name='Clear'>
-                                    Clear
+                                    {{langObject.Clear}}
                                 </button>
                                 
+                                <button color="primary" class="ctgrySaveButton " matTooltip="View Dashboard" mat-raised-button
+                                name='Clear' (click)="getAllCharts()">
+                                {{langObject.DashboardView}}
+                            </button>
+
                             </div>
                             <div class="col-md-4"> </div>
                         </div>
                         
+
+                        <div class="row form-group" style="margin-top: 5vh" *ngIf= "showDashboard">
+                            <div class="col-md-6 border-gray rounded">
+                                <div class="card-body">
+                                    <div id="barchart"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-5  border-gray rounded">
+                                <div class="card-content p-1">
+                                    <div id="barchart2"></div>
+                                </div>
+                            </div>
+                        </div>  
+
+
+
                     </div>
                 </div>
             </div>

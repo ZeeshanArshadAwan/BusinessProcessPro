@@ -2983,3 +2983,25 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
  .side-left {
     background: #e9e3f8 !important;
 }
+.Theam_Color{
+    background: #e9e3f8 !important;
+}
+.Themefont{
+    color:#1d2b36 !important;
+}
+tr.mat-header-row {
+    background-color: #e9e3f8 !important;
+}
+.mat-header-cell {
+    color: #1d2b36 !important;
+}
+.mat-sort-header-arrow {
+    color: #000;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #e9e3f8 !important;
+}
+.mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+    background-color: #e9e3f8 !important;
+}

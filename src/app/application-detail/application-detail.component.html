@@ -15,7 +15,7 @@
                 <div class="col-md-6">
                     <div class="row">
                         <div class="col-md-4">
-                    <strong class="fontsize">Application No:</strong>
+                    <strong class="fontsize">{{langObject.ApplicationNo}}</strong>
                 </div>
                 <div class="col-md-8">
                     <span class="fontsize">
@@ -29,8 +29,7 @@
              <div class="row">
                  <div class="col-md-4">
                     <span>
-                        <strong class="fontsize">Application
-                            Date:</strong>
+                        <strong class="fontsize">{{langObject.ApplicationDate}}</strong>
                     </span>
                 </div>
                 <div class="col-md-8">
@@ -43,12 +42,9 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <!-- <strong>Service Type :</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                {{GlobalVariableService.objApplicationInfo.ApplicationTypeEn}} -->
-
                 <div class="row">
                     <div class="col-md-4">
-                    <strong class="fontsize">Service Type :</strong>
+                    <strong class="fontsize">{{langObject.ServiceType}}</strong>
                 </div>
                 <div class="col-md-8">
                     <span class="fontsize">
@@ -62,8 +58,7 @@
                 <div class="row">
                     <div class="col-md-4">
                     <span>
-                        <strong class="fontsize">Application
-                            Status:</strong>
+                        <strong class="fontsize">{{langObject.ApplicationStatus}}</strong>
                        
                     </span>
                 </div>
@@ -82,7 +77,7 @@
                 <div class="row">
                  <div class="col-md-4">
                     <!-- <strong>Emirates Id :</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{GlobalVariableService.objApplicationInfo.Applicant_Id}} -->
-                    <strong class="fontsize">Emirates Id: </strong>
+                    <strong class="fontsize">{{langObject.EmiratesId}} </strong>
                 </div>
                 <div class="col-md-8">
                     <span class="fontsize">
@@ -96,8 +91,7 @@
                     <div class="row">
                         <div class="col-md-4">
                     <span>
-                        <strong class="fontsize">Applicant
-                            Name:</strong>
+                        <strong class="fontsize">{{langObject.ApplicantName}}</strong>
                     </span>
                 </div>
                 <div class="col-md-8">
@@ -107,9 +101,6 @@
                 </div>
                 </div>
                 </div>
-                <!-- <div class="col-md-4">
-                                 <strong>Application Status:</strong>&nbsp;&nbsp;&nbsp;&nbsp;Status 1
-                              </div> -->
             </div>
         </div>
     </div>
@@ -117,34 +108,387 @@
         <mat-card-content>
 
             <hr>
+<!-- Tables for ApplicationTypecaption -->
+
             <!-- <mat-tab-group animationDuration="1ms" [(selectedIndex)]="selectedIndex"> -->
-            <mat-tab-group animationDuration="5ms">
+            <mat-tab-group animationDuration="5ms" >
                 <mat-tab >
                     <ng-template mat-tab-label >
-                        <span (click) = "start()" class="sg-mat-txt" matTooltip="App Request" aria-label="">App Request</span>
+                        <span (click) = "start()" class="sg-mat-txt" matTooltip="App Request" aria-label="">{{langObject.AppRequest}}</span>
                     </ng-template>
                     <mat-card-content>
                         <form class="example-form">
+
+
+
+
+
+                            <div class="row">
+                                <div class="container" *ngIf="GlobalVariableService.ApplicationTypeCategory == 2">
+                                <div class="row table table-responsive">
+                                <table mat-table [dataSource]="servicePayment" class=" table mat-elevation-z8">
+                                
+                                <!-- Checkbox Column -->
+                                <!-- <ng-container matColumnDef="select">
+                                <th mat-header-cell *matHeaderCellDef>
+                                <mat-checkbox (change)="$event ? masterToggle() : null"
+                                          [checked]="selection.hasValue() && isAllSelected()"
+                                          [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                          [aria-label]="checkboxLabel()">
+                                </mat-checkbox>
+                                </th>
+                                <td mat-cell *matCellDef="let row">
+                                <mat-checkbox (click)="$event.stopPropagation()"
+                                          (change)="$event ? selection.toggle(row) : null"
+                                          [checked]="selection.isSelected(row)"
+                                          [aria-label]="checkboxLabel(row)">
+                                </mat-checkbox>
+                                </td>
+                                </ng-container> -->
+                                
+                                <!-- Position Column -->
+                                
+                                <ng-container matColumnDef="ApplicationType">
+                                    <th mat-header-cell *matHeaderCellDef style="color: white;" class= "Theam_Color">{{langObject.servicePaymentTable[0]}} </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.ApplicationType}} </td>
+                                </ng-container>
+                                
+                                <!-- Name Column -->
+                                <ng-container matColumnDef="ApplicationNumber">
+                                    <th mat-header-cell *matHeaderCellDef style="color: white;" class= "Theam_Color">{{langObject.servicePaymentTable[1]}} </th>
+                                    <td mat-cell *matCellDef="let element">{{element.ApplicationNumber}} </td>
+                                </ng-container>
+                                
+                                <!-- Weight Column -->
+                                <ng-container matColumnDef="ApplicationDate">
+                                    <th mat-header-cell *matHeaderCellDef style="color: white;" class= "Theam_Color"> {{langObject.servicePaymentTable[2]}}</th>
+                                    <td mat-cell *matCellDef="let element"> {{element.ApplicationDate}} </td>
+                                </ng-container>
+                                
+                                <!-- Symbol Column -->
+                                <ng-container matColumnDef="Amount">
+                                    <th mat-header-cell *matHeaderCellDef style="color: white;" class= "Theam_Color"> {{langObject.servicePaymentTable[3]}} </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.Amount}} </td>
+                                </ng-container>
+                                
+                                
+                                <ng-container matColumnDef="Status">
+                                    <th mat-header-cell *matHeaderCellDef style="color: white;" class= "Theam_Color">{{langObject.servicePaymentTable[4]}} </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.Status}} </td>
+                                </ng-container>
+                                
+                                
+                                <ng-container matColumnDef="Select">
+                                    <th mat-header-cell *matHeaderCellDef style="color: white;" class= "Theam_Color" [hidden]="!GlobalVariableService.AppDetailtable" >{{langObject.servicePaymentTable[5]}} </th>
+                                
+                                    <td mat-cell *matCellDef="let row ; let i = index;"  [hidden]="!GlobalVariableService.AppDetailtable">
+                                        <mat-checkbox color="primary" (click)="$event.stopPropagation()"
+                                            (change)="SelectservicePayment(row.PaymentServiceId);" [checked]="row.selected">
+                                        </mat-checkbox>
+                                    </td>
+                                </ng-container>
+                                
+                                <tr mat-header-row *matHeaderRowDef="servicePaymentColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: servicePaymentColumns;">
+                                
+                                
+                                </tr>
+                                </table>
+                                </div>
+                                </div>
+                                <div class="container" *ngIf="GlobalVariableService.ApplicationTypeCategory == 3">
+                                <div class="row table table-responsive">
+                                    <table mat-table [dataSource]="finepayment" matSort class="example-container mat-elevation-z8 table1">
+                                      
+                                        <ng-container matColumnDef="ApplicationNumber">
+                                            <th mat-header-cell *matHeaderCellDef style="color: white;" class= "Theam_Color"> {{langObject.finepayment[0]}} </th>
+                                            <td mat-cell *matCellDef="let element"
+                                            title="{{element.ApplicationNumber}}"
+                                            > {{element.ApplicationNumber}} </td>
+                                        </ng-container>
+                
+                                        <!-- Name Column -->
+                                        <ng-container matColumnDef="Fine">
+                                            <th mat-header-cell *matHeaderCellDef style="color: white;" class= "Theam_Color">  {{langObject.finepayment[1]}} </th>
+                                            <td mat-cell *matCellDef="let element" title="{{element.Fine}}"
+                                            > {{element.Fine}} </td>
+                                        </ng-container>
+                
+                                        <!-- Weight Column -->
+                                        <ng-container matColumnDef="FineTerm">
+                                            <th mat-header-cell *matHeaderCellDef style="color: white;" class= "Theam_Color">  {{langObject.finepayment[2]}} </th>
+                                            <td mat-cell *matCellDef="let element" title="{{element.FineTerm}}">{{element.FineTerm}}</td>
+                                        </ng-container>
+                
+                                        <!-- Symbol Column -->
+                                        <ng-container matColumnDef="FineType">
+                                            <th mat-header-cell *matHeaderCellDef style="color: white;" class= "Theam_Color">{{langObject.finepayment[3]}} </th>
+                                            <td mat-cell *matCellDef="let element"
+                                            title="{{element.FineType}}"
+                                            > {{element.FineType}} </td>
+                                        </ng-container>
+                
+                                        <ng-container matColumnDef="PaymentStatus">
+                                            <th mat-header-cell *matHeaderCellDef style="color: white;" class= "Theam_Color">{{langObject.finepayment[4]}} </th>
+                                            <td mat-cell *matCellDef="let element"
+                                            title="{{element.PaymentStatus}}"
+                                            > {{element.PaymentStatus}} </td>
+                                        </ng-container>
+                
+                                        <ng-container matColumnDef="FineDate">
+                                            <th mat-header-cell *matHeaderCellDef style="color: white;" class= "Theam_Color">  {{langObject.finepayment[5]}} </th>
+                                            <td mat-cell *matCellDef="let element" title="{{element.FineDate | date: 'dd/MM/yyyy HH:mm' }}"> {{element.FineDate | date: 'dd/MM/yyyy HH:mm' }} </td>
+                                        </ng-container>
+                
+                                        <ng-container matColumnDef="FineAmount">
+                                            <th mat-header-cell *matHeaderCellDef style="color: white;" class= "Theam_Color">  {{langObject.finepayment[6]}} </th>
+                                            <td mat-cell *matCellDef="let element"
+                                            title="{{element.FineAmount}}"
+                                            > {{element.FineAmount}} </td>
+                                        </ng-container>
+                
+                                        <ng-container matColumnDef="Select">
+                                            <th mat-header-cell *matHeaderCellDef style="color: white;" class= "Theam_Color"> {{langObject.finepayment[7]}} </th>
+                
+                                            <td mat-cell *matCellDef="let row ; let i = index;">
+                                                <mat-checkbox  (click)="$event.stopPropagation()"
+                                                    (change)="SelectFinePaymentPayment(row.FinesPaymentId);"
+                                                    [checked]="row.selected">
+                                                </mat-checkbox>
+                                            </td>
+                                        </ng-container>
+                
+                                        <tr mat-header-row *matHeaderRowDef="finePaymentColumns"></tr>
+                                        <tr mat-row *matRowDef="let row; columns: finePaymentColumns;">
+                                        </tr>
+                                    </table>
+                
+                                    <mat-paginator class="mat-elevation-z8"  [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+                                    </mat-paginator>
+                                </div>
+                                <div class="row" *ngIf="!GlobalVariableService.AppDetailtable">
+                                    <div class="col-md-12">
+                                      <input type="button" value="Submit" class="btn" (click)="CreateApplication()">
+                                    </div>
+                                </div>
+                                </div>
+                                <div class='col-md-12'  *ngIf="GlobalVariableService.ApplicationTypeCategory == 4" >
+                                    <div class="row" style="height: 45px ">
+                                        <div class="col-md-12" style="text-align: center">
+                                            <strong *ngIf="GlobalVariableService.AppDetailtable">
+                                                <h4 class="modal-title" id="exampleModalLabel" >
+                                                    <u><strong>
+                                                        {{langObject.RequestforGeospatialMaps}}
+                                                        </strong>
+                                                    </u>
+                                                </h4>
+                                            </strong>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="row" *ngIf="GlobalVariableService.AppDetailtable">
+                                        <div class="col-md-2 padding"  *ngIf = "!isCustomMap || isCustomMap"  >
+                                            <mat-form-field>
+                                                <mat-label>{{langObject.MapType}}</mat-label>
+                                                <mat-select  name="MapType" [(ngModel)]="objGeoSpatialMaps.MapType" (ngModelChange)="changemapType(objGeoSpatialMaps.MapType)" >
+                                                <mat-option value="ReadyMap">{{langObject.ReadyMap}}</mat-option>
+                                                  <mat-option value="CustomMap">{{langObject.CustomMap}}</mat-option>
+                                                </mat-select>
+                                              </mat-form-field>
+                                        </div>
+                                        <div class="col-md-2 padding"  *ngIf = "!isCustomMap" >
+                                            <mat-form-field>
+                                                <mat-label>City</mat-label>
+                                                <mat-select name="City" [(value)]="City" [(ngModel)]="objGeoSpatialMaps.City" >
+                                                    <mat-option value=""> {{GlobalVariableService.isEn === true ? 'please select'  : 'يرجى اختيار'}}</mat-option>
+                                                    <mat-option value="ajmanSector1">{{langObject.ajmanSector1}}</mat-option>
+                                                    <mat-option value="ajmanSector2">{{langObject.ajmanSector2}}</mat-option>
+                                                    <mat-option value="ajmanSector3">{{langObject.ajmanSector3}}</mat-option>
+                                                    <mat-option value="ajmanSector4">{{langObject.ajmanSector4}}</mat-option>
+                                                  </mat-select>
+                                              </mat-form-field>
+                                        </div>
+                                        <div class="col-md-2 padding" *ngIf = "isCustomMap">
+                                            <mat-form-field>
+                                                <mat-label>Sector</mat-label>
+                                                <mat-select name="Sector" [(ngModel)]="objGeoSpatialMaps.Sector" >
+                                                  <mat-option value="">{{GlobalVariableService.isEn === true ? 'please select'  : 'يرجى اختيار'}}</mat-option>
+                                                  <mat-option value="ajmanSector1">{{langObject.ajmanSector1}}</mat-option>
+                                                  <mat-option value="ajmanSector2">{{langObject.ajmanSector2}}</mat-option>
+                                                  <mat-option value="ajmanSector3">{{langObject.ajmanSector3}}</mat-option>
+                                                  <mat-option value="ajmanSector4">{{langObject.ajmanSector4}}</mat-option>
+                                                </mat-select>
+                                              </mat-form-field>
+                                        </div>
+                                        <div class="col-md-2 padding" *ngIf = "isCustomMap" >
+                                            <mat-form-field>
+                                                <mat-label>{{langObject.District}}</mat-label>
+                                                <mat-select name="District" [(value)]="District" [(ngModel)]="objGeoSpatialMaps.District" >
+                                                  <mat-option value="">{{GlobalVariableService.isEn === true ? 'please select'  : 'يرجى اختيار'}}</mat-option>
+                                                  <mat-option value="ajmanDistrict1">{{langObject.ajmanDistrict1}}</mat-option>
+                                                  <mat-option value="ajmanDistrict2">{{langObject.ajmanDistrict2}}</mat-option>
+                                                  <mat-option value="ajmanDistrict3">{{langObject.ajmanDistrict3}}</mat-option>
+                                                  <mat-option value="ajmanDistrict4">{{langObject.ajmanDistrict4}}</mat-option>
+                                                </mat-select>
+                                              </mat-form-field>
+                                        </div>
+                                        <div class="col-md-2 padding" *ngIf = "isCustomMap">
+                                            <mat-form-field >
+                                                <mat-label>{{langObject.MapLayer}}</mat-label>
+                                                <mat-select name="Map Layer" [(value)]="MapLayer" [(ngModel)]="objGeoSpatialMaps.MapLayer" >
+                                                  <mat-option value="">{{GlobalVariableService.isEn === true ? 'please select'  : 'يرجى اختيار'}}-</mat-option>
+                                                  <mat-option value="Layer1">{{langObject.Layer1}}</mat-option>
+                                                  <mat-option value="Layer2">{{langObject.Layer2}}</mat-option>
+                                                  <mat-option value="Layer3">{{langObject.Layer3}}</mat-option>
+                                                </mat-select>
+                                              </mat-form-field>
+                                        </div>
+                                        <div class="col-md-2 padding" *ngIf = "!isCustomMap || isCustomMap">
+                                            <mat-form-field>
+                                                <mat-label>{{langObject.MapSize}}</mat-label>
+                                                <mat-select name="MapSize" [(value)]="MapSize" [(ngModel)]="objGeoSpatialMaps.MapSize" >
+                                                  <mat-option value="">{{GlobalVariableService.isEn === true ? 'please select'  : 'يرجى اختيار'}}</mat-option>
+                                                  <mat-option value="A4">{{langObject.A4}}</mat-option>
+                                                  <mat-option value="LegalSize">{{langObject.LegalSize}}</mat-option>
+                                                  <mat-option value="StandardSize">{{langObject.StandardSize}}</mat-option>
+                                                </mat-select>
+                                              </mat-form-field>
+                                        </div>
+                                        <div class="col-md-1 padding">
+                                            <button mat-button style="color: white;" class="Theam_Color" (click)="addValue()" >{{langObject.Add}}</button>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="row" *ngIf = "!isCustomMap"  > -->
+                                     <div class="row table-responsive">
+                                        <table mat-table [dataSource]="GeospatialMaps" class="table mat-elevation-z8">
+                                            <ng-container matColumnDef="City">
+                                                <th mat-header-cell *matHeaderCellDef style="color: white;" class= "Theam_Color">{{langObject.GeospatialMaps[0]}} </th>
+                                                <td mat-cell *matCellDef="let element"> {{element.City}} </td>
+                                            </ng-container>
+                                
+                                            <!-- Name Column -->
+                                            <ng-container matColumnDef="MapSize">
+                                                <th mat-header-cell *matHeaderCellDef style="color: white;" class= "Theam_Color"> {{langObject.GeospatialMaps[1]}} </th>
+                                                <td mat-cell *matCellDef="let element"> {{element.MapSize}} </td>
+                                            </ng-container>
+                                
+                                            <ng-container matColumnDef="Select">
+                                                <th mat-header-cell *matHeaderCellDef style="color: white;" [hidden]="!GlobalVariableService.AppDetailtable" class= "Theam_Color">{{langObject.GeospatialMaps[2]}} </th>
+                                
+                                                <td mat-cell *matCellDef="let row ; let i = index;" [hidden]="!GlobalVariableService.AppDetailtable">
+                                                    <mat-checkbox color="primary" (click)="$event.stopPropagation()"
+                                                        (change)="SelectFinePaymentPayment(row.City);" [checked]="row.selected">
+                                                    </mat-checkbox>
+                                                </td>
+                                            </ng-container>
+                                
+                                            <ng-container matColumnDef="Upload" >
+                                                <!-- <span *ngIf="!GlobalVariableService.AppDetailtable"> -->
+                                                <th mat-header-cell *matHeaderCellDef [hidden]="GlobalVariableService.AppDetailtable"  style="color: white;" class= "Theam_Color">{{langObject.GeospatialMaps[3]}} </th>
+                                                <td mat-cell *matCellDef="let row ; let i = index;" [hidden]="GlobalVariableService.AppDetailtable">
+                                                    <label class="image-upload-container btn btn-bwm">
+                                                        <!-- <span>Select Image</span> -->
+                                                        <input #imageInput
+                                                               type="file"
+                                                               accept="image/*"
+                                                               hidden
+                                                               (change)="handleInputChange($event,row.GeoMapId)" >
+                                                        <img src="./assets/images/Upload.png">
+
+
+
+                                                      </label>
+                                                </td>
+                                            <!-- </span> -->
+                                            </ng-container>
+
+
+                                            <tr mat-header-row *matHeaderRowDef="GeospatialMapsColumns"></tr>
+                                            <tr mat-row *matRowDef="let row; columns: GeospatialMapsColumns;">
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class = "divider"> </div>
+                                    <div class="row table-responsive" >
+                                        <table mat-table [dataSource]="secondGeospatialMaps" class="table mat-elevation-z8">
+                                            <ng-container matColumnDef="Sector">
+                                                <th mat-header-cell *matHeaderCellDef style="color: white;" class= "Theam_Color">{{langObject.secondGeospatialMaps[0]}} </th>
+                                                <td mat-cell *matCellDef="let element"> {{element.Sector}} </td>
+                                            </ng-container>
+                                
+                                            <ng-container matColumnDef="District">
+                                                <th mat-header-cell *matHeaderCellDef style="color: white;" class= "Theam_Color" > {{langObject.secondGeospatialMaps[1]}}  </th>
+                                                <td mat-cell *matCellDef="let element"> {{element.District}} </td>
+                                            </ng-container>
+                                            <ng-container matColumnDef="MapLayer">
+                                                <th mat-header-cell *matHeaderCellDef style="color: white;" class= "Theam_Color" > {{langObject.secondGeospatialMaps[2]}}   </th>
+                                                <td mat-cell *matCellDef="let element"> {{element.MapLayer}} </td>
+                                            </ng-container>
+                                            <ng-container matColumnDef="MapSize">
+                                                <th mat-header-cell *matHeaderCellDef style="color: white;" class= "Theam_Color"> {{langObject.secondGeospatialMaps[3]}} </th>
+                                                <td mat-cell *matCellDef="let element"> {{element.MapSize}} </td>
+                                            </ng-container>
+                                            <ng-container matColumnDef="Select">
+                                                <th mat-header-cell *matHeaderCellDef style="color: white;" class= "Theam_Color" [hidden]="!GlobalVariableService.AppDetailtable">{{langObject.secondGeospatialMaps[4]}}  </th>
+                                
+                                                <td mat-cell *matCellDef="let row ; let i = index;" [hidden]="!GlobalVariableService.AppDetailtable">
+                                                    <mat-checkbox color="primary" (click)="$event.stopPropagation()" 
+                                                        (change)="SelectFinePaymentPayment(row.ApplicationNumber);" [checked]="row.selected">
+                                                    </mat-checkbox>
+                                                </td>
+                                            </ng-container>
+                                            <ng-container matColumnDef="Upload" >
+                                                
+                                                <th mat-header-cell *matHeaderCellDef [hidden]="GlobalVariableService.AppDetailtable" style="color: white;" class= "Theam_Color" >{{langObject.secondGeospatialMaps[5]}} </th>
+                                                <td mat-cell *matCellDef="let row ; let i = index;" [hidden]="GlobalVariableService.AppDetailtable">
+                                                    <label class="image-upload-container btn btn-bwm">
+                                                        <!-- <span>Select Image</span> -->
+                                                        <input #imageInput
+                                                               type="file"
+                                                               accept="image/*"
+                                                               hidden
+                                                               (change)="handleInputChange($event,row.GeoMapId)">
+                                                        <img src="./assets/images/Upload.png" >
+
+
+
+                                                      </label>
+                                                </td>
+                                              
+                                            </ng-container>
+
+                                            <tr mat-header-row *matHeaderRowDef="secondGeospatialMapsColumns"></tr>
+                                            <tr mat-row *matRowDef="let row; columns: secondGeospatialMapsColumns;">
+                                            </tr>
+                                        </table>
+                                    </div>
+                                  
+                                </div>
+                                
+                                </div>
+
+<span *ngIf="GlobalVariableService.ApplicationTypeCategory == 1">
                             <app-load-dynamic-controll #LoadDynamicControll>
                             </app-load-dynamic-controll>
+                        </span>
                         </form>
                     </mat-card-content>
                 </mat-tab>
                 <mat-tab>
                     <ng-template mat-tab-label>
                         <span (click)="saveData()" class="sg-mat-txt" matTooltip="App Files" aria-label="">
-                            Application Files</span>
+                            {{langObject.ApplicationFiles}}</span>
                     </ng-template>
                     <div class="container-fluid margintop" *ngIf="GlobalVariableService.IsDocumentUpload">
                         <div class="row margintop">
                             <div class="col-md-offset-4 width ">
                                 <mat-form-field  class="d-block w-100">
-                                    <mat-label>Document Type</mat-label>
+                                    <mat-label>{{langObject.DocumentType}}</mat-label>
                                     <mat-select placeholder="" matNativeControl [(ngModel)]="DoctypeId" required>
                                         <!-- <mat-option selected="selected" value="-1">--Please Select--</mat-option> -->
                                         <mat-option *ngFor="let p of ApplicationtypeDocuments"
                                             [value]="p.DocumentTypeId">
-                                            {{p.DocumentNameEN}}</mat-option>
+                                            {{GlobalVariableService.isEn === true ? p.DocumentNameEN : p.DocumentNameAr}}</mat-option>
                                     </mat-select>
                                 </mat-form-field>
                             </div>
@@ -152,102 +496,29 @@
                         <div class="row ">
                             <div class="image-upload col-md-offset-4">
                                 <input class="background" name="imageUrl" type="file"
-                                    (change)="handleInputChange($event)" />
-
+                                    (change)="handleInputChange($event,'')" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <button class="ctgrySaveButton mat-Primary pull-right mlr-15 mt-3" name="AddFile"
-                                (click)="adddocumentinlist()" mat-raised-button color="primary">Add File</button>
+                                (click)="adddocumentinlist()" mat-raised-button color="primary">{{langObject.AddFile}}</button>
                         </div>
-
-                        <!-- <div class="row margintop">
-                               
-                                <div class="col-md-10 ">
-                                    <div layout-margin layout-padding>
-                                        <input class="ng-hide" id="input-file-id" multiple type="file" />
-                                    <label for="input-file-id" class="md-button md-raised md-primary">Choose Files</label>
-                                       
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-    
-                                </div>
-                            </div> -->
-                        <!-- <div class="row">
-                                <div class="col-md-12 ml-15">
-                                    <button class="ctgrySaveButton mat-Primary  pull-right ml-15 mt-3 mr"
-                                        name="DownloadEnglishTemplate" mat-raised-button color="primary">
-                                      dfsdsf
-                                    </button>
-                                </div>
-                            </div> -->
-                        <!-- <div class="row">
-                                <div class="col-md-12 ml-15">
-                                    <ckeditor [(ngModel)]="downLoadEnglishTemplate" [config]="config" debounce="500">
-    
-                                    </ckeditor>
-                                </div>
-                            </div> -->
-
-                        <!-- <div class="row">
-                                <div class="col-md-10 mt-3">
-                                    <mat-form-field class="ml-15">
-                                        <mat-label>
-                                           bsdbf
-                                        </mat-label>
-                                        <mat-select>
-                                            <mat-option [value]=""> ---Select--- </mat-option>
-                                        </mat-select>
-                                    </mat-form-field>
-                                    <span class="divider"></span>
-                                    <button class="ctgrySaveButton mat-Primary mlr-15 mt-3" name="AddVisit"
-                                        mat-raised-button color="primary">Update</button>
-    
-                                </div>
-                                 <div class="col-md-2">
-                                    <button class="ctgrySaveButton mat-Primary pull-right mlr-15 mt-3" name="AddVisit"
-                                        mat-raised-button color="primary">Add Arabic</button>
-                                </div>
-                            </div> -->
-
-                        <!-- <div class="row">
-                                <div class="col-md-12 ml-15 mt-3">
-                                    <ckeditor [(ngModel)]="downLoadArabicTemplate" [config]="config" debounce="500">
-                                    </ckeditor>
-                                </div>
-                            </div> -->
                     </div>
                     <div class="row margintop">
                         <div class="col-md-12">
 
                             <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 w-100">
-                                <!-- <ng-container matColumnDef="select">
-                                    <th mat-header-cell *matHeaderCellDef title="Select"> Select
-                                    </th>
-                                    <td mat-cell *matCellDef="let row ; let i = index;">
-                                        <mat-checkbox color="primary" (click)="$event.stopPropagation()"
-                                                    (change)="onSelect(row.LookUpTableValueId);"
-                                                    [checked]="selection.isSelected(row)">
-                                                </mat-checkbox>
-                                    </td>
-                                </ng-container> -->
-
-                                <ng-container matColumnDef="FileName">
-                                    <th mat-header-cell *matHeaderCellDef mat-sort-header title="File Name">
-                                        File Name </th>
-                                    <td mat-cell *matCellDef="let element"> {{element.FileName}} </td>
-                                </ng-container>
+                             
                                 <ng-container matColumnDef="Document Type Name">
                                     <th mat-header-cell *matHeaderCellDef mat-sort-header title="Document Type Name">
-                                        Document Type Name</th>
+                                        {{langObject.DocumentUploadTable[1]}}</th>
                                     <td mat-cell *matCellDef="let element">
                                         {{element.DocumentTypeName}}
                                     </td>
                                 </ng-container>
                                 <ng-container matColumnDef="Document Extension">
                                     <th mat-header-cell *matHeaderCellDef mat-sort-header title="Document Extension">
-                                        Document Type Extension</th>
+                                        {{langObject.DocumentUploadTable[2]}}</th>
                                     <td mat-cell *matCellDef="let element">
                                         {{element.DocumentExtension}}
                                     </td>
@@ -255,11 +526,11 @@
 
 
                                 <ng-container matColumnDef="action">
-                                    <th mat-header-cell *matHeaderCellDef title=" Action"> Action </th>
+                                    <th mat-header-cell *matHeaderCellDef title=" Action"> {{langObject.DocumentUploadTable[3]}} </th>
                                     <td mat-cell *matCellDef="let element ; let i = index">
                                         <!-- <img class="tableAction" (click)='selectData(element.ApplicationFileId)'
                                             src="./assets/images/edit.png" /> -->
-                                            <a href="" (click) ="DownloadDocumet(element.ApplicationFileId)">Download Here</a>
+                                            <a (click) ="DownloadDocument(element.ApplicationFileId)">{{langObject.DocumentUploadTable[4]}}</a>
                                     </td>
                                 </ng-container>
 
@@ -275,7 +546,7 @@
                 <mat-tab *ngIf="GlobalVariableService.applicationdetaildiv">
                     <!-- <mat-tab *ngIf="visitStatus"> -->
                     <ng-template mat-tab-label>
-                        <span class="sg-mat-txt" matTooltip="App History" aria-label="">Application History</span>
+                        <span class="sg-mat-txt" matTooltip="App History" aria-label="">{{langObject.ApplicationHistory}}</span>
                     </ng-template>
                     <div class="container-fluid">
                         <div class="row margintop">
@@ -284,28 +555,28 @@
                                 <table mat-table [dataSource]="AuditHistoryLst" matSort class="mat-elevation-z8 w-100">
                                     <ng-container matColumnDef="User_FullName">
                                         <th mat-header-cell *matHeaderCellDef mat-sort-header title="Decision Maker">
-                                            Decision Maker </th>
+                                            {{langObject.AuditHistoryLstTable[0]}} </th>
                                         <td mat-cell *matCellDef="let element">
                                             {{element.User_FullName}}
                                         </td>
                                     </ng-container>
                                     <ng-container matColumnDef="AuditDateTime">
                                         <th mat-header-cell *matHeaderCellDef mat-sort-header title="Date Time">
-                                            Date Time</th>
+                                            {{langObject.AuditHistoryLstTable[1]}}</th>
                                         <td mat-cell *matCellDef="let element">
                                             {{element.AuditDateTime|date :  "dd/MM/yyyy"}}
                                         </td>
                                     </ng-container>
                                     <ng-container matColumnDef="StatusNameEn">
                                         <th mat-header-cell *matHeaderCellDef mat-sort-header title="Current Status">
-                                            Current Status</th>
+                                            {{langObject.AuditHistoryLstTable[2]}}</th>
                                         <td mat-cell *matCellDef="let element">
                                             {{element.StatusNameEn}}
                                         </td>
                                     </ng-container>
-                                    <ng-container matColumnDef="action">
-                                        <th mat-header-cell *matHeaderCellDef title=" Action"> Action </th>
-                                        <td mat-cell *matCellDef="let element ; let i = index">
+                                    <ng-container matColumnDef="action" style="display: none;">
+                                        <th mat-header-cell *matHeaderCellDef title=" Action" style="display: none" > {{langObject.AuditHistoryLstTable[3]}} </th>
+                                        <td mat-cell *matCellDef="let element ; let i = index"  style="display: none" >
                                             <img class="tableAction" (click)='selectApp(i)'
                                                 src="./assets/images/edit.png" />
                                         </td>
@@ -335,10 +606,10 @@
     <mat-card-content>
         <div class="container">
 <div class="row mt-3">
-        <div class=""   *ngIf="GlobalVariableService.AssignedApplication && !GlobalVariableService.isAllapplication">
-        <mat-radio-group [(ngModel)]="selection"  *ngFor="let p of statusforradiobotton">
+        <div class=""   *ngIf="GlobalVariableService.AssignedApplication">
+        <mat-radio-group *ngFor="let p of statusforradiobotton">
             <mat-radio-button value={{p.StatusId}} (change)="onItemChange(p.StatusId,p.lblStatusEn)" >
-                {{p.lblStatusEn}} </mat-radio-button>
+                {{GlobalVariableService.isEn === true ? p.lblStatusEn : p.lblStatusAr}}</mat-radio-button>
         </mat-radio-group>
     </div>
 </div>
@@ -354,22 +625,21 @@
             </div>
             <div class="col-md-4" *ngIf="GlobalVariableService.IsTemplateDownLoad">
                 <button color="primary" class="downloadtemplate" mat-raised-button name='asdasdad'
-                    (click)="DownloadTempalte()">Download Form</button>
+                    (click)="DownloadTempalte()">{{langObject.DownloadForm}}</button>
             </div>
         </div>
        
         <div class="row margintop">
             <div class="col-md-12">
                 <button color="primary" class="ctgrySaveButton" mat-raised-button name='Submit'
-                    (click)="CreateApplication()" matTooltip="Submit"> Submit
+                    (click)="CreateApplication()" matTooltip="Submit"> {{langObject.Submit}}
                 </button>
                 <span class="divider"></span>
             </div>
 
         </div>
         <mat-checkbox name="Print Report" color="primary" *ngIf="GlobalVariableService.bDisplayControls">
-            Print report
-
+            {{langObject.Printreport}}
         </mat-checkbox>
 
     </div>

@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="utf-8">
+  <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <link href="assets/Svassets/css/jquery-ui.min.css" rel="stylesheet" type="text/css" />
   <link href="assets/App_Themes/SvTheme/StyleSheet.css" type="text/css" rel="stylesheet" />
@@ -12,6 +13,8 @@
   </title>
   <base href="./">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
   <!-- <link class="logo" src="./assets/images/favicon.ico"> -->
   <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -71,8 +74,29 @@
 <!-- ////////////////////////////Changes For Data table in JQX//////////////////////////////////////-->
 <link rel="stylesheet" type="text/css" href="https://www.jqwidgets.com/public/jqwidgets/styles/jqx.base.css">
   <link rel="stylesheet" type="text/css" href="https://www.jqwidgets.com/public/jqwidgets/styles/jqx.material.css">
-
-
+  <!-- <script src="https://code.highcharts.com/highcharts-more.js"></script>
+  <script src="https://code.highcharts.com/modules/solid-gauge.js"></script> -->
+  <script src="node_modules/core-js/client/shim.min.js"></script>
+  <script src="node_modules/web-animations-js/web-animations.min.js"></script>
+  <script>
+    /**
+     * you can configure some zone flags which can disable zone interception for some
+     * asynchronous activities to improve startup performance - use these options only
+     * if you know what you are doing as it could result in hard to trace down bugs..
+     */
+    // __Zone_disable_requestAnimationFrame = true; // disable patch requestAnimationFrame
+    // __Zone_disable_on_property = true; // disable patch onProperty such as onclick
+    // __zone_symbol__BLACK_LISTED_EVENTS = ['scroll', 'mousemove']; // disable patch specified eventNames
+  
+    /*
+     * in IE/Edge developer tools, the addEventListener will also be wrapped by zone.js
+     * with the following flag, it will bypass `zone.js` patch for IE/Edge
+     */
+    // __Zone_enable_cross_context_check = true;
+  </script>
+  <!-- zone.js required by Angular -->
+  <script src="node_modules/zone.js/dist/zone.js"></script>
+  
   <script src="assets/Svassets/js/modernizr.custom.js"></script>
   <script src="assets/Svassets/js/moment.js" type="text/javascript"></script>
   <script src="assets/Svassets/css/styleswitch.js"></script>
@@ -84,6 +108,10 @@
   <!-- <script src="assets/js/query-builder.standalone.min.js"></script> -->
   <script src="assets/Svassets/js/jquery.cookie.js"></script>
   <script src="https://cdn.ckeditor.com/4.7.0/standard-all/ckeditor.js"></script>
+
+  <!-- pre-zone polyfills -->
+
+<!-- application polyfills -->
 
   <!-- ///////./assets////////// DashBoard /////////// -->
   <link href="./assets/Content/users.min.css" rel="stylesheet" />
@@ -143,16 +171,43 @@
 </head>
 
 <body>
+  <script src="http://localhost:3000/assets/modules/channel-web/inject.js"></script>
+<script>
+  // window.botpressWebChat.init({ host: 'http://localhost:3000', botId: 'ajm-servicebot-eng' })
+  window.botpressWebChat.init({
+  host: 'http://localhost:3000',
+  botId: 'ajm-servicebot-eng', //The ID for your bot
+  botName: 'Ajman Bot', // Name of your bot
+  avatarUrl: 'http://localhost:3000/assets/img/avatar.png', // Default avatar URL of the image (e.g., 'https://avatars3.githubusercontent.com/u/1315508?v=4&s=400' )
+  botConvoDescription: '',
+  backgroundColor: '#ffffff', // Color of the background
+  textColorOnBackground: '#53a0e4', // Color of the text on the background
+  foregroundColor: '#53a0e4', // Element background color (header, composer, button..)
+  textColorOnForeground: '#53a0e4', // Element text color (header, composer, button..)
+  showConversationsButton: true, // Whether or not to show the conversations button
+  showUserName: false, // Whether or not to show the user's name
+  showUserAvatar: false, // Whether or not to show the user's avatar
+  enableTranscriptDownload: false, // Whether or not to show the transcript download button
+  enableArrowNavigation: false, //Whether or to to support arrow navigation (e.g scroll conversation, focus on buttons)
+  externalAuthToken: '', // Defines a token that is sent with each messages to Botpress
+  userId: null, // Allows you to override the default user id. Make sure it is not possible to guess it!
+  enableReset: true, // Whether or not reset button will be shown to the user
+ // extraStylesheet: '/assets/modules/channel-web/examples/my-theme.css' // Define a custom style sheet to override Botpress styling
+ extraStylesheet: '/assets/modules/channel-web/chat.css',
+})
+</script>
   <app-root></app-root>
+
+  
 </body>
 
 
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/apexcharts@latest"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/apexcharts@latest"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script>
 <script src="https://cdn.jsdelivr.net/npm/apexcharts@latest"></script>
 <script src="https://cdn.jsdelivr.net/npm/apexcharts@latest"></script>
-<script src="https://cdn.jsdelivr.net/npm/apexcharts@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts@latest"></script> -->
 
 <script src="./assets/Content/index/script.js"></script>
 </html>

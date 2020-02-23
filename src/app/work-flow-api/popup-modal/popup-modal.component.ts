@@ -22,7 +22,7 @@ IdsList:any=[];
 ParameterDrpdwn:boolean=false;
 
 
-  constructor(private GlobalVariableService: GlobalVariableService,private _svc: SharedServicesService,public languageTranslateService: LanguageTranslateService,public dialogRef: MatDialogRef<PopupModalComponent>,public dialog: MatDialog,  
+  constructor(public GlobalVariableService: GlobalVariableService,private _svc: SharedServicesService,public languageTranslateService: LanguageTranslateService,public dialogRef: MatDialogRef<PopupModalComponent>,public dialog: MatDialog,  
     @Inject(MAT_DIALOG_DATA) public data: PopUpModal) {
       // this.ApplicationtypeId=data.ApptypeId;
       // data.ApptypeId
@@ -39,7 +39,7 @@ ParameterDrpdwn:boolean=false;
   public dataSource = new MatTableDataSource<WorkFlowApiParameters>();
   public displayedColumns = ['select','ParameterName','Parameter', 'action'];
   ngOnInit() {
-    this.GlobalVariableService.GetAllFieldsByAppTypeId(this.ApplicationtypeId);
+    this.GlobalVariableService.GetAllFieldsByAppTypeId(this.ApplicationtypeId,false);
     this.GetAllWorkFlowApiParameters(this.WorkFlowAPIId);
   }
   GetAllWorkFlowApiParameters(id:any){

@@ -232,10 +232,10 @@ var spark4 = {
 }
 
 
-new ApexCharts(document.querySelector("#spark1"), spark1).render();
-new ApexCharts(document.querySelector("#spark2"), spark2).render();
-new ApexCharts(document.querySelector("#spark3"), spark3).render();
-new ApexCharts(document.querySelector("#spark4"), spark4).render();
+// new ApexCharts(document.querySelector("#spark1"), spark1).render();
+// new ApexCharts(document.querySelector("#spark2"), spark2).render();
+// new ApexCharts(document.querySelector("#spark3"), spark3).render();
+// new ApexCharts(document.querySelector("#spark4"), spark4).render();
 
 
 
@@ -277,7 +277,7 @@ var optionsCircle4 = {
         offsetY: 240
     },
 }
-var chartCircle4 = new ApexCharts(document.querySelector('#radialBarBottom'), optionsCircle4);
+// var chartCircle4 = new ApexCharts(document.querySelector('#radialBarBottom'), optionsCircle4);
 chartCircle4.render();
 
 
@@ -342,10 +342,10 @@ var optionDonut = {
     }
 }
 
-var donut = new ApexCharts(
-    document.querySelector("#donut"),
-    optionDonut
-)
+// var donut = new ApexCharts(
+//     document.querySelector("#donut"),
+//     optionDonut
+// )
 donut.render();
 
 
@@ -395,10 +395,10 @@ var optionsBar = {
     },
 
 }
-var chartBar = new ApexCharts(
-    document.querySelector("#barchart"),
-    optionsBar
-);
+// var chartBar = new ApexCharts(
+//     document.querySelector("#barchart"),
+//     optionsBar
+// );
 chartBar.render();
 
 
@@ -473,7 +473,7 @@ var optionsLine = {
         offsetY: -20
     }
 }
-var chartLine = new ApexCharts(document.querySelector('#line-adwords'), optionsLine);
+// var chartLine = new ApexCharts(document.querySelector('#line-adwords'), optionsLine);
 chartLine.render();
 
 

@@ -5,13 +5,15 @@ import { NotificationType, NotifcationsTypesParameters } from '../Classes/notifi
 import { SharedServicesService } from '../SharedServices/shared-services.service';
 import { MatSort } from '@angular/material';
 import { GlobalVariableService } from '../SharedServices/global-variable.service';
+import { BaseComponent } from '../SharedServices/base-component';
+import { LanguageTranslateService } from '../SharedServices/language-translate.service';
 
 @Component({
   selector: 'app-notification-type',
   templateUrl: './notification-type.component.html',
   styleUrls: ['./notification-type.component.css']
 })
-export class NotificationTypeComponent implements OnInit, AfterViewInit {
+export class NotificationTypeComponent  extends BaseComponent implements OnInit, AfterViewInit {
 
   FormName: string = '';
   NotificationType: NotificationType[];
@@ -23,7 +25,8 @@ export class NotificationTypeComponent implements OnInit, AfterViewInit {
   public dataSource = new MatTableDataSource<NotificationType>();
   public displayedColumns = ['TypeNameEn', 'TypeNameAr', 'EmailNotificationTemplateEn', 'EmailNotificationTemplateAr', 'NotificationTypeId']
 
-  constructor(private _svc: SharedServicesService, private GlobalVariableService: GlobalVariableService) {
+  constructor(public languageTranslateService: LanguageTranslateService,private _svc: SharedServicesService, public GlobalVariableService: GlobalVariableService) {
+    super(languageTranslateService);
     this.NotificationType = [];
     this.NotifcationsTypesParameters = [];
     this.objNotificationType = new NotificationType();
@@ -33,7 +36,13 @@ export class NotificationTypeComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   ngOnInit() {
-    this.FormName = localStorage.getItem("BPPFromNameEn");
+    if(this.GlobalVariableService.isEn){
+      this.FormName = localStorage.getItem("BPPFromNameEn");
+    }
+    else {
+      this.FormName = localStorage.getItem("BPPFromNameAr");
+    }
+
     this.isEdit = false;
     this.GetAllNotifications();
 

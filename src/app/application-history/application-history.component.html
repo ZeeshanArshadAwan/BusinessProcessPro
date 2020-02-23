@@ -21,218 +21,154 @@
                             </h3>
                         </div>
                         <div class="row">
-                            <!-- <div class="col-md-2">
-                                <span>
-                                    <h4>
-                                        Application Type
-                                    </h4>
-                                </span>
-                            </div> -->
-                            <div class="col-md-6">
-                                    <mat-form-field  class="w-95">
-                                            <mat-label>Application Type</mat-label>
-                                           <mat-select  placeholder="" matNativeControl [(ngModel)]="objAllAplication.ApplicationTypeId"  [formControl]="ApplicationType" name="ApplicationType1" 
-                                           (ngModelChange)="OnchangeApptype(objAllAplication.ApplicationTypeId)" > 
-                                              <mat-option [value]="0" >Please Select</mat-option>
-                                              <mat-option [value]="p.ApplicationTypeId" *ngFor="let p of lstApplicationType" >{{p.ApplicationTypeEn}}</mat-option>
-                                            </mat-select>
-                                          </mat-form-field>
-                            </div>
-                            <!-- <div class="col-md-2" style="display: none">
-                                <span>
-                                    <h4>
-                                        Application Status
-                                    </h4>
-                                </span>
-                            </div> -->
-                            <div class="col-md-6">
-                                    <mat-form-field class="w-95">
-                                            <mat-label>Application Status</mat-label>
-                                            <mat-select  placeholder="" matNativeControl  [(ngModel)]="objAllAplication.ApplicationStatusId" [formControl]="ApplicationStatus" name="ApplicationStatus1" >  <!-- [(ngModel)]="objApplicationDetailReport.ApplicationTypeId" -->
-                                               <mat-option >Please Select</mat-option>
-                                               <mat-option [value]="p.ApplicationStatusId" *ngFor="let p of lstApplicationStatus" >{{p.StatusDisplayNameEn}}</mat-option>
-                                             </mat-select>
-                                           </mat-form-field>
-                            </div>
-                        </div>
-                        <div class="row" style="display: none">
-                                <div class="col-md-2">
-                                    <span>
-                                        <h4>
-                                            Assigned Group
-                                        </h4>
-                                    </span>
-                                </div>
-                                <div class="col-md-4">
-                                        <mat-form-field   >
-                                                <mat-select  placeholder="" matNativeControl [(ngModel)]="objAllAplication.AssignedGroup"  
-                                                   (change)="OnchangeAssigned(objAllAplication.AssignedGroup)" [formControl]="AssignedGroup" name="AssignedGroup1" >  <!-- [(ngModel)]="objApplicationDetailReport.AssignedGroup" -->
-                                                   <mat-option >Please Select</mat-option>
-                                                   <mat-option [value]="p.GroupID" *ngFor="let p of lstSys_Groups" >{{p.Desc_En}}</mat-option>
-                                                 </mat-select>
-                                               </mat-form-field>
-                                </div>
-                                <div class="col-md-2">
-                                    <span>
-                                        <h4>
-                                            Assigned User
-                                        </h4>
-                                    </span>
-                                </div>
-                                <div class="col-md-4">
-                                        <mat-form-field>
-                                                <mat-select placeholder="" matNativeControl [(ngModel)]="objAllAplication.FK_AssignedUser"  [formControl]="Applicant"  name="Applicant1"  >  <!--[(ngModel)]="objApplicationDetailReport.ApplicantId" -->
-                                                  <mat-option >Please Select</mat-option>
-                                                 <mat-option [value]="p.ID" *ngFor="let p of lstSys_Users" >{{p.User_FullName}}</mat-option>
-                                                </mat-select>
-                                              </mat-form-field>
-                                </div>
-                        </div>
-                        <div class="row" style="display: none">
-                            <div class="col-md-2">
-                                <span>
-                                    <h4>
-                                        Application No.
-                                    </h4>
-                                </span>
-                            </div>
-                            <div class="col-md-4">
-                                <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Application No" [(ngModel)]="objAllAplication.ApplicationNo" value="">
-                                </mat-form-field>
-                            </div>
-    
-    
-                        </div>
-    
-                        <div class="row">
-                            <!-- <div class="col-md-2">
-                                <span>
-                                    <h4>
-                                        From Date
-                                    </h4>
-                                </span>
-                            </div> -->
                             <div class="col-md-6">
                                 <mat-form-field class="w-95">
-                                    <input matInput [matDatepicker]="pickerFromdate" [(ngModel)]="objAllAplication.FromDate" placeholder="Choose a date">
+                                    <mat-label>{{langObject.ApplicationType}}</mat-label>
+                                    <mat-select placeholder="" matNativeControl
+                                        [(ngModel)]="objAllAplication.ApplicationTypeId" [formControl]="ApplicationType"
+                                        name="ApplicationType1"
+                                        (ngModelChange)="OnchangeApptype(objAllAplication.ApplicationTypeId)">
+                                        <mat-option [value]="0">{{GlobalVariableService.isEn === true ? 'please select'  : 'يرجى اختيار'}}</mat-option>
+                                        <mat-option [value]="p.ApplicationTypeId" *ngFor="let p of lstApplicationType">
+                                            {{GlobalVariableService.isEn === true ? p.ApplicationTypeEn: p.ApplicationTypeAr}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-md-6">
+                                <mat-form-field class="w-95">
+                                    <mat-label>{{langObject.ApplicationStatus}}</mat-label>
+                                    <mat-select placeholder="" matNativeControl
+                                        [(ngModel)]="objAllAplication.ApplicationStatusId"
+                                        [formControl]="ApplicationStatus" name="ApplicationStatus1">
+                                        <!-- [(ngModel)]="objApplicationDetailReport.ApplicationTypeId" -->
+                                        <mat-option>{{GlobalVariableService.isEn === true ? 'please select'  : 'يرجى اختيار'}}</mat-option>
+                                        <mat-option [value]="p.ApplicationStatusId"
+                                            *ngFor="let p of lstApplicationStatus">
+                                            {{GlobalVariableService.isEn === true ? p.StatusDisplayNameEn : p.StatusDisplayNameAr}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <mat-form-field class="w-95">
+                                    <input matInput [matDatepicker]="pickerFromdate"
+                                        [(ngModel)]="objAllAplication.FromDate" placeholder={{langObject.Chooseadate}}>
                                     <mat-datepicker-toggle name="FromDate" matSuffix [for]="pickerFromdate">
                                     </mat-datepicker-toggle>
                                     <mat-datepicker #pickerFromdate></mat-datepicker>
                                 </mat-form-field>
                             </div>
-    
-    
-                            <!-- <div class="col-md-2">
-                                <span>
-                                    <h4>
-                                        To Date
-                                    </h4>
-                                </span>
-                            </div> -->
+
                             <div class="col-md-6">
                                 <mat-form-field class="w-95">
-                                    <input matInput [matDatepicker]="pickerTodate" [(ngModel)]="objAllAplication.ToDate" placeholder="Choose a date">
+                                    <input matInput [matDatepicker]="pickerTodate" [(ngModel)]="objAllAplication.ToDate"
+                                        placeholder={{langObject.Chooseadate}}>
                                     <mat-datepicker-toggle name="ToDate" matSuffix [for]="pickerTodate">
                                     </mat-datepicker-toggle>
                                     <mat-datepicker #pickerTodate></mat-datepicker>
                                 </mat-form-field>
                             </div>
                         </div>
-    
+
                         <div class="row mt-5">
                             <div class="col-md-6">
                                 <button color="primary" class="ctgrySaveButton " matTooltip="Save" mat-raised-button
-                                    name='SaveEntity' (click)="Search()"> Search
+                                    name='SaveEntity' (click)="Search()"> {{langObject.Search}}
                                 </button>
                                 <span class="divider"></span>
-                                <button color="primary" class="ctgrySaveButton " (click)="Clear()"  matTooltip="Delete" mat-raised-button
-                                    name='DeleteEntity'>
-                                    Clear
+                                <button color="primary" class="ctgrySaveButton " (click)="Clear()" matTooltip="Delete"
+                                    mat-raised-button name='DeleteEntity'>
+                                    {{langObject.Clear}}
                                 </button>
                             </div>
                             <div class="col-md-6"> </div>
                         </div>
-    
+
                         <div class="row mt-5">
                             <div class="col-md-12">
-    
+
                                 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 w-100">
                                     <ng-container matColumnDef="select">
-                                        <th mat-header-cell *matHeaderCellDef title="Select"> Select
+                                        <th mat-header-cell *matHeaderCellDef title="Select"> {{langObject.ApplicationHisoryTable[0]}}
                                         </th>
                                         <td mat-cell *matCellDef="let row ; let i = index;">
                                             <mat-checkbox color="primary" (click)="$event.stopPropagation()"
-                                                (change)="onSelect(row.LookUpTableValueId);"
                                                 [checked]="selection.isSelected(row)">
                                             </mat-checkbox>
                                         </td>
                                     </ng-container>
-    
+
                                     <ng-container matColumnDef="ApplicationNo">
                                         <th mat-header-cell *matHeaderCellDef mat-sort-header title="Application No">
-                                            Application No. </th>
+                                            {{langObject.ApplicationHisoryTable[1]}} </th>
                                         <td mat-cell *matCellDef="let element"> {{element.ApplicationNo}} </td>
                                     </ng-container>
-    
+
                                     <ng-container matColumnDef="ApplicationTypeEn">
                                         <th mat-header-cell *matHeaderCellDef mat-sort-header title="Application Type">
-                                            Application Type </th>
+                                            {{langObject.ApplicationHisoryTable[2]}} </th>
                                         <td mat-cell *matCellDef="let element"> {{element.ApplicationTypeEn}} </td>
                                     </ng-container>
-    
+
                                     <ng-container matColumnDef="StatusNameEn">
-                                        <th mat-header-cell *matHeaderCellDef mat-sort-header title="Application Status">
-                                            Application Status </th>
+                                        <th mat-header-cell *matHeaderCellDef mat-sort-header
+                                            title="Application Status">
+                                            {{langObject.ApplicationHisoryTable[3]}} </th>
                                         <td mat-cell *matCellDef="let element"> {{element.StatusNameEn}} </td>
                                     </ng-container>
                                     <ng-container matColumnDef="ApplicationDate">
                                         <th mat-header-cell *matHeaderCellDef mat-sort-header title="Application Date">
-                                            Application Date </th>
-                                        <td mat-cell *matCellDef="let element"> {{element.ApplicationDate|date :  "dd/MM/yyyy"}} </td>
+                                            {{langObject.ApplicationHisoryTable[4]}} </th>
+                                        <td mat-cell *matCellDef="let element">
+                                            {{element.ApplicationDate|date :  "dd/MM/yyyy"}} </td>
                                     </ng-container>
                                     <ng-container matColumnDef="action">
-                                        <th mat-header-cell *matHeaderCellDef title=" Action"> Action </th>
+                                        <th mat-header-cell *matHeaderCellDef title=" Action"> {{langObject.ApplicationHisoryTable[5]}} </th>
                                         <td mat-cell *matCellDef="let element ; let i = index">
                                             <!-- <img class="tableAction" (click)='selectApp(element.ApplicationId)'
                                                 src="./assets/images/edit.png" /> -->
-                                                <div class="tableAction" (click)='selectApp(element.ApplicationId)'>
+                                            <div class="tableAction" (click)='selectApp(element.ApplicationId)'>
 
 
 
-                                                        <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-                                                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-                                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                                            viewBox="-35 126.7 540.3 540.3"
-                                                            style="enable-background:new -35 126.7 540.3 540.3;"
-                                                            xml:space="preserve">
-                                                            <style type="text/css">
-                                                                .st1 {
-                                                                    fill: #FFFFFF;
-                                                                }
-                                                            </style>
-                                                            <path class="st0" d="M391.1,600.8H103.3c-23.1,0-42-18.9-42-42V270.9c0-23.1,18.9-42,42-42h287.8c23.1,0,42,18.9,42,42v287.8
+                                                <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                                                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                    viewBox="-35 126.7 540.3 540.3"
+                                                    style="enable-background:new -35 126.7 540.3 540.3;"
+                                                    xml:space="preserve">
+                                                    <style type="text/css">
+                                                        .st1 {
+                                                            fill: #FFFFFF;
+                                                        }
+                                                    </style>
+                                                    <path class="st0" d="M391.1,600.8H103.3c-23.1,0-42-18.9-42-42V270.9c0-23.1,18.9-42,42-42h287.8c23.1,0,42,18.9,42,42v287.8
                                                                     C433.1,581.9,414.2,600.8,391.1,600.8z" />
-                                                            <path class="st1" d="M366.1,575.8H128.2c-23.1,0-42-18.9-42-42V295.9c0-23.1,18.9-42,42-42h237.9c23.1,0,42,18.9,42,42v237.9
+                                                    <path class="st1" d="M366.1,575.8H128.2c-23.1,0-42-18.9-42-42V295.9c0-23.1,18.9-42,42-42h237.9c23.1,0,42,18.9,42,42v237.9
                                                                     C408.1,556.9,389.2,575.8,366.1,575.8z" />
-                                                            <g>
-                                                                <g>
-                                                                    <polygon class="st0"
-                                                                        points="136.2,525.8 160.4,522.6 139.4,501.6 		" />
-                                                                    <polygon class="st0"
-                                                                        points="143.1,473.2 140.6,492.2 169.8,521.4 188.8,518.9 318,389.7 272.3,344 		" />
-                                                                    <path class="st0" d="M321.5,306.2c-1.5-1.5-3.6-2.3-5.6-2.3c-2.2,0-4.4,0.8-6,2.5l-31.2,31.2l45.7,45.7l31.2-31.2
+                                                    <g>
+                                                        <g>
+                                                            <polygon class="st0"
+                                                                points="136.2,525.8 160.4,522.6 139.4,501.6 		" />
+                                                            <polygon class="st0"
+                                                                points="143.1,473.2 140.6,492.2 169.8,521.4 188.8,518.9 318,389.7 272.3,344 		" />
+                                                            <path class="st0" d="M321.5,306.2c-1.5-1.5-3.6-2.3-5.6-2.3c-2.2,0-4.4,0.8-6,2.5l-31.2,31.2l45.7,45.7l31.2-31.2
                                                                             c3.3-3.3,3.4-8.5,0.2-11.7L321.5,306.2z" />
-                                                                </g>
-                                                            </g>
-                                                        </svg>
-        
-                                                    </div>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+
+                                            </div>
                                         </td>
                                     </ng-container>
                                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    
+
                                 </table>
                                 <mat-paginator [pageSizeOptions]="[25,50,100,200]" showFirstLastButtons></mat-paginator>
                             </div>
@@ -241,12 +177,12 @@
                 </div>
             </div>
             <div class="container-fluid" *ngIf="showDetail">
-    
+
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-md-6">
                             <mat-label (click)="NextPage()"> Go Back
-    
+
                             </mat-label>
                         </div>
                         <div class="col-md-6"> </div>
@@ -254,23 +190,23 @@
                     <hr>
                 </div>
                 <div class="row whiteBG">
-    
-                    <mat-tab-group animationDuration="1ms" [(selectedIndex)]="selectedIndex">
-    
-    
+
+                    <mat-tab-group animationDuration="1ms">
+
+
                         <mat-tab>
                             <ng-template mat-tab-label>
                                 <span class="sg-mat-txt" matTooltip="Application Request" aria-label="">Application
                                     Request</span>
                             </ng-template>
-    
+
                             <mat-card-content>
                                 <mat-accordion multi="true">
                                     <div class="whiteBG">
                                         <div class="height">
                                             <h4> Vendor Information </h4>
                                         </div>
-    
+
                                         <div class="row whiteBG">
                                             <div class="col-md-12">
                                                 <div class="col-md-2">
@@ -292,21 +228,21 @@
                                                     <mat-form-field>
                                                         <mat-label>---Please select---</mat-label>
                                                         <mat-select>
-    
+
                                                         </mat-select>
                                                     </mat-form-field>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-    
-    
+
+
                                     <div class="space"></div>
                                     <div class="whiteBG">
                                         <div class="height">
                                             <h4> LICENSE INFORMATION </h4>
                                         </div>
-    
+
                                         <div class="row whiteBG">
                                             <div class="col-md-12">
                                                 <div class="col-md-2">
@@ -328,14 +264,14 @@
                                             </div>
                                         </div>
                                     </div>
-    
+
                                     <div class="space"></div>
                                     <div class="height">
                                         <h4> REQUESTER INFORMATION </h4>
                                     </div>
                                 </mat-accordion>
                             </mat-card-content>
-    
+
                         </mat-tab>
                         <mat-tab>
                             <ng-template mat-tab-label>
@@ -355,38 +291,38 @@
                         </mat-tab>
                     </mat-tab-group>
                 </div>
-    
+
                 <div class="space"></div>
-    
+
                 <div class="row">
-    
+
                     <div class="space"></div>
-    
+
                     <div class="col-md-12">
                         <mat-checkbox color="primary" class="float-left">Print Report</mat-checkbox>
-                        <button color="primary" style="float: right;" matTooltip="Download Form" class="ctgrySaveButton "
-                            mat-raised-button name='SaveEntity'> Download Form
+                        <button color="primary" style="float: right;" matTooltip="Download Form"
+                            class="ctgrySaveButton " mat-raised-button name='SaveEntity'> Download Form
                         </button>
                     </div>
-    
+
                     <div class="col-md-12">
                         <div class="col-md-2">
                             Remarks
                         </div>
-    
+
                         <div class="col-md-10">
-    
+
                             <form class="example-form">
                                 <mat-form-field class="example-full-width">
                                     <textarea matInput style="height: 60Px; width: 213px"
                                         placeholder="Leave a comment"></textarea>
                                 </mat-form-field>
                             </form>
-    
+
                         </div>
                     </div>
                     <div class="col-md-12">
-    
+
                         <input class="background" color="primary" name="imageUrl" type="file" accept="image/*"
                             (change)="handleInputChange($event)" />
                     </div>
@@ -397,9 +333,9 @@
                             </button>
                             <span class="divider"></span>
                         </div>
-    
+
                     </div>
-    
+
                 </div>
             </div>
         </mat-card-content>

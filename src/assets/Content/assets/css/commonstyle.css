@@ -969,7 +969,7 @@ a#clickme {
     webkit-box-shadow: 0 14px 24px 0 rgba(62,57,107,.26);
     box-shadow: 0 14px 24px 0 rgba(62,57,107,.26);
     border-radius: 15px 0 0 15px;
-    background-color: #DA4453 !important;
+    background-color: #DA4453;
 }
 
 .spinner {

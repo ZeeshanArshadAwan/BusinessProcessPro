@@ -19,7 +19,7 @@ export class ConfirmDialogComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<ConfirmDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ConfirmDialogModel
-    , private _svc: SharedServicesService, private GlobalVariableService: GlobalVariableService) {
+    , private _svc: SharedServicesService, public GlobalVariableService: GlobalVariableService) {
     // Update view with given values
 
     this.objCatagoryClass = new CatagoryClass();

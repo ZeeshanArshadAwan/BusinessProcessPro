@@ -2920,7 +2920,7 @@ footer {
 }
 .section  {
     background: #1d2b36;
-    background-image: url('assets/images/whitebg_new.jpg');
+    /* background-image: url('assets/images/whitebg_new.jpg'); */
 }
  .Horizontal .sidebar li a:hover {
             background-color:  rgba(0,0,0,0.5);
@@ -2956,9 +2956,43 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
     background: #1d2b36 !important;
 }
 
+.mat-checkbox-checked .mat-checkbox-background, .mat-checkbox-indeterminate .mat-checkbox-background {
+    background-color: #1d2b36 !important;
+  }
+  
+.mat-checkbox:not(.mat-checkbox-disabled) .mat-checkbox-ripple .mat-ripple-element {
+    background-color: #1d2b36 !important;
+  }
+  a#clickme {
+    background-color: #1d2b36 !important;
+}
+
 .Theam_Color{
     background: #1d2b36 !important;
+    color: white;
 }
+.Themefont{
+    color:#1d2b36 !important;
+}
+tr.mat-header-row {
+    background-color: #373d4b !important;
+}
+.mat-header-cell {
+    color: #fff !important;
+}
+.mat-sort-header-arrow {
+    color: #fff;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #373d4b !important;
+}
+.mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+    background-color: #373d4b !important;
+}
+
+
+
 html body .riSingle .riTextBox[type="text"] {
     padding:15px 0 !important;
 }

@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Login, Sys_Users } from '../Classes/login';
 import { AppSetting, appSetReq_params } from '../Classes/app-setting'
-import { ApplicationType, applicationStatus, ApplicationStatus_Escalation, ApplciationTypePanels, FieldListItems } from '../Classes/application-work-flow-class';
+import { ApplicationType, applicationStatus, ApplicationStatus_Escalation, ApplciationTypePanels, FieldListItems, FieldListGroups } from '../Classes/application-work-flow-class';
 import { DefineUserGroup } from '../Classes/define-group';
 import { Locationlevel } from '../Classes/locationlevel';
 import { OrgCompany, OrgLevel, OrgEntity } from '../Classes/organization-structure';
@@ -18,25 +18,29 @@ import { ApplicationTypeTemplate } from '../Classes/ApplicationTypeTemplate';
 import { EmployeeDeputyAssignment } from '../Classes/emp-deputy-assignment';
 import { WorkFlowApi } from '../Classes/WorkFlowApi';
 import { WorkFlowApiParameters } from '../Classes/WorkFlowApiParameters';
+import { PaymentServices } from '../Classes/PaymentServices';
+import { FinesPayment } from '../Classes/FinesPayment ';
+import { GeoSpatialMaps } from '../Classes/GeoSpatialMaps';
+import { SummaryAversgeByCustomer } from '../Classes/SummaryAversgeByCustomer';
+import { DetailedCustomerVisit } from '../Classes/DetailedCustomerVisit';
+import { SummaryAverageByLocationArea } from '../Classes/SummaryAverageByLocationArea';
 @Injectable({
   providedIn: 'root'
 })
 export class SharedServicesService {
-   serviceIP: string = 'http://192.168.168.134/BusinessProServices/api/';
-  //serviceIP: string = 'http://192.168.168.6/BusinessProServices/api/';
-  //For Local API
-  //
-  //serviceIP: string = 'http://localhost:10248/api/';
+  //serviceIP: string = 'http://192.168.168.134/BusinessProServices/api/';
+  // serviceIP: string = 'http://192.168.168.6/BusinessProServices/api/';
+  // For Local API
+   serviceIP: string = 'http://localhost:10248/api/';
+  // serviceIP: string = 'http://192.168.168.134/AMBusinessProcess/Api/'
+  // serviceIP: string = 'http://104.238.125.92/BusinessProServices/api/';
   constructor(private httpclient: HttpClient) {
   }
-
   //Get withOut Parameter
   GetDetails(UrlName: string): Observable<any> {
-    
     var Url = this.serviceIP + UrlName;
     return this.httpclient.get(Url);
   }
-
   //Get with Parameter
   getGenericParmas(id: any, paramName: string, UrlName: string): Observable<any> {
     var url = this.serviceIP + UrlName;
@@ -64,7 +68,6 @@ export class SharedServicesService {
 
 
   getLogin(Objectclass: Login, APIName: string = ''): Observable<any> {
-
     var api = this.serviceIP + APIName;
     return this.httpclient.post(api, Objectclass)
   }
@@ -153,7 +156,10 @@ export class SharedServicesService {
       var url = this.serviceIP + APIName;
       return this.httpclient.post(url, p)
     } 
-
+    GetReportForSummaryCustomer(p: SummaryAversgeByCustomer, APIName: string): Observable<any> {
+      var url = this.serviceIP + APIName;
+      return this.httpclient.post(url, p)
+    } 
     SearchApplications(p: AllApplication, APIName: string): Observable<any> {
       
       var url = this.serviceIP + APIName;
@@ -182,6 +188,14 @@ export class SharedServicesService {
       var url = this.serviceIP + APIName;
       return this.httpclient.post(url, p)
     } 
+    GetReportForDetailedCustomerVisit(p: DetailedCustomerVisit , APIName: string): Observable<any> {
+      
+      var url = this.serviceIP + APIName;
+      return this.httpclient.post(url, p)
+    } 
+
+
+    
     SaveTemplate(p: ApplicationTypeTemplate , APIName: string): Observable<any> {
       
       var url = this.serviceIP + APIName;
@@ -217,7 +231,35 @@ export class SharedServicesService {
       var url = this.serviceIP + APIName;
       return this.httpclient.post(url, p)
     }
+    SavePaymentServices(p: PaymentServices[], APIName: string): Observable<any> {
+      var url = this.serviceIP + APIName;
+      return this.httpclient.post(url, p)
+    }
+    SaveFinesPayment(p: FinesPayment[], APIName: string): Observable<any> {
+      var url = this.serviceIP + APIName;
+      return this.httpclient.post(url, p)
+    }
 
+    SaveGeoSpecialMaps(p: GeoSpatialMaps[], APIName: string): Observable<any> {
+      var url = this.serviceIP + APIName;
+      return this.httpclient.post(url, p)
+    }
+    GetCounts(APIName: string): Observable<any> {
+      var url = this.serviceIP + APIName;
+      return this.httpclient.get(url)
+    } 
+    SaveFieldsGroupInfo(p: FieldListGroups, APIName: string): Observable<any> {
+      var url = this.serviceIP + APIName;
+      return this.httpclient.post(url, p)
+    }
+    GetReportForSummaryAverageByLocationArea(p: SummaryAverageByLocationArea, APIName: string): Observable<any> {
+      var url = this.serviceIP + APIName;
+      return this.httpclient.post(url, p)
+    }
+
+
+
+    
     
 }
 

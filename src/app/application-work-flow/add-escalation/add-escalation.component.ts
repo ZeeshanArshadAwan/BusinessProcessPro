@@ -35,7 +35,7 @@ export class AddEscalationComponent extends BaseComponent implements OnInit {
   rdbvalue: string = '';
   objApplicationStatus_Escalation: ApplicationStatus_Escalation;
   constructor(public languageTranslateService: LanguageTranslateService  ,
-    public dialogRef: MatDialogRef<AddEscalationComponent>,private GlobalVariableService: GlobalVariableService, public dialog: MatDialog, private _svc: SharedServicesService,
+    public dialogRef: MatDialogRef<AddEscalationComponent>,public GlobalVariableService: GlobalVariableService, public dialog: MatDialog, private _svc: SharedServicesService,
     @Inject(MAT_DIALOG_DATA) public data: EcslationModel) {
       super(languageTranslateService);
     this.id = data.id;

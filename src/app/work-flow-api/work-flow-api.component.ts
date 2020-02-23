@@ -12,13 +12,15 @@ import { ApplicationType, ApplciationTypePanels } from '../Classes/application-w
 import { ApplicationStatus } from '../Classes/application-review';
 import { PopupModalComponent, PopUpModal } from './popup-modal/popup-modal.component';
 import { CustomConfirmDialogModel, CustomConfirmModalsComponent } from '../custom-confirm-modals/custom-confirm-modals.component';
+import { BaseComponent } from '../SharedServices/base-component';
+import { LanguageTranslateService } from '../SharedServices/language-translate.service';
 
 @Component({
   selector: 'app-work-flow-api',
   templateUrl: './work-flow-api.component.html',
   styleUrls: ['./work-flow-api.component.css']
 })
-export class WorkFlowApiComponent implements OnInit {
+export class WorkFlowApiComponent extends BaseComponent implements OnInit {
   FormName: string = '';
   WorkFlowApi:WorkFlowApi;
   WorkFlowList:WorkFlowApi[];
@@ -34,7 +36,8 @@ export class WorkFlowApiComponent implements OnInit {
 
 
   
-  constructor(private httpclient: HttpClient,private _svc: SharedServicesService, private GlobalVariableService: GlobalVariableService,public dialog: MatDialog, private cdRef: ChangeDetectorRef) {
+  constructor(public languageTranslateService: LanguageTranslateService ,private httpclient: HttpClient,private _svc: SharedServicesService, public GlobalVariableService: GlobalVariableService,public dialog: MatDialog, private cdRef: ChangeDetectorRef) {
+    super(languageTranslateService)
     this.WorkFlowApi=new WorkFlowApi();
     this.WorkFlowList=[];
     this.ApplicationTypeList=[];
@@ -49,7 +52,14 @@ export class WorkFlowApiComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   ngOnInit() {
-    this.FormName = localStorage.getItem("BPPFromNameEn");
+
+    if(this.GlobalVariableService.isEn){
+      this.FormName = localStorage.getItem("BPPFromNameEn");
+    }
+    else {
+      this.FormName = localStorage.getItem("BPPFromNameAr");
+    }
+    
     this.DivAppType=true;
   this.GetAllApplicationType();
   }
@@ -326,7 +336,7 @@ this.WorkFlowApi.ApiType=this.WorkFlowApi.ApiType.toString();
     this.ApplicationTypeId=id;
     this.GetAllApplicationTypeStatusByTypeId(this.ApplicationTypeId);
     this.GetAllAplicationPanelsbyTypeId(this.ApplicationTypeId);
-    this.GlobalVariableService.GetAllFieldsByAppTypeId(this.ApplicationTypeId);
+    this.GlobalVariableService.GetAllFieldsByAppTypeId(this.ApplicationTypeId,false);
     this.GetAllApis(this.ApplicationTypeId);
     this.DivWorkFlowAPI=true;
     this.DivAppType=false;

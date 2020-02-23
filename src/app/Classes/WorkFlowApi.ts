@@ -27,7 +27,7 @@ export class WorkFlowApi {
     this.FK_StatusId=0;
     this.Fk_PanelId=0;
         this.CallType="";
-        this.ApiType="";
+        this.ApiType="1";
         this.Api="";
         this.Header="";
         this.Body="";

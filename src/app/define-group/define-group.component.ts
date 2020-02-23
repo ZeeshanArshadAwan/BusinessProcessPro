@@ -31,7 +31,7 @@ export class DefineGroupComponent extends BaseComponent implements OnInit {
   public displayedColumns = ['Desc_Ar', 'Desc_En', 'action']
 
   constructor( public languageTranslateService: LanguageTranslateService ,private _svc: SharedServicesService, public dialog: MatDialog,
-    private GlobalVariableService: GlobalVariableService
+    public GlobalVariableService: GlobalVariableService
   ) {
     super(languageTranslateService);
     this.AppSetting = [];
@@ -43,7 +43,13 @@ export class DefineGroupComponent extends BaseComponent implements OnInit {
 
   ngOnInit() {
    
+    if(this.GlobalVariableService.isEn){
       this.FormName = localStorage.getItem("BPPFromNameEn");
+    }
+    else {
+      this.FormName = localStorage.getItem("BPPFromNameAr");
+    }
+     // this.FormName = localStorage.getItem("BPPFromNameEn");
        this.getDetail();
   }
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -74,7 +80,6 @@ export class DefineGroupComponent extends BaseComponent implements OnInit {
       const dialogData = new DefineGroupPopUp("Confirm Action", message, this.DefineGroup, this.objSys_Groups, modeFlage);
       const dialogRef = this.dialog.open(DefineGroupModalComponent, {
         width: '99vw',
-        height: '70vh',
         data: dialogData
       });
 
@@ -112,7 +117,6 @@ export class DefineGroupComponent extends BaseComponent implements OnInit {
             // width: '80%',
             // height: '80%',
             width: '99vw',
-            height: '70vh',
 
             data: dialogData
           });

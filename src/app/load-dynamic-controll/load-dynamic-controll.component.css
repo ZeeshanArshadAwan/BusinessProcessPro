@@ -19,7 +19,9 @@
 .h2text{
   color: black;
 }
-
+.Dropdownclass{
+  height: 20px;
+  }
 /* ===== test  */
 .example-form {
   min-width: 150px;
@@ -35,4 +37,12 @@ height: 15px;
 }
 .margin_tp{
   margin-top: 50px;
+}
+.ButtonFont{
+  font-size: 70%;
+  /* width: 50px; */
+  text-align: center;
+}
+.radio-inline{
+  padding-left: 0px !important;
 }

@@ -2930,3 +2930,29 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
 .side-left {
     background: #2196f3 !important;
 }
+.Theam_Color{
+    background: #2196f3 !important;
+    color: white;
+}
+
+.Themefont{
+    color:#2196f3 !important;
+}
+tr.mat-header-row {
+    background-color: #2196f3 !important;
+}
+a#clickme {
+    background-color: #2196f3 !important;
+}
+.mat-header-cell {
+    color: #fff !important;
+}
+.mat-sort-header-arrow {
+    color: #fff;
+}
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #2196f3 !important;
+}
+.mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+    background-color: #2196f3 !important;
+}

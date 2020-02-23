@@ -8,6 +8,7 @@ export class ApplicationType {
     ApplicationTypeAr: string;
     IntoductoryTextEN: string;
     IntoductoryTextAr: string;
+    ApplicationTypeCategory:string;
     StatementOfAgreementEN: string;
     StatementOfAgreementAr: string;
     Visible: boolean;
@@ -26,6 +27,7 @@ export class ApplicationType {
         this.ApplicationTypeAr = '';
         this.IntoductoryTextEN = '';
         this.IntoductoryTextAr = '';
+        this.ApplicationTypeCategory="";
         this.StatementOfAgreementEN = '';
         this.StatementOfAgreementAr = '';
         this.Visible = false;
@@ -34,7 +36,6 @@ export class ApplicationType {
         this.ApplicationNoFormula = '{Abbreviation}-{Year}-{month}-{Day}-{Hour}-{Minutes}-{Seconds}-{ApplicationId}-{ApplicationSequence}';
         this.HasWorkFlow = false;
         this.selected = false;
-
     }
 
 
@@ -203,6 +204,25 @@ constructor(){
     this.LAST_UPDATE_DATE = "";
     this.SaveMultipleFields=false;
 }
+
+}
+export class FieldListGroups
+{
+    FK_ItemId: number;
+    FK_ItemText: string;
+    FK_FieldId: number;
+    FK_FieldText: string;
+    ApplicationFieldsGroupId: number;
+    selected: boolean;
+
+constructor(){
+    this.FK_ItemId= 0;
+    this.FK_FieldId= 0;
+    this.FK_ItemText = "";
+    this.FK_ItemText = "";
+    this.ApplicationFieldsGroupId= 0;
+    this.selected = false;
+} 
 }
 export class FieldListItems
 {

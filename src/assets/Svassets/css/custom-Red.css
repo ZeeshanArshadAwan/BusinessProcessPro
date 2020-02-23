@@ -2959,3 +2959,33 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
 .side-left {
     background: #da4453 !important;
 }
+
+.Theam_Color{
+    background: #da4453 !important;
+    color: white;
+}
+
+.Themefont{
+    color:#da4453 !important;
+}
+tr.mat-header-row {
+    background-color: #da4453 !important;
+}
+.mat-header-cell {
+    color: #fff !important;
+}
+.mat-sort-header-arrow {
+    color: #fff;
+}
+a#clickme {
+    background-color: #da4453 !important;
+}
+
+
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #da4453 !important;
+}
+.mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+    background-color: #da4453 !important;
+}

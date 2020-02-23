@@ -4,15 +4,15 @@
     <mat-accordion multi="true" class="w-100">
         <div class="row  px-md-5 mt-3" *ngFor="let k of GlobalVariableService.glbApplciationTypePanels">
             <mat-expansion-panel class="w-95" [disabled]="true" [expanded]="true">
-                <mat-expansion-panel-header class="panel-header" (mouseenter)="mouseEnter(k.PanelId) "
-                    (mouseleave)="mouseLeave(k.PanelId)">
+                <mat-expansion-panel-header class="panel-header" (mouseenter)="mouseEnter(k.PanelId) ">
                     <div class='col-md-12 w-95'>
                         <div class="row">
                             <div class='col-md-5'>
-                                <mat-panel-title >
+                                <mat-panel-title>
                                     <strong>
-                                            <h2 class="h2text">{{k.Text}}</h2>
-                                        
+                                        <h2 class="h2text">{{GlobalVariableService.isEn === true ? k.Text : k.ArText}}
+                                        </h2>
+
                                     </strong>
                                 </mat-panel-title>
                             </div>
@@ -27,7 +27,7 @@
 
 
 
-                                        
+
                                         <div class="">
                                             <button mat-raised-button color="primary" class="pull-right"
                                                 (click)="addControll(k.PanelId)"
@@ -46,18 +46,20 @@
                                                 class="pull-right" (click)="editControll(k.PanelId)">Edit</button>
                                         </div>
                                     </div>
-                                  
+
                                     <div class="col-md-1 mt-2"
                                         *ngIf="GlobalVariableService.bDisplayControls && ( MouseHoverPanelid == k.PanelId)">
 
 
 
-                                        <div (color)="primary" class="pull-right">
+                                        <div class="pull-right">
                                             <div>
-                                                <a id="upKey"  (click)="UpdatePanelOrderUp(k.PanelId)">
+                                                <a id="upKey" (click)="UpdatePanelOrderUp(k.PanelId)">
                                                     <!-- <img src="./assets/images/up-arrow.png"  alt="Alternate Text"> -->
-                                                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                                                        y="0px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
+                                                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                        viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;"
+                                                        xml:space="preserve">
                                                         <style type="text/css">
                                                             .st1 {
                                                                 fill: #FFFFFF;
@@ -80,8 +82,11 @@
                                                     <!-- <img src="./assets/images/down-arrow.png" alt="Alternate Text"> -->
 
 
-                                                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                                                        y="0px" viewBox="-297 389 16 16" style="enable-background:new -297 389 16 16;" xml:space="preserve">
+                                                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                        viewBox="-297 389 16 16"
+                                                        style="enable-background:new -297 389 16 16;"
+                                                        xml:space="preserve">
                                                         <style type="text/css">
                                                             .st1 {
                                                                 fill: #FFFFFF;
@@ -101,7 +106,7 @@
                                             </div>
                                         </div>
 
-                                      
+
                                     </div>
                                 </div>
                             </div>
@@ -115,97 +120,132 @@
 
 
                 <fieldset [disabled]="!GlobalVariableService.editProspectMode">
-                    <div class="col-md-12 mt-3" (mouseenter)="SetColor(p.FieldId)" (mouseleave)="resetColor(p.FieldId)"
-                        id=a{{p.FieldId}} *ngFor="let p of GlobalVariableService.controllsApplicationTypeFields">
-                        <div class="col-md-1 mt-4" (mouseenter)="mouseEnter(p.FieldId) "
-                            (mouseleave)="mouseLeave(p.FieldId)" *ngIf="p.FK_PanelId == k.PanelId">
-                            <strong>{{p.FieldCaption}}<span *ngIf="p.IsMandatory">*</span></strong>
+                    <div class="col-md-12 mt-3" (mouseenter)="mouseEnter(p.FieldId)"
+                        (mouseleave)="resetColor(p.FieldId)" id=a{{p.FieldId}}
+                        *ngFor="let p of GlobalVariableService.controllsApplicationTypeFields;let filedIndex = index ">
+                        <div [hidden]="p.IsHidden" class="example-full-width col-md-1 mt-4"
+                            (mouseenter)="mouseEnter(p.FieldId)" *ngIf="p.FK_PanelId == k.PanelId && (p.FK_FieldType != 17 && p.FK_FieldType != 16 && p.FK_FieldType != 15 && p.FK_FieldType != 13 && p.FK_FieldType != 14 )">
+                            <strong>
+                                {{GlobalVariableService.isEn === true ? p.FieldCaption : p.FieldCaptionAr}} 
+                               
+                                <span *ngIf="p.IsMandatory">*</span></strong>
                         </div>
-                        <div class="col-md-5" (mouseenter)="mouseEnter(p.FieldId) "
-                            (mouseleave)="mouseLeave(p.FieldId)">
+                        <div class="col-md-4" style="margin-right: -5px;">
+
                             <!-- <mat-form-field   class="example-full-width w-95 nobg"
                                 *ngIf="(p.FK_FieldType == '1' || p.FK_FieldType == '7') && p.FK_PanelId == k.PanelId">
                                 <textarea class="textboxclass" matInput placeholder={{p.FieldCaption}} id={{p.FieldId}} let i=p.FiledId
                                     required="p.IsMandatory"></textarea>
 
                             </mat-form-field> -->
-                            <mat-form-field
+                            <mat-form-field [hidden]="p.IsHidden"
                                 *ngIf="(p.FK_FieldType == '1' || p.FK_FieldType == '7') && p.FK_PanelId == k.PanelId"
                                 class="example-full-width">
-                                <input matInput placeholder={{p.FieldCaption}} id={{p.FieldId}} let i=p.FiledId>
+                                <input matInput
+                                    placeholder='{{GlobalVariableService.isEn === true ? p.FieldCaption : p.FieldCaptionAr}}'
+                                    id={{p.FieldId}} let i=p.FiledId>
                             </mat-form-field>
 
 
-                            <mat-form-field  class="example-full-width w-95"
+                            <mat-form-field [hidden]="p.IsHidden" class="example-full-width w-95"
                                 *ngIf="(p.FK_FieldType == '2' || p.FK_FieldType == '3') && p.FK_PanelId == k.PanelId">
                                 <!-- <mat-label>{{p.FieldCaption}}</mat-label> -->
                                 <input matInput type="number" id={{p.FieldId}} name={{p.FieldCaption}}>
                             </mat-form-field>
 
-                            <mat-form-field 
+                            <mat-form-field [hidden]="p.IsHidden" class="example-full-width"
                                 *ngIf="(p.FK_FieldType == '4' || p.FK_FieldType == '5') && p.FK_PanelId == k.PanelId">
-                                <input matInput [matDatepicker]="picker" placeholder="Choose a date" id={{p.FieldId}}>
+                                <input matInput [matDatepicker]="picker" placeholder='Choose a date'
+                                    id={{p.FieldId}}>
                                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                 <mat-datepicker #picker></mat-datepicker>
                             </mat-form-field>
 
 
-                            <div class="mt-3" *ngIf="(p.FK_FieldType == '6') && p.FK_PanelId == k.PanelId">
+                             <div class="mt-3 example-full-width"
+                                *ngIf="(p.FK_FieldType == '6') && p.FK_PanelId == k.PanelId">
                                 <div *ngFor="let list of  GlobalVariableService.listSelectData">
-                                    <mat-form-field  *ngIf="list.id == p.FieldId" class="d-block w-95">
-                                        <select matNativeControl name="ApproveStatus" required id={{p.FieldId}}>
-                                            <option [value]="-1" >--- Please select ---</option>
+                                     <mat-form-field class="dropdown-content" *ngIf="list.id == p.FieldId" class="d-block w-95">
+                                        <select  matNativeControl name="ApproveStatus" required 
+                                        id={{p.FieldId}}>
+                                            <option [value]="-1" >{{GlobalVariableService.isEn === true ? "--- Please select ---" : "--- اختيار العناصر ---"}} </option>
                                             <option name='ItemId' *ngFor="let l of list.FieldListItems"
                                                 [value]="l.ItemId">
-                                                {{l.FieldText}}</option>
+                                                {{GlobalVariableService.isEn === true ? l.FieldText : l.FieldTextAr}}
+                                            </option>
                                         </select>
+                                    </mat-form-field>  
+
+                                  
+                                </div>
+                            </div> 
+                            <!-- GlobalVariableService.controllsApplicationTypeFields[filedIndex].DefaultValue -->
+                            <!-- <div class="mt-3 example-full-width"
+                                *ngIf="(p.FK_FieldType == '6') && p.FK_PanelId == k.PanelId">
+                                <div *ngFor="let list of  GlobalVariableService.listSelectData">
+                                    <mat-form-field *ngIf="list.id == p.FieldId" class="w-95">
+                                        <mat-select matNativeControl name="ApplicationStatusId"
+                                        [(value)]="GlobalVariableService.controllsApplicationTypeFields[filedIndex].DefaultValue"
+                                            [compareWith]="compareObjects"
+                                            required 
+                                            id={{p.FieldId}}
+                                            >
+                                            <mat-option *ngFor="let l of list.FieldListItems" [value]="l.ItemId">
+                                                {{GlobalVariableService.isEn === true ? l.FieldText : l.FieldTextAr}}
+                                            </mat-option>
+                                        </mat-select>
                                     </mat-form-field>
                                 </div>
-                            </div>
+                            </div> -->
 
-                            <div class="row mt-3 p-3" *ngIf="(p.FK_FieldType == '8') && p.FK_PanelId == k.PanelId">
+                            <div class="example-full-width row mt-3 p-3"
+                                *ngIf="(p.FK_FieldType == '8') && p.FK_PanelId == k.PanelId">
                                 <div *ngFor="let list of  GlobalVariableService.listSelectData">
                                     <div class="" *ngIf="list.id == p.FieldId">
                                         <span class="" *ngFor="let l of list.FieldListItems">
-                                                <!-- <input id={{l.ItemId}} [value]="l.ItemId" type="radio" class="form-check-input"
+                                            <!-- <input id={{l.ItemId}} [value]="l.ItemId" type="radio" class="form-check-input"
                                                     name={{p.FieldId}}> {{l.FieldText}} -->
-                                                    <!-- <label for={{l.FieldText}}>  -->
-                                                            <label class="radio-inline">
-                                                                    <input id={{l.ItemId}} [value]="l.ItemId" type="radio"
-                                                    name={{p.FieldId}}>&nbsp;&nbsp;&nbsp;  {{l.FieldText}}
-                                                                  </label>
+                                            <!-- <label for={{l.FieldText}}>  -->
+                                            <label class="radio-inline" (click)="Showhidepanel(l.ItemId,p.FieldId)">
+                                                <input id={{l.ItemId}} [value]="l.ItemId" type="radio"
+                                                    name={{p.FieldId}}>&nbsp;&nbsp;&nbsp;
+                                                {{GlobalVariableService.isEn === true ? l.FieldText : l.FieldTextAr}}
+                                            </label>
                                             <!-- </label> -->
-                                      
+
                                         </span>
                                     </div>
                                 </div>
                             </div>
 
 
-                            <div class="mt-3" *ngIf="(p.FK_FieldType == '9') && p.FK_PanelId == k.PanelId">
+                            <div class="example-full-width mt-3"
+                                *ngIf="(p.FK_FieldType == '9') && p.FK_PanelId == k.PanelId">
                                 <div *ngFor="let list of  GlobalVariableService.listSelectData">
                                     <div *ngIf="list.id == p.FieldId">
-                                        
+
                                         <!-- <mat-checkbox [checked]="list.selected"   name={{l.ItemId}}  id={{l.ItemId}} class="example-margin ml-3"
                                             (change)="onChange(l.ItemId,p.FieldId)" color="primary" 
                                             *ngFor="let l of list.FieldListItems"
                                             [value]="l.ItemId" >
                                             {{l.FieldText}}
                                         </mat-checkbox> -->
-                                        <div class = "row">
-                                        <span  *ngFor="let l of list.FieldListItems">
-                                            
-                                        <input type="checkbox" name={{l.ItemId}} id={{l.ItemId}}  
-                                        value="l.ItemId"> {{l.FieldText}}</span>
-                                    </div>
+                                        <div class="row">
+                                            <span *ngFor="let l of list.FieldListItems" class="col-md-2">
+
+                                                <input type="checkbox" name={{l.ItemId}} id={{l.ItemId}}
+                                                    value="l.ItemId">
+                                                {{GlobalVariableService.isEn === true ? l.FieldText : l.FieldTextAr}}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <mat-form-field  class="example-full-width"
+                            <mat-form-field class="example-full-width"
                                 *ngIf="(p.FK_FieldType == '10') && p.FK_PanelId == k.PanelId ">
-                                <input matInput placeholder={{p.FieldCaption}} id={{p.FieldId}}
-                                    [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+                                <input matInput
+                                    placeholder='{{GlobalVariableService.isEn === true ? p.FieldCaption : p.FieldCaptionAr}}'
+                                    id={{p.FieldId}} [formControl]="emailFormControl">
                                 <mat-hint>Errors appear instantly!</mat-hint>
                                 <mat-error
                                     *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
@@ -217,7 +257,7 @@
                             </mat-form-field>
 
 
-                            <mat-form-field  class="example-full-width w-95"
+                            <mat-form-field class="example-full-width w-95"
                                 *ngIf="(p.FK_FieldType == '11') && p.FK_PanelId == k.PanelId ">
                                 <!-- <mat-label>{{p.FieldCaption}}</mat-label> -->
                                 <input matInput type="number" id={{p.FieldId}} name={{p.FieldCaption}}>
@@ -225,7 +265,8 @@
                             </mat-form-field>
 
 
-                            <div *ngIf="(p.FK_FieldType == '15') && p.FK_PanelId == k.PanelId ">
+                            <div class="example-full-width"
+                                *ngIf="(p.FK_FieldType == '15') && p.FK_PanelId == k.PanelId ">
                                 <H1 *ngIf="p.HeaderTag == 'h1'">{{p.HeaderText}}</H1>
                                 <H2 *ngIf="p.HeaderTag == 'h2'">{{p.HeaderText}}</H2>
                                 <H3 *ngIf="p.HeaderTag == 'h3'">{{p.HeaderText}}</H3>
@@ -234,16 +275,18 @@
                                 <H6 *ngIf="p.HeaderTag == 'h6'">{{p.HeaderText}}</H6>
                             </div>
 
-                            <div  *ngIf="(p.FK_FieldType == '16') && p.FK_PanelId == k.PanelId ">
+                            <div class="example-full-width"
+                                *ngIf="(p.FK_FieldType == '16') && p.FK_PanelId == k.PanelId ">
                                 <p id={{p.FieldId}}>{{p.ParagraphText}}</p>
                             </div>
 
-                            <div  *ngIf="(p.FK_FieldType == '17') && p.FK_PanelId == k.PanelId ">
+                            <div class="example-full-width"
+                                *ngIf="(p.FK_FieldType == '17') && p.FK_PanelId == k.PanelId ">
                                 <p id={{p.FieldId}}> {{p.ParagraphText}}</p>
                             </div>
-                            <div *ngIf="(p.FK_FieldType == '18') && p.FK_PanelId == k.PanelId ">
-                                <ckeditor [(ngModel)]="downLoadEnglishTemplate" [config]="config" debounce="500"
-                                    id={{p.FieldId}}>
+                            <div class="example-full-width"
+                                *ngIf="(p.FK_FieldType == '18') && p.FK_PanelId == k.PanelId ">
+                                <ckeditor [(ngModel)]="p.DefaultValue"  [config]="config"  debounce="500" id={{p.FieldId}}>
                                 </ckeditor>
                             </div>
                             <!-- <div class="col-md-6">
@@ -274,14 +317,15 @@
                             
                             </div> -->
 
-                            <div *ngIf="((p.FK_FieldType == '19') && p.FK_PanelId == k.PanelId)">
+                            <div *ngIf="((p.FK_FieldType == '19') && p.FK_PanelId == k.PanelId)"
+                                class="example-full-width">
                                 <div *ngFor="let list of  GlobalVariableService.DynamicDataTable">
                                     <div *ngIf="list.id == p.FieldId">
                                         <div class="row">
                                             <div class="mt-4 table-responsive">
                                                 <table class="table">
                                                     <thead>
-                                                        <tr>
+                                                        <tr class="Theam_Color">
                                                             <th *ngFor="let group of list.ColumnName">
                                                                 {{group.text}}
                                                             </th>
@@ -306,15 +350,46 @@
                                     </div>
                                 </div>
                             </div>
-                            <div *ngIf="((p.FK_FieldType == '20') && p.FK_PanelId == k.PanelId) || k.SaveMultipleFields">
-                                <div class="">
-                                    <span class="">
-                                        <div class=""><input type="button" value="Add" (click)="AddFieldValuesInTable()" class="btn"></div>
+                            <div *ngIf="((p.FK_FieldType == '20') && p.FK_PanelId == k.PanelId)"
+                                class="example-full-width">
+                                <div *ngFor="let list of  GlobalVariableService.listRepeaterData">
+                                    <div *ngIf="list.id == p.FieldId">
+                                        <div class=""><input type="button" value="Add"
+                                                (click)="AddFieldValuesInTable(p.FieldId)" class="btn"></div>
                                         <div class="row">
                                             <div class="mt-4 table-responsive">
                                                 <table class="table">
                                                     <thead>
-                                                        <tr>
+                                                        <tr class="Theam_Color">
+                                                            <th *ngFor="let group of list.ColumnName">
+                                                                {{group}}
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngFor="let row of list.Datatable;let i = index">
+                                                            <td *ngFor="let col of list.ColumnName">
+                                                                {{ list.Datatable[i][col]}}
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- <div id={{p.FieldId}} class="" *ngIf="((p.FK_FieldType == '20') && p.FK_PanelId == k.PanelId)">
+                                <div class="block-2">
+                                    <span class="">
+                                        <div class=""><input type="button" value="Add" (click)="AddFieldValuesInTable(p.FieldId)" class="btn"></div>
+                                        <div class="row">
+                                            <div class="mt-4 table table-responsive">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr class="Theam_Color">
                                                             <th *ngFor="let a of GlobalVariableService.controllsApplicationTypeFields">
                                                                 <span *ngIf="a.FK_PanelId == k.PanelId">{{a.FieldCaption}}</span>
                                                             </th>
@@ -323,10 +398,10 @@
                                                             </th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                        <tr *ngFor="let r of TableArray">
-                                                            <td>
-                                                                {{r.Caption}}<br>
+                                                    <tbody *ngFor="let r of TableRowsArr">
+                                                        <tr *ngIf="r.TableId==p.FieldId">
+                                                            <td *ngFor="let n of r.TableArray">
+                                                                {{n.Caption}}
                                                             </td>
                                                             <td>
                                                                 <input id="" type="checkbox">
@@ -338,33 +413,29 @@
                                         </div>
                                     </span>
                                 </div>
-                            </div>
-
-
-
-      
-                           
-
-
-
-
+                            </div> -->
                         </div>
 
-
-                        <div class="col-md-5" style="cursor: pointer">
-                            <div class="row" (mouseenter)="SetColor(p.FieldId)" (mouseleave)="resetColor(p.FieldId)"  >
-                                <div class="col-md-7 mt-3"  *ngIf=" MouseHoverPanelid == p.FieldId ">
-                                    <button mat-raised-button class="pull-right"
+                        <div class="col-md-6" style="cursor: pointer">
+                            <div class="row" (mouseenter)="SetColor(p.FieldId)" (mouseleave)="resetColor(p.FieldId)">
+                                <div class="col-md-7 mt-3" *ngIf=" MouseHoverPanelid == p.FieldId ">
+                                    <button mat-raised-button class="pull-right ButtonFont"
                                         (click)="AddFields(p.FieldId ,p.FK_PanelId )"
                                         *ngIf="(p.FK_PanelId == k.PanelId) && GlobalVariableService.bDisplayControls"
                                         color="primary"> Edit</button>
-                                    <button mat-raised-button class="pull-right" (click)="DeleteFields(p.FieldId)"
+                                    <button mat-raised-button class="pull-right ButtonFont"
+                                        (click)="DeleteFields(p.FieldId)"
                                         *ngIf="(p.FK_PanelId == k.PanelId) && GlobalVariableService.bDisplayControls"
                                         color="primary"> Delete</button>
-                                    <button mat-raised-button class="pull-right"
+                                    <button mat-raised-button class="pull-right ButtonFont"
                                         (click)="AddItems(p.FieldId ,p.FK_PanelId )"
                                         *ngIf="( p.FK_FieldType == '6'   || p.FK_FieldType == '8' || p.FK_FieldType == '9' || p.FK_FieldType == '19') && (p.FK_PanelId == k.PanelId) && GlobalVariableService.bDisplayControls"
                                         color="primary"> Add Items
+                                    </button>
+                                    <button mat-raised-button class="pull-right ButtonFont"
+                                        (click)="AddGroups(p.FieldId ,p.FK_PanelId )"
+                                        *ngIf="(p.FK_FieldType == '8') && (p.FK_PanelId == k.PanelId) && GlobalVariableService.bDisplayControls"
+                                        color="primary"> Add Group
                                     </button>
                                 </div>
                                 <div class="col-md-1 mt-2"
@@ -372,25 +443,31 @@
                                     <div>
                                         <a id="upKey" (click)="UpdateFieldOrderUp(p.FieldId)">
                                             <!-- <img src="./assets/images/up-arrow.png" alt="Alternate Text"> -->
-                                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                            viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
-                                       <style type="text/css">
-                                           
-                                           .st1{fill:#FFFFFF;}
-                                       </style>
-                                       <circle id="XMLID_118_" class="st10" cx="8" cy="8" r="8"/>
-                                       <path id="XMLID_120_" class="st1" d="M4.9,10.3h0.6c0.2,0,0.3-0.1,0.4-0.2l2-2.6c0.1-0.1,0.2-0.1,0.3,0l2,2.6
-                                           c0.1,0.1,0.3,0.2,0.4,0.2h0.6c0.2,0,0.3-0.2,0.2-0.3L8.2,5.8c-0.1-0.1-0.3-0.1-0.4,0L4.7,10C4.6,10.1,4.7,10.3,4.9,10.3z"/>
-                                       </svg>
-                                       
+                                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;"
+                                                xml:space="preserve">
+                                                <style type="text/css">
+                                                    .st1 {
+                                                        fill: #FFFFFF;
+                                                    }
+                                                </style>
+                                                <circle id="XMLID_118_" class="st10" cx="8" cy="8" r="8" />
+                                                <path id="XMLID_120_" class="st1"
+                                                    d="M4.9,10.3h0.6c0.2,0,0.3-0.1,0.4-0.2l2-2.6c0.1-0.1,0.2-0.1,0.3,0l2,2.6
+                                           c0.1,0.1,0.3,0.2,0.4,0.2h0.6c0.2,0,0.3-0.2,0.2-0.3L8.2,5.8c-0.1-0.1-0.3-0.1-0.4,0L4.7,10C4.6,10.1,4.7,10.3,4.9,10.3z" />
+                                            </svg>
+
 
                                         </a>
                                     </div>
                                     <div class="mt-0">
                                         <a id="downKey" (click)="UpdateFieldOrderDown(p.FieldId )">
                                             <!-- <img src="./assets/images/down-arrow.png" alt="Alternate Text"> -->
-                                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                                                y="0px" viewBox="-297 389 16 16" style="enable-background:new -297 389 16 16;" xml:space="preserve">
+                                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                viewBox="-297 389 16 16" style="enable-background:new -297 389 16 16;"
+                                                xml:space="preserve">
                                                 <style type="text/css">
                                                     .st1 {
                                                         fill: #FFFFFF;
@@ -404,17 +481,12 @@
 
                                         </a>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-                        
-<!-- Datatable and Button Div -->
-
-
+                        <!-- Datatable and Button Div -->
                     </div>
-                </fieldset>
-                <!-- <div class="" *ngIf="(k.SaveMultipleFields)">
+                    <!-- <div class="" *ngIf="(k.SaveMultipleFields)">
                     <span class=""> 
                     <div class=""><input type="button" value="Add" (click)="AddFieldValuesInTable()" class="btn"></div>
                     <div class="row">
@@ -445,6 +517,8 @@
                     </div>
                 </span>
                 </div> -->
+                </fieldset>
+
             </mat-expansion-panel>
         </div>
     </mat-accordion>

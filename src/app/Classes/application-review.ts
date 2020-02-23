@@ -6,6 +6,7 @@ export class AllApplication {
     UserId: number;
     FromDate: Date;
     ToDate: Date;
+    ApplicationStatusType: number;
     constructor() {
         this.ApplicationStatusId = 0;
         this.ApplicationTypeId = 0;
@@ -16,6 +17,7 @@ export class AllApplication {
         this.FromDate.setDate(this.FromDate.getDate() - 30);
         this.ToDate = new Date();
         this.ToDate.setDate(this.ToDate.getDate() + 1);
+        this.ApplicationStatusType = 1;
     }
 }
 export class ApplicationTools {
@@ -141,7 +143,7 @@ export class ApplicationDetailReport {
         this.ApplicationId = 0;
         this.ApplicantId = 0;
         this.ApplicationNo = "";
-        this.Format = "";
+        this.Format = "PDF";
         this.Lang = 1;
         this.FromDate = new Date();
         this.ToDate = new Date();
@@ -175,6 +177,7 @@ export class ApplicationInfo {
     StatusId: number;
     ApplicationTypeEn: string;
     StatusNameEn: string;
+    ApplicationTypeCategory:number;
     ApplicationDate: string;
     CREATED_BY: string;
     Applicant_Id: string;
@@ -189,6 +192,7 @@ export class ApplicationInfo {
         this.ApplicationTypeEn = "";
         this.StatusNameEn = "";
         this.ApplicationDate = "";
+        this.ApplicationTypeCategory=0;
         this.CREATED_BY = "";
         this.Applicant_Id = "";
         this.AllowEdit = false;
@@ -198,7 +202,14 @@ export class ApplicationInfo {
     }
 }
 
-
+export class ApplicationsCount {
+    TOTAL_APPLICATIONS: number;
+    TOTAL_APP_PENDING: number;
+    TOTAL_APP_COMPLETED: number;
+    TOTAL_APP_REJECTED: number;
+    TOTAL_TODAY_APP_PENDING: number;
+    TOTAL_TODAY_APP_COMPLETED:number;
+}
 
 
 export class ApplicationStatusPerCount {

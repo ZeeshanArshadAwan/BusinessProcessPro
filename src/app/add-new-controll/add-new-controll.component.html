@@ -84,7 +84,7 @@
                     <!-- <h4>Type</h4> -->
                     <mat-form-field class="w-95">
                         <mat-label>Field Type</mat-label>
-                        <mat-select (selectionChange)="ShowHiderPanel($event)" matNativeControl 
+                        <mat-select (selectionChange)="ShowHiderPanel()" matNativeControl 
                             name="AddNewControllTypeID" [(ngModel)]="FK_FieldType"  required>
                             <mat-option  [value]="-1">--Please Select--</mat-option>
                             <mat-option [value]="p.FieldTypeId"  *ngFor="let p of FieldTypeList" >{{p.FieldTypeName}}</mat-option>
@@ -113,10 +113,24 @@
             </div>
             <div class="row mt-3">
                 <div class="col-md-12">
-                    <div>
+                    <div class="col-md-2">
                         <mat-checkbox name="AddNewControllIsMandatory" color="primary"
                             [(ngModel)]="ApplicationTypeFields.IsMandatory">
                             IsMandatory
+
+                        </mat-checkbox>
+                    </div>
+                    <div class="col-md-2">
+                        <mat-checkbox name="AddNewControllIsGrouped" color="primary"
+                            [(ngModel)]="ApplicationTypeFields.IsUnique">
+                            IsGrouped
+
+                        </mat-checkbox>
+                    </div>
+                    <div class="col-md-2">
+                        <mat-checkbox name="AddNewControllisIndexed" color="primary"
+                            [(ngModel)]="ApplicationTypeFields.IsHidden">
+                            IsHidden
 
                         </mat-checkbox>
                     </div>

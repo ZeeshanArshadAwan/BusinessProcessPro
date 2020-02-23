@@ -28,7 +28,7 @@ export class AddNewControllComponent implements OnInit {
   str : string = "";
   FieldTypeList:FieldTypes[];
   // testData: string = 'test';
-  constructor(private _svc: SharedServicesService ,private GlobalVariableService: GlobalVariableService, public dialogRef: MatDialogRef<AddNewControllComponent>,
+  constructor(private _svc: SharedServicesService ,public GlobalVariableService: GlobalVariableService, public dialogRef: MatDialogRef<AddNewControllComponent>,
     @Inject(MAT_DIALOG_DATA) public data: AddNewControllpopUp) { 
       this.PanelID = data.PanelID;
       this.ApplicationTypeFields = data.ApplicationTypeFields;
@@ -61,7 +61,7 @@ export class AddNewControllComponent implements OnInit {
       this._svc.SaveFieldsInfo( this.ApplicationTypeFields ,'DynamicForm/SaveFieldsInfo').subscribe(
         data => {
           if(!this.GlobalVariableService.isNumberNullOrEmplty(this.GlobalVariableService.ApplicationTypeId)){
-            this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.ApplicationTypeId)
+            this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.ApplicationTypeId,true)
            // this.GlobalVariableService.GetAllFieldsByAppTypeId(this.GlobalVariableService.ApplicationTypeId)
           }
         }, (err) => {
@@ -121,7 +121,6 @@ export class AddNewControllComponent implements OnInit {
   GetAllFieldListItemsByFieldId(){
     this._svc.getGenericParmas('','','DynamicForm/GetAllFieldListItemsByFieldId').subscribe(
       data => {  
-      console.log("data")
       }, (err) => {
         this.GlobalVariableService.openDialog("Add Controlls ", "Some Error has been occured saving data.")
       }

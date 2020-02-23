@@ -16,8 +16,8 @@
                 <div class="row">
                     <div class="mat-elevation-z8">
                         <mat-dialog-actions>
-                            <div class="row">
-                                <div class=" col-md-8 mt-4 mb-4 pull-right">
+                            <div class="row" style="margin-left: 58px;margin-bottom: 14px; direction: ltr;">
+                                <div class=" col-md-8 mt-4 pull-right">
                                     <button color="primary" class="ctgrySaveButton " (click)="addNew()"
                                         mat-raised-button name='AddLocation' matTooltip="{{buttonName}}"
                                          > {{buttonName}}</button>
@@ -26,7 +26,7 @@
 
                             </div>
                         </mat-dialog-actions>
-                        <div id='jqxWidget'>
+                        <div class="Dir-LTR" id='jqxWidget'>
                         </div>
                     </div>
                 </div>
@@ -204,42 +204,44 @@
                     </mat-tab-group>
                 </mat-card-content>
             </div>
-            <div class="col-md-8 mat-elevation-z8 pull-right" [hidden]="!EntityInfo">
+            <div class="col-md-8 mat-elevation-z8 pull-right" style="font-size: 1.25rem;" [hidden]="!EntityInfo">
                 <div class="container row mt-4 mb-4 card-header">
                     <h4 class="card-title">{{langObject.OrganizationStructure}} </h4>
                 </div>
-                <div class="col-md-12">
+                <div class="">
                     <h4 class="mt-4 mb-4">{{langObject.EntityInfo}}</h4>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <mat-form-field  class="d-block w-95">
-                            <input matInput placeholder={{langObject.Company}} value="Company" 
-                                [(ngModel)]="objOrgEntity.CompanyName" [readonly]="btreadOnly" required >
+                        <mat-form-field  class="w-95">
+                            <input matInput placeholder={{langObject.Organization}} value="Company" 
+                                [(ngModel)]="objOrgEntity.CompanyName">
                         </mat-form-field>
                     </div>
 
                     <div class="col-md-6">
-                        <mat-form-field  class="d-block w-95">
-                            <input matInput placeholder = {{langObject.EntityCode}} value="Entity Code"
+                        <mat-form-field  class="w-95">
+                            <input matInput placeholder = {{langObject.EntityCode}}
                                 [(ngModel)]="objOrgEntity.EntityCode">
                         </mat-form-field>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <mat-form-field  class="d-block w-95">
-                            <input matInput placeholder={{langObject.EnglishName}}  value="English Name"
+                        <mat-form-field  class="w-95">
+                            <input matInput placeholder={{langObject.EnglishName}}
                                 [(ngModel)]="objOrgEntity.EntityName">
                         </mat-form-field>
                     </div>
 
                     <div class="col-md-6">
-                        <mat-form-field  class="d-block w-95">
-                            <input matInput placeholder= {{langObject.ArabicName}}   value="Arabic Name"
-                                [(ngModel)]="objOrgEntity.EntityArabicName">
+                        <mat-form-field  class="w-95">
+                            <input matInput placeholder={{langObject.ArabicName}}
+                            [(ngModel)]="objOrgEntity.EntityArabicName">
                         </mat-form-field>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-md-6 mt-4 mb-5">
                         <button color="primary" class="ctgrySaveButton " (click)="saveEntity()" mat-raised-button
                             name='SaveEntity'> {{langObject.Save}}   </button>

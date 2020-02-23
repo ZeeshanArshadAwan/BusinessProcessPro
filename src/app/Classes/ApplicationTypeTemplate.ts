@@ -25,3 +25,14 @@ export class ApplicationTypeTemplate {
 
 
 }
+
+export class tabletype{
+
+    TableId:string;
+    TableArray:any;
+    constructor() {
+      this.TableId="";
+      this.TableArray=[];
+
+    }
+}

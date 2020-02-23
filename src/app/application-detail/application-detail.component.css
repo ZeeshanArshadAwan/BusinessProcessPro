@@ -11,3 +11,58 @@
 .pt-14{
     padding-top: 14px;
 }
+.purple thead tr{
+    background: purple !important;
+    color: #fff  !important;
+}
+
+.purple{
+    background: purple !important;
+    color: #fff  !important;
+}
+.padding{
+    margin-right: 10px;
+}
+.tablepadding{
+    padding: 0px 300px 0px 300px;
+}
+.defaultcolor{
+background: #1d2b36;
+color: white;
+
+}
+
+
+.mat-cell, .mat-footer-cell {
+    font-size: 11px !important;
+    white-space: normal !important;
+}
+
+.table1 {
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  th, td {
+    overflow: hidden;
+    width: 100px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  tr.mat-footer-row, tr.mat-row {
+    height: 35px;
+}
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+    opacity: 0.03 !important;
+    background: #834E9C !important;
+  }
+
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background: #834E9C !important;
+  }
+  .LTR{
+    display: flex;
+    align-items: flex-start;
+  }

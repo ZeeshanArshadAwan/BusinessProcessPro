@@ -39,7 +39,7 @@ export class OrganizationStructureComponent extends BaseComponent implements OnI
   public dataSource = new MatTableDataSource<OrgLevel>();
   public displayedColumns = ['index', 'LevelName', 'LevelArabicName', 'delete']
   //////
-  constructor(public languageTranslateService: LanguageTranslateService , private _svc: SharedServicesService, private GlobalVariableService: GlobalVariableService, public dialog: MatDialog) {
+  constructor(public languageTranslateService: LanguageTranslateService , private _svc: SharedServicesService, public GlobalVariableService: GlobalVariableService, public dialog: MatDialog) {
     super(languageTranslateService);
     this.objOrgCompany = new OrgCompany();
     this.objOrgLevel = new OrgLevel();
@@ -50,7 +50,13 @@ export class OrganizationStructureComponent extends BaseComponent implements OnI
   }
 
   ngOnInit() {
-    this.FormName = localStorage.getItem("BPPFromNameEn");
+    // this.FormName = localStorage.getItem("BPPFromNameEn");
+    if(this.GlobalVariableService.isEn){
+      this.FormName = localStorage.getItem("BPPFromNameEn");
+    }
+    else {
+      this.FormName = localStorage.getItem("BPPFromNameAr");
+    }
     this.getTreeDetail(0);
 
   }

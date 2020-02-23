@@ -11,3 +11,7 @@
 .company-Height{
   max-height: 70vh;
 }  
+.Dir-LTR{
+  display: flex;
+  align-items: flex-start;
+}

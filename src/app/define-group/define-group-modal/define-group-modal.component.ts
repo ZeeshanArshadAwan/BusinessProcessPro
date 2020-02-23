@@ -88,6 +88,7 @@ export class DefineGroupModalComponent  extends BaseComponent implements OnInit,
     }
   }
   saveGroup() {
+   
     if(this.initialValidationDefineGroup())
     {
     this.DefineUserGroup = [];

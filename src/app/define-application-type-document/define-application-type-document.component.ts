@@ -31,7 +31,7 @@ export class DefineApplicationTypeDocumentComponent extends BaseComponent implem
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   constructor(public languageTranslateService: LanguageTranslateService,
-    public dialog: MatDialog, private _svc: SharedServicesService, private GlobalVariableService: GlobalVariableService) {
+    public dialog: MatDialog, private _svc: SharedServicesService, public GlobalVariableService: GlobalVariableService) {
     super(languageTranslateService);
     this.applicationtypeList = new ApplicationType();
     this.apptypedocument = new ApplicationType_Documents();
@@ -39,7 +39,12 @@ export class DefineApplicationTypeDocumentComponent extends BaseComponent implem
   }
 
   ngOnInit() {
-    this.fromName = localStorage.getItem("BPPFromNameEn");
+    if(this.GlobalVariableService.isEn){
+      this.fromName = localStorage.getItem("BPPFromNameEn");
+    }
+    else {
+      this.fromName = localStorage.getItem("BPPFromNameAr");
+    }
     this.GetAllApplicationTypes();
     this.GetAllDocumentTypes();
   }
@@ -118,18 +123,43 @@ export class DefineApplicationTypeDocumentComponent extends BaseComponent implem
   GetAllApplicationTypes() {
     this._svc.GetDetails('ApplicationType/GetAllApplicationTypes').subscribe(
       data => {
+       
         this.applicationtypeList = data;
+        this.apptypedocument.FK_ApplicationTypeId=this.applicationtypeList[0].ApplicationTypeId;
+        this.GetAllDocumentTypesByAppTypeId(this.apptypedocument.FK_ApplicationTypeId)
+
+
+
+
       }, (err) => {
         this.GlobalVariableService.openDialog("Service Type ", "Some Error has been occured while Getting All Application Types.")
       });
   }
+  GetAllDocumentTypesByAppTypeId(id:any) {
+   
+    this._svc.getGenericParmas(id,"id",'ApplicationType/GetAllApplicationTypeDocumentsByApptypeid').subscribe(
+      data => {
+        this.apptypedocumentlist = data;
+        for (var i = 0; i < this.apptypedocumentlist.length; i++) {
+          this.apptypedocumentlist[i].selected = false;
+        }
+        this.dataSource.data = this.apptypedocumentlist;
+      }, (err) => {
+        this.GlobalVariableService.openDialog("Service Type ", "Some Error has been occured while Getting All Application Types.")
+      });
+
+  }
+
+
+
+
   SaveAppTypeDoc() {
 
     this.apptypedocument.DocumentTypeId=this.apptypedocument.DocumentTypeId;
     this.apptypedocument.FK_ApplicationTypeId = this.apptypedocument.FK_ApplicationTypeId;
     this.apptypedocument.DocumentNameEN = this.apptypedocument.DocumentNameEN;
     this.apptypedocument.DocumentNameAr = this.apptypedocument.DocumentNameAr;
-    this.apptypedocument.IsRequired = false;
+   // this.apptypedocument.IsRequired = false;
     this.initialValidation()
     if(this.errorMsg != ''){
       this.GlobalVariableService.openDialog("Application Type Document" , "Please fill the Following Fields : " + this.errorMsg)
@@ -158,6 +188,8 @@ export class DefineApplicationTypeDocumentComponent extends BaseComponent implem
       });
 
   }
+
+
   initialValidation(){
     this.errorMsg ='';
     if(this.GlobalVariableService.isStringNullOrEmplty(this.apptypedocument.DocumentNameEN) ){

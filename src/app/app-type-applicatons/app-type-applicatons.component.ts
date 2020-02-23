@@ -7,13 +7,15 @@ import { ApplicationType, Sys_Groups } from '../Classes/application-work-flow-cl
 import { Sys_Users } from '../Classes/login';
 import { Validators, FormControl } from '@angular/forms';
 import { ApplicationStatus, AllApplication, ApplicationInfo } from '../Classes/application-review';
+import { LanguageTranslateService } from '../SharedServices/language-translate.service';
+import { BaseComponent } from '../SharedServices/base-component';
 
 @Component({
   selector: 'app-app-type-applicatons',
   templateUrl: './app-type-applicatons.component.html',
   styleUrls: ['./app-type-applicatons.component.css']
 })
-export class AppTypeApplicatonsComponent implements OnInit {
+export class AppTypeApplicatonsComponent  extends BaseComponent implements OnInit {
 
   showDetail: boolean = false;
   lstApplicationType : ApplicationType
@@ -23,6 +25,7 @@ export class AppTypeApplicatonsComponent implements OnInit {
   objAllAplication : AllApplication
   lstApplicationInfo : ApplicationInfo []
   disableSelect : boolean
+  FormName: string ="";
   ////////////////////Validation////////////////
   errorMsg: string = '';
   ApplicationType = new FormControl('', [
@@ -40,7 +43,9 @@ export class AppTypeApplicatonsComponent implements OnInit {
   ]);
   datePipe: any;
   
-  constructor(private _svc: SharedServicesService,private GlobalVariableService : GlobalVariableService) {
+  constructor(public languageTranslateService: LanguageTranslateService,
+    private _svc: SharedServicesService,public GlobalVariableService : GlobalVariableService) {
+    super(languageTranslateService);
     this.objAllAplication = new AllApplication();
     
    }

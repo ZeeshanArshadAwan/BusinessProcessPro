@@ -37,7 +37,7 @@ export class EmployeeDeputyAssignmentComponent extends BaseComponent implements 
 
 
   constructor(public languageTranslateService: LanguageTranslateService, private _svc: SharedServicesService,
-    private GlobalVariableService: GlobalVariableService , public dialog: MatDialog) {
+    public GlobalVariableService: GlobalVariableService , public dialog: MatDialog) {
     super(languageTranslateService);
     this.objGetAllUsers = new GetAllUsers();
     this.lstOrgCompany = [];

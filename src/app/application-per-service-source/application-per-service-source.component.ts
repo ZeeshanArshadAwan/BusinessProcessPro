@@ -5,13 +5,15 @@ import { FormControl, Validators } from '@angular/forms';
 import { SharedServicesService } from '../SharedServices/shared-services.service';
 import { GlobalVariableService } from '../SharedServices/global-variable.service';
 import { saveAs } from '../../assets/js/FileSaver.js';
+import { BaseComponent } from '../SharedServices/base-component';
+import { LanguageTranslateService } from '../SharedServices/language-translate.service';
 
 @Component({
   selector: 'app-application-per-service-source',
   templateUrl: './application-per-service-source.component.html',
   styleUrls: ['./application-per-service-source.component.css']
 })
-export class ApplicationPerServiceSourceComponent implements OnInit {
+export class ApplicationPerServiceSourceComponent  extends BaseComponent  implements OnInit {
   FormName: string = '';
   lstApplicationType: ApplicationType1[];
   objApplicationDetailReport : ApplicationDetailReport;
@@ -20,6 +22,7 @@ export class ApplicationPerServiceSourceComponent implements OnInit {
   Base64:string;
   FileName:any;
   extention:any;
+  showDashboard: boolean = false;
   report: string[] = ['PDF', 'Word', 'Excel'];
   ////////////////////Validation////////////////
   errorMsg: string = '';
@@ -36,21 +39,26 @@ export class ApplicationPerServiceSourceComponent implements OnInit {
     Validators.required
   ]);
   
-  constructor(private _svc: SharedServicesService,private GlobalVariableService : GlobalVariableService) 
+  constructor(public languageTranslateService: LanguageTranslateService ,private _svc: SharedServicesService,public GlobalVariableService : GlobalVariableService) 
   { 
+    super(languageTranslateService);
     this.objApplicationDetailReport = new ApplicationDetailReport();
 
   }
 
   ngOnInit() {
-   this.FormName = localStorage.getItem("BPPFromNameEn");
+    if(this.GlobalVariableService.isEn){
+      this.FormName = localStorage.getItem("BPPFromNameEn");
+    }
+    else {
+      this.FormName = localStorage.getItem("BPPFromNameAr");
+    }
    this.GetApplicationTypeList();
    this.GetApplicationStatusList(0);
   }
   GetApplicationTypeList() {
     this._svc.GetDetails("ApplicationType/GetAllApplicationTypes").subscribe(
       data => {
-        
         this.lstApplicationType = data;
       } 
     )
@@ -136,5 +144,12 @@ export class ApplicationPerServiceSourceComponent implements OnInit {
   {
     this.GetApplicationStatusList(id);
   }
+
+  getAllCharts(){
+    this.showDashboard = true;
+    this.GlobalVariableService.GetApplicationCount();
+    this.GlobalVariableService.getcounts();
+  }
+  
 
 }

@@ -17,27 +17,29 @@
 
 
             <ng-container matColumnDef="TypeNameEn">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header title="Type Name English" > Type Name English </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header title="Type Name English" > 
+                    {{langObject.NotificationTypeTable[0]}}
+                  </th>
                 <td mat-cell *matCellDef="let element"> {{element.TypeNameEn}} </td>
             </ng-container>
 
             <ng-container matColumnDef="TypeNameAr">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header  title="Type Name Arabic" > Type Name Arabic </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header  title="Type Name Arabic" >  {{langObject.NotificationTypeTable[1]}}</th>
                 <td mat-cell *matCellDef="let element"> {{element.TypeNameAr}} </td>
             </ng-container>
 
             <ng-container matColumnDef="EmailNotificationTemplateEn">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header title="Email Notification Template English" > Email Notification Template English </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header title="Email Notification Template English" >  {{langObject.NotificationTypeTable[2]}} </th>
                 <td mat-cell *matCellDef="let element"> {{element.EmailNotificationTemplateEn}} </td>
             </ng-container>
 
             <ng-container matColumnDef="EmailNotificationTemplateAr">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header title="SMS Notification Template English" > SMS Notification Template English </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header title="SMS Notification Template English" >  {{langObject.NotificationTypeTable[3]}} </th>
                 <td mat-cell *matCellDef="let element"> {{element.EmailNotificationTemplateAr}} </td>
             </ng-container>
 
             <ng-container matColumnDef="NotificationTypeId">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header title="Edit" > Edit </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header title="Edit" >  {{langObject.NotificationTypeTable[4]}} </th>
                 <td mat-cell *matCellDef="let element ; let i = index">
                     <img class="tableAction" (click)='edit(element.NotificationTypeId)'
                         src="./assets/images/edit.png" />
@@ -55,13 +57,15 @@
         <mat-tab-group animationDuration="1ms">
             <mat-tab label="Check" >
                     <ng-template mat-tab-label>
-                            <span class="sg-mat-txt" matTooltip="Check" aria-label="">Check</span>
+                            <span class="sg-mat-txt" matTooltip="Check" aria-label="">{{langObject.Check}} </span>
                           </ng-template>
             
+              <div style="height: 255px;">
+
               
                 <div class="row">
                     <div class="col-md-12  mt-3 mb-3">
-                        <mat-checkbox color="primary" [(ngModel)]="this.objNotificationType.HasEmail">Has Email
+                        <mat-checkbox color="primary" [(ngModel)]="this.objNotificationType.HasEmail">{{langObject.HasEmail}} 
                         </mat-checkbox>
                     </div>
                 </div>
@@ -69,10 +73,10 @@
                     <div class="col-md-12  mt-3 mb-3">
 
                         <mat-radio-group [(ngModel)]="rdbHasEmail" aria-label="Select an option">
-                            <mat-radio-button color="primary" value="0" (change)="radioEmailChange('0')">Send
-                                Immidiately</mat-radio-button>
+                            <mat-radio-button color="primary" value="0" (change)="radioEmailChange('0')">
+                                {{langObject.SendImmidiately}}</mat-radio-button>
                             <mat-radio-button color="primary" value="1" (change)="radioEmailChange('1')">Send At
-                                Specific Time
+                                {{langObject.SpecificTime}}
                             </mat-radio-button>
                         </mat-radio-group>
 
@@ -88,16 +92,15 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12  mt-3 mb-3">
-                        <mat-checkbox color="primary" [(ngModel)]="objNotificationType.HasSMS">Has SMS</mat-checkbox>
+                        <mat-checkbox color="primary" [(ngModel)]="objNotificationType.HasSMS">{{langObject.HasSMS}}</mat-checkbox>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12  mt-3 mb-3 ">
                         <mat-radio-group [(ngModel)]="rdbHasSMS" aria-label="Select an option">
-                            <mat-radio-button color="primary" value="0" (change)="radioSMSChange('0')">Send Immidiately
+                            <mat-radio-button color="primary" value="0" (change)="radioSMSChange('0')"> {{langObject.SendImmidiately}}
                             </mat-radio-button>
-                            <mat-radio-button color="primary" value="1" (change)="radioSMSChange('1')">Send At Specific
-                                Time
+                            <mat-radio-button color="primary" value="1" (change)="radioSMSChange('1')">{{langObject.SendAtSpecificTime}}
                             </mat-radio-button>
                         </mat-radio-group>
                     </div>
@@ -107,45 +110,47 @@
 
                         <mat-dialog-actions>
                             <button class="pull-right" mat-raised-button color="primary" name='DefineGroupSavePop'
-                                (click)="update()"  matTooltip="Update" >
-                                Update</button>
+                                (click)="update()"  matTooltip="Update" >{{langObject.Update}}</button>
 
                             <span class="divider"></span>
 
                             <button class="pull-right" mat-raised-button color="primary"
                                 name='cancelUpdateEnglishTemplat' (click)="Cancel()" matTooltip="Cancel" > 
-                                Cancel
+                                {{langObject.Cancel}}
                             </button>
                         </mat-dialog-actions>
                     </div>
                 </div>
+
+            </div>
             </mat-tab>
             <mat-tab label="Eamil Template">
                     <ng-template mat-tab-label>
                             <span class="sg-mat-txt" matTooltip="Eamil Template" aria-label=""
                             
-                            >Eamil Template</span>
+                            >{{langObject.EamilTemplate}}</span>
                           </ng-template>
 
                 <div class="row">
                     <div class="col-md-8  mt-3 ">
                         <mat-form-field  class="d-block w-95">
-                            <mat-label>Request More Info Status</mat-label>
+                            <mat-label>{{langObject.RequestMoreInfoStatus}}</mat-label>
                             <select matNativeControl required class="w-150">
-                                <option value="">---Select Group---</option>
+                                <option value="">{{GlobalVariableService.isEn === true ? 'Select Group'  : 'اختر مجموعة'}}
+                                </option>
                             </select>
                         </mat-form-field>
                     </div>
                     <div class="col-md-4  mt-3 ">
                         <button mat-raised-button color="primary" name="updateEnglishTemplat"
                             class="clr btn-primary pull-right mlr-15 mt-3"
-                            (click)="updateEnglishTemplate()" matTooltip="Update" >Update</button>
+                            (click)="updateEnglishTemplate()" matTooltip="Update" >{{langObject.Update}}</button>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-12  mt-3 ">
-                        <mat-label>English Email Template</mat-label>
+                        <mat-label>{{langObject.EnglishEmailTemplate}}</mat-label>
                     </div>
                 </div>
 
@@ -161,22 +166,22 @@
                 <div class="row">
                     <div class="col-md-8  mt-3 ">
                         <mat-form-field  class="d-block w-95">
-                            <mat-label>Request More Info Status</mat-label>
+                            <mat-label>{{langObject.RequestMoreInfoStatus}}</mat-label>
                             <select matNativeControl required>
-                                <option value="">---Select Group---</option>
+                                <option value="">{{GlobalVariableService.isEn === true ? 'Select Group'  : 'اختر مجموعة'}}</option>
                             </select>
                         </mat-form-field>
                     </div>
                     <div class="col-md-4  mt-3 ">
                         <button mat-raised-button color="primary" name="updateArabicTemplate"
                             class="clr btn-primary pull-right mlr-15 mt-3"
-                            (click)="updateArabicTemplate()" matTooltip="Update" >Update</button>
+                            (click)="updateArabicTemplate()" matTooltip="Update" >{{langObject.Update}}</button>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-12  mt-3 ">
-                        <mat-label>Arabic Email Template</mat-label>
+                        <mat-label>{{langObject.ArabicEmailTemplate}}</mat-label>
                     </div>
                 </div>
 
@@ -192,40 +197,40 @@
                 <div class="row">
                     <div class="col-md-12">
                         <button mat-raised-button color="primary"
-                            class="clr btn-primary pull-right mlr-15 mt-3 buttonCss" (click)="update()"  matTooltip="Update" >Update</button>
+                            class="clr btn-primary pull-right mlr-15 mt-3 buttonCss" (click)="update()"  matTooltip="Update" >{{langObject.Update}}</button>
                         <span class="divider"></span>
                         <button mat-raised-button color="primary" name="updateEnglishTemplat"
-                            class="clr btn-primary pull-right mlr-15 mt-3" (click)="Cancel()" matTooltip="Cancel" >Cancel</button>
+                            class="clr btn-primary pull-right mlr-15 mt-3" (click)="Cancel()" matTooltip="Cancel" >{{langObject.Cancel}}</button>
                     </div>
                 </div>
             </mat-tab>
             <mat-tab label="SMS Template">
                     <ng-template mat-tab-label>
-                            <span class="sg-mat-txt" matTooltip="SMS Template" aria-label="">SMS Template</span>
+                            <span class="sg-mat-txt" matTooltip="SMS Template" aria-label="">{{langObject.SMSTemplate}}</span>
                           </ng-template>
 
                 <div class="row">
                     <div class="col-md-8  mt-3 ">
                         <mat-form-field  class="d-block w-95">
-                            <mat-label>Request More Info Status</mat-label>
+                            <mat-label>{{langObject.RequestMoreInfoStatus}}</mat-label>
                             <select matNativeControl required>
-                                <option value="">---Select Group---</option>
+                                <option value="">{{GlobalVariableService.isEn === true ? 'Select Group'  : 'اختر مجموعة'}}</option>
                             </select>
                         </mat-form-field>
                     </div>
                     <div class="col-md-4  mt-3 ">
                         <button mat-raised-button color="primary" name="updateEnglishSMS"
-                            class="clr btn-primary pull-right mlr-15 mt-3" (click)="addEnglishSMS()"   matTooltip="Update" >Update</button>
+                            class="clr btn-primary pull-right mlr-15 mt-3" (click)="addEnglishSMS()"   matTooltip="Update" >{{langObject.Update}}</button>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-md-12 mb-3 ">
                         <mat-form-field  class="d-block w-95">
-                            <mat-label>English SMS Template</mat-label>
+                            <mat-label>
+                                {{langObject.EnglishSMSTemplate}}</mat-label>
                             <textarea matInput name="EnglishSMSTemplate"
                                 [(ngModel)]="objNotificationType.SMSNotificationTemplateEn"
-                                placeholder="English SMS Template"></textarea>
+                                placeholder={{langObject.EnglishSMSTemplate}}></textarea>
                         </mat-form-field>
                     </div>
                 </div>
@@ -233,25 +238,25 @@
                 <div class="row">
                     <div class="col-md-8 mt-3 ">
                         <mat-form-field  class="d-block w-95">
-                            <mat-label>Request More Info Status</mat-label>
+                            <mat-label>{{langObject.RequestMoreInfoStatus}}</mat-label>
                             <select matNativeControl required name="RequestMoreInfoStatusList" class="w-150">
-                                <option value="">---Select Group---</option>
+                                <option value="">{{GlobalVariableService.isEn === true ? 'Select Group'  : 'اختر مجموعة'}}</option>
                             </select>
                         </mat-form-field>
                     </div>
                     <div class="col-md-4  mt-3 ">
                         <button mat-raised-button color="primary" name="updateArabicSMS"
-                            class="clr btn-primary pull-right mlr-15 mt-3"  matTooltip="Update" (click)="addArabicSMS()">Update</button>
+                            class="clr btn-primary pull-right mlr-15 mt-3"  matTooltip="Update" (click)="addArabicSMS()">{{langObject.Update}}</button>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-12 mt-3 mb-3 ">
                         <mat-form-field  class="d-block w-95">
-                            <mat-label>Arabic SMS Template</mat-label>
+                            <mat-label>{{langObject.ArabicSMSTemplate}}</mat-label>
                             <textarea matInput name="ArabicSMSTemplate"
                                 [(ngModel)]="objNotificationType.SMSNotificationTemplateAr"
-                                placeholder="Arabic SMS Template"></textarea>
+                                placeholder={{langObject.ArabicSMSTemplate}}></textarea>
                         </mat-form-field>
                     </div>
                 </div>
@@ -259,10 +264,10 @@
                 <div class="row">
                     <div class="col-md-12">
                         <button mat-raised-button color="primary" class="clr btn-primary pull-right mlr-15 mt-3"
-                            (click)="update()" matTooltip="Update">Update</button>
+                            (click)="update()" matTooltip="Update">{{langObject.Update}}</button>
                         <span class="divider"></span>
                         <button mat-raised-button color="primary" name="updateEnglishTemplat"
-                            class="clr btn-primary pull-right mlr-15 mt-3" (click)="Cancel()"  matTooltip="Cancel" >Cancel</button>
+                            class="clr btn-primary pull-right mlr-15 mt-3" (click)="Cancel()"  matTooltip="Cancel" >{{langObject.Cancel}}</button>
                     </div>
                 </div>
             </mat-tab>

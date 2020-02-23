@@ -81,7 +81,7 @@ html, body {
     background: #F5F5F5 !important;
     }
   .background-img{
-        background-image: url('assets/images/whitebg_new.jpg');
+         background-image: url('assets/images/whitebg_new.jpg');
         background-repeat: repeat;
        
     }
@@ -116,5 +116,25 @@ background: rgba(0,0,0,.04);
 padding: .75em .75em 0 .75em !important;
 
     } */
+    div.block-ui-wrapper {
 
+      }
+      
+      div.block-ui-wrapper .loader {
+        background-image: url('assets/images/Loader.gif');
+        background-repeat: no-repeat;
+        border-radius: 0% !important;
+        animation: 0 !important;
+        width: 42em !important;
+        height: 44em !important;
+        border: none !important;
+        
+      }
+
+      div.block-ui-spinner .message {
+        color: #708ada;
+      }
+      .border-gray{
+        border:0.5px solid gray !important;
+      }
     /* .mat-form-field-wrapper {padding: .75em .75em 0 .75em !important; background: rgba(0,0,0,.04); margin-top:1rem;} */

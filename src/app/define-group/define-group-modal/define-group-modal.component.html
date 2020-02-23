@@ -34,14 +34,23 @@
           <ng-template mat-tab-label>
               <span class="sg-mat-txt" matTooltip="{{tab.Desc_En}}" aria-label="">{{tab.Desc_En}}</span>
             </ng-template>
-
+            <div style="min-height: 100px;height: 177px;">
+              <div *ngFor="let p of DefineGroup.FormList ;let i = index" class="mt-3" style="margin:0px;">
+                <div class= "col-md-4" *ngIf="DefineGroup.FormList[i].ModuleID == ModuleID" >
+                    <mat-checkbox (change)="valueChange(i)" color="primary"
+                    style="padding:10px 20px;" [checked]="DefineGroup.FormList[i].seleted"> {{ p.FormName }}
+                  </mat-checkbox>
+                </div>
+              </div>
+            </div>
+<!-- 
         <div *ngFor="let p of DefineGroup.FormList ;let i = index" class="mt-3" style="margin:0px;">
           <div class= "col-md-4" *ngIf="DefineGroup.FormList[i].ModuleID == ModuleID" >
               <mat-checkbox (change)="valueChange(i)" color="primary"
               style="padding:10px 20px;" [checked]="DefineGroup.FormList[i].seleted"> {{ p.FormName }}
             </mat-checkbox>
           </div>
-        </div>
+        </div> -->
       </mat-tab>
     </mat-tab-group>
   </mat-grid-list> 

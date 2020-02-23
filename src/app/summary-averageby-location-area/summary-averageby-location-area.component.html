@@ -1,0 +1,99 @@
+<div class="background-img body">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="card-title"><img src="./assets/images/Review.png" class="titleImageClass">
+                    <label class="headertext"><b>{{FormName}}</b></label>
+                </h4>
+            </div>
+        </div>
+    </div>
+
+
+    <mat-card class="mat-elevation-z3 mlr-15 mt-3 ">
+        <mat-card-content>
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <h3>
+                                <span class="SVlabel"></span>
+                            </h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field class="w-95">
+                                    <mat-label>Location Area</mat-label>
+                                    <mat-select matNativeControl name="AddNewControllTypeID"
+                                    [(ngModel)]="ObjSummaryAverageByLocationArea.AreaName" 
+                                        required>
+                                        <mat-option selected="selected" value="LocationArea1">LocationArea1</mat-option>
+                                        <mat-option selected="selected" value="LocationArea2">LocationArea2</mat-option>
+                                        <mat-option selected="selected" value="LocatonArea3">LocationArea3</mat-option>
+                                        <mat-option selected="selected" value="LocationArea4">LocationArea4</mat-option>
+                                        <mat-option selected="selected" value="LocationArea5">LocationArea5</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field  class="w-95">
+                                        <mat-label>From Date</mat-label>
+                                    <input matInput [matDatepicker]="pickerFromdate"
+                                    [(ngModel)]="ObjSummaryAverageByLocationArea.FromDate"
+                                      placeholder="FromDate">
+                                    <mat-datepicker-toggle name="FromDate" matSuffix [for]="pickerFromdate">
+                                    </mat-datepicker-toggle>
+                                    <mat-datepicker #pickerFromdate></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field class="w-95">
+                                        <mat-label> To Date</mat-label>
+                                    <input matInput [matDatepicker]="pickerTodate"
+                                    [(ngModel)]="ObjSummaryAverageByLocationArea.ToDate"
+                                        placeholder="ToDate">
+                                    <mat-datepicker-toggle name="ToDate" matSuffix [for]="pickerTodate">
+                                    </mat-datepicker-toggle>
+                                    <mat-datepicker #pickerTodate></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row form-group" >
+                          
+                            <div class="col-md-6">
+                                <mat-radio-group layout="row"
+                                aria-labelledby="example-radio-group-label"
+                                [(ngModel)]="ObjSummaryAverageByLocationArea.Format"
+                                class="example-radio-group"
+                                name="Format1" >
+                                <mat-radio-button class="example-radio-button" *ngFor="let rep of report" [value]="rep">
+                                  {{rep}}
+                                </mat-radio-button>
+                              </mat-radio-group>
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-md-6">
+                                <button color="primary" class="ctgrySaveButton " matTooltip="Search" mat-raised-button
+                                    name='SaveEntity' (click)="GenerateReport()"> Generate
+                                </button>
+                                <span class="divider"></span>
+                                <button color="primary" class="ctgrySaveButton " matTooltip="Clear" mat-raised-button
+                                    name='DeleteEntity' (click)="Clear()">
+                                  Clear
+                                </button>
+                            </div>
+                            <div class="col-md-6"> </div>
+                        </div>
+                     
+                    </div>
+                </div>
+            </div>
+           
+        </mat-card-content>
+    </mat-card>
+</div>
+

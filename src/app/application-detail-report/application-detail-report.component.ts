@@ -6,12 +6,14 @@ import { ApplicationType1,ApplicationDetailReport } from '../Classes/application
 import { SharedServicesService } from '../SharedServices/shared-services.service';
 import { Sys_Users } from '../Classes/login';
 import { saveAs } from '../../assets/js/FileSaver.js';
+import { BaseComponent } from '../SharedServices/base-component';
+import { LanguageTranslateService } from '../SharedServices/language-translate.service';
 @Component({
   selector: 'app-application-detail-report',
   templateUrl: './application-detail-report.component.html',
   styleUrls: ['./application-detail-report.component.css']
 })
-export class ApplicationDetailReportComponent implements OnInit {
+export class ApplicationDetailReportComponent   extends BaseComponent implements OnInit {
   lstApplicationType: ApplicationType1[];
   FormName: string = '';
   objApplicationDetailReport : ApplicationDetailReport;
@@ -20,6 +22,7 @@ export class ApplicationDetailReportComponent implements OnInit {
   Base64:string;
   FileName:any;
   extention:any;
+  showDashboard: boolean = false;
   report: string[] = ['PDF', 'Word', 'Excel'];
   ////////////////////Validation////////////////
   errorMsg: string = '';
@@ -36,14 +39,21 @@ export class ApplicationDetailReportComponent implements OnInit {
     Validators.required
   ]);
   
-  constructor(private _svc: SharedServicesService,private GlobalVariableService : GlobalVariableService) 
+  constructor(public languageTranslateService: LanguageTranslateService , private _svc: SharedServicesService,public GlobalVariableService : GlobalVariableService) 
   { 
+    super(languageTranslateService);
     this.objApplicationDetailReport = new ApplicationDetailReport();
 
   }
 
   ngOnInit() {
-    this.FormName = localStorage.getItem("BPPFromNameEn");
+    if(this.GlobalVariableService.isEn){
+      this.FormName = localStorage.getItem("BPPFromNameEn");
+    }
+    else {
+      this.FormName = localStorage.getItem("BPPFromNameAr");
+    }
+
    this.GetApplicationTypeList();
    this.GetUserList();
   }
@@ -93,7 +103,7 @@ export class ApplicationDetailReportComponent implements OnInit {
     }
       this._svc.GetReport(this.objApplicationDetailReport,"Reports/ApplicationDetailsReport").subscribe(
       data => {
-        debugger;
+        
         this.Base64= data.split(",");
         this.FileName=this.Base64[1].split(',');
         this.extention = this.Base64[2].split(',');
@@ -130,5 +140,11 @@ export class ApplicationDetailReportComponent implements OnInit {
 
     )   
     this.objApplicationDetailReport = new ApplicationDetailReport();
+  }
+  getAllCharts(){
+
+    this.showDashboard = true;
+    this.GlobalVariableService.GetApplicationCount();
+    this.GlobalVariableService.getcounts();
   }
 }

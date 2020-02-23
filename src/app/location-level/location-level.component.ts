@@ -26,7 +26,7 @@ export class LocationLevelComponent implements OnInit {
   ObjDeleteLocationLevel: Locationlevel;
   // Locatonlevel: Locationlevel[];
   // objappSetReq_params: appSetReq_params;
-  constructor(private _svc: SharedServicesService, public dialog: MatDialog, private GlobalVariableService: GlobalVariableService) {
+  constructor(private _svc: SharedServicesService, public dialog: MatDialog, public GlobalVariableService: GlobalVariableService) {
     this.lstLocatonlevel = [];
     this.ObjLocationLevel = new Locationlevel();
     this.ObjDeleteLocationLevel = new Locationlevel();

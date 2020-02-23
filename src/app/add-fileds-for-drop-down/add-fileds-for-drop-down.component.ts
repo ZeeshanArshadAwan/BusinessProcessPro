@@ -14,7 +14,7 @@ import { CustomConfirmDialogModel, CustomConfirmModalsComponent } from '../custo
 })
 export class AddFiledsForDropDownComponent implements OnInit {
   FiledId: number;
-
+  ItemId:number;
   objFieldListItems: FieldListItems;
   constructor(public _svc: SharedServicesService, public dialog: MatDialog,
     public GlobalVariableService: GlobalVariableService, public dialogRef: MatDialogRef<AddFiledsForDropDownComponent>,
@@ -46,7 +46,7 @@ export class AddFiledsForDropDownComponent implements OnInit {
           this.dataSource.sort = this.sort;
           this.dataSource.paginator = this.paginator;
         }, (err) => {
-          this.GlobalVariableService.openDialog("Application", "Some Error has been occured.")
+           this.GlobalVariableService.openDialog("Application", "Some Error has been occured.")
         }
       );
   }
@@ -64,7 +64,7 @@ export class AddFiledsForDropDownComponent implements OnInit {
         data => {
           this.objFieldListItems=new FieldListItems();
           this.getdata();
-          this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.ApplicationTypeId)
+          this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.ApplicationTypeId,true)
         }, (err) => {
           this.GlobalVariableService.openDialog("Service Type ", "Some Error has been occured.")
         }
@@ -106,15 +106,30 @@ export class AddFiledsForDropDownComponent implements OnInit {
   Delete() {
     var a = this.dataSource.data.filter(x => x.selected == true);
     for (var i = 0; i < a.length; i++) {
-      this._svc.getGenericParmas(a[i].ItemId, 'itemId', 'DynamicForm/DeleteFieldListItem').subscribe
-        (
-          data => {
-            this.getdata();
-            this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.ApplicationTypeId);
-          }, (err) => {
-            this.GlobalVariableService.openDialog("Application", "Some Error has been occured.")
-          }
-        );
+      this.ItemId = a[0].ItemId;
+      this._svc.getGenericParmas(this.ItemId, 'FK_ItemId', 'DynamicForm/GetAllApplicationFieldsbyitem').subscribe
+      (
+        data => {
+         if(data.length > 0)
+         {
+          this.GlobalVariableService.openDialog("Application", "Groups exists against item.")
+         }
+         else{
+          this._svc.getGenericParmas(this.ItemId, 'itemId', 'DynamicForm/DeleteFieldListItem').subscribe
+          (
+            data => {
+              this.getdata();
+              this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.ApplicationTypeId,true);
+            }, (err) => {
+               this.GlobalVariableService.openDialog("Application", "Some Error has been occured.")
+            }
+          );
+         }
+         
+        }, (err) => {
+           this.GlobalVariableService.openDialog("Application", "Some Error has been occured.")
+        }
+      );
     }
   }
 

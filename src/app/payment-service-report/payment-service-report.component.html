@@ -1,0 +1,117 @@
+<div class="background-img body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="card-title"><img src="./assets/images/Reports.png" class="titleImageClass">
+                    <label class="headertext"><b>{{FormName}}</b></label>
+                </h4>
+            </div>
+        </div>
+    </div>
+
+    <mat-card class="mat-elevation-z3 mlr-15 mt-3 ">
+        <mat-card-content>
+
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-md-12">
+                        <div class="row form-group">
+                        </div>
+                        
+                        <div class="row form-group">
+                            <div class="col-md-6 ">
+                                <mat-form-field class="w-95">
+                                    <mat-label>{{langObject.ServiceName}}</mat-label>
+                                    <!-- (ngModelChange)="OnchangeApptype(objApplicationDetailReport.ApplicationTypeId)" -->
+                                    <mat-select  placeholder="" matNativeControl [(ngModel)]="objApplicationDetailReport.ApplicationTypeId" [formControl]="ApplicationType" name="ApplicationType1" 
+                                    >
+                                      <mat-option [value]="0" >{{GlobalVariableService.isEn === true ? 'please select'  : 'يرجى اختيار'}}</mat-option>
+                                      <mat-option [value]="p.ApplicationTypeId" *ngFor="let p of lstApplicationType" >
+                                        {{GlobalVariableService.isEn === true ? p.ApplicationTypeEn : p.ApplicationTypeAr}}  
+                                        </mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-6">
+                                <mat-form-field>
+                                        <mat-label>{{langObject.FromDate}}</mat-label>
+                                    <input matInput [matDatepicker]="pickerFromdate" [(ngModel)]="objApplicationDetailReport.FromDate" placeholder={{langObject.Chooseadate}}>
+                                    <mat-datepicker-toggle name="FromDate" matSuffix [for]="pickerFromdate">
+                                    </mat-datepicker-toggle>
+                                    <mat-datepicker #pickerFromdate></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+    
+   
+                           <div class="col-md-6">
+                                <mat-form-field class="w-95">
+                                        <mat-label> {{langObject.ToDate}}</mat-label>
+                                    <input matInput [matDatepicker]="pickerTodate" [(ngModel)]="objApplicationDetailReport.ToDate" placeholder={{langObject.Chooseadate}}>
+                                    <mat-datepicker-toggle name="ToDate" matSuffix [for]="pickerTodate">
+                                    </mat-datepicker-toggle>
+                                    <mat-datepicker #pickerTodate></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row form-group" >
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4">
+                                <mat-radio-group layout="row"
+                                aria-labelledby="example-radio-group-label"
+                                class="example-radio-group"
+                                [(ngModel)]="objApplicationDetailReport.Format"
+                                [formControl]="Format" name="Format1" >
+                                <mat-radio-button class="example-radio-button" *ngFor="let rep of report" 
+                                [value]="rep">
+                                  {{rep}}
+                                </mat-radio-button>
+                              </mat-radio-group>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                                <div class="col-md-4"> </div>
+                            <div class="col-md-4">
+                                <button color="primary" class="ctgrySaveButton " matTooltip="View report" mat-raised-button
+                                    name='View' (click)="callEvent()"> {{langObject.View}}
+                                </button>
+                                <span class="divider"></span>
+                                <button color="primary" class="ctgrySaveButton " matTooltip="Clear" mat-raised-button
+                                (click)="Clear()" name='Clear'>
+                                    {{langObject.Clear}}
+                                </button>
+                                <button color="primary" class="ctgrySaveButton " matTooltip="View Dashboard" mat-raised-button
+                                    name='Clear' (click)="getAllCharts()">
+                                    {{langObject.DashboardView}}
+                                </button>
+                            </div>
+                            <div class="col-md-4"> </div>
+                        </div>
+
+
+
+
+
+                        <div class="row form-group" style="margin-top: 5vh" *ngIf= "showDashboard">
+                            <div class="col-md-6 border-gray rounded">
+                                <div class="card-body">
+                                    <div id="barchart"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-5  border-gray rounded">
+                                <div class="card-content p-1">
+                                    <div id="barchart2"></div>
+                                </div>
+                            </div>
+                        </div>  
+
+                        
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+

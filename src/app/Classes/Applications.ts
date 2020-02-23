@@ -104,3 +104,9 @@ export class DynamicDataTable{
     Datatable: any;
     ColumnName: any;
 }
+
+export class RepeaterData{
+        id: number;
+        Datatable: any;
+        ColumnName: any;
+}

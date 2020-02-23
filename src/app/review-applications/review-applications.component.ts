@@ -8,13 +8,14 @@ import { Sys_Users } from '../Classes/login';
 import { Validators, FormControl } from '@angular/forms';
 import { ApplicationStatus, AllApplication, ApplicationInfo } from '../Classes/application-review';
 import { Router } from '@angular/router';
-
+import { BaseComponent } from '../SharedServices/base-component';
+import { LanguageTranslateService } from '../SharedServices/language-translate.service';
 @Component({
   selector: 'app-review-applications',
   templateUrl: './review-applications.component.html',
   styleUrls: ['./review-applications.component.css']
 })
-export class ReviewApplicationsComponent implements OnInit {
+export class ReviewApplicationsComponent extends BaseComponent implements OnInit {
   showDetail: boolean = false;
   lstApplicationType: ApplicationType
   lstSys_Groups: Sys_Groups[]
@@ -24,6 +25,9 @@ export class ReviewApplicationsComponent implements OnInit {
   lstApplicationInfo: ApplicationInfo[];
   ListApplicationInfo: ApplicationInfo[];
   FormName: string = '';
+  AssignedGroup: number;
+ FK_AssignedUser: number
+  
   ////////////////////Validation////////////////
   errorMsg: string = '';
   ApplicationType = new FormControl('', [
@@ -36,14 +40,17 @@ export class ReviewApplicationsComponent implements OnInit {
     Validators.required
   ]);
 
-  AssignedGroup = new FormControl('', [
-    Validators.required
-  ]);
+  // AssignedGroup = new FormControl('', [
+  //   Validators.required
+  // ]);
   datePipe: any;
-
-  constructor(private _svc: SharedServicesService, private GlobalVariableService: GlobalVariableService, private router: Router) {
+ 
+  constructor(public languageTranslateService: LanguageTranslateService ,private _svc: SharedServicesService, public GlobalVariableService: GlobalVariableService, private router: Router) {
+    super(languageTranslateService);
     this.objAllAplication = new AllApplication();
     this.ListApplicationInfo = [];
+    this.AssignedGroup = 0;
+    this.FK_AssignedUser = 0;
 
   }
   public dataSource = new MatTableDataSource<ApplicationInfo>();
@@ -54,7 +61,13 @@ export class ReviewApplicationsComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   ngOnInit() {
-    this.FormName = localStorage.getItem("BPPFromNameEn");
+    if(this.GlobalVariableService.isEn){
+      this.FormName = localStorage.getItem("BPPFromNameEn");
+    }
+    else {
+      this.FormName = localStorage.getItem("BPPFromNameAr");
+    }
+
     this.GlobalVariableService.isAllapplication = true;
     this.GlobalVariableService.AssignedApplication = false;
     this.GetApplicationTypeList();
@@ -96,6 +109,9 @@ export class ReviewApplicationsComponent implements OnInit {
         this.lstSys_Groups = data;
       }
     )
+  }
+  onSelect(LookUp: any){
+
   }
   GetApplicationStatusList(index: number = 0) {
     this._svc.getGenericParmas(index, 'id', 'ApplicationType/GetAllApplicationStatusbyTypeid').subscribe(
@@ -142,11 +158,12 @@ export class ReviewApplicationsComponent implements OnInit {
   }
 
   Search() {
-    
+     this.GlobalVariableService.blockUI.start();
     localStorage.setItem("BBPAllApplicationRequset", JSON.stringify(this.objAllAplication));
     this._svc.SearchApplications(this.objAllAplication, "Application/GetAllApplicationsForSearch").subscribe(
 
       data => {
+         this.GlobalVariableService.blockUI.stop();
         //  this.lstCompanies = data;
         this.lstApplicationInfo = data;
         this.dataSource.data = this.lstApplicationInfo;
@@ -159,15 +176,23 @@ export class ReviewApplicationsComponent implements OnInit {
   }
 
   GetApp(index: any = 0) {
+debugger;
+
 
     // this._svc.getGenericParmas(index,'id','ApplicationType/GetAllApplicationStatusbyTypeid').subscribe(
     //   data => {
     //     this.lstApplicationStatus = data;
     //   })  
+    // this.GlobalVariableService.blockUI.start();
     this._svc.getGenericParmas(index, 'AppId', 'Application/GetApplicationDetails').subscribe(
       data => {
+       debugger;
+        // this.GlobalVariableService.blockUI.stop();
         this.GlobalVariableService.objApplicationInfo = new ApplicationInfo;
         this.GlobalVariableService.objApplicationInfo = data;
+        this.GlobalVariableService.Applicationid=index;
+      
+        // console.log(data);
         this.GlobalVariableService.applicationdetaildiv = true;
         this.GlobalVariableService.isAllapplication = true;
         if(this.GlobalVariableService.objApplicationInfo.AllowTemplateDownload==true)
@@ -192,12 +217,21 @@ export class ReviewApplicationsComponent implements OnInit {
       else{
         this.GlobalVariableService.IsDocumentUpload=false;
       }
+      if(this.GlobalVariableService.objApplicationInfo.ApplicationTypeCategory==2||this.GlobalVariableService.objApplicationInfo.ApplicationTypeCategory==3)
+      {
+        this.GlobalVariableService.ApplicationTypeCategory=this.GlobalVariableService.objApplicationInfo.ApplicationTypeCategory;
+        this.GlobalVariableService.AppDetailtable=true
+      }
+      else{
+        this.GlobalVariableService.ApplicationTypeCategory=this.GlobalVariableService.objApplicationInfo.ApplicationTypeCategory;
+        this.GlobalVariableService.AppDetailtable=false
+      }
         this._svc.getGenericParmas(this.GlobalVariableService.objApplicationInfo.ApplicationId, 'ApplicationId', 'DynamicForm/GetApplicationValuesByApplicationId').subscribe(
           data => {
             // this.GlobalVariableService.editProspectMode = this.GlobalVariableService.editProspectMode == false?true:false;
             this.GlobalVariableService.ApplicationValues = data;
             this.GlobalVariableService.parameterID = this.GlobalVariableService.objApplicationInfo.ApplicationTypeId.toString();
-            this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.objApplicationInfo.ApplicationTypeId);
+            this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.objApplicationInfo.ApplicationTypeId,true);
             var myurl = `${"ApplicationDetail"}/${''}`;
             const that = this;
             that.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>

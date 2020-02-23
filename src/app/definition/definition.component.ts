@@ -26,7 +26,7 @@ export class DefinitionComponent implements OnInit, AfterViewInit {
   lookupTabledefinition: LookUpTableDefinition;
   objSys_Forms: Sys_Forms;
 
-  constructor(private _svc: SharedServicesService, public dialog: MatDialog, private GlobalVariableService: GlobalVariableService) {
+  constructor(private _svc: SharedServicesService, public dialog: MatDialog, public GlobalVariableService: GlobalVariableService) {
     this.lstCatagoryClass = [];
     this.objCatagoryClass = new CatagoryClass();
     this.lookupTabledefinition = new LookUpTableDefinition();

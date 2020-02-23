@@ -9,13 +9,15 @@ import { Validators, FormControl } from '@angular/forms';
 import { ApplicationStatus, AllApplication, ApplicationInfo } from '../Classes/application-review';
 import { Router } from '@angular/router';
 import { fakeAsync } from '@angular/core/testing';
+import { BaseComponent } from '../SharedServices/base-component';
+import { LanguageTranslateService } from '../SharedServices/language-translate.service';
 
 @Component({
   selector: 'app-assigned-application',
   templateUrl: './assigned-application.component.html',
   styleUrls: ['./assigned-application.component.css']
 })
-export class AssignedApplicationComponent implements OnInit {
+export class AssignedApplicationComponent extends BaseComponent implements OnInit  {
   FormName: string = '';
   showDetail: boolean = false;
   lstApplicationType: ApplicationType;
@@ -42,7 +44,8 @@ export class AssignedApplicationComponent implements OnInit {
   ]);
   datePipe: any;
 
-  constructor(private _svc: SharedServicesService, private GlobalVariableService: GlobalVariableService, private router: Router) {
+  constructor(public languageTranslateService: LanguageTranslateService ,private _svc: SharedServicesService, public GlobalVariableService: GlobalVariableService, private router: Router) {
+    super(languageTranslateService);
     this.objAllAplication = new AllApplication();
 
   }
@@ -56,7 +59,12 @@ export class AssignedApplicationComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   ngOnInit() {
-    this.FormName = localStorage.getItem("BPPFromNameEn");
+    if(this.GlobalVariableService.isEn){
+      this.FormName = localStorage.getItem("BPPFromNameEn");
+    }
+    else {
+      this.FormName = localStorage.getItem("BPPFromNameAr");
+    }
     this.GlobalVariableService.AssignedApplication = true;
     this.GlobalVariableService.isAllapplication = false;
     this.GetApplicationTypeList();
@@ -148,8 +156,6 @@ export class AssignedApplicationComponent implements OnInit {
   }
 
   Search(calledfrompage: string = '') {
-    
-
     if(calledfrompage == ''){
       this.objAllAplication.ApplicationTypeId = Number(this.GlobalVariableService.parameterID);
     }
@@ -169,7 +175,7 @@ export class AssignedApplicationComponent implements OnInit {
 
   }
   selectApp(id: number) {
-    
+    debugger;
     this.GlobalVariableService.Applicationid = id;
     this.GlobalVariableService.applicationdetaildiv = true;
     this.GlobalVariableService.AssignedApplication= true;
@@ -177,9 +183,13 @@ export class AssignedApplicationComponent implements OnInit {
     if (a.includes('AssignedApplication')) {
       this.GlobalVariableService.AssignedApplication = true;
     }
+     this.GlobalVariableService.blockUI.start();
     this._svc.getGenericParmas(id, 'AppId', 'Application/GetApplicationDetails').subscribe(
       data => {
+        debugger;
+         this.GlobalVariableService.blockUI.stop();
         this.GlobalVariableService.objApplicationInfo = data;
+        this.GlobalVariableService.Applicationid=id;
         if(this.GlobalVariableService.objApplicationInfo.AllowTemplateDownload==true)
       {
         this.GlobalVariableService.IsTemplateDownLoad=true;
@@ -202,14 +212,26 @@ export class AssignedApplicationComponent implements OnInit {
       else{
         this.GlobalVariableService.IsDocumentUpload=false;
       }
+      if(this.GlobalVariableService.objApplicationInfo.ApplicationTypeCategory==2||this.GlobalVariableService.objApplicationInfo.ApplicationTypeCategory==3)
+      {
+        this.GlobalVariableService.ApplicationTypeCategory=this.GlobalVariableService.objApplicationInfo.ApplicationTypeCategory;
+        this.GlobalVariableService.AppDetailtable=true
+      
+      }
+      else{
+        this.GlobalVariableService.ApplicationTypeCategory=this.GlobalVariableService.objApplicationInfo.ApplicationTypeCategory;
+        this.GlobalVariableService.AppDetailtable=false
+      }
         this._svc.getGenericParmas(this.GlobalVariableService.objApplicationInfo.ApplicationId, 'ApplicationId', 'DynamicForm/GetApplicationValuesByApplicationId').subscribe(
           data => {
+          debugger;
             this.GlobalVariableService.ApplicationValues = data;
             // this.GlobalVariableService.parameterID = this.GlobalVariableService.Applicationid.toString();
             this.GlobalVariableService.parameterID = this.GlobalVariableService.objApplicationInfo.ApplicationTypeId.toString();
            // this.GlobalVariableService.editProspectMode = this.GlobalVariableService.editProspectMode == false ? true : false;
-            this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.objApplicationInfo.ApplicationId);
-
+           debugger;
+            this.GlobalVariableService.GetAllPanelsByApplicationTypeId(this.GlobalVariableService.objApplicationInfo.ApplicationId,false);
+            this.GlobalVariableService.AssignedApplication=true;
             var myurl = `${'ApplicationDetail'}/${''}`;
             const that = this;
             that.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>

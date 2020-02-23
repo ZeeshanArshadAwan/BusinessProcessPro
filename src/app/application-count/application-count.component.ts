@@ -7,6 +7,8 @@ import { GlobalVariableService } from '../SharedServices/global-variable.service
 import { saveAs } from '../../assets/js/FileSaver.js';
 import * as Highcharts from 'highcharts';
 import { parse } from 'path';
+import { BaseComponent } from '../SharedServices/base-component';
+import { LanguageTranslateService } from '../SharedServices/language-translate.service';
 
 declare var require: any;
 //let Boost = require('highcharts/highcharts');
@@ -27,7 +29,7 @@ exportData (Highcharts);
   templateUrl: './application-count.component.html',
   styleUrls: ['./application-count.component.css']
 })
-export class ApplicationCountComponent implements OnInit {
+export class ApplicationCountComponent   extends BaseComponent implements OnInit {
   public AppPerStatusCount: any;
   ////////////////////////////////////////////////
   lstApplicationType: ApplicationType1[];
@@ -40,6 +42,8 @@ export class ApplicationCountComponent implements OnInit {
   extention:any;
   report: string[] = ['PDF', 'Word', 'Excel'];
   IsGraph:boolean = false;
+  FormName: string = '';
+  showDashboard: boolean = false;
   ////////////////////Validation////////////////
   errorMsg: string = '';
   ApplicationType = new FormControl('', [
@@ -57,14 +61,22 @@ export class ApplicationCountComponent implements OnInit {
   ////////////////////////////////////////// Graph///////////////////////////////////
   
   ///////////////////////////////////////////////////////////////////////////////////
-  constructor(private _svc: SharedServicesService,private GlobalVariableService : GlobalVariableService) 
-  { 
+  constructor(public languageTranslateService: LanguageTranslateService , private _svc: SharedServicesService,public GlobalVariableService : GlobalVariableService) 
+  { super(languageTranslateService);
     this.objApplicationDetailReport = new ApplicationDetailReport();
 
   }
 
   ngOnInit() {
    
+    if(this.GlobalVariableService.isEn){
+      this.FormName = localStorage.getItem("BPPFromNameEn");
+    }
+    else {
+      this.FormName = localStorage.getItem("BPPFromNameAr");
+    }
+
+    
    this.GetApplicationTypeList();
    this.GetUserList();
   }
@@ -236,5 +248,11 @@ getGraph()
     
   
 }
+getAllCharts(){
+  this.showDashboard = true;
+  this.GlobalVariableService.GetApplicationCount();
+  this.GlobalVariableService.getcounts();
+}
+
 
 }

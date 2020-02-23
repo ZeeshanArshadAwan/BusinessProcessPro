@@ -104,7 +104,19 @@
                                                 [(ngModel)]="objApplicationType.IntoductoryTextAr" required> -->
                                         </mat-form-field>
                                     </div>
-
+                                    <div class="col-md-6 p-0 px-md-5 ">
+                                    <mat-form-field class="w-95">
+                                        <mat-label>Application Type Category</mat-label>
+                                        <mat-select matNativeControl name="AddNewControllTypeID"
+                                        [(ngModel)]="objApplicationType.ApplicationTypeCategory"   required>
+                                            <mat-option selected="selected" value="1">Form</mat-option>
+                                            <mat-option selected="selected" value="2">Service Payment</mat-option>
+                                            <mat-option selected="selected" value="3">Fine Payment</mat-option>
+                                            <mat-option selected="selected" value="4">Geospatial Maps</mat-option>
+                                            <!-- <mat-option selected="selected" value="h6">h6</mat-option> -->
+                                        </mat-select>
+                                    </mat-form-field>
+                                     </div>
                                 </div>
                                 <div class="row mt-3 px-md-5">
                                     <mat-label>{{langObject.SubmissionGroup}} *</mat-label>
@@ -259,7 +271,7 @@
                 <mat-tab *ngIf="visitStatuss">
                     <ng-template mat-tab-label>
                         <span class="sg-mat-txt" matTooltip="{{langObject.ApplicationStatus?.value }}"
-                            aria-label="">{{langObject.ApplicationStatus }}</span>
+                            aria-label="">{{langObject.ApplicationStatus}}</span>
                     </ng-template>
                     <mat-card-content>
                         <form name="tab2" class="example-form">
@@ -435,14 +447,14 @@
                                     </div>
                                     <div class="row mt-3 px-md-5">
                                         <mat-radio-group aria-label="WorkFlow Access">
-                                            <mat-radio-button color="primary" value="1" [checked]="bUserGroup"
+                                            <mat-radio-button value="1" [checked]="bUserGroup"
                                                 (change)="handleChange($event, 1)"> {{langObject.UserGroup}}
                                             </mat-radio-button>
-                                            <mat-radio-button color="primary" value="2"
+                                            <mat-radio-button value="2" [checked]="bOrganizationUnit"
                                                 (change)="handleChange($event, 2)">
                                                 {{langObject.OrganizationUnit}}
                                             </mat-radio-button>
-                                            <mat-radio-button color="primary" value="3"
+                                            <mat-radio-button  value="3" [checked]="bSpecificUser"
                                                 (change)="handleChange($event,3)">
                                                 {{langObject.SpecificUser}}
                                             </mat-radio-button>
@@ -669,13 +681,12 @@
                             </mat-form-field>
                         </div>
                     </div>
-                    <div class="row mt-5 px-md-5">
+                    <!-- <div class="row mt-5 px-md-5">
                     <div class="col-md-6">
-                            <!-- <input matInput [(ngModel)]="GlobalVariableService.objPanelInfo.ArText"
-                                placeholder={{langObject.Panelarabictitle}}> -->
+                           
                                 <mat-checkbox [(ngModel)]="GlobalVariableService.objPanelInfo.SaveMultipleFields">Save Multiple Fields </mat-checkbox>
                     </div>
-                </div>
+                </div> -->
                     <div class="row">
                         <div class='col-md-12 centerText mt-3'>
                             <button color="primary" mat-raised-button name='SavePanel' (click)="SavePanel()"
@@ -792,10 +803,7 @@
                                     <button class="ctgrySaveButton mat-Primary mlr-15 mt-5" name="AddVisit"
                                      mat-raised-button color="primary" (click)="updateAR()">Add</button>
                             </div>
-                            <!-- <div class="col-md-2">
-                                <button class="ctgrySaveButton mat-Primary pull-right mlr-15 mt-3" name="AddVisit"
-                                    mat-raised-button color="primary">Add Arabic</button>
-                            </div> -->
+                            
                         </div>
                         <!-- <div class="row">
                             <div class="col-md-12 ml-15 mt-3 ">

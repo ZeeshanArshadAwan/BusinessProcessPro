@@ -50,7 +50,21 @@ import { WorkFlowApiModule } from './work-flow-api/work-flow-api.module';
 import { LoadDynamicControllComponent } from './load-dynamic-controll/load-dynamic-controll.component';
 import { PopupModalComponent } from './work-flow-api/popup-modal/popup-modal.component';
 import { jqxDataTableComponent, jqxDataTableModule } from 'jqwidgets-ng/jqxdatatable';
-
+import { NgIdleKeepaliveModule, Keepalive } from '@ng-idle/keepalive';
+import { AddgroupsForDropDownComponent } from './add-groups-for-drop-down/add-groups-for-drop-down.component';
+import { BlockUIModule } from 'ng-block-ui';
+import { PaymentServiceReportComponent } from './payment-service-report/payment-service-report.component';
+import { PaymentServiceReportModule } from './payment-service-report/payment-service-report/payment-service-report.module';
+import { ApplicationStatusReportComponent } from './application-status-report/application-status-report.component';
+import { ApplicationStatusReportModule } from './application-status-report/application-status-report/application-status-report.module';
+import { SummaryAveragebyCustomerComponent } from './summary-averageby-customer/summary-averageby-customer.component';
+import { SummaryAveragebyCustomerModule } from './summary-averageby-customer/summary-averageby-customer.module';
+import { DetailedCustomerVisitsComponent } from './detailed-customer-visits/detailed-customer-visits.component';
+import { DetailedCustomerVisitsModuleModule } from './detailed-customer-visits/detailed-customer-visits-module.module';
+import { SummaryAveragebyLocationAreaComponent } from './summary-averageby-location-area/summary-averageby-location-area.component';
+import { SummaryAveragebyLocationAreaModule } from './summary-averageby-location-area/summary-averageby-location-area.module';
+import { SummaryAveragebyServiceComponent } from './summary-averageby-service/summary-averageby-service.component';
+import { SummaryAveragebyServiceModule } from './summary-averageby-service/summary-averageby-service.module';
 
 
 @NgModule({
@@ -68,9 +82,11 @@ import { jqxDataTableComponent, jqxDataTableModule } from 'jqwidgets-ng/jqxdatat
     NumberOnlyDirective,
     AddFiledsForDropDownComponent,
     PopupModalComponent,
-    
-    
-    
+    AddgroupsForDropDownComponent,
+    SummaryAveragebyCustomerComponent,
+    DetailedCustomerVisitsComponent,
+    SummaryAveragebyLocationAreaComponent,
+    SummaryAveragebyServiceComponent,
   ],
   imports: [
     BrowserModule,
@@ -106,8 +122,15 @@ import { jqxDataTableComponent, jqxDataTableModule } from 'jqwidgets-ng/jqxdatat
     ApplicationCountModule,
     ApplicationPerTypeModule,
     EmployeeDeputyAssignmentModule,
-    WorkFlowApiModule
-  
+    WorkFlowApiModule,
+    PaymentServiceReportModule,
+    ApplicationStatusReportModule,
+    SummaryAveragebyCustomerModule,
+    DetailedCustomerVisitsModuleModule,
+    SummaryAveragebyLocationAreaModule,
+    SummaryAveragebyServiceModule,
+    NgIdleKeepaliveModule.forRoot(),
+    BlockUIModule.forRoot()
   ],
   exports: [
     LayoutModule,
@@ -121,6 +144,6 @@ import { jqxDataTableComponent, jqxDataTableModule } from 'jqwidgets-ng/jqxdatat
   bootstrap: [AppComponent],
   entryComponents: [DefineGroupModalComponent, NewUserPopUpComponent,   
     ConfirmDialogComponent, CommonModalsComponent, CustomConfirmModalsComponent,
-    AddNewControllComponent,  PopupModalComponent, AddEscalationComponent ,AddFiledsForDropDownComponent , LoadDynamicControllComponent]
+    AddNewControllComponent,  PopupModalComponent, AddEscalationComponent ,AddFiledsForDropDownComponent , LoadDynamicControllComponent,AddgroupsForDropDownComponent]
 })
 export class AppModule { }

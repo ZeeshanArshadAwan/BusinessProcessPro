@@ -17,17 +17,17 @@ declare var $: any
   encapsulation: ViewEncapsulation.None
 })
 export class MainLayoutComponent extends BaseComponent implements OnInit {
-
+  
   data: any[] = [];
   enableFooter = false;
   selectedItems = [];
   // selectedLanguage = 'en';
   // cssClass: string = "flag-icon-0";
   // languageSelected : string =  "English";
-  selectedLanguage = 'en';
+  // selectedLanguage = 'en';
   // cssClass: string = "../../../assets/assets/img/ArBt.png";
   cssClass: string = "assets/assets/img/ArBt.png";
-  languageSelected: string = "English";
+  // languageSelected: string = "English";
   id: string = '';
   objappSetting: AppSetting;
   imagepath: string;
@@ -36,12 +36,13 @@ export class MainLayoutComponent extends BaseComponent implements OnInit {
   togglelight: boolean = false;
   toggleDark: boolean = true;
   isVertical: boolean = true;
-  isEn: boolean = true;
+  // isEn: boolean = true;
   public now: Date = new Date();
+  loginUser: string= '';
   lstformtoDisplay: FormsAgainstModuleId;
 
   constructor(public languageTranslateService: LanguageTranslateService,
-    private GlobalVariableService: GlobalVariableService,
+    public GlobalVariableService: GlobalVariableService,
     private _svc: SharedServicesService, private router: Router, private sanitizer: DomSanitizer) {
     super(languageTranslateService);
     this.lstformtoDisplay = new FormsAgainstModuleId();
@@ -50,7 +51,7 @@ export class MainLayoutComponent extends BaseComponent implements OnInit {
       this.now = new Date();
     }, 1);
   }
-  languages = ['en', 'ar'];
+  // languages = ['en', 'ar'];
 
   onSelected(itemIndex: any) {
     if (this.selectedItems.indexOf(itemIndex) === -1) {
@@ -66,7 +67,7 @@ export class MainLayoutComponent extends BaseComponent implements OnInit {
   }
 
   onEnLanguageSelection(event) {
-    this.isEn= false;
+    this.GlobalVariableService.isEn= false;
     if (!this.GlobalVariableService.isStringNullOrEmplty(event)) {
       localStorage.setItem("language", event.toString());
     }
@@ -83,7 +84,7 @@ export class MainLayoutComponent extends BaseComponent implements OnInit {
 
   }
   onArLanguageSelection(event) {
-    this.isEn= true;
+    this.GlobalVariableService.isEn= true;
     localStorage.setItem("language", event.toString());
     (<HTMLInputElement>document.getElementById('Arabic_temp')).disabled = true;
     this.languageTranslateService.setLang(event);
@@ -98,7 +99,12 @@ export class MainLayoutComponent extends BaseComponent implements OnInit {
 
   }
   ngOnInit() {
+    this.loginUser = localStorage.getItem("BPPUserName");
     //  this.languageTranslateService.setLang('en');
+    var check =  localStorage.getItem("isLoggedin");
+    if(check != "true"){
+      this.logout();
+    }
     if (this.GlobalVariableService.formtoDisplay.FnlModFormList == undefined) {
       this.GlobalVariableService.formtoDisplay = this.GetFromLocalStorage("BPPuserPrevillege");
     }
@@ -110,11 +116,11 @@ export class MainLayoutComponent extends BaseComponent implements OnInit {
     this.docready();
     var lang = localStorage.getItem("language");
     if (lang == "en") {
-      this.isEn = true;
+      this.GlobalVariableService.isEn = true;
       this.onArLanguageSelection(lang);
     }
     else {
-      this.isEn = false;
+      this.GlobalVariableService.isEn = false;
       this.onEnLanguageSelection(lang);
       // $(".content").css("margin-left","");
     }
@@ -131,6 +137,7 @@ export class MainLayoutComponent extends BaseComponent implements OnInit {
       });
   }
   transform(path: string = "") {
+    if (!this.GlobalVariableService.isStringNullOrEmplty(this.imagepath))
     return this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64, ' + this.imagepath);
   }
   GetFromLocalStorage(key) {
@@ -140,7 +147,7 @@ export class MainLayoutComponent extends BaseComponent implements OnInit {
   getlist() {
     this.lstformtoDisplay = this.GlobalVariableService.formtoDisplay;
     this.activeClass = this.GlobalVariableService.activeMenue;
-    console.log(this.lstformtoDisplay);
+    // console.log(this.lstformtoDisplay);
   }
 
   loadScript(url) {
@@ -154,6 +161,7 @@ export class MainLayoutComponent extends BaseComponent implements OnInit {
     localStorage.removeItem("BPPUserName");
     localStorage.removeItem("BPPassword");
     localStorage.removeItem("BPPuserPrevillege");
+    localStorage.removeItem("isLoggedin");
     this.GlobalVariableService.userPrevilieges = new Login();
     this.router.navigateByUrl('/login');
   }
@@ -178,13 +186,14 @@ export class MainLayoutComponent extends BaseComponent implements OnInit {
   }
   
   getRouting(FnlModFormList: number, formnamelist: number) {
-    
+   debugger;
     this.GlobalVariableService.isAllapplication = false;
     this.GlobalVariableService.AssignedApplication = false;
+   // this.GlobalVariableService.isApplicationHistory  = false;
     this.GlobalVariableService.parameterID = '';
 
     localStorage.setItem("BPPFromNameEn", this.lstformtoDisplay.FnlModFormList[FnlModFormList].formnamelist[formnamelist].Desc_En)
-    //localStorage.setItem("BPPFromNameAr", this.lstformtoDisplay.FnlModFormList[FnlModFormList].formnamelist[formnamelist].Desc_Ar)
+    localStorage.setItem("BPPFromNameAr", this.lstformtoDisplay.FnlModFormList[FnlModFormList].formnamelist[formnamelist].Desc_Ar)
 
     localStorage.setItem("logoPath", this.lstformtoDisplay.FnlModFormList[FnlModFormList].formnamelist[formnamelist].FormPath);
     localStorage.setItem("PathName", this.lstformtoDisplay.FnlModFormList[FnlModFormList].ModuleName);
@@ -213,23 +222,35 @@ export class MainLayoutComponent extends BaseComponent implements OnInit {
     else if (formPath.includes('Reports/DynamicReports')) {
       this.Redirect('Globalization');
     }
-  
-    else if(formPath.includes('Application/CreateApplication?AppType=')){
-      
-      this.GlobalVariableService.parameterID=formPath.split('?AppType=')[1];
-      this.GlobalVariableService.ApplicationValues=[];
-      this.GlobalVariableService.editProspectMode=true;
-      this.GlobalVariableService.IsDocumentUpload=true;
-      this.GlobalVariableService.applicationdetaildiv=false;
-      this.GlobalVariableService.AssignedApplication=false;
-      this.Redirect('ApplicationDetail');
+  else if(formPath.includes("TotalRevenuesPerServicesReport") || formPath.includes("DetailedRevenuesPerServicesReport")
+  || formPath.includes("KPIDashboardReport") || formPath.includes("CustomerFeedbackReport")){
+    this.GlobalVariableService.parameterID = formPath;
+    sessionStorage.setItem("parameterID", this.GlobalVariableService.parameterID)
+    this.Redirect('Reports');
+  }
+   else if (formPath.includes('Application/CreateApplication?AppType=')) {
+    
+      this.GlobalVariableService.parameterID = formPath.split('?AppType=')[1];
+      sessionStorage.setItem("parameterID", this.GlobalVariableService.parameterID)
+
+      this.GetApplicationtypeDetail(this.GlobalVariableService.parameterID);
+      setTimeout(() => {
+        this.GlobalVariableService.ApplicationValues = [];
+        this.GlobalVariableService.editProspectMode = true;
+        this.GlobalVariableService.AppDetailtable=true;
+        this.GlobalVariableService.IsDocumentUpload = true;
+        this.GlobalVariableService.applicationdetaildiv = false;
+        this.GlobalVariableService.AssignedApplication = false;
+        this.Redirect('ApplicationDetail');
+      }, 100);
     }
     else if(formPath.includes('AssignedApplication')){
       
       this.GlobalVariableService.parameterID=formPath.split('?AppType=')[1];
       this.Redirect('AssignedApplication');
     }
-    else if(formPath.includes('OnlinePortal')){
+    else if(formPath.includes('AppTypeApplicatons')){
+     
       var url = "http://192.168.168.134/BusinessProcessOnlinePortal/";
       window.open(url, "_blank");
     }
@@ -347,7 +368,9 @@ export class MainLayoutComponent extends BaseComponent implements OnInit {
     localStorage.setItem("direction", "h");
     if ($("#wrapper").hasClass("toggled")) {
       $("#divContent").removeClass("Horizontalcontent");
+
     }
+   
 
     if (this.languageTranslateService.lang == "en") {
       var dir = localStorage.getItem("direction");
@@ -373,7 +396,10 @@ export class MainLayoutComponent extends BaseComponent implements OnInit {
     if ($("#wrapper").hasClass("toggled")) {
       $("#divContent").addClass("Horizontalcontent");
     }
-
+    if ($("#Iconimg").hasClass("iconImg")) {
+      $("#Iconimg").removeClass("iconImg");
+      
+    }
     if (this.languageTranslateService.lang == "en") {
       $(".content").css("margin-left", "180px");
     } else {
@@ -414,4 +440,16 @@ export class MainLayoutComponent extends BaseComponent implements OnInit {
 
     // $("#mat-raised-button.mat-primary").css( "color", "" );
   }
+  GetApplicationtypeDetail(id:any){
+    this._svc.getGenericParmas(id, 'id',"ApplicationType/GetApplicationTypebyId").subscribe(
+
+      data => {
+        this.GlobalVariableService.ApplicationTypeCategory=data.ApplicationTypeCategory
+        sessionStorage.setItem("ApplicationTypeCategory", this.GlobalVariableService.ApplicationTypeCategory.toString())
+      }, (err) => {
+        this.GlobalVariableService.openDialog('Application', 'Error Occured while Getting Record.');
+      });
+
+  }
+  
 }
